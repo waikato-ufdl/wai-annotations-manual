@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Plugin guide - wai-annotations manual</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Plugin guide";
+    var mkdocs_page_input_path = "plugin.md";
+    var mkdocs_page_url = "/wai-annotations-manual/plugin/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> wai-annotations manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../usage/">Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../examples/">Examples</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Plugin guide</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#adding-components-to-wai-annotations-through-plugins">Adding components to wai-annotations through plugins</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#plugin-types">Plugin Types</a></li>
+        
+            <li><a class="toctree-l3" href="#domains">Domains</a></li>
+        
+            <li><a class="toctree-l3" href="#writing-new-components">Writing New Components</a></li>
+        
+            <li><a class="toctree-l3" href="#advertising-plugins">Advertising Plugins</a></li>
+        
+            <li><a class="toctree-l3" href="#adding-command-line-options-to-plugin-components">Adding Command-Line Options to Plugin Components</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../domains/">Domains</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../plugins/">Plugins</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../glossary/">Glossary</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">wai-annotations manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Plugin guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="adding-components-to-wai-annotations-through-plugins">Adding components to wai-annotations through plugins</h3>
+<p>wai-annotations uses a plugin system to allow other libraries to add new processing components
+without modifying the base library source. This document details how to go about using this system.</p>
+<h4 id="plugin-types">Plugin Types</h4>
+<p>There are 4 types of components which can be added to wai-annotations via plugin: input formats, ISPs, XDCs and output
+formats. New domains can also be added, but these are specified indirectly via any of the previous components.</p>
+<h4 id="domains">Domains</h4>
+<p>New domains are added indirectly to wai-annotations as dependencies of components, as a domain which has no components
+is essentially unreachable to a conversion chain. However the specification of new domains is treated as a
+plugin-related issue, so it is detailed here.</p>
+<p>A domain is essentially the definition of an instance format, which contains both an item in the conversion dataset and
+the annotations attached to that item. The actual item in the dataset is represented by a <code>FileInfo</code> object, which
+contains the name of the item, and the binary data blob containing the item's file data. Domains need to specify a
+sub-class of <code>FileInfo</code> to represent the item and any additional data about it. The annotations for an instance can be
+any arbitrary type.</p>
+<p>To specify a new domain, a domain specifier must be created. This is achieved by importing the base classes from the
+core wai-annotations package and implementing the abstract methods.</p>
+<pre><code class="language-python">from typing import Type
+
+from wai.annotations.core.instance import FileInfo, Instance
+from wai.annotations.core.specifier import DomainSpecifier
+
+# Define the file-info type which holds dataset item data
+class MyFileInfo(FileInfo):
+    @classmethod
+    def from_file_data(cls, file_name: str, file_data: bytes) -&gt; 'MyFileInfo':
+        # If we don't need any additional information, or it is calculated in the init method
+        return cls(file_name, file_data)
+
+# Define the type of annotations for the domain
+class MyAnnotations:
+    ...
+
+# Define an instance type with additional functionality, if required
+class MyInstance(Instance[MyFileInfo, MyAnnotations]):
+    def additional_method(self):
+        ...
+
+# Define the domain specifier reporting the various classes for domain instances
+class MyDomainSpecifier(DomainSpecifier):
+    @classmethod
+    def domain_name(cls) -&gt; str:
+        return &quot;my domain&quot;
+
+    @classmethod
+    def file_type(cls) -&gt; Type[MyFileInfo]:
+        return MyFileInfo
+
+    @classmethod
+    def annotations_type(cls) -&gt; Type[MyAnnotations]:
+        return MyAnnotations
+
+    # If our instances need additional functionality, we can override this method. The default is
+    # wai.annotations.core.instance.Instance[cls.file_type(), cls.annotations_type()], and if we
+    # do override this method, the type returned must inherit from this default type.
+    @classmethod
+    def instance_class(cls) -&gt; Type[Instance]:
+        return MyInstance
+</code></pre>
+<h4 id="writing-new-components">Writing New Components</h4>
+<p>The base classes for components can be imported from wai-annotations' core package:</p>
+<pre><code class="language-python">from wai.annotations.core.component import Reader, InputConverter  # For input formats
+from wai.annotations.core.component import InlineStreamProcessor  # For ISPs
+from wai.annotations.core.component import CrossDomainConverter  # For XDCs
+from wai.annotations.core.component import Writer, OutputConverter  # For output formats
+</code></pre>
+<p>Sub-class the base classes for the type of component you are trying to implement, and fill in the generic
+type-parameters and abstract methods.</p>
+<p>For generic type-parameters, component base classes vary on instance types, which are defined in the domain specifier
+for the domains the component operates in. Therefore the best way to specify the instance type-parameter is to import
+the domain specifiers for the domains of interest and use their <code>instance_class()</code> methods.</p>
+<p>For the abstract methods, each component has a few methods which require implementation. The purpose of each should be
+fairly self-explanatory, but the following examples will (hopefully) illustrate how to use each base class.</p>
+<h5 id="input-formats">Input Formats</h5>
+<p>Input formats consist of 2 components, a reader and an input-converter. The reader reads files from disk into an
+arbitrary format, and the input-converter converts that format into the instance format for the domain of the dataset.
+An example of how to implement a new input-format:</p>
+<pre><code class="language-python">from typing import Iterator, IO, Type
+
+from wai.annotations.core.component import Reader, InputConverter
+from wai.annotations.core.specifier import InputFormatSpecifier
+from wai.annotations.domain.image.object_detection import ImageObjectDetectionDomainSpecifier
+
+# Get the instance type from the domain specifier
+ImageObjectDetectionInstance = ImageObjectDetectionDomainSpecifier.instance_class()
+
+# Define the external format in any way you like (if being used with an output format as well,
+# define separately and import)
+class MyExternalFormat:
+    @classmethod
+    def from_annotation_file(cls, file: IO[bytes]) -&gt; 'MyExternalFormat':
+        ...
+
+    @classmethod
+    def from_negative_file(cls, file: IO[bytes]) -&gt; 'MyExternalFormat':
+        ...
+
+    def to_image_object_detection_instance(self) -&gt; ImageObjectDetectionInstance:
+        ...
+
+# Define your reader, which parses files into your external format
+class MyReader(Reader[MyExternalFormat]):
+    # Returns an iterator of instances in the given file, in case a single file
+    # contains multiple dataset items
+    def read_annotation_file(self, filename: str) -&gt; Iterator[MyExternalFormat]:
+        with open(filename, &quot;rb&quot;) as file:
+            yield MyExternalFormat.from_annotation_file(file)
+
+    # Returns an iterator of negative instances in the given file
+    def read_negative_file(self, filename: str) -&gt; Iterator[MyExternalFormat]:
+        with open(filename, &quot;rb&quot;) as file:
+            yield MyExternalFormat.from_negative_file(file)
+
+# Define your input converter, which converts your external format into the domain of interest (image object-detection
+# in this example)
+class MyInputConverter(InputConverter[MyExternalFormat, ImageObjectDetectionInstance]):
+    # Converts the instance from its external format to the domain format
+    def convert(self, instance: MyExternalFormat) -&gt; Iterator[ImageObjectDetectionInstance]:
+        yield instance.to_image_object_detection_instance()
+
+# Create a specifier to advertise our input format to the plugin system
+class MyInputFormatSpecifier(InputFormatSpecifier):
+    # The domain of the input format
+    @classmethod
+    def domain(cls) -&gt; Type[ImageObjectDetectionDomainSpecifier]:
+        return ImageObjectDetectionDomainSpecifier
+
+    # The reader class we defined earlier
+    @classmethod
+    def reader(cls) -&gt; Type[MyReader]:
+        return MyReader
+
+    # The input converter class we defined earlier
+    @classmethod
+    def input_converter(cls) -&gt; Type[MyInputConverter]:
+        return MyInputConverter
+</code></pre>
+<h5 id="inline-stream-processors">Inline Stream Processors</h5>
+<pre><code class="language-python">from typing import Iterable, Optional, Set, Type
+
+from wai.annotations.core.component import InlineStreamProcessor
+from wai.annotations.core.specifier import ISPSpecifier, DomainSpecifier
+from wai.annotations.domain.image.object_detection import ImageObjectDetectionDomainSpecifier
+
+# Get the instance type from the domain specifier
+ImageObjectDetectionInstance = ImageObjectDetectionDomainSpecifier.instance_class()
+
+# Define the ISP
+class MyISP(InlineStreamProcessor[ImageObjectDetectionInstance]):
+    # Takes an instance from the conversion stream and processes it. Returns an iterable so that new
+    # instances can be injected into the conversion stream, or removed from it
+    def _process_element(self, element: ImageObjectDetectionInstance) -&gt; Iterable[ImageObjectDetectionInstance]:
+        ...
+
+# Advertise the ISP to the plugin system via a specifier
+class MyISPSpecifier(ISPSpecifier):
+    # Specifies the domains this ISP can operate on. None indicates any domain, and a set indicates
+    # a set of specific domains
+    @classmethod
+    def domains(cls) -&gt; Optional[Set[Type[DomainSpecifier]]]:
+        return {ImageObjectDetectionDomainSpecifier}
+
+    # The actual ISP type we defined earlier
+    @classmethod
+    def processor_type(cls) -&gt; Type[InlineStreamProcessor]:
+        return MyISP
+</code></pre>
+<h5 id="cross-domain-converters">Cross-Domain Converters</h5>
+<pre><code class="language-python">from typing import Iterable, Type
+
+from wai.annotations.core.component import CrossDomainConverter
+from wai.annotations.core.specifier import XDCSpecifier, DomainSpecifier
+from wai.annotations.domain.image.classification import ImageClassificationDomainSpecifier
+from wai.annotations.domain.image.object_detection import ImageObjectDetectionDomainSpecifier
+
+# Get the instance types from the domain specifiers
+ImageClassificationInstance = ImageClassificationDomainSpecifier.instance_class()
+ImageObjectDetectionInstance = ImageObjectDetectionDomainSpecifier.instance_class()
+
+# Define your XDC, in this case converting from the image object-detection domain to
+# the image classification domain
+class MyXDC(CrossDomainConverter[ImageObjectDetectionInstance, ImageClassificationInstance]):
+    # Convert the instance, returning an iterable again to allow insertion/deletion of instances
+    def _convert_element(self, element: ImageObjectDetectionInstance) -&gt; Iterable[ImageClassificationInstance]:
+        ...
+
+# Define the specifier to advertise our new XDC to the plugin system
+class MyXDCSpecifier(XDCSpecifier):
+    # Declare the input domain of the converter
+    @classmethod
+    def from_domain(cls) -&gt; Type[DomainSpecifier]:
+        return ImageObjectDetectionDomainSpecifier
+
+    # Declare the output domain of the converter
+    @classmethod
+    def to_domain(cls) -&gt; Type[DomainSpecifier]:
+        return ImageClassificationDomainSpecifier
+
+    # Advertise our XDC defined earlier
+    @classmethod
+    def converter(cls) -&gt; Type[CrossDomainConverter]:
+        return MyXDC
+</code></pre>
+<h5 id="output-formats">Output Formats</h5>
+<p>Output formats also consist of 2 components, a writer and an output-converter. The output-converter converts instances
+from the domain format to an arbitrary external format for the output format, and the writer writes the instances in
+that format to disk. An example of how to implement a new output-format:</p>
+<pre><code class="language-python">from typing import Iterator, IO, Type, Iterable
+
+from wai.annotations.core.component import Writer, OutputConverter
+from wai.annotations.core.instance import FileInfo
+from wai.annotations.core.specifier import OutputFormatSpecifier, DomainSpecifier
+from wai.annotations.domain.image.object_detection import ImageObjectDetectionDomainSpecifier
+
+# Get the instance type from the domain specifier
+ImageObjectDetectionInstance = ImageObjectDetectionDomainSpecifier.instance_class()
+
+# Define the external format in any way you like (if being used with an input format as well, define
+# separately and import)
+class MyExternalFormat:
+    @classmethod
+    def from_image_object_detection_instance(cls, instance: ImageObjectDetectionInstance) -&gt; 'MyExternalFormat':
+        ...
+
+# Define your writer, which writes instances of your external format to disk
+class MyWriter(Writer[MyExternalFormat]):
+    # Depending on the external format, it might write all instances to a single file,
+    # or each instance to its own file in a directory. Provide some helpful information
+    # on which is the case here 
+    @classmethod
+    def output_help_text(cls) -&gt; str:
+        ...
+
+    # How to write the actual instances to disk
+    def write(self, instances: Iterable[MyExternalFormat], path: str):
+        ...
+
+    # Whether the output option should be a file (if not, then it should be
+    # a directory)
+    def expects_file(self) -&gt; bool:
+        ...
+
+    # Lets wai-annotations extract the file from your external format
+    def extract_file_info_from_external_format(self, instance: MyExternalFormat) -&gt; FileInfo:
+        ...
+
+# Define your output converter, which converts instances from the format's domain (image object-detection
+# in this example) into your external format
+class MyOutputConverter(OutputConverter[ImageObjectDetectionInstance, MyExternalFormat]):
+    # Converts the instance from the domain format into your external format
+    def convert(self, instance: ImageObjectDetectionInstance) -&gt; Iterator[MyExternalFormat]:
+        yield MyExternalFormat.from_image_object_detection_instance(instance)
+
+# Create a specifier to advertise our output format to the plugin system
+class MyOutputFormatSpecifier(OutputFormatSpecifier):
+    # Specify the domain the format is in
+    @classmethod
+    def domain(cls) -&gt; Type[DomainSpecifier]:
+        return ImageObjectDetectionDomainSpecifier
+    # Specify the writer we declared earlier
+    @classmethod
+    def writer(cls) -&gt; Type[Writer]:
+        return MyWriter
+
+    # Specify the output converter we declared earlier
+    @classmethod
+    def output_converter(cls) -&gt; Type[OutputConverter]:
+        return MyOutputConverter
+</code></pre>
+<h5 id="best-practice">Best Practice</h5>
+<p>Although in each of the examples shown here, we have defined our plugin specifiers in the same file as the components
+they advertise, this is not the recommended approach. The specifier types should instead be defined in their own
+sub-package, and the methods should locally import the specified types (instead of globally at the beginning of the
+specifier Python file). This is so the specifier can be imported into the plugin system without importing potentially
+heavy-weight libraries that the components depend on for their functionality. This way the system can provide reflection
+of the available plugins, but only load those plugins that are actually selected for use in a conversion.</p>
+<h4 id="advertising-plugins">Advertising Plugins</h4>
+<p>In order for wai-annotations to recognise your plugin, the specified needs to be advertised as an entry point in your
+setup script under the <code>wai.annotations.plugins</code> group:</p>
+<pre><code class="language-python"># setup.py
+from setuptools import setup
+
+setup(
+    ...,
+    entry_points={
+        &quot;wai.annotations.plugins&quot;: [
+            # Input Formats
+            &quot;from-my-input-format=com.example.specifiers:MyInputFormatSpecifier&quot;,
+
+            # Output Formats
+            &quot;to-my-output-format=com.example.specifiers:MyOutputFormatSpecifier&quot;,
+
+            # ISPs
+            &quot;my-isp=com.example.specifiers:MyISPSpecifier&quot;,
+
+            # XDCs
+            &quot;my-xdc=com.example.specifiers:MyXDCSpecifier&quot;
+        ]
+    }
+)
+
+</code></pre>
+<h4 id="adding-command-line-options-to-plugin-components">Adding Command-Line Options to Plugin Components</h4>
+<p>TODO</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../domains/" class="btn btn-neutral float-right" title="Domains">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../examples/" class="btn btn-neutral" title="Examples"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../examples/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../domains/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

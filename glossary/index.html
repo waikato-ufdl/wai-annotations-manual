@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Glossary - wai-annotations manual</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Glossary";
+    var mkdocs_page_input_path = "glossary.md";
+    var mkdocs_page_url = "/wai-annotations-manual/glossary/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> wai-annotations manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../usage/">Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../examples/">Examples</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../plugin/">Plugin guide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../domains/">Domains</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../plugins/">Plugins</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Glossary</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#glossary">Glossary</a></li>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">wai-annotations manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Glossary</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="glossary">Glossary</h3>
+<p>Glossary of terminology used in wai-annotations.</p>
+<p><strong>Component</strong> - A single participating element in a pipeline. Can be a source (inserts items into the start of a 
+                pipeline), a sink (consumes items from the end of a pipeline), or a processor (an intermediary element
+                which performs some operation on the items in the pipeline).</p>
+<p><strong>Conversion Pipeline</strong> - A series of stages comprising a complete conversion sequence, consisting of an input format,
+                          a series of intermediate processing stages, and a final output format.</p>
+<p><strong>Cross-Domain Converter (XDC)</strong> - An intermediate processor which converts a dataset from one domain to another.
+                                   For example, a video-based domain could be converted to an image-based domain
+                                   by treating each frame of the video as an individual image.</p>
+<p><strong>Domain</strong> - A specific type of data, being annotated in a specific manner. For example, datasets
+             in the image object-detection domain consist of still images annotated with regions
+             containing identified objects.</p>
+<p><strong>Format</strong> - An external representation of a domain. This is typically a way of storing instances of the domain on disk.</p>
+<p><strong>Inline Stream Processor (ISP)</strong> - An intermediate processor in the conversion chain, which performs some
+                                    mutation of the items in a dataset. ISPs cannot change the domain of a
+                                    dataset. For example, an ISP might remove images that are smaller than a
+                                    certain size from the conversion stream (for image-based domains).</p>
+<p><strong>Instance</strong> - A specific example of data-item and its annotations in a given domain.</p>
+<p><strong>Macro</strong> - A command-line keyword which is used in place of a series of command-line options. Macros are stored in a
+            JSON file, and specified to wai.annotations via the <code>--macro-file</code> command-line option.</p>
+<p><strong>Negative Example</strong> - An item in a dataset which has no annotations. These are typically used when learning to provide
+                       examples of what not to look for.</p>
+<p><strong>Plugin</strong> - An implementation of a stage which can be used by wai.annotations to perform some feature. Plugins can be
+             specified by external modules via the <code>wai.annotations.plugins</code> entry-point in their <code>setup.py</code> script.</p>
+<p><strong>Plugin Specifier</strong> - A class which advertises the components that a particular plugin offers for use with
+                       wai-annotations.</p>
+<p><strong>Pipeline</strong> - A series of components which process items in their defined order, each passing its output to the next.</p>
+<p><strong>Specifier</strong> - A class used to advertise a stage/domain to wai.annotations from an external module. </p>
+<p><strong>Splitting</strong> - Because wai.annotations only supports linear pipelines, many formats support splitting of their outputs
+                over a number of output directories.</p>
+<p><strong>Stage</strong> - A collection of components which produces, consumes or processes instances.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../plugins/" class="btn btn-neutral" title="Plugins"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../plugins/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Plugins - wai-annotations manual</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Plugins";
+    var mkdocs_page_input_path = "plugins.md";
+    var mkdocs_page_url = "/wai-annotations-manual/plugins/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> wai-annotations manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../usage/">Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../examples/">Examples</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../plugin/">Plugin guide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../domains/">Domains</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Plugins</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#plugins">Plugins</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#processor-stage">Processor stage</a></li>
+        
+            <li><a class="toctree-l3" href="#sink-stage">Sink stage</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../glossary/">Glossary</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">wai-annotations manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Plugins</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="plugins">Plugins</h3>
+<h4 id="processor-stage">Processor stage</h4>
+<h5 id="check-duplicate-filenames">CHECK-DUPLICATE-FILENAMES</h5>
+<p>Causes the conversion stream to halt when multiple dataset items have the same filename</p>
+<h6 id="domains">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Speech Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+<li><strong>Image Segmentation Domain</strong></li>
+</ul>
+<h6 id="options">Options:</h6>
+<pre><code>usage: check-duplicate-filenames
+</code></pre>
+<h5 id="coerce-box">COERCE-BOX</h5>
+<p>Converts all annotation bounds into box regions</p>
+<h6 id="domains_1">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_1">Options:</h6>
+<pre><code>usage: coerce-box
+</code></pre>
+<h5 id="coerce-mask">COERCE-MASK</h5>
+<p>Converts all annotation bounds into polygon regions</p>
+<h6 id="domains_2">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_2">Options:</h6>
+<pre><code>usage: coerce-mask
+</code></pre>
+<h5 id="convert-image-format">CONVERT-IMAGE-FORMAT</h5>
+<p>Converts images from one format to another</p>
+<h6 id="domains_3">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+<li><strong>Image Segmentation Domain</strong></li>
+</ul>
+<h6 id="options_3">Options:</h6>
+<pre><code>usage: convert-image-format -f FORMAT
+
+optional arguments:
+  -f FORMAT, --format FORMAT
+                        format to convert images to
+</code></pre>
+<h5 id="dimension-discarder">DIMENSION-DISCARDER</h5>
+<p>Removes annotations which fall outside certain size constraints</p>
+<h6 id="domains_4">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_4">Options:</h6>
+<pre><code>usage: dimension-discarder [--max-area MAX_AREA] [--max-height MAX_HEIGHT] [--max-width MAX_WIDTH] [--min-area MIN_AREA] [--min-height MIN_HEIGHT] [--min-width MIN_WIDTH]
+
+optional arguments:
+  --max-area MAX_AREA   the maximum area of annotations to convert
+  --max-height MAX_HEIGHT
+                        the maximum height of annotations to convert
+  --max-width MAX_WIDTH
+                        the maximum width of annotations to convert
+  --min-area MIN_AREA   the minimum area of annotations to convert
+  --min-height MIN_HEIGHT
+                        the minimum height of annotations to convert
+  --min-width MIN_WIDTH
+                        the minimum width of annotations to convert
+</code></pre>
+<h5 id="discard-negatives">DISCARD-NEGATIVES</h5>
+<p>Discards negative examples (those without annotations) from the stream</p>
+<h6 id="domains_5">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Speech Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+<li><strong>Image Segmentation Domain</strong></li>
+</ul>
+<h6 id="options_5">Options:</h6>
+<pre><code>usage: discard-negatives
+</code></pre>
+<h5 id="filter-labels">FILTER-LABELS</h5>
+<p>Filters detected objects down to those with specified labels.</p>
+<h6 id="domains_6">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_6">Options:</h6>
+<pre><code>usage: filter-labels [-l LABELS [LABELS ...]] [-r regexp]
+
+optional arguments:
+  -l LABELS [LABELS ...], --labels LABELS [LABELS ...]
+                        labels to use
+  -r regexp, --regexp regexp
+                        regular expression for using only a subset of labels
+</code></pre>
+<h5 id="map-labels">MAP-LABELS</h5>
+<p>Maps object-detection labels from one set to another</p>
+<h6 id="domains_7">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_7">Options:</h6>
+<pre><code>usage: map-labels [-m old=new]
+
+optional arguments:
+  -m old=new, --mapping old=new
+                        mapping for labels, for replacing one label string with another (eg when fixing/collapsing labels)
+</code></pre>
+<h5 id="od-to-is">OD-TO-IS</h5>
+<p>Converts image object-detection instances into image segmentation instances</p>
+<h6 id="domains_8">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_8">Options:</h6>
+<pre><code>usage: od-to-is [--label-error] --labels LABEL [LABEL ...]
+
+optional arguments:
+  --label-error         whether to raise errors when an unspecified label is encountered (default is to ignore)
+  --labels LABEL [LABEL ...]
+                        specifies the labels for each index
+</code></pre>
+<h5 id="passthrough">PASSTHROUGH</h5>
+<p>Dummy ISP which has no effect on the conversion stream</p>
+<h6 id="domains_9">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Speech Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+<li><strong>Image Segmentation Domain</strong></li>
+</ul>
+<h6 id="options_9">Options:</h6>
+<pre><code>usage: passthrough
+</code></pre>
+<h5 id="remove-classes">REMOVE-CLASSES</h5>
+<p>Removes classes from classification/image-segmentation instances</p>
+<h6 id="domains_10">Domain(s):</h6>
+<ul>
+<li><strong>Image Segmentation Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_10">Options:</h6>
+<pre><code>usage: remove-classes -c CLASS [CLASS ...]
+
+optional arguments:
+  -c CLASS [CLASS ...], --classes CLASS [CLASS ...]
+                        the classes to remove
+</code></pre>
+<h5 id="strip-annotations">STRIP-ANNOTATIONS</h5>
+<p>ISP which removes annotations from instances</p>
+<h6 id="domains_11">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Speech Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+<li><strong>Image Segmentation Domain</strong></li>
+</ul>
+<h6 id="options_11">Options:</h6>
+<pre><code>usage: strip-annotations
+</code></pre>
+<h4 id="sink-stage">Sink stage</h4>
+<h5 id="to-void-ic">TO-VOID-IC</h5>
+<p>Consumes instances without writing them.</p>
+<h6 id="domains_12">Domain(s):</h6>
+<ul>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_12">Options:</h6>
+<pre><code>usage: to-void-ic
+</code></pre>
+<h5 id="to-void-is">TO-VOID-IS</h5>
+<p>Consumes instances without writing them.</p>
+<h6 id="domains_13">Domain(s):</h6>
+<ul>
+<li><strong>Image Segmentation Domain</strong></li>
+</ul>
+<h6 id="options_13">Options:</h6>
+<pre><code>usage: to-void-is
+</code></pre>
+<h5 id="to-void-od">TO-VOID-OD</h5>
+<p>Consumes instances without writing them.</p>
+<h6 id="domains_14">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_14">Options:</h6>
+<pre><code>usage: to-void-od
+</code></pre>
+<h5 id="to-void-sp">TO-VOID-SP</h5>
+<p>Consumes instances without writing them.</p>
+<h6 id="domains_15">Domain(s):</h6>
+<ul>
+<li><strong>Speech Domain</strong></li>
+</ul>
+<h6 id="options_15">Options:</h6>
+<pre><code>usage: to-void-sp
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../glossary/" class="btn btn-neutral float-right" title="Glossary">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../domains/" class="btn btn-neutral" title="Domains"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../domains/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../glossary/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
