@@ -5,7 +5,7 @@ into each other.
 
 You can view the auto-generated documentation here:
 
-https://ufdl.cms.waikato.ac.nz/wai-annotations-manual
+https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/
 
 
 ## Installation
