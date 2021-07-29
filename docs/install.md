@@ -1,8 +1,9 @@
 # Installation of wai-annotations
 
-To install wai-annotations issue the following command using pip:
+To install wai-annotations issue the following commands using pip:
 
 ```commandline
+pip install numpy
 pip install wai.annotations.core
 ```
 
@@ -19,25 +20,25 @@ pip install wai.annotations
 
 Image classification
 
-  * https://github.com/waikato-ufdl/wai-annotations-adams
-  * https://github.com/waikato-ufdl/wai-annotations-subdir
+  * [https://github.com/waikato-ufdl/wai-annotations-adams](https://github.com/waikato-ufdl/wai-annotations-adams)
+  * [https://github.com/waikato-ufdl/wai-annotations-subdir](https://github.com/waikato-ufdl/wai-annotations-subdir)
 
 Object detection
 
-  * https://github.com/waikato-ufdl/wai-annotations-adams
-  * https://github.com/waikato-ufdl/wai-annotations-coco
-  * https://github.com/waikato-ufdl/wai-annotations-roi
-  * https://github.com/waikato-ufdl/wai-annotations-tf
-  * https://github.com/waikato-ufdl/wai-annotations-vgg
-  * https://github.com/waikato-ufdl/wai-annotations-voc
+  * [https://github.com/waikato-ufdl/wai-annotations-adams](https://github.com/waikato-ufdl/wai-annotations-adams)
+  * [https://github.com/waikato-ufdl/wai-annotations-coco](https://github.com/waikato-ufdl/wai-annotations-coco)
+  * [https://github.com/waikato-ufdl/wai-annotations-roi](https://github.com/waikato-ufdl/wai-annotations-roi)
+  * [https://github.com/waikato-ufdl/wai-annotations-tf](https://github.com/waikato-ufdl/wai-annotations-tf)
+  * [https://github.com/waikato-ufdl/wai-annotations-vgg](https://github.com/waikato-ufdl/wai-annotations-vgg)
+  * [https://github.com/waikato-ufdl/wai-annotations-voc](https://github.com/waikato-ufdl/wai-annotations-voc)
     
 Image segmentation
 
-  * https://github.com/waikato-ufdl/wai-annotations-bluechannel
-  * https://github.com/waikato-ufdl/wai-annotations-indexedpng
-  * https://github.com/waikato-ufdl/wai-annotations-layersegments
+  * [https://github.com/waikato-ufdl/wai-annotations-bluechannel](https://github.com/waikato-ufdl/wai-annotations-bluechannel)
+  * [https://github.com/waikato-ufdl/wai-annotations-indexedpng](https://github.com/waikato-ufdl/wai-annotations-indexedpng)
+  * [https://github.com/waikato-ufdl/wai-annotations-layersegments](https://github.com/waikato-ufdl/wai-annotations-layersegments)
 
 Audio
 
-  * https://github.com/waikato-ufdl/wai-annotations-commonvoice
-  * https://github.com/waikato-ufdl/wai-annotations-festvox
+  * [https://github.com/waikato-ufdl/wai-annotations-commonvoice](https://github.com/waikato-ufdl/wai-annotations-commonvoice)
+  * [https://github.com/waikato-ufdl/wai-annotations-festvox](https://github.com/waikato-ufdl/wai-annotations-festvox)
