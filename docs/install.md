@@ -3,7 +3,6 @@
 To install wai-annotations issue the following commands using pip:
 
 ```commandline
-pip install numpy
 pip install wai.annotations.core
 ```
 
