@@ -165,8 +165,8 @@
 <h4 id="adams-invidual-layer-image-segmentation-to-blue-channel-jpgs">ADAMS invidual layer image segmentation to blue channel JPGs</h4>
 <p>ADAMS supports the <em>individual layers</em> format for image segmentation format, where for each JPG image a PNG with the same file name plus the label suffix is present (e.g.g: 1.jpg -&gt; 1-car.png and 1-person.png). In this case, we only want to include the <code>car</code> annotations in the output. The output gets split into train/val with a ratio of 80/20:</p>
 <pre><code>wai-annotations convert \
-    from-blue-channel-is -i &quot;input/**/*.png&quot; --labels car \
-    to-blue-channel-is -o output --split-names train val --split-ratios 80 20
+    from-layer-segments-is -i &quot;input/**/*.png&quot; --labels car \
+    to-indexed-png-is -o output --split-names train val --split-ratios 80 20
 </code></pre>
               
             </div>
