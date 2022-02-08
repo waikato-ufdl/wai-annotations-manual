@@ -43,6 +43,6 @@ ADAMS supports the *individual layers* format for image segmentation format, whe
 
 ```
 wai-annotations convert \
-    from-blue-channel-is -i "input/**/*.png" --labels car \
-    to-blue-channel-is -o output --split-names train val --split-ratios 80 20
+    from-layer-segments-is -i "input/**/*.png" --labels car \
+    to-indexed-png-is -o output --split-names train val --split-ratios 80 20
 ```
