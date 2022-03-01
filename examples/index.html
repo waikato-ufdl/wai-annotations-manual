@@ -72,13 +72,9 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#adams-to-ms-coco">ADAMS to MS-COCO</a></li>
+            <li><a class="toctree-l3" href="#format-conversions">Format conversions</a></li>
         
-            <li><a class="toctree-l3" href="#monolithic-tensorflow-records-to-sharded-ones">Monolithic Tensorflow records to sharded ones</a></li>
-        
-            <li><a class="toctree-l3" href="#adams-to-tensorflow-records-masks">ADAMS to Tensorflow records (masks)</a></li>
-        
-            <li><a class="toctree-l3" href="#adams-invidual-layer-image-segmentation-to-blue-channel-jpgs">ADAMS invidual layer image segmentation to blue channel JPGs</a></li>
+            <li><a class="toctree-l3" href="#image-augmentation">Image augmentation</a></li>
         
         </ul>
     
@@ -141,32 +137,49 @@
                 <h3 id="examples">Examples</h3>
 <p><strong>Tip:</strong> While building a conversion pipeline command, open a separate terminal to quickly output the available plugins (<code>wai-annotations plugins</code>) and the help for a specific plugin (<code>wai-annotations plugins -o PLUGINNAME</code>).</p>
 <p><strong>NB:</strong> In the examples below, <code>input</code> and <code>output</code> represent directories, which you will have to adapt.</p>
-<h4 id="adams-to-ms-coco">ADAMS to MS-COCO</h4>
+<h4 id="format-conversions">Format conversions</h4>
+<h5 id="adams-to-ms-coco">ADAMS to MS-COCO</h5>
 <p>Also adds additional logging information and removes annotations smaller than 5 pixels in either dimension.</p>
 <pre><code>wai-annotations convert -v \
     from-adams-od -i input \
     dimension-discarder --min-width 5 --min-height 5 \
     to-coco-od -o output/annotations.json --license-name &quot;my license&quot; --no-images
 </code></pre>
-<h4 id="monolithic-tensorflow-records-to-sharded-ones">Monolithic Tensorflow records to sharded ones</h4>
+<h5 id="monolithic-tensorflow-records-to-sharded-ones">Monolithic Tensorflow records to sharded ones</h5>
 <p>Here we are converting a monolithic TFRecords file into a sharded one (<code>-s 5</code> - five shards) and only using a subset of labels (<code>-l label2,label4,label6</code>):</p>
 <pre><code>wai-annotations convert \
     from-tfrecords-od -i input/objects.records \
     filter-labels -l label2,label4,label6 \
     to-tfrecords-od -o output/subset.records -s 5 -p labels.pbtxt
 </code></pre>
-<h4 id="adams-to-tensorflow-records-masks">ADAMS to Tensorflow records (masks)</h4>
+<h5 id="adams-to-tensorflow-records-masks">ADAMS to Tensorflow records (masks)</h5>
 <p>The ADAMS input directory contains sub-directories, so we use the <code>"input/**/*.report"</code> <a href="https://docs.python.org/3/library/glob.html">glob syntax</a> to find all <code>.report</code> files recursively. The data gets split into train/test with a 80/20 ratio. Supplying split names will automatically insert these names into the output file, i.e., <code>output/data.tfrecords</code> will get turned into <code>output/train/data.tfrecords</code> and <code>output/test/data.tfrecords</code>. No path gets supplied to the file containing the labels (<code>labels.txt</code>), it will get placed into the correct output directory automatically:</p>
 <pre><code>wai-annotations convert \
     from-adams-od -i &quot;input/**/*.report&quot; \
     coerce-mask \
     to-tf-od -o output/data.tfrecords -p labels.txt --split-names train test --split-ratios 80 20
 </code></pre>
-<h4 id="adams-invidual-layer-image-segmentation-to-blue-channel-jpgs">ADAMS invidual layer image segmentation to blue channel JPGs</h4>
+<h5 id="adams-individual-layer-image-segmentation-to-blue-channel-jpgs">ADAMS individual layer image segmentation to blue channel JPGs</h5>
 <p>ADAMS supports the <em>individual layers</em> format for image segmentation format, where for each JPG image a PNG with the same file name plus the label suffix is present (e.g.g: 1.jpg -&gt; 1-car.png and 1-person.png). In this case, we only want to include the <code>car</code> annotations in the output. The output gets split into train/val with a ratio of 80/20:</p>
 <pre><code>wai-annotations convert \
     from-layer-segments-is -i &quot;input/**/*.png&quot; --labels car \
     to-indexed-png-is -o output --split-names train val --split-ratios 80 20
+</code></pre>
+<h4 id="image-augmentation">Image augmentation</h4>
+<p>The following command-line loads ADAMS annotations and saves augmented MSCOCO ones.
+The pipeline adds augmented images (<code>-m add</code>) that are cropped, flipped, blurred,
+rotated and scaled. Each inline stream processor changes randomly about 10% of the
+images (<code>-T 0.9</code>). The augmentation is seeded (<code>-s 1 -a</code>) to generate reproducible
+datasets:</p>
+<pre><code>wai-annotations convert \
+    from-adams-od -i &quot;input/**/*.report&quot; \
+    crop -a -m add -T 0.9 -f 0.0 -t 0.1 \            # crop 0-10% of the image
+    flip -a -m add -T 0.9 -d lr \                    # flip left-to-right
+    gaussian-blur -a -m add -T 0.9 -f 0.2 -t 0.5 \   # sigma from 0.2-0.5
+    rotate -a -m add -T 0.9 -f=-10 -t=10 \           # rotate from -10 to +10 degrees
+    scale -a -m add -T 0.9 -f 0.8 -t 1.2 -k -u \     # scale from 80 to 120%, keeping aspect ratio, resizing the image
+    to-coco-od -o output/annotations.json
+
 </code></pre>
               
             </div>
