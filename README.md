@@ -63,11 +63,35 @@ them as you like, it will automatically rebuild and refresh the browser.
 ```
 
 
-## Deploying
+## Manual deployment
 
-You can deploy the current state to Github pages with the following command:
+The website gets automatically generated through Github actions. However, you
+can manually deploy the current state to Github pages with the following command:
 
 ```
 ./venv/bin/mkdocs gh-deploy --clean
 ```
 
+## Updating plugin documentation
+
+After a new wai.annotations release, update the plugins page:
+
+* Create a new virtual environment
+
+  ```commandline
+  virtualenv -p /usr/bin/python3 venv
+  ```
+
+* Install wai.annotations
+
+  ```commandline
+  ./venv/bin/pip install wai.annotations
+  ```
+
+* Update the [doc/plugins.md](doc/plugins.md) file with the following command:
+
+  ```commandline
+  ./venv/bin/wai-annotations plugins -f markdown -g > docs/plugins.md
+  ```
+
+* Clean up any logging output that the start of the generated file before committing it
