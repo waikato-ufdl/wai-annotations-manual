@@ -87,6 +87,8 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#source-stage">Source stage</a></li>
+        
             <li><a class="toctree-l3" href="#processor-stage">Processor stage</a></li>
         
             <li><a class="toctree-l3" href="#sink-stage">Sink stage</a></li>
@@ -135,60 +137,433 @@
             <div class="section">
               
                 <h3 id="plugins">Plugins</h3>
-<h4 id="processor-stage">Processor stage</h4>
-<h5 id="check-duplicate-filenames">CHECK-DUPLICATE-FILENAMES</h5>
-<p>Causes the conversion stream to halt when multiple dataset items have the same filename</p>
+<h4 id="source-stage">Source stage</h4>
+<h5 id="from-adams-ic">FROM-ADAMS-IC</h5>
+<p>Reads image classification annotations in the ADAMS report-format</p>
 <h6 id="domains">Domain(s):</h6>
 <ul>
-<li><strong>Image Object-Detection Domain</strong></li>
-<li><strong>Speech Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
-<li><strong>Image Segmentation Domain</strong></li>
 </ul>
 <h6 id="options">Options:</h6>
-<pre><code>usage: check-duplicate-filenames
+<pre><code>usage: from-adams-ic [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED] [-e FORMAT FORMAT FORMAT] -c FIELD
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+  -e FORMAT FORMAT FORMAT, --extensions FORMAT FORMAT FORMAT
+                        image format extensions in order of preference
+  -c FIELD, --class-field FIELD
+                        the report field containing the image class
 </code></pre>
-<h5 id="coerce-box">COERCE-BOX</h5>
-<p>Converts all annotation bounds into box regions</p>
+<h5 id="from-adams-od">FROM-ADAMS-OD</h5>
+<p>Reads image object-detection annotations in the ADAMS report-format</p>
 <h6 id="domains_1">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
 <h6 id="options_1">Options:</h6>
+<pre><code>usage: from-adams-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED] [-e FORMAT FORMAT FORMAT] [-p PREFIXES [PREFIXES ...]]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+  -e FORMAT FORMAT FORMAT, --extensions FORMAT FORMAT FORMAT
+                        image format extensions in order of preference
+  -p PREFIXES [PREFIXES ...], --prefixes PREFIXES [PREFIXES ...]
+                        prefixes to parse
+</code></pre>
+<h5 id="from-blue-channel-is">FROM-BLUE-CHANNEL-IS</h5>
+<p>Reads image segmentation files in the blue-channel format</p>
+<h6 id="domains_2">Domain(s):</h6>
+<ul>
+<li><strong>Image Segmentation Domain</strong></li>
+</ul>
+<h6 id="options_2">Options:</h6>
+<pre><code>usage: from-blue-channel-is [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED] [--image-path-rel PATH] --labels LABEL [LABEL ...]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+  --image-path-rel PATH
+                        Relative path to image files from annotations
+  --labels LABEL [LABEL ...]
+                        specifies the labels for each index
+</code></pre>
+<h5 id="from-coco-od">FROM-COCO-OD</h5>
+<p>Reads image object-detection annotations in the MS-COCO JSON-format</p>
+<h6 id="domains_3">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_3">Options:</h6>
+<pre><code>usage: from-coco-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+</code></pre>
+<h5 id="from-common-voice-sp">FROM-COMMON-VOICE-SP</h5>
+<p>Reads speech transcriptions in the Mozilla Common-Voice TSV-format</p>
+<h6 id="domains_4">Domain(s):</h6>
+<ul>
+<li><strong>Speech Domain</strong></li>
+</ul>
+<h6 id="options_4">Options:</h6>
+<pre><code>usage: from-common-voice-sp [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED] [--rel-path REL_PATH]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+  --rel-path REL_PATH   the relative path from the annotations file to the audio files
+</code></pre>
+<h5 id="from-festvox-sp">FROM-FESTVOX-SP</h5>
+<p>Reads speech transcriptions in the Festival FestVox format</p>
+<h6 id="domains_5">Domain(s):</h6>
+<ul>
+<li><strong>Speech Domain</strong></li>
+</ul>
+<h6 id="options_5">Options:</h6>
+<pre><code>usage: from-festvox-sp [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED] [--rel-path REL_PATH]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+  --rel-path REL_PATH   the relative path from the annotations file to the audio files
+</code></pre>
+<h5 id="from-indexed-png-is">FROM-INDEXED-PNG-IS</h5>
+<p>Reads image segmentation files in the indexed-PNG format</p>
+<h6 id="domains_6">Domain(s):</h6>
+<ul>
+<li><strong>Image Segmentation Domain</strong></li>
+</ul>
+<h6 id="options_6">Options:</h6>
+<pre><code>usage: from-indexed-png-is [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED] [--image-path-rel PATH] --labels LABEL [LABEL ...]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+  --image-path-rel PATH
+                        Relative path to image files from annotations
+  --labels LABEL [LABEL ...]
+                        specifies the labels for each index
+</code></pre>
+<h5 id="from-layer-segments-is">FROM-LAYER-SEGMENTS-IS</h5>
+<p>Reads in the layer-segments image-segmentation format from disk, where each label has a binary PNG storing the mask for that label</p>
+<h6 id="domains_7">Domain(s):</h6>
+<ul>
+<li><strong>Image Segmentation Domain</strong></li>
+</ul>
+<h6 id="options_7">Options:</h6>
+<pre><code>usage: from-layer-segments-is [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED] [--label-separator SEPARATOR] --labels LABEL [LABEL ...] [--image-path-rel PATH]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+  --label-separator SEPARATOR
+                        the separator between the base filename and the label
+  --labels LABEL [LABEL ...]
+                        specifies the labels for each index
+  --image-path-rel PATH
+                        Relative path to image files from annotations
+</code></pre>
+<h5 id="from-roi-od">FROM-ROI-OD</h5>
+<p>Reads image object-detection annotations in the ROI CSV-format</p>
+<h6 id="domains_8">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_8">Options:</h6>
+<pre><code>usage: from-roi-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED] [-e FORMAT FORMAT FORMAT] [--prefix READER_PREFIX] [--suffix READER_SUFFIX]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+  -e FORMAT FORMAT FORMAT, --extensions FORMAT FORMAT FORMAT
+                        image format extensions in order of preference
+  --prefix READER_PREFIX
+                        the prefix for output filenames (default = '')
+  --suffix READER_SUFFIX
+                        the suffix for output filenames (default = '-rois.csv')
+</code></pre>
+<h5 id="from-subdir-ic">FROM-SUBDIR-IC</h5>
+<p>Reads images from sub-directories named after their class labels.</p>
+<h6 id="domains_9">Domain(s):</h6>
+<ul>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_9">Options:</h6>
+<pre><code>usage: from-subdir-ic [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+</code></pre>
+<h5 id="from-tf-od">FROM-TF-OD</h5>
+<p>Reads image object-detection annotations in the TFRecords binary format</p>
+<h6 id="domains_10">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_10">Options:</h6>
+<pre><code>usage: from-tf-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED] [--mask-threshold THRESHOLD] [--sample-stride STRIDE]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+  --mask-threshold THRESHOLD
+                        the threshold to use when calculating polygons from masks
+  --sample-stride STRIDE
+                        the stride to use when calculating polygons from masks
+</code></pre>
+<h5 id="from-vgg-od">FROM-VGG-OD</h5>
+<p>Reads image object-detection annotations in the VGG JSON-format</p>
+<h6 id="domains_11">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_11">Options:</h6>
+<pre><code>usage: from-vgg-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+</code></pre>
+<h5 id="from-voc-od">FROM-VOC-OD</h5>
+<p>Reads image object-detection annotations in the Pascal VOC XML-format</p>
+<h6 id="domains_12">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_12">Options:</h6>
+<pre><code>usage: from-voc-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+</code></pre>
+<h5 id="from-yolo-od">FROM-YOLO-OD</h5>
+<p>Reads image object-detection annotations in the YOLO format</p>
+<h6 id="domains_13">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_13">Options:</h6>
+<pre><code>usage: from-yolo-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED] [--image-path-rel PATH] [-l PATH]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+  --image-path-rel PATH
+                        Relative path to image files from annotations
+  -l PATH, --labels PATH
+                        Path to the labels file
+</code></pre>
+<h4 id="processor-stage">Processor stage</h4>
+<h5 id="check-duplicate-filenames">CHECK-DUPLICATE-FILENAMES</h5>
+<p>Causes the conversion stream to halt when multiple dataset items have the same filename</p>
+<h6 id="domains_14">Domain(s):</h6>
+<ul>
+<li><strong>Speech Domain</strong></li>
+<li><strong>Image Segmentation Domain</strong></li>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_14">Options:</h6>
+<pre><code>usage: check-duplicate-filenames
+</code></pre>
+<h5 id="coerce-box">COERCE-BOX</h5>
+<p>Converts all annotation bounds into box regions</p>
+<h6 id="domains_15">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_15">Options:</h6>
 <pre><code>usage: coerce-box
 </code></pre>
 <h5 id="coerce-mask">COERCE-MASK</h5>
 <p>Converts all annotation bounds into polygon regions</p>
-<h6 id="domains_2">Domain(s):</h6>
+<h6 id="domains_16">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_2">Options:</h6>
+<h6 id="options_16">Options:</h6>
 <pre><code>usage: coerce-mask
 </code></pre>
 <h5 id="convert-image-format">CONVERT-IMAGE-FORMAT</h5>
 <p>Converts images from one format to another</p>
-<h6 id="domains_3">Domain(s):</h6>
+<h6 id="domains_17">Domain(s):</h6>
 <ul>
+<li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
-<li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_3">Options:</h6>
+<h6 id="options_17">Options:</h6>
 <pre><code>usage: convert-image-format -f FORMAT
 
 optional arguments:
   -f FORMAT, --format FORMAT
                         format to convert images to
 </code></pre>
+<h5 id="crop">CROP</h5>
+<p>Crops images.</p>
+<h6 id="domains_18">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_18">Options:</h6>
+<pre><code>usage: crop [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-f PERCENT_FROM] [-t PERCENT_TO] [-s SEED] [-a] [-T THRESHOLD] [-u]
+
+optional arguments:
+  -m IMGAUG_MODE, --mode IMGAUG_MODE
+                        the image augmentation mode to use, available modes: replace, add
+  --suffix IMGAUG_SUFFIX
+                        the suffix to use for the file names in case of augmentation mode add
+  -f PERCENT_FROM, --from-percent PERCENT_FROM
+                        the minimum percent to crop from images
+  -t PERCENT_TO, --to-percent PERCENT_TO
+                        the maximum percent to crop from images
+  -s SEED, --seed SEED  the seed value to use for the random number generator; randomly seeded if not provided
+  -a, --seed-augmentation
+                        whether to seed the augmentation; if specified, uses the seeded random generator to produce a seed value from 0 to 1000 for the augmentation.
+  -T THRESHOLD, --threshold THRESHOLD
+                        the threshold to use for Random.rand(): if equal or above, augmentation gets applied; range: 0-1; default: 0 (= always)
+  -u, --update-size     whether to update the image size after the crop operation or scale back to original size
+</code></pre>
 <h5 id="dimension-discarder">DIMENSION-DISCARDER</h5>
 <p>Removes annotations which fall outside certain size constraints</p>
-<h6 id="domains_4">Domain(s):</h6>
+<h6 id="domains_19">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_4">Options:</h6>
-<pre><code>usage: dimension-discarder [--max-area MAX_AREA] [--max-height MAX_HEIGHT] [--max-width MAX_WIDTH] [--min-area MIN_AREA] [--min-height MIN_HEIGHT] [--min-width MIN_WIDTH]
+<h6 id="options_19">Options:</h6>
+<pre><code>usage: dimension-discarder [--max-area MAX_AREA] [--max-height MAX_HEIGHT] [--max-width MAX_WIDTH] [--min-area MIN_AREA] [--min-height MIN_HEIGHT] [--min-width MIN_WIDTH] [--verbose]
 
 optional arguments:
   --max-area MAX_AREA   the maximum area of annotations to convert
@@ -201,26 +576,27 @@ optional arguments:
                         the minimum height of annotations to convert
   --min-width MIN_WIDTH
                         the minimum width of annotations to convert
+  --verbose             outputs information when discarding annotations
 </code></pre>
 <h5 id="discard-negatives">DISCARD-NEGATIVES</h5>
 <p>Discards negative examples (those without annotations) from the stream</p>
-<h6 id="domains_5">Domain(s):</h6>
+<h6 id="domains_20">Domain(s):</h6>
 <ul>
-<li><strong>Image Object-Detection Domain</strong></li>
 <li><strong>Speech Domain</strong></li>
-<li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Segmentation Domain</strong></li>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_5">Options:</h6>
+<h6 id="options_20">Options:</h6>
 <pre><code>usage: discard-negatives
 </code></pre>
 <h5 id="filter-labels">FILTER-LABELS</h5>
 <p>Filters detected objects down to those with specified labels.</p>
-<h6 id="domains_6">Domain(s):</h6>
+<h6 id="domains_21">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_6">Options:</h6>
+<h6 id="options_21">Options:</h6>
 <pre><code>usage: filter-labels [-l LABELS [LABELS ...]] [-r regexp]
 
 optional arguments:
@@ -229,26 +605,137 @@ optional arguments:
   -r regexp, --regexp regexp
                         regular expression for using only a subset of labels
 </code></pre>
+<h5 id="flip">FLIP</h5>
+<p>Flips images either left-to-right, up-to-down or both.</p>
+<h6 id="domains_22">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_22">Options:</h6>
+<pre><code>usage: flip [-d DIRECTION] [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-s SEED] [-a] [-T THRESHOLD]
+
+optional arguments:
+  -d DIRECTION, --direction DIRECTION
+                        the direction to flip, available options: lr, up, lrup
+  -m IMGAUG_MODE, --mode IMGAUG_MODE
+                        the image augmentation mode to use, available modes: replace, add
+  --suffix IMGAUG_SUFFIX
+                        the suffix to use for the file names in case of augmentation mode add
+  -s SEED, --seed SEED  the seed value to use for the random number generator; randomly seeded if not provided
+  -a, --seed-augmentation
+                        whether to seed the augmentation; if specified, uses the seeded random generator to produce a seed value from 0 to 1000 for the augmentation.
+  -T THRESHOLD, --threshold THRESHOLD
+                        the threshold to use for Random.rand(): if equal or above, augmentation gets applied; range: 0-1; default: 0 (= always)
+</code></pre>
+<h5 id="gaussian-blur">GAUSSIAN-BLUR</h5>
+<p>Applies gaussian blur to images.</p>
+<h6 id="domains_23">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_23">Options:</h6>
+<pre><code>usage: gaussian-blur [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-s SEED] [-a] [-f SIGMA_FROM] [-t SIGMA_TO] [-T THRESHOLD]
+
+optional arguments:
+  -m IMGAUG_MODE, --mode IMGAUG_MODE
+                        the image augmentation mode to use, available modes: replace, add
+  --suffix IMGAUG_SUFFIX
+                        the suffix to use for the file names in case of augmentation mode add
+  -s SEED, --seed SEED  the seed value to use for the random number generator; randomly seeded if not provided
+  -a, --seed-augmentation
+                        whether to seed the augmentation; if specified, uses the seeded random generator to produce a seed value from 0 to 1000 for the augmentation.
+  -f SIGMA_FROM, --from-sigma SIGMA_FROM
+                        the minimum sigma for the blur to apply to the images
+  -t SIGMA_TO, --to-sigma SIGMA_TO
+                        the maximum sigma for the blur to apply to the images
+  -T THRESHOLD, --threshold THRESHOLD
+                        the threshold to use for Random.rand(): if equal or above, augmentation gets applied; range: 0-1; default: 0 (= always)
+</code></pre>
+<h5 id="hsl-grayscale">HSL-GRAYSCALE</h5>
+<p>Turns RGB images into fake grayscale ones by converting them to HSL and then using the L channel for all channels. The brightness can be influenced and varied even.</p>
+<h6 id="domains_24">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_24">Options:</h6>
+<pre><code>usage: hsl-grayscale [-f FACTOR_FROM] [-t FACTOR_TO] [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-s SEED] [-a] [-T THRESHOLD]
+
+optional arguments:
+  -f FACTOR_FROM, --from-factor FACTOR_FROM
+                        the start of the factor range to apply to the L channel to darken or lighten the image (&lt;1: darker, &gt;1: lighter)
+  -t FACTOR_TO, --to-factor FACTOR_TO
+                        the end of the factor range to apply to the L channel to darken or lighten the image (&lt;1: darker, &gt;1: lighter)
+  -m IMGAUG_MODE, --mode IMGAUG_MODE
+                        the image augmentation mode to use, available modes: replace, add
+  --suffix IMGAUG_SUFFIX
+                        the suffix to use for the file names in case of augmentation mode add
+  -s SEED, --seed SEED  the seed value to use for the random number generator; randomly seeded if not provided
+  -a, --seed-augmentation
+                        whether to seed the augmentation; if specified, uses the seeded random generator to produce a seed value from 0 to 1000 for the augmentation.
+  -T THRESHOLD, --threshold THRESHOLD
+                        the threshold to use for Random.rand(): if equal or above, augmentation gets applied; range: 0-1; default: 0 (= always)
+</code></pre>
+<h5 id="linear-contrast">LINEAR-CONTRAST</h5>
+<p>Applies linear contrast to images.</p>
+<h6 id="domains_25">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_25">Options:</h6>
+<pre><code>usage: linear-contrast [-f ALPHA_FROM] [-t ALPHA_TO] [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-s SEED] [-a] [-T THRESHOLD]
+
+optional arguments:
+  -f ALPHA_FROM, --from-alpha ALPHA_FROM
+                        the minimum alpha to apply to the images
+  -t ALPHA_TO, --to-alpha ALPHA_TO
+                        the maximum alpha to apply to the images
+  -m IMGAUG_MODE, --mode IMGAUG_MODE
+                        the image augmentation mode to use, available modes: replace, add
+  --suffix IMGAUG_SUFFIX
+                        the suffix to use for the file names in case of augmentation mode add
+  -s SEED, --seed SEED  the seed value to use for the random number generator; randomly seeded if not provided
+  -a, --seed-augmentation
+                        whether to seed the augmentation; if specified, uses the seeded random generator to produce a seed value from 0 to 1000 for the augmentation.
+  -T THRESHOLD, --threshold THRESHOLD
+                        the threshold to use for Random.rand(): if equal or above, augmentation gets applied; range: 0-1; default: 0 (= always)
+</code></pre>
 <h5 id="map-labels">MAP-LABELS</h5>
 <p>Maps object-detection labels from one set to another</p>
-<h6 id="domains_7">Domain(s):</h6>
+<h6 id="domains_26">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_7">Options:</h6>
+<h6 id="options_26">Options:</h6>
 <pre><code>usage: map-labels [-m old=new]
 
 optional arguments:
   -m old=new, --mapping old=new
                         mapping for labels, for replacing one label string with another (eg when fixing/collapsing labels)
 </code></pre>
-<h5 id="od-to-is">OD-TO-IS</h5>
-<p>Converts image object-detection instances into image segmentation instances</p>
-<h6 id="domains_8">Domain(s):</h6>
+<h5 id="od-to-ic">OD-TO-IC</h5>
+<p>Converts image object-detection instances into image classification instances</p>
+<h6 id="domains_27">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_8">Options:</h6>
+<h6 id="options_27">Options:</h6>
+<pre><code>usage: od-to-ic [-m HANDLER]
+
+optional arguments:
+  -m HANDLER, --multiplicity HANDLER
+                        how to handle instances with more than one located object
+</code></pre>
+<h5 id="od-to-is">OD-TO-IS</h5>
+<p>Converts image object-detection instances into image segmentation instances</p>
+<h6 id="domains_28">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_28">Options:</h6>
 <pre><code>usage: od-to-is [--label-error] --labels LABEL [LABEL ...]
 
 optional arguments:
@@ -258,78 +745,435 @@ optional arguments:
 </code></pre>
 <h5 id="passthrough">PASSTHROUGH</h5>
 <p>Dummy ISP which has no effect on the conversion stream</p>
-<h6 id="domains_9">Domain(s):</h6>
+<h6 id="domains_29">Domain(s):</h6>
+<ul>
+<li><strong>Speech Domain</strong></li>
+<li><strong>Image Segmentation Domain</strong></li>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_29">Options:</h6>
+<pre><code>usage: passthrough
+</code></pre>
+<h5 id="polygon-discarder">POLYGON-DISCARDER</h5>
+<p>Removes annotations with polygons which fall outside certain point limit constraints</p>
+<h6 id="domains_30">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
-<li><strong>Speech Domain</strong></li>
-<li><strong>Image Classification Domain</strong></li>
-<li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_9">Options:</h6>
-<pre><code>usage: passthrough
+<h6 id="options_30">Options:</h6>
+<pre><code>usage: polygon-discarder [--max-points MAX_POINTS] [--min-points MIN_POINTS] [--verbose]
+
+optional arguments:
+  --max-points MAX_POINTS
+                        the maximum number of points in the polygon
+  --min-points MIN_POINTS
+                        the minimum number of points in the polygon
+  --verbose             outputs information when discarding annotations
 </code></pre>
 <h5 id="remove-classes">REMOVE-CLASSES</h5>
 <p>Removes classes from classification/image-segmentation instances</p>
-<h6 id="domains_10">Domain(s):</h6>
+<h6 id="domains_31">Domain(s):</h6>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_10">Options:</h6>
+<h6 id="options_31">Options:</h6>
 <pre><code>usage: remove-classes -c CLASS [CLASS ...]
 
 optional arguments:
   -c CLASS [CLASS ...], --classes CLASS [CLASS ...]
                         the classes to remove
 </code></pre>
-<h5 id="strip-annotations">STRIP-ANNOTATIONS</h5>
-<p>ISP which removes annotations from instances</p>
-<h6 id="domains_11">Domain(s):</h6>
+<h5 id="rotate">ROTATE</h5>
+<p>Rotates images randomly within a range of degrees or by a specified degree. Specify seed value and force augmentation to be seeded to generate repeatable augmentations.</p>
+<h6 id="domains_32">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
-<li><strong>Speech Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
-<li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_11">Options:</h6>
+<h6 id="options_32">Options:</h6>
+<pre><code>usage: rotate [-f DEGREE_FROM] [-t DEGREE_TO] [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-s SEED] [-a] [-T THRESHOLD]
+
+optional arguments:
+  -f DEGREE_FROM, --from-degree DEGREE_FROM
+                        the start of the degree range to use for rotating the images
+  -t DEGREE_TO, --to-degree DEGREE_TO
+                        the end of the degree range to use for rotating the images
+  -m IMGAUG_MODE, --mode IMGAUG_MODE
+                        the image augmentation mode to use, available modes: replace, add
+  --suffix IMGAUG_SUFFIX
+                        the suffix to use for the file names in case of augmentation mode add
+  -s SEED, --seed SEED  the seed value to use for the random number generator; randomly seeded if not provided
+  -a, --seed-augmentation
+                        whether to seed the augmentation; if specified, uses the seeded random generator to produce a seed value from 0 to 1000 for the augmentation.
+  -T THRESHOLD, --threshold THRESHOLD
+                        the threshold to use for Random.rand(): if equal or above, augmentation gets applied; range: 0-1; default: 0 (= always)
+</code></pre>
+<h5 id="scale">SCALE</h5>
+<p>Scales images randomly within a range of percentages or by a specified percentage. Specify seed value and force augmentation to be seeded to generate repeatable augmentations.</p>
+<h6 id="domains_33">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_33">Options:</h6>
+<pre><code>usage: scale [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-k] [-f PERCENTAGE_FROM] [-t PERCENTAGE_TO] [-s SEED] [-a] [-T THRESHOLD] [-u]
+
+optional arguments:
+  -m IMGAUG_MODE, --mode IMGAUG_MODE
+                        the image augmentation mode to use, available modes: replace, add
+  --suffix IMGAUG_SUFFIX
+                        the suffix to use for the file names in case of augmentation mode add
+  -k, --keep-aspect     whether to keep the aspect ratio
+  -f PERCENTAGE_FROM, --from-percentage PERCENTAGE_FROM
+                        the start of the percentage range to use for scaling the images
+  -t PERCENTAGE_TO, --to-percentage PERCENTAGE_TO
+                        the end of the percentage range to use for scaling the images
+  -s SEED, --seed SEED  the seed value to use for the random number generator; randomly seeded if not provided
+  -a, --seed-augmentation
+                        whether to seed the augmentation; if specified, uses the seeded random generator to produce a seed value from 0 to 1000 for the augmentation.
+  -T THRESHOLD, --threshold THRESHOLD
+                        the threshold to use for Random.rand(): if equal or above, augmentation gets applied; range: 0-1; default: 0 (= always)
+  -u, --update-size     whether to update the image size after the scaling operation or use original size
+</code></pre>
+<h5 id="strip-annotations">STRIP-ANNOTATIONS</h5>
+<p>ISP which removes annotations from instances</p>
+<h6 id="domains_34">Domain(s):</h6>
+<ul>
+<li><strong>Speech Domain</strong></li>
+<li><strong>Image Segmentation Domain</strong></li>
+<li><strong>Image Object-Detection Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_34">Options:</h6>
 <pre><code>usage: strip-annotations
 </code></pre>
 <h4 id="sink-stage">Sink stage</h4>
-<h5 id="to-void-ic">TO-VOID-IC</h5>
-<p>Consumes instances without writing them.</p>
-<h6 id="domains_12">Domain(s):</h6>
+<h5 id="to-adams-ic">TO-ADAMS-IC</h5>
+<p>Writes image classification annotations in the ADAMS report-format</p>
+<h6 id="domains_35">Domain(s):</h6>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_12">Options:</h6>
+<h6 id="options_35">Options:</h6>
+<pre><code>usage: to-adams-ic -c FIELD [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  -c FIELD, --class-field FIELD
+                        the report field containing the image class
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+  -o PATH, --output PATH
+                        output directory to write files to
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+</code></pre>
+<h5 id="to-adams-od">TO-ADAMS-OD</h5>
+<p>Writes image object-detection annotations in the ADAMS report-format</p>
+<h6 id="domains_36">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_36">Options:</h6>
+<pre><code>usage: to-adams-od [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+  -o PATH, --output PATH
+                        output directory to write files to
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+</code></pre>
+<h5 id="to-blue-channel-is">TO-BLUE-CHANNEL-IS</h5>
+<p>Writes image segmentation files in the blue-channel format</p>
+<h6 id="domains_37">Domain(s):</h6>
+<ul>
+<li><strong>Image Segmentation Domain</strong></li>
+</ul>
+<h6 id="options_37">Options:</h6>
+<pre><code>usage: to-blue-channel-is [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+  -o PATH, --output PATH
+                        the directory to write the annotation images to
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+</code></pre>
+<h5 id="to-coco-od">TO-COCO-OD</h5>
+<p>Writes image object-detection annotations in the MS-COCO JSON-format</p>
+<h6 id="domains_38">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_38">Options:</h6>
+<pre><code>usage: to-coco-od [--annotations-only] [--categories CATEGORY [CATEGORY ...]] [--category-output-file FILENAME] [--default-supercategory SUPERCATEGORY] [--error-on-new-category] [--license-name LICENSE_NAME] [--license-url LICENSE_URL] -o PATH [--pretty] [--sort-categories] [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+  --categories CATEGORY [CATEGORY ...]
+                        defines the order of the categories
+  --category-output-file FILENAME
+                        file to write the categories into, as a simple comma-separated list
+  --default-supercategory SUPERCATEGORY
+                        the supercategory to use for pre-defined categories
+  --error-on-new-category
+                        whether unspecified categories should raise an error
+  --license-name LICENSE_NAME
+                        the license of the images
+  --license-url LICENSE_URL
+                        the license of the images
+  -o PATH, --output PATH
+                        output file to write annotations to (images are placed in same directory)
+  --pretty              whether to format the JSON annotations file with indentation
+  --sort-categories     whether to put the categories in alphabetical order
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+</code></pre>
+<h5 id="to-common-voice-sp">TO-COMMON-VOICE-SP</h5>
+<p>Writes speech transcriptions in the Mozilla Common-Voice TSV-format</p>
+<h6 id="domains_39">Domain(s):</h6>
+<ul>
+<li><strong>Speech Domain</strong></li>
+</ul>
+<h6 id="options_39">Options:</h6>
+<pre><code>usage: to-common-voice-sp [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+  -o PATH, --output PATH
+                        the filename of the TSV file to write the annotations into
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+</code></pre>
+<h5 id="to-festvox-sp">TO-FESTVOX-SP</h5>
+<p>Writes speech transcriptions in the Festival FestVox format</p>
+<h6 id="domains_40">Domain(s):</h6>
+<ul>
+<li><strong>Speech Domain</strong></li>
+</ul>
+<h6 id="options_40">Options:</h6>
+<pre><code>usage: to-festvox-sp [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+  -o PATH, --output PATH
+                        the filename of the FestVox file to write the annotations into
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+</code></pre>
+<h5 id="to-indexed-png-is">TO-INDEXED-PNG-IS</h5>
+<p>Writes image segmentation files in the indexed-PNG format</p>
+<h6 id="domains_41">Domain(s):</h6>
+<ul>
+<li><strong>Image Segmentation Domain</strong></li>
+</ul>
+<h6 id="options_41">Options:</h6>
+<pre><code>usage: to-indexed-png-is [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+  -o PATH, --output PATH
+                        the directory to write the annotation images to
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+</code></pre>
+<h5 id="to-layer-segments-is">TO-LAYER-SEGMENTS-IS</h5>
+<p>Writes the layer-segments image-segmentation format to disk</p>
+<h6 id="domains_42">Domain(s):</h6>
+<ul>
+<li><strong>Image Segmentation Domain</strong></li>
+</ul>
+<h6 id="options_42">Options:</h6>
+<pre><code>usage: to-layer-segments-is [--annotations-only] [--label-separator SEPARATOR] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+  --label-separator SEPARATOR
+                        the separator between the base filename and the label
+  -o PATH, --output PATH
+                        the directory to write the annotation images to
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+</code></pre>
+<h5 id="to-roi-od">TO-ROI-OD</h5>
+<p>Writes image object-detection annotations in the ROI CSV-format</p>
+<h6 id="domains_43">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_43">Options:</h6>
+<pre><code>usage: to-roi-od [-d WIDTH HEIGHT] [--annotations-only] [--comments COMMENTS [COMMENTS ...]] -o PATH [--size-mode] [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]] [--prefix WRITER_PREFIX] [--suffix WRITER_SUFFIX]
+
+optional arguments:
+  -d WIDTH HEIGHT, --image-dimensions WIDTH HEIGHT
+                        image dimensions to use if none can be inferred
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+  --comments COMMENTS [COMMENTS ...]
+                        comments to write to the beginning of the ROI file
+  -o PATH, --output PATH
+                        output directory to write files to
+  --size-mode           writes the ROI files with x,y,w,h headers instead of x0,y0,x1,y1
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+  --prefix WRITER_PREFIX
+                        the prefix for output filenames (default = '')
+  --suffix WRITER_SUFFIX
+                        the suffix for output filenames (default = '-rois.csv')
+</code></pre>
+<h5 id="to-subdir-ic">TO-SUBDIR-IC</h5>
+<p>Writes images to sub-directories named after their class labels.</p>
+<h6 id="domains_44">Domain(s):</h6>
+<ul>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_44">Options:</h6>
+<pre><code>usage: to-subdir-ic -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  -o PATH, --output PATH
+                        the directory to store the class directories in
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+</code></pre>
+<h5 id="to-tf-od">TO-TF-OD</h5>
+<p>Writes image object-detection annotations in the TFRecords binary format</p>
+<h6 id="domains_45">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_45">Options:</h6>
+<pre><code>usage: to-tf-od [--dense] [--source-id-type {filename,numeric-dummy}] -o PATH [-p FILENAME] [-s FILENAME [FILENAME ...]] [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  --dense               outputs masks in the dense numerical format instead of PNG-encoded
+  --source-id-type {filename,numeric-dummy}
+                        by default, the filename gets stored in the 'source_id' field, but some algorithms try to convert it into a number and fail with 'StringToNumberOp could not correctly convert string'; in which case you can use 'numeric-dummy' (see https://github.com/google/automl/issues/307)
+  -o PATH, --output PATH
+                        name of output file for TFRecords
+  -p FILENAME, --protobuf FILENAME
+                        for storing the label strings and IDs
+  -s FILENAME [FILENAME ...], --shards FILENAME [FILENAME ...]
+                        additional shards to write to
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+</code></pre>
+<h5 id="to-vgg-od">TO-VGG-OD</h5>
+<p>Writes image object-detection annotations in the VGG JSON-format</p>
+<h6 id="domains_46">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_46">Options:</h6>
+<pre><code>usage: to-vgg-od [--annotations-only] -o PATH [--pretty] [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+  -o PATH, --output PATH
+                        output file to write annotations to (images are placed in same directory)
+  --pretty              whether to format the JSON annotations file with indentation
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+</code></pre>
+<h5 id="to-voc-od">TO-VOC-OD</h5>
+<p>Writes image object-detection annotations in the Pascal VOC XML-format</p>
+<h6 id="domains_47">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_47">Options:</h6>
+<pre><code>usage: to-voc-od [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+  -o PATH, --output PATH
+                        output directory to write annotations to (images are placed in same directory)
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+</code></pre>
+<h5 id="to-void-ic">TO-VOID-IC</h5>
+<p>Consumes instances without writing them.</p>
+<h6 id="domains_48">Domain(s):</h6>
+<ul>
+<li><strong>Image Classification Domain</strong></li>
+</ul>
+<h6 id="options_48">Options:</h6>
 <pre><code>usage: to-void-ic
 </code></pre>
 <h5 id="to-void-is">TO-VOID-IS</h5>
 <p>Consumes instances without writing them.</p>
-<h6 id="domains_13">Domain(s):</h6>
+<h6 id="domains_49">Domain(s):</h6>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_13">Options:</h6>
+<h6 id="options_49">Options:</h6>
 <pre><code>usage: to-void-is
 </code></pre>
 <h5 id="to-void-od">TO-VOID-OD</h5>
 <p>Consumes instances without writing them.</p>
-<h6 id="domains_14">Domain(s):</h6>
+<h6 id="domains_50">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_14">Options:</h6>
+<h6 id="options_50">Options:</h6>
 <pre><code>usage: to-void-od
 </code></pre>
 <h5 id="to-void-sp">TO-VOID-SP</h5>
 <p>Consumes instances without writing them.</p>
-<h6 id="domains_15">Domain(s):</h6>
+<h6 id="domains_51">Domain(s):</h6>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_15">Options:</h6>
+<h6 id="options_51">Options:</h6>
 <pre><code>usage: to-void-sp
+</code></pre>
+<h5 id="to-yolo-od">TO-YOLO-OD</h5>
+<p>Writes image object-detection annotations in the YOLO format</p>
+<h6 id="domains_52">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_52">Options:</h6>
+<pre><code>usage: to-yolo-od [-c PATH] [-l PATH] [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  -c PATH, --labels-csv PATH
+                        Path to the labels CSV file to write
+  -l PATH, --labels PATH
+                        Path to the labels file to write
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+  -o PATH, --output PATH
+                        output directory to write images and annotations to
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
 </code></pre>
               
             </div>
