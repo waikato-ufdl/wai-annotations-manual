@@ -6,7 +6,7 @@ To install wai-annotations issue the following commands using pip:
 pip install wai.annotations.core
 ```
 
-`wai-annotations-core` does not come with any input/output formats installed. You will need to install a plugin for each
+`wai.annotations.core` does not come with any input/output formats installed. You will need to install a plugin for each
 format that you want to convert between. For a description of the plugin system, see the [plugin guide](plugin.md).
 
 For installing all available plugins, use this command:
