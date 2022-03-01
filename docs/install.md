@@ -30,6 +30,7 @@ Object detection
   * [https://github.com/waikato-ufdl/wai-annotations-tf](https://github.com/waikato-ufdl/wai-annotations-tf)
   * [https://github.com/waikato-ufdl/wai-annotations-vgg](https://github.com/waikato-ufdl/wai-annotations-vgg)
   * [https://github.com/waikato-ufdl/wai-annotations-voc](https://github.com/waikato-ufdl/wai-annotations-voc)
+  * [https://github.com/waikato-ufdl/wai-annotations-yolo](https://github.com/waikato-ufdl/wai-annotations-yolo)
     
 Image segmentation
 
@@ -41,3 +42,7 @@ Audio
 
   * [https://github.com/waikato-ufdl/wai-annotations-commonvoice](https://github.com/waikato-ufdl/wai-annotations-commonvoice)
   * [https://github.com/waikato-ufdl/wai-annotations-festvox](https://github.com/waikato-ufdl/wai-annotations-festvox)
+
+Image augmentation
+
+  * [https://github.com/waikato-ufdl/wai-annotations-imgaug](https://github.com/waikato-ufdl/wai-annotations-imgaug)
