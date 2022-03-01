@@ -54,8 +54,10 @@ wai-annotations convert \
 The following command-line loads ADAMS annotations and saves augmented MSCOCO ones.
 The pipeline adds augmented images (`-m add`) that are cropped, flipped, blurred,
 rotated and scaled. Each inline stream processor changes randomly about 10% of the
-images (`-T 0.9`). The augmentation is seeded (`-s 1 -a`) to generate reproducible
-datasets:
+images (`-T 0.9` - if a random number between 0 and 1 is at least the threshold
+provided with the `-T` parameter then the augmentation occurs). Since each 
+augmentation has its own stochastic element, it is being seeded (`-a`) to generate 
+reproducible datasets:
 
 ```
 wai-annotations convert \
