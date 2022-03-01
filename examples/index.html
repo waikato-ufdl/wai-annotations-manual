@@ -169,8 +169,10 @@
 <p>The following command-line loads ADAMS annotations and saves augmented MSCOCO ones.
 The pipeline adds augmented images (<code>-m add</code>) that are cropped, flipped, blurred,
 rotated and scaled. Each inline stream processor changes randomly about 10% of the
-images (<code>-T 0.9</code>). The augmentation is seeded (<code>-s 1 -a</code>) to generate reproducible
-datasets:</p>
+images (<code>-T 0.9</code> - if a random number between 0 and 1 is at least the threshold
+provided with the <code>-T</code> parameter then the augmentation occurs). Since each 
+augmentation has its own stochastic element, it is being seeded (<code>-a</code>) to generate 
+reproducible datasets:</p>
 <pre><code>wai-annotations convert \
     from-adams-od -i &quot;input/**/*.report&quot; \
     crop -a -m add -T 0.9 -f 0.0 -t 0.1 \            # crop 0-10% of the image
