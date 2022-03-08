@@ -35,6 +35,7 @@ provide the components used to create the stage, and also provide a description 
 can work with. For source/sink stages, a single domain is provided which defines the domain for which the component
 can produce/consume datasets. For processor stages, a domain transfer-function is defined on the specifier, which
 determines the output domain for a given input domain (or declares the input domain unusable with the processor stage).
-
 wai-annotations uses the domain specifications to check that a series of stages is specified that will be able to pass
 data from one stage to the next without error.
+
+For information on how to create new processing stages, see [here](plugin.md)
