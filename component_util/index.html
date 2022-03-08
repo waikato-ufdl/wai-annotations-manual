@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Architecture Overview - wai-annotations manual</title>
+  <title>Utility Components - wai-annotations manual</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Architecture Overview";
-    var mkdocs_page_input_path = "architecture_overview.md";
-    var mkdocs_page_url = "/wai-annotations-manual/architecture_overview/";
+    var mkdocs_page_name = "Utility Components";
+    var mkdocs_page_input_path = "component_util.md";
+    var mkdocs_page_url = "/wai-annotations-manual/component_util/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -110,7 +110,7 @@
     
       
     
-    <li>Architecture Overview</li>
+    <li>Utility Components</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -120,36 +120,10 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="architecture-overview">Architecture Overview</h3>
-<p>The wai-annotations architecture is made of a few layers:</p>
-<ul>
-<li>the stream layer</li>
-<li>the component layer</li>
-<li>the stage layer</li>
-</ul>
-<h4 id="stream-layer">Stream Layer</h4>
-<p>The stream layer is the lowest-level stream-processing layer of the wai-annotations architecture.</p>
-<p>See <a href="../stream/">here</a> for a detailed description of the stream layer.</p>
-<h4 id="component-layer">Component Layer</h4>
-<p>The component layer is an extension to the stream layer, adding logging support and command-line parsing to each
-of the source, processor and sink streaming base-classes. The resulting base-classes are SourceComponent,
-ProcessorComponent, and SinkComponent.</p>
-<p>To use logging for a component, simply call the <code>get_class_logger</code> method from a component class, or access the
-<code>logger</code> property from a component instance.</p>
-<p>See <a href="../cli/">here</a> for a description of how to add command-line options to a component.</p>
-<h4 id="stage-layer">Stage Layer</h4>
-<p>The stage layer groups partial-pipelines of components into conceptual "stages", where each stage represents an
-operation at the dataset level in the pipeline. For example, the input stage of reading a dataset in some format might
-involve a source component which parses valid filenames from the command-line, and passes them to a processor-component
-which reads those files and passes on the actual file data.</p>
-<p>Stages are specified by specifier classes (SourceStageSpecifier, ProcessorStageSpecifier, SinkStageSpecifier), which
-provide the components used to create the stage, and also provide a description of the A.I. domains that the stage
-can work with. For source/sink stages, a single domain is provided which defines the domain for which the component
-can produce/consume datasets. For processor stages, a domain transfer-function is defined on the specifier, which
-determines the output domain for a given input domain (or declares the input domain unusable with the processor stage).
-wai-annotations uses the domain specifications to check that a series of stages is specified that will be able to pass
-data from one stage to the next without error.</p>
-<p>For information on how to create new processing stages, see <a href="../plugin/">here</a></p>
+                <h3 id="utility-components">Utility Components</h3>
+<p>wai-annotations comes with some utility base-classes for common types of components. They are listed here.</p>
+<h4 id="splitting">Splitting</h4>
+<p>TODO</p>
               
             </div>
           </div>
