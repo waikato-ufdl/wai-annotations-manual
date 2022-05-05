@@ -531,45 +531,78 @@ optional arguments:
                         Path to the labels file
 </code></pre>
 <h4 id="processor-stage">Processor stage</h4>
+<h5 id="add-annotation-overlay-od">ADD-ANNOTATION-OVERLAY-OD</h5>
+<p>Adds object detection overlays to images passing through.</p>
+<h6 id="domains_16">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_16">Options:</h6>
+<pre><code>usage: add-annotation-overlay-od [--fill] [--fill-alpha FILL_ALPHA] [--font-family FONT_FAMILY] [--font-size FONT_SIZE] [--force-bbox] [--label-key LABEL_KEY] [--labels LABELS] [--num-decimals NUM_DECIMALS] [--outline-alpha OUTLINE_ALPHA] [--outline-thickness OUTLINE_THICKNESS] [--text-format TEXT_FORMAT] [--text-placement TEXT_PLACEMENT] [--vary-colors]
+
+optional arguments:
+  --fill                whether to fill the bounding boxes/polygons
+  --fill-alpha FILL_ALPHA
+                        the alpha value to use for the filling.
+  --font-family FONT_FAMILY
+                        the name of the TTF font-family to use, note: any hyphens need escaping with backslash.
+  --font-size FONT_SIZE
+                        the size of the font.
+  --force-bbox          whether to force a bounding box even if there is a polygon available
+  --label-key LABEL_KEY
+                        the key in the meta-data that contains the label.
+  --labels LABELS       the comma-separated list of labels of annotations to overlay, leave empty to overlay all
+  --num-decimals NUM_DECIMALS
+                        the number of decimals to use for float numbers in the text format string.
+  --outline-alpha OUTLINE_ALPHA
+                        the alpha value to use for the outline.
+  --outline-thickness OUTLINE_THICKNESS
+                        the line thickness to use for the outline, &lt;1 to turn off.
+  --text-format TEXT_FORMAT
+                        template for the text to print on top of the bounding box or polygon, '{PH}' is a placeholder for the 'PH' value from the meta-data or 'label' for the current label; ignored if empty.
+  --text-placement TEXT_PLACEMENT
+                        comma-separated list of vertical (T=top, C=center, B=bottom) and horizontal (L=left, C=center, R=right) anchoring.
+  --vary-colors         whether to vary the colors of the outline/filling regardless of label
+</code></pre>
 <h5 id="check-duplicate-filenames">CHECK-DUPLICATE-FILENAMES</h5>
 <p>Causes the conversion stream to halt when multiple dataset items have the same filename</p>
-<h6 id="domains_16">Domain(s):</h6>
+<h6 id="domains_17">Domain(s):</h6>
 <ul>
 <li><strong>Speech Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_16">Options:</h6>
+<h6 id="options_17">Options:</h6>
 <pre><code>usage: check-duplicate-filenames
 </code></pre>
 <h5 id="coerce-box">COERCE-BOX</h5>
 <p>Converts all annotation bounds into box regions</p>
-<h6 id="domains_17">Domain(s):</h6>
-<ul>
-<li><strong>Image Object-Detection Domain</strong></li>
-</ul>
-<h6 id="options_17">Options:</h6>
-<pre><code>usage: coerce-box
-</code></pre>
-<h5 id="coerce-mask">COERCE-MASK</h5>
-<p>Converts all annotation bounds into polygon regions</p>
 <h6 id="domains_18">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
 <h6 id="options_18">Options:</h6>
+<pre><code>usage: coerce-box
+</code></pre>
+<h5 id="coerce-mask">COERCE-MASK</h5>
+<p>Converts all annotation bounds into polygon regions</p>
+<h6 id="domains_19">Domain(s):</h6>
+<ul>
+<li><strong>Image Object-Detection Domain</strong></li>
+</ul>
+<h6 id="options_19">Options:</h6>
 <pre><code>usage: coerce-mask
 </code></pre>
 <h5 id="convert-image-format">CONVERT-IMAGE-FORMAT</h5>
 <p>Converts images from one format to another</p>
-<h6 id="domains_19">Domain(s):</h6>
+<h6 id="domains_20">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
-<li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Segmentation Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_19">Options:</h6>
+<h6 id="options_20">Options:</h6>
 <pre><code>usage: convert-image-format -f FORMAT
 
 optional arguments:
@@ -578,12 +611,12 @@ optional arguments:
 </code></pre>
 <h5 id="crop">CROP</h5>
 <p>Crops images.</p>
-<h6 id="domains_20">Domain(s):</h6>
+<h6 id="domains_21">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_20">Options:</h6>
+<h6 id="options_21">Options:</h6>
 <pre><code>usage: crop [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-f PERCENT_FROM] [-t PERCENT_TO] [-s SEED] [-a] [-T THRESHOLD] [-u]
 
 optional arguments:
@@ -604,11 +637,11 @@ optional arguments:
 </code></pre>
 <h5 id="dimension-discarder">DIMENSION-DISCARDER</h5>
 <p>Removes annotations which fall outside certain size constraints</p>
-<h6 id="domains_21">Domain(s):</h6>
+<h6 id="domains_22">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_21">Options:</h6>
+<h6 id="options_22">Options:</h6>
 <pre><code>usage: dimension-discarder [--max-area MAX_AREA] [--max-height MAX_HEIGHT] [--max-width MAX_WIDTH] [--min-area MIN_AREA] [--min-height MIN_HEIGHT] [--min-width MIN_WIDTH] [--verbose]
 
 optional arguments:
@@ -626,25 +659,25 @@ optional arguments:
 </code></pre>
 <h5 id="discard-negatives">DISCARD-NEGATIVES</h5>
 <p>Discards negative examples (those without annotations) from the stream</p>
-<h6 id="domains_22">Domain(s):</h6>
+<h6 id="domains_23">Domain(s):</h6>
 <ul>
 <li><strong>Speech Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_22">Options:</h6>
+<h6 id="options_23">Options:</h6>
 <pre><code>usage: discard-negatives
 </code></pre>
 <h5 id="drop-frames">DROP-FRAMES</h5>
 <p>Drops frames from the stream.</p>
-<h6 id="domains_23">Domain(s):</h6>
+<h6 id="domains_24">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
-<li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Segmentation Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_23">Options:</h6>
+<h6 id="options_24">Options:</h6>
 <pre><code>usage: drop-frames [-n NTH_FRAME]
 
 optional arguments:
@@ -653,11 +686,11 @@ optional arguments:
 </code></pre>
 <h5 id="filter-labels">FILTER-LABELS</h5>
 <p>Filters detected objects down to those with specified labels.</p>
-<h6 id="domains_24">Domain(s):</h6>
+<h6 id="domains_25">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_24">Options:</h6>
+<h6 id="options_25">Options:</h6>
 <pre><code>usage: filter-labels [-l LABELS [LABELS ...]] [-r regexp]
 
 optional arguments:
@@ -668,12 +701,12 @@ optional arguments:
 </code></pre>
 <h5 id="flip">FLIP</h5>
 <p>Flips images either left-to-right, up-to-down or both.</p>
-<h6 id="domains_25">Domain(s):</h6>
+<h6 id="domains_26">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_25">Options:</h6>
+<h6 id="options_26">Options:</h6>
 <pre><code>usage: flip [-d DIRECTION] [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-s SEED] [-a] [-T THRESHOLD]
 
 optional arguments:
@@ -691,12 +724,12 @@ optional arguments:
 </code></pre>
 <h5 id="gaussian-blur">GAUSSIAN-BLUR</h5>
 <p>Applies gaussian blur to images.</p>
-<h6 id="domains_26">Domain(s):</h6>
+<h6 id="domains_27">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_26">Options:</h6>
+<h6 id="options_27">Options:</h6>
 <pre><code>usage: gaussian-blur [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-s SEED] [-a] [-f SIGMA_FROM] [-t SIGMA_TO] [-T THRESHOLD]
 
 optional arguments:
@@ -716,12 +749,12 @@ optional arguments:
 </code></pre>
 <h5 id="hsl-grayscale">HSL-GRAYSCALE</h5>
 <p>Turns RGB images into fake grayscale ones by converting them to HSL and then using the L channel for all channels. The brightness can be influenced and varied even.</p>
-<h6 id="domains_27">Domain(s):</h6>
+<h6 id="domains_28">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_27">Options:</h6>
+<h6 id="options_28">Options:</h6>
 <pre><code>usage: hsl-grayscale [-f FACTOR_FROM] [-t FACTOR_TO] [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-s SEED] [-a] [-T THRESHOLD]
 
 optional arguments:
@@ -741,12 +774,12 @@ optional arguments:
 </code></pre>
 <h5 id="linear-contrast">LINEAR-CONTRAST</h5>
 <p>Applies linear contrast to images.</p>
-<h6 id="domains_28">Domain(s):</h6>
+<h6 id="domains_29">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_28">Options:</h6>
+<h6 id="options_29">Options:</h6>
 <pre><code>usage: linear-contrast [-f ALPHA_FROM] [-t ALPHA_TO] [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-s SEED] [-a] [-T THRESHOLD]
 
 optional arguments:
@@ -766,11 +799,11 @@ optional arguments:
 </code></pre>
 <h5 id="map-labels">MAP-LABELS</h5>
 <p>Maps object-detection labels from one set to another</p>
-<h6 id="domains_29">Domain(s):</h6>
+<h6 id="domains_30">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_29">Options:</h6>
+<h6 id="options_30">Options:</h6>
 <pre><code>usage: map-labels [-m old=new]
 
 optional arguments:
@@ -779,11 +812,11 @@ optional arguments:
 </code></pre>
 <h5 id="od-to-ic">OD-TO-IC</h5>
 <p>Converts image object-detection instances into image classification instances</p>
-<h6 id="domains_30">Domain(s):</h6>
+<h6 id="domains_31">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_30">Options:</h6>
+<h6 id="options_31">Options:</h6>
 <pre><code>usage: od-to-ic [-m HANDLER]
 
 optional arguments:
@@ -792,11 +825,11 @@ optional arguments:
 </code></pre>
 <h5 id="od-to-is">OD-TO-IS</h5>
 <p>Converts image object-detection instances into image segmentation instances</p>
-<h6 id="domains_31">Domain(s):</h6>
+<h6 id="domains_32">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_31">Options:</h6>
+<h6 id="options_32">Options:</h6>
 <pre><code>usage: od-to-is [--label-error] --labels LABEL [LABEL ...]
 
 optional arguments:
@@ -806,23 +839,23 @@ optional arguments:
 </code></pre>
 <h5 id="passthrough">PASSTHROUGH</h5>
 <p>Dummy ISP which has no effect on the conversion stream</p>
-<h6 id="domains_32">Domain(s):</h6>
+<h6 id="domains_33">Domain(s):</h6>
 <ul>
 <li><strong>Speech Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_32">Options:</h6>
+<h6 id="options_33">Options:</h6>
 <pre><code>usage: passthrough
 </code></pre>
 <h5 id="polygon-discarder">POLYGON-DISCARDER</h5>
 <p>Removes annotations with polygons which fall outside certain point limit constraints</p>
-<h6 id="domains_33">Domain(s):</h6>
+<h6 id="domains_34">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_33">Options:</h6>
+<h6 id="options_34">Options:</h6>
 <pre><code>usage: polygon-discarder [--max-points MAX_POINTS] [--min-points MIN_POINTS] [--verbose]
 
 optional arguments:
@@ -834,12 +867,12 @@ optional arguments:
 </code></pre>
 <h5 id="remove-classes">REMOVE-CLASSES</h5>
 <p>Removes classes from classification/image-segmentation instances</p>
-<h6 id="domains_34">Domain(s):</h6>
+<h6 id="domains_35">Domain(s):</h6>
 <ul>
-<li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Segmentation Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_34">Options:</h6>
+<h6 id="options_35">Options:</h6>
 <pre><code>usage: remove-classes -c CLASS [CLASS ...]
 
 optional arguments:
@@ -848,12 +881,12 @@ optional arguments:
 </code></pre>
 <h5 id="rotate">ROTATE</h5>
 <p>Rotates images randomly within a range of degrees or by a specified degree. Specify seed value and force augmentation to be seeded to generate repeatable augmentations.</p>
-<h6 id="domains_35">Domain(s):</h6>
+<h6 id="domains_36">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_35">Options:</h6>
+<h6 id="options_36">Options:</h6>
 <pre><code>usage: rotate [-f DEGREE_FROM] [-t DEGREE_TO] [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-s SEED] [-a] [-T THRESHOLD]
 
 optional arguments:
@@ -873,12 +906,12 @@ optional arguments:
 </code></pre>
 <h5 id="scale">SCALE</h5>
 <p>Scales images randomly within a range of percentages or by a specified percentage. Specify seed value and force augmentation to be seeded to generate repeatable augmentations.</p>
-<h6 id="domains_36">Domain(s):</h6>
+<h6 id="domains_37">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_36">Options:</h6>
+<h6 id="options_37">Options:</h6>
 <pre><code>usage: scale [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-k] [-f PERCENTAGE_FROM] [-t PERCENTAGE_TO] [-s SEED] [-a] [-T THRESHOLD] [-u]
 
 optional arguments:
@@ -900,13 +933,13 @@ optional arguments:
 </code></pre>
 <h5 id="skip-similar-frames">SKIP-SIMILAR-FRAMES</h5>
 <p>Skips frames in the stream that are deemed too similar.</p>
-<h6 id="domains_37">Domain(s):</h6>
+<h6 id="domains_38">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
-<li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Segmentation Domain</strong></li>
+<li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_37">Options:</h6>
+<h6 id="options_38">Options:</h6>
 <pre><code>usage: skip-similar-frames [-b BW_THRESHOLD] [-t CHANGE_THRESHOLD] [-c CONVERSION] [-v]
 
 optional arguments:
@@ -920,24 +953,24 @@ optional arguments:
 </code></pre>
 <h5 id="strip-annotations">STRIP-ANNOTATIONS</h5>
 <p>ISP which removes annotations from instances</p>
-<h6 id="domains_38">Domain(s):</h6>
+<h6 id="domains_39">Domain(s):</h6>
 <ul>
 <li><strong>Speech Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_38">Options:</h6>
+<h6 id="options_39">Options:</h6>
 <pre><code>usage: strip-annotations
 </code></pre>
 <h4 id="sink-stage">Sink stage</h4>
 <h5 id="calc-frame-changes">CALC-FRAME-CHANGES</h5>
 <p>Calculates the changes between frames, which can be used with the skip-similar-frames ISP.</p>
-<h6 id="domains_39">Domain(s):</h6>
+<h6 id="domains_40">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_39">Options:</h6>
+<h6 id="options_40">Options:</h6>
 <pre><code>usage: calc-frame-changes [-b BW_THRESHOLD] [-t CHANGE_THRESHOLD] [-c CONVERSION] [-B NUM_BINS] [-o OUTPUT_FILE] [-f OUTPUT_FORMAT] [-v]
 
 optional arguments:
@@ -957,11 +990,11 @@ optional arguments:
 </code></pre>
 <h5 id="label-dist-ic">LABEL-DIST-IC</h5>
 <p>Generates a label distribution.</p>
-<h6 id="domains_40">Domain(s):</h6>
+<h6 id="domains_41">Domain(s):</h6>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_40">Options:</h6>
+<h6 id="options_41">Options:</h6>
 <pre><code>usage: label-dist-ic [-o OUTPUT_FILE] [-f OUTPUT_FORMAT] [-p]
 
 optional arguments:
@@ -973,11 +1006,11 @@ optional arguments:
 </code></pre>
 <h5 id="label-dist-is">LABEL-DIST-IS</h5>
 <p>Generates a label distribution.</p>
-<h6 id="domains_41">Domain(s):</h6>
+<h6 id="domains_42">Domain(s):</h6>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_41">Options:</h6>
+<h6 id="options_42">Options:</h6>
 <pre><code>usage: label-dist-is [-o OUTPUT_FILE] [-f OUTPUT_FORMAT] [-p]
 
 optional arguments:
@@ -989,11 +1022,11 @@ optional arguments:
 </code></pre>
 <h5 id="label-dist-od">LABEL-DIST-OD</h5>
 <p>Generates a label distribution.</p>
-<h6 id="domains_42">Domain(s):</h6>
+<h6 id="domains_43">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_42">Options:</h6>
+<h6 id="options_43">Options:</h6>
 <pre><code>usage: label-dist-od [-o OUTPUT_FILE] [-f OUTPUT_FORMAT] [-p]
 
 optional arguments:
@@ -1005,11 +1038,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-adams-ic">TO-ADAMS-IC</h5>
 <p>Writes image classification annotations in the ADAMS report-format</p>
-<h6 id="domains_43">Domain(s):</h6>
+<h6 id="domains_44">Domain(s):</h6>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_43">Options:</h6>
+<h6 id="options_44">Options:</h6>
 <pre><code>usage: to-adams-ic -c FIELD [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -1025,11 +1058,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-adams-od">TO-ADAMS-OD</h5>
 <p>Writes image object-detection annotations in the ADAMS report-format</p>
-<h6 id="domains_44">Domain(s):</h6>
+<h6 id="domains_45">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_44">Options:</h6>
+<h6 id="options_45">Options:</h6>
 <pre><code>usage: to-adams-od [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -1043,11 +1076,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-annotation-overlay-od">TO-ANNOTATION-OVERLAY-OD</h5>
 <p>Generates an image with all the annotation shapes (bbox or polygon) overlayed.</p>
-<h6 id="domains_45">Domain(s):</h6>
+<h6 id="domains_46">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_45">Options:</h6>
+<h6 id="options_46">Options:</h6>
 <pre><code>usage: to-annotation-overlay-od [-b BACKGROUND_COLOR] [-c COLOR] [-o OUTPUT_FILE] [-s SCALE_TO]
 
 optional arguments:
@@ -1062,11 +1095,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-blue-channel-is">TO-BLUE-CHANNEL-IS</h5>
 <p>Writes image segmentation files in the blue-channel format</p>
-<h6 id="domains_46">Domain(s):</h6>
+<h6 id="domains_47">Domain(s):</h6>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_46">Options:</h6>
+<h6 id="options_47">Options:</h6>
 <pre><code>usage: to-blue-channel-is [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -1080,11 +1113,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-coco-od">TO-COCO-OD</h5>
 <p>Writes image object-detection annotations in the MS-COCO JSON-format</p>
-<h6 id="domains_47">Domain(s):</h6>
+<h6 id="domains_48">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_47">Options:</h6>
+<h6 id="options_48">Options:</h6>
 <pre><code>usage: to-coco-od [--annotations-only] [--categories CATEGORY [CATEGORY ...]] [--category-output-file FILENAME] [--default-supercategory SUPERCATEGORY] [--error-on-new-category] [--license-name LICENSE_NAME] [--license-url LICENSE_URL] -o PATH [--pretty] [--sort-categories] [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -1112,11 +1145,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-common-voice-sp">TO-COMMON-VOICE-SP</h5>
 <p>Writes speech transcriptions in the Mozilla Common-Voice TSV-format</p>
-<h6 id="domains_48">Domain(s):</h6>
+<h6 id="domains_49">Domain(s):</h6>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_48">Options:</h6>
+<h6 id="options_49">Options:</h6>
 <pre><code>usage: to-common-voice-sp [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -1130,11 +1163,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-festvox-sp">TO-FESTVOX-SP</h5>
 <p>Writes speech transcriptions in the Festival FestVox format</p>
-<h6 id="domains_49">Domain(s):</h6>
+<h6 id="domains_50">Domain(s):</h6>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_49">Options:</h6>
+<h6 id="options_50">Options:</h6>
 <pre><code>usage: to-festvox-sp [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -1148,11 +1181,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-indexed-png-is">TO-INDEXED-PNG-IS</h5>
 <p>Writes image segmentation files in the indexed-PNG format</p>
-<h6 id="domains_50">Domain(s):</h6>
+<h6 id="domains_51">Domain(s):</h6>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_50">Options:</h6>
+<h6 id="options_51">Options:</h6>
 <pre><code>usage: to-indexed-png-is [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -1166,11 +1199,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-layer-segments-is">TO-LAYER-SEGMENTS-IS</h5>
 <p>Writes the layer-segments image-segmentation format to disk</p>
-<h6 id="domains_51">Domain(s):</h6>
+<h6 id="domains_52">Domain(s):</h6>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_51">Options:</h6>
+<h6 id="options_52">Options:</h6>
 <pre><code>usage: to-layer-segments-is [--annotations-only] [--label-separator SEPARATOR] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -1186,11 +1219,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-roi-od">TO-ROI-OD</h5>
 <p>Writes image object-detection annotations in the ROI CSV-format</p>
-<h6 id="domains_52">Domain(s):</h6>
+<h6 id="domains_53">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_52">Options:</h6>
+<h6 id="options_53">Options:</h6>
 <pre><code>usage: to-roi-od [-d WIDTH HEIGHT] [--annotations-only] [--comments COMMENTS [COMMENTS ...]] -o PATH [--size-mode] [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]] [--prefix WRITER_PREFIX] [--suffix WRITER_SUFFIX]
 
 optional arguments:
@@ -1213,11 +1246,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-subdir-ic">TO-SUBDIR-IC</h5>
 <p>Writes images to sub-directories named after their class labels.</p>
-<h6 id="domains_53">Domain(s):</h6>
+<h6 id="domains_54">Domain(s):</h6>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_53">Options:</h6>
+<h6 id="options_54">Options:</h6>
 <pre><code>usage: to-subdir-ic -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -1230,11 +1263,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-tf-od">TO-TF-OD</h5>
 <p>Writes image object-detection annotations in the TFRecords binary format</p>
-<h6 id="domains_54">Domain(s):</h6>
+<h6 id="domains_55">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_54">Options:</h6>
+<h6 id="options_55">Options:</h6>
 <pre><code>usage: to-tf-od [--dense] [--source-id-type {filename,numeric-dummy}] -o PATH [-p FILENAME] [-s FILENAME [FILENAME ...]] [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -1254,11 +1287,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-vgg-od">TO-VGG-OD</h5>
 <p>Writes image object-detection annotations in the VGG JSON-format</p>
-<h6 id="domains_55">Domain(s):</h6>
+<h6 id="domains_56">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_55">Options:</h6>
+<h6 id="options_56">Options:</h6>
 <pre><code>usage: to-vgg-od [--annotations-only] -o PATH [--pretty] [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -1273,11 +1306,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-video-file-od">TO-VIDEO-FILE-OD</h5>
 <p>Writes frames to a MJPG video file.</p>
-<h6 id="domains_56">Domain(s):</h6>
+<h6 id="domains_57">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_56">Options:</h6>
+<h6 id="options_57">Options:</h6>
 <pre><code>usage: to-video-file-od [-f FPS] [-o OUTPUT_FILE]
 
 optional arguments:
@@ -1287,11 +1320,11 @@ optional arguments:
 </code></pre>
 <h5 id="to-voc-od">TO-VOC-OD</h5>
 <p>Writes image object-detection annotations in the Pascal VOC XML-format</p>
-<h6 id="domains_57">Domain(s):</h6>
+<h6 id="domains_58">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_57">Options:</h6>
+<h6 id="options_58">Options:</h6>
 <pre><code>usage: to-voc-od [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -1305,47 +1338,47 @@ optional arguments:
 </code></pre>
 <h5 id="to-void-ic">TO-VOID-IC</h5>
 <p>Consumes instances without writing them.</p>
-<h6 id="domains_58">Domain(s):</h6>
+<h6 id="domains_59">Domain(s):</h6>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_58">Options:</h6>
+<h6 id="options_59">Options:</h6>
 <pre><code>usage: to-void-ic
 </code></pre>
 <h5 id="to-void-is">TO-VOID-IS</h5>
 <p>Consumes instances without writing them.</p>
-<h6 id="domains_59">Domain(s):</h6>
+<h6 id="domains_60">Domain(s):</h6>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_59">Options:</h6>
+<h6 id="options_60">Options:</h6>
 <pre><code>usage: to-void-is
 </code></pre>
 <h5 id="to-void-od">TO-VOID-OD</h5>
 <p>Consumes instances without writing them.</p>
-<h6 id="domains_60">Domain(s):</h6>
+<h6 id="domains_61">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_60">Options:</h6>
+<h6 id="options_61">Options:</h6>
 <pre><code>usage: to-void-od
 </code></pre>
 <h5 id="to-void-sp">TO-VOID-SP</h5>
 <p>Consumes instances without writing them.</p>
-<h6 id="domains_61">Domain(s):</h6>
+<h6 id="domains_62">Domain(s):</h6>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_61">Options:</h6>
+<h6 id="options_62">Options:</h6>
 <pre><code>usage: to-void-sp
 </code></pre>
 <h5 id="to-yolo-od">TO-YOLO-OD</h5>
 <p>Writes image object-detection annotations in the YOLO format</p>
-<h6 id="domains_62">Domain(s):</h6>
+<h6 id="domains_63">Domain(s):</h6>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_62">Options:</h6>
+<h6 id="options_63">Options:</h6>
 <pre><code>usage: to-yolo-od [-c PATH] [-l PATH] [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
