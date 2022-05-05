@@ -426,6 +426,41 @@ optional arguments:
 
 
 ## Processor stage
+### ADD-ANNOTATION-OVERLAY-OD
+Adds object detection overlays to images passing through.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: add-annotation-overlay-od [--fill] [--fill-alpha FILL_ALPHA] [--font-family FONT_FAMILY] [--font-size FONT_SIZE] [--force-bbox] [--label-key LABEL_KEY] [--labels LABELS] [--num-decimals NUM_DECIMALS] [--outline-alpha OUTLINE_ALPHA] [--outline-thickness OUTLINE_THICKNESS] [--text-format TEXT_FORMAT] [--text-placement TEXT_PLACEMENT] [--vary-colors]
+
+optional arguments:
+  --fill                whether to fill the bounding boxes/polygons
+  --fill-alpha FILL_ALPHA
+                        the alpha value to use for the filling.
+  --font-family FONT_FAMILY
+                        the name of the TTF font-family to use, note: any hyphens need escaping with backslash.
+  --font-size FONT_SIZE
+                        the size of the font.
+  --force-bbox          whether to force a bounding box even if there is a polygon available
+  --label-key LABEL_KEY
+                        the key in the meta-data that contains the label.
+  --labels LABELS       the comma-separated list of labels of annotations to overlay, leave empty to overlay all
+  --num-decimals NUM_DECIMALS
+                        the number of decimals to use for float numbers in the text format string.
+  --outline-alpha OUTLINE_ALPHA
+                        the alpha value to use for the outline.
+  --outline-thickness OUTLINE_THICKNESS
+                        the line thickness to use for the outline, <1 to turn off.
+  --text-format TEXT_FORMAT
+                        template for the text to print on top of the bounding box or polygon, '{PH}' is a placeholder for the 'PH' value from the meta-data or 'label' for the current label; ignored if empty.
+  --text-placement TEXT_PLACEMENT
+                        comma-separated list of vertical (T=top, C=center, B=bottom) and horizontal (L=left, C=center, R=right) anchoring.
+  --vary-colors         whether to vary the colors of the outline/filling regardless of label
+```
+
 ### CHECK-DUPLICATE-FILENAMES
 Causes the conversion stream to halt when multiple dataset items have the same filename
 
@@ -467,8 +502,8 @@ Converts images from one format to another
 
 #### Domain(s):
 - **Image Object-Detection Domain**
-- **Image Classification Domain**
 - **Image Segmentation Domain**
+- **Image Classification Domain**
 
 #### Options:
 ```
@@ -550,8 +585,8 @@ Drops frames from the stream.
 
 #### Domain(s):
 - **Image Object-Detection Domain**
-- **Image Classification Domain**
 - **Image Segmentation Domain**
+- **Image Classification Domain**
 
 #### Options:
 ```
@@ -767,8 +802,8 @@ optional arguments:
 Removes classes from classification/image-segmentation instances
 
 #### Domain(s):
-- **Image Classification Domain**
 - **Image Segmentation Domain**
+- **Image Classification Domain**
 
 #### Options:
 ```
@@ -840,8 +875,8 @@ Skips frames in the stream that are deemed too similar.
 
 #### Domain(s):
 - **Image Object-Detection Domain**
-- **Image Classification Domain**
 - **Image Segmentation Domain**
+- **Image Classification Domain**
 
 #### Options:
 ```
