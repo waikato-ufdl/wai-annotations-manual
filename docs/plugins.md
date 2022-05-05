@@ -322,6 +322,31 @@ optional arguments:
   --seed SEED           the seed to use for randomisation
 ```
 
+### FROM-VIDEO-FILE-OD
+Reads frames from a video file.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: from-video-file-od [-f FROM_FRAME] [-i INPUT_FILE] [-m MAX_FRAMES] [-n NTH_FRAME] [-p PREFIX] [-t TO_FRAME]
+
+optional arguments:
+  -f FROM_FRAME, --from-frame FROM_FRAME
+                        determines with which frame to start the stream (1-based index)
+  -i INPUT_FILE, --input INPUT_FILE
+                        the video file to read
+  -m MAX_FRAMES, --max-frames MAX_FRAMES
+                        determines the maximum number of frames to read; ignored if <=0
+  -n NTH_FRAME, --nth-frame NTH_FRAME
+                        determines whether frames get skipped and only evert nth frame gets forwarded
+  -p PREFIX, --prefix PREFIX
+                        the prefix to use for the frames
+  -t TO_FRAME, --to-frame TO_FRAME
+                        determines after which frame to stop (1-based index); ignored if <=0
+```
+
 ### FROM-VOC-OD
 Reads image object-detection annotations in the Pascal VOC XML-format
 
@@ -344,6 +369,31 @@ optional arguments:
   -o FILENAME, --output-file FILENAME
                         optional file to write read filenames into
   --seed SEED           the seed to use for randomisation
+```
+
+### FROM-WEBCAM-OD
+Reads frames from a webcam.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: from-webcam-od [-f FROM_FRAME] [-m MAX_FRAMES] [-n NTH_FRAME] [-p PREFIX] [-t TO_FRAME] [-i WEBCAM_ID]
+
+optional arguments:
+  -f FROM_FRAME, --from-frame FROM_FRAME
+                        determines with which frame to start the stream (1-based index)
+  -m MAX_FRAMES, --max-frames MAX_FRAMES
+                        determines the maximum number of frames to read; ignored if <=0
+  -n NTH_FRAME, --nth-frame NTH_FRAME
+                        determines whether frames get skipped and only evert nth frame gets forwarded
+  -p PREFIX, --prefix PREFIX
+                        the prefix to use for the frames
+  -t TO_FRAME, --to-frame TO_FRAME
+                        determines after which frame to stop (1-based index); ignored if <=0
+  -i WEBCAM_ID, --webcam-id WEBCAM_ID
+                        the webcam ID to read from
 ```
 
 ### FROM-YOLO-OD
@@ -381,8 +431,8 @@ Causes the conversion stream to halt when multiple dataset items have the same f
 
 #### Domain(s):
 - **Speech Domain**
-- **Image Segmentation Domain**
 - **Image Object-Detection Domain**
+- **Image Segmentation Domain**
 - **Image Classification Domain**
 
 #### Options:
@@ -416,9 +466,9 @@ usage: coerce-mask
 Converts images from one format to another
 
 #### Domain(s):
-- **Image Segmentation Domain**
 - **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -486,13 +536,30 @@ Discards negative examples (those without annotations) from the stream
 
 #### Domain(s):
 - **Speech Domain**
-- **Image Segmentation Domain**
 - **Image Object-Detection Domain**
+- **Image Segmentation Domain**
 - **Image Classification Domain**
 
 #### Options:
 ```
 usage: discard-negatives
+```
+
+### DROP-FRAMES
+Drops frames from the stream.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+- **Image Classification Domain**
+- **Image Segmentation Domain**
+
+#### Options:
+```
+usage: drop-frames [-n NTH_FRAME]
+
+optional arguments:
+  -n NTH_FRAME, --nth-frame NTH_FRAME
+                        which nth frame to drop, e..g, '2' means to drop every 2nd frame; passes frames through if <=1
 ```
 
 ### FILTER-LABELS
@@ -669,8 +736,8 @@ Dummy ISP which has no effect on the conversion stream
 
 #### Domain(s):
 - **Speech Domain**
-- **Image Segmentation Domain**
 - **Image Object-Detection Domain**
+- **Image Segmentation Domain**
 - **Image Classification Domain**
 
 #### Options:
@@ -700,8 +767,8 @@ optional arguments:
 Removes classes from classification/image-segmentation instances
 
 #### Domain(s):
-- **Image Segmentation Domain**
 - **Image Classification Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -768,13 +835,35 @@ optional arguments:
   -u, --update-size     whether to update the image size after the scaling operation or use original size
 ```
 
+### SKIP-SIMILAR-FRAMES
+Skips frames in the stream that are deemed too similar.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+- **Image Classification Domain**
+- **Image Segmentation Domain**
+
+#### Options:
+```
+usage: skip-similar-frames [-b BW_THRESHOLD] [-t CHANGE_THRESHOLD] [-c CONVERSION] [-v]
+
+optional arguments:
+  -b BW_THRESHOLD, --bw-threshold BW_THRESHOLD
+                        the threshold to use for converting a gray-scale like image to black and white (0-255)
+  -t CHANGE_THRESHOLD, --change-threshold CHANGE_THRESHOLD
+                        the percentage of pixels that changed relative to size of image (0-1)
+  -c CONVERSION, --conversion CONVERSION
+                        how to convert the BGR image to a single channel image (gray/r/g/b)
+  -v, --verbose         whether to output some debugging output.
+```
+
 ### STRIP-ANNOTATIONS
 ISP which removes annotations from instances
 
 #### Domain(s):
 - **Speech Domain**
-- **Image Segmentation Domain**
 - **Image Object-Detection Domain**
+- **Image Segmentation Domain**
 - **Image Classification Domain**
 
 #### Options:
@@ -784,6 +873,86 @@ usage: strip-annotations
 
 
 ## Sink stage
+### CALC-FRAME-CHANGES
+Calculates the changes between frames, which can be used with the skip-similar-frames ISP.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: calc-frame-changes [-b BW_THRESHOLD] [-t CHANGE_THRESHOLD] [-c CONVERSION] [-B NUM_BINS] [-o OUTPUT_FILE] [-f OUTPUT_FORMAT] [-v]
+
+optional arguments:
+  -b BW_THRESHOLD, --bw-threshold BW_THRESHOLD
+                        the threshold to use for converting a gray-scale like image to black and white (0-255)
+  -t CHANGE_THRESHOLD, --change-threshold CHANGE_THRESHOLD
+                        the percentage of pixels that changed relative to size of image (0-1)
+  -c CONVERSION, --conversion CONVERSION
+                        how to convert the BGR image to a single channel image (gray/r/g/b)
+  -B NUM_BINS, --num-bins NUM_BINS
+                        the number of bins to use for the histogram
+  -o OUTPUT_FILE, --output OUTPUT_FILE
+                        the file to write to statistics to, stdout if not provided
+  -f OUTPUT_FORMAT, --output-format OUTPUT_FORMAT
+                        how to output the statistics (text/csv/json)
+  -v, --verbose         whether to output some debugging output.
+```
+
+### LABEL-DIST-IC
+Generates a label distribution.
+
+#### Domain(s):
+- **Image Classification Domain**
+
+#### Options:
+```
+usage: label-dist-ic [-o OUTPUT_FILE] [-f OUTPUT_FORMAT] [-p]
+
+optional arguments:
+  -o OUTPUT_FILE, --output OUTPUT_FILE
+                        the file to write the statistics to; uses stdout if omitted
+  -f OUTPUT_FORMAT, --format OUTPUT_FORMAT
+                        the format to use for the output, available modes: csv, json
+  -p, --percentages     whether to output percentages instead of counts.
+```
+
+### LABEL-DIST-IS
+Generates a label distribution.
+
+#### Domain(s):
+- **Image Segmentation Domain**
+
+#### Options:
+```
+usage: label-dist-is [-o OUTPUT_FILE] [-f OUTPUT_FORMAT] [-p]
+
+optional arguments:
+  -o OUTPUT_FILE, --output OUTPUT_FILE
+                        the file to write the statistics to; uses stdout if omitted
+  -f OUTPUT_FORMAT, --format OUTPUT_FORMAT
+                        the format to use for the output, available modes: csv, json
+  -p, --percentages     whether to output percentages instead of counts.
+```
+
+### LABEL-DIST-OD
+Generates a label distribution.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: label-dist-od [-o OUTPUT_FILE] [-f OUTPUT_FORMAT] [-p]
+
+optional arguments:
+  -o OUTPUT_FILE, --output OUTPUT_FILE
+                        the file to write the statistics to; uses stdout if omitted
+  -f OUTPUT_FORMAT, --format OUTPUT_FORMAT
+                        the format to use for the output, available modes: csv, json
+  -p, --percentages     whether to output percentages instead of counts.
+```
+
 ### TO-ADAMS-IC
 Writes image classification annotations in the ADAMS report-format
 
@@ -824,6 +993,27 @@ optional arguments:
                         the names to use for the splits
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits
+```
+
+### TO-ANNOTATION-OVERLAY-OD
+Generates an image with all the annotation shapes (bbox or polygon) overlayed.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: to-annotation-overlay-od [-b BACKGROUND_COLOR] [-c COLOR] [-o OUTPUT_FILE] [-s SCALE_TO]
+
+optional arguments:
+  -b BACKGROUND_COLOR, --background-color BACKGROUND_COLOR
+                        the color to use for the background as RGBA byte-quadruplet, e.g.: 255,255,255,255
+  -c COLOR, --color COLOR
+                        the color to use for drawing the shapes as RGBA byte-quadruplet, e.g.: 255,0,0,64
+  -o OUTPUT_FILE, --output OUTPUT_FILE
+                        the PNG image to write the generated overlay to
+  -s SCALE_TO, --scale-to SCALE_TO
+                        the dimensions to scale all images to before overlaying them (format: width,height)
 ```
 
 ### TO-BLUE-CHANNEL-IS
@@ -1057,6 +1247,22 @@ optional arguments:
                         the ratios to use for the splits
 ```
 
+### TO-VIDEO-FILE-OD
+Writes frames to a MJPG video file.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: to-video-file-od [-f FPS] [-o OUTPUT_FILE]
+
+optional arguments:
+  -f FPS, --fps FPS     the frames per second to use
+  -o OUTPUT_FILE, --output OUTPUT_FILE
+                        the MJPG video file to write to
+```
+
 ### TO-VOC-OD
 Writes image object-detection annotations in the Pascal VOC XML-format
 
@@ -1144,6 +1350,3 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits
 ```
-
-
-

@@ -46,3 +46,11 @@ Audio
 Image augmentation
 
   * [https://github.com/waikato-ufdl/wai-annotations-imgaug](https://github.com/waikato-ufdl/wai-annotations-imgaug)
+
+Image/label statistics
+
+  * [https://github.com/waikato-ufdl/wai-annotations-imgstats](https://github.com/waikato-ufdl/wai-annotations-imgstats)
+
+Video support
+
+  * [https://github.com/waikato-ufdl/wai-annotations-video](https://github.com/waikato-ufdl/wai-annotations-video)
