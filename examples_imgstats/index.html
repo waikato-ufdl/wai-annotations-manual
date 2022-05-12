@@ -175,11 +175,12 @@
               
                 <h3 id="label-distribution-for-image-classification-dataset">Label distribution for image classification dataset</h3>
 <p>The following generates a label distribution (using percentages)
-for the <a href="">17flowers</a> image classification dataset, saving the 
-result in a JSON file:</p>
+for the <a href="https://datasets.cms.waikato.ac.nz/ufdl/17flowers/">17flowers</a> 
+image classification dataset (<a href="https://datasets.cms.waikato.ac.nz/ufdl/data/image_classification/17flowers/17flowers-subdir.zip">zip</a>), 
+saving the result in a JSON file:</p>
 <pre><code class="language-bash">wai-annotations convert \
   from-subdir-ic \
-    -i &quot;./17flowers-subdir/subdir/**/*.jpg&quot; \
+    -i &quot;./17flowers/subdir/**/*.jpg&quot; \
   label-dist-ic \
     -f json \
     -o ./17flowers-labeldist-ic.json
@@ -206,17 +207,18 @@ result in a JSON file:</p>
 </code></pre>
 <h3 id="label-distribution-for-object-detection-dataset">Label distribution for object detection dataset</h3>
 <p>The following generates a label distribution (using percentages)
-for the <a href="">17flowers</a> object detection dataset, saving the 
-result in a JSON file:</p>
+for the <a href="https://datasets.cms.waikato.ac.nz/ufdl/17flowers/">17flowers</a> object detection dataset 
+(<a href="https://datasets.cms.waikato.ac.nz/ufdl/data/object_detection/17flowers/17flowers-voc.zip">zip</a>), 
+saving the result in a JSON file:</p>
 <pre><code class="language-bash">wai-annotations convert \
   from-voc-od \
-    -i &quot;./17flowers-voc/voc/*.xml&quot; \
+    -i &quot;./17flowers/voc/*.xml&quot; \
   label-dist-od \
     -f json \
     -p \
     -o ./17flowers-labeldist-od.json
 </code></pre>
-<p>The JSON file look similar to this:</p>
+<p>The JSON file will look similar to this:</p>
 <pre><code class="language-json">{
   &quot;Daffodil&quot;: 8.372641509433961,
   &quot;Pansy&quot;: 6.60377358490566,
