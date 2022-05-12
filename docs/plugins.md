@@ -158,6 +158,78 @@ optional arguments:
   --rel-path REL_PATH   the relative path from the annotations file to the audio files
 ```
 
+### FROM-IMAGES-IC
+Dummy reader that turns images into an image classification dataset.
+
+#### Domain(s):
+- **Image Classification Domain**
+
+#### Options:
+```
+usage: from-images-ic [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+```
+
+### FROM-IMAGES-IS
+Dummy reader that turns images into an image segmentation dataset.
+
+#### Domain(s):
+- **Image Segmentation Domain**
+
+#### Options:
+```
+usage: from-images-is [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+```
+
+### FROM-IMAGES-OD
+Dummy reader that turns images into an object detection dataset.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: from-images-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
+```
+
 ### FROM-INDEXED-PNG-IS
 Reads image segmentation files in the indexed-PNG format
 
@@ -214,6 +286,30 @@ optional arguments:
                         specifies the labels for each index
   --image-path-rel PATH
                         Relative path to image files from annotations
+```
+
+### FROM-OPEX-OD
+Reads image object-detection annotations in the OPEX format
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: from-opex-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME] [--seed SEED]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax)
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax)
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax)
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax)
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into
+  --seed SEED           the seed to use for randomisation
 ```
 
 ### FROM-ROI-OD
@@ -426,6 +522,48 @@ optional arguments:
 
 
 ## Processor stage
+### ADD-ANNOTATION-OVERLAY-IC
+Adds the image classification label on top of images passing through.
+
+#### Domain(s):
+- **Image Classification Domain**
+
+#### Options:
+```
+usage: add-annotation-overlay-ic [--background-color BACKGROUND_COLOR] [--background-margin BACKGROUND_MARGIN] [--fill-background] [--font-color FONT_COLOR] [--font-family FONT_FAMILY] [--font-size FONT_SIZE] [--position TEXT_PLACEMENT]
+
+optional arguments:
+  --background-color BACKGROUND_COLOR
+                        the RGB color triplet to use for the background.
+  --background-margin BACKGROUND_MARGIN
+                        the margin in pixels around the background.
+  --fill-background     whether to fill the background of the text with the specified color.
+  --font-color FONT_COLOR
+                        the RGB color triplet to use for the font.
+  --font-family FONT_FAMILY
+                        the name of the TTF font-family to use, note: any hyphens need escaping with backslash.
+  --font-size FONT_SIZE
+                        the size of the font.
+  --position TEXT_PLACEMENT
+                        the position of the label (X,Y).
+```
+
+### ADD-ANNOTATION-OVERLAY-IS
+Adds the image segmentation annotations on top of images passing through.
+
+#### Domain(s):
+- **Image Segmentation Domain**
+
+#### Options:
+```
+usage: add-annotation-overlay-is [--alpha ALPHA] [--colors COLORS] [--labels LABELS]
+
+optional arguments:
+  --alpha ALPHA    the alpha value to use for overlaying the annotations (0: transparent, 255: opaque).
+  --colors COLORS  the blank-separated list of RGB triplets (R,G,B) of custom colors to use, leave empty for default colors
+  --labels LABELS  the comma-separated list of labels of annotations to overlay, leave empty to overlay all
+```
+
 ### ADD-ANNOTATION-OVERLAY-OD
 Adds object detection overlays to images passing through.
 
@@ -434,12 +572,13 @@ Adds object detection overlays to images passing through.
 
 #### Options:
 ```
-usage: add-annotation-overlay-od [--fill] [--fill-alpha FILL_ALPHA] [--font-family FONT_FAMILY] [--font-size FONT_SIZE] [--force-bbox] [--label-key LABEL_KEY] [--labels LABELS] [--num-decimals NUM_DECIMALS] [--outline-alpha OUTLINE_ALPHA] [--outline-thickness OUTLINE_THICKNESS] [--text-format TEXT_FORMAT] [--text-placement TEXT_PLACEMENT] [--vary-colors]
+usage: add-annotation-overlay-od [--colors COLORS] [--fill] [--fill-alpha FILL_ALPHA] [--font-family FONT_FAMILY] [--font-size FONT_SIZE] [--force-bbox] [--label-key LABEL_KEY] [--labels LABELS] [--num-decimals NUM_DECIMALS] [--outline-alpha OUTLINE_ALPHA] [--outline-thickness OUTLINE_THICKNESS] [--text-format TEXT_FORMAT] [--text-placement TEXT_PLACEMENT] [--vary-colors]
 
 optional arguments:
+  --colors COLORS       the blank-separated list of RGB triplets (R,G,B) of custom colors to use, leave empty for default colors
   --fill                whether to fill the bounding boxes/polygons
   --fill-alpha FILL_ALPHA
-                        the alpha value to use for the filling.
+                        the alpha value to use for the filling (0: transparent, 255: opaque).
   --font-family FONT_FAMILY
                         the name of the TTF font-family to use, note: any hyphens need escaping with backslash.
   --font-size FONT_SIZE
@@ -451,7 +590,7 @@ optional arguments:
   --num-decimals NUM_DECIMALS
                         the number of decimals to use for float numbers in the text format string.
   --outline-alpha OUTLINE_ALPHA
-                        the alpha value to use for the outline.
+                        the alpha value to use for the outline (0: transparent, 255: opaque).
   --outline-thickness OUTLINE_THICKNESS
                         the line thickness to use for the outline, <1 to turn off.
   --text-format TEXT_FORMAT
@@ -465,10 +604,10 @@ optional arguments:
 Causes the conversion stream to halt when multiple dataset items have the same filename
 
 #### Domain(s):
-- **Speech Domain**
 - **Image Object-Detection Domain**
-- **Image Segmentation Domain**
+- **Speech Domain**
 - **Image Classification Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -502,8 +641,8 @@ Converts images from one format to another
 
 #### Domain(s):
 - **Image Object-Detection Domain**
-- **Image Segmentation Domain**
 - **Image Classification Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -570,10 +709,10 @@ optional arguments:
 Discards negative examples (those without annotations) from the stream
 
 #### Domain(s):
-- **Speech Domain**
 - **Image Object-Detection Domain**
-- **Image Segmentation Domain**
+- **Speech Domain**
 - **Image Classification Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -585,8 +724,8 @@ Drops frames from the stream.
 
 #### Domain(s):
 - **Image Object-Detection Domain**
-- **Image Segmentation Domain**
 - **Image Classification Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -770,10 +909,10 @@ optional arguments:
 Dummy ISP which has no effect on the conversion stream
 
 #### Domain(s):
-- **Speech Domain**
 - **Image Object-Detection Domain**
-- **Image Segmentation Domain**
+- **Speech Domain**
 - **Image Classification Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -798,12 +937,101 @@ optional arguments:
   --verbose             outputs information when discarding annotations
 ```
 
+### REDIS-PREDICT-IC
+Makes image classification predictions via Redis backend, passing in an image and receiving JSON predictions back (at least one of 'label: probability').
+Predictions example:
+{"dog": 0.9, "cat": 0.1}
+
+#### Domain(s):
+- **Image Classification Domain**
+
+#### Options:
+```
+usage: redis-predict-ic [--channel-in CHANNEL_IN] [--channel-out CHANNEL_OUT] [-d REDIS_DB] [-h REDIS_HOST] [-p REDIS_PORT] [-t TIMEOUT] [-v]
+
+optional arguments:
+  --channel-in CHANNEL_IN
+                        the Redis channel on which to receive predictions.
+  --channel-out CHANNEL_OUT
+                        the Redis channel to send the images out
+  -d REDIS_DB, --redis-db REDIS_DB
+                        the database to use
+  -h REDIS_HOST, --redis-host REDIS_HOST
+                        the Redis server to connect to
+  -p REDIS_PORT, --redis-port REDIS_PORT
+                        the port the Redis server is running on
+  -t TIMEOUT, --timeout TIMEOUT
+                        the timeout in seconds to wait for a prediction to arrive
+  -v, --verbose         whether to output debugging information.
+```
+
+### REDIS-PREDICT-IS
+Makes image segmentation predictions via Redis backend, passing in an image and receiving an image with predicted segmentations.
+
+#### Domain(s):
+- **Image Segmentation Domain**
+
+#### Options:
+```
+usage: redis-predict-is [--channel-in CHANNEL_IN] [--channel-out CHANNEL_OUT] [--image-format IMAGE_FORMAT] --labels LABEL [LABEL ...] [-d REDIS_DB] [-h REDIS_HOST] [-p REDIS_PORT] [-t TIMEOUT] [-v]
+
+optional arguments:
+  --channel-in CHANNEL_IN
+                        the Redis channel on which to receive predictions.
+  --channel-out CHANNEL_OUT
+                        the Redis channel to send the images out
+  --image-format IMAGE_FORMAT
+                        the format of the image that comes back as prediction: indexedpng,bluechannel
+  --labels LABEL [LABEL ...]
+                        specifies the labels for each index
+  -d REDIS_DB, --redis-db REDIS_DB
+                        the database to use
+  -h REDIS_HOST, --redis-host REDIS_HOST
+                        the Redis server to connect to
+  -p REDIS_PORT, --redis-port REDIS_PORT
+                        the port the Redis server is running on
+  -t TIMEOUT, --timeout TIMEOUT
+                        the timeout in seconds to wait for a prediction to arrive
+  -v, --verbose         whether to output debugging information.
+```
+
+### REDIS-PREDICT-OD
+Makes object detection predictions via Redis backend, passing in an image and receiving OPEX predictions back:
+https://github.com/WaikatoLink2020/objdet-predictions-exchange-format
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: redis-predict-od [--channel-in CHANNEL_IN] [--channel-out CHANNEL_OUT] [--key-label KEY_LABEL] [--key-score KEY_SCORE] [-d REDIS_DB] [-h REDIS_HOST] [-p REDIS_PORT] [-t TIMEOUT] [-v]
+
+optional arguments:
+  --channel-in CHANNEL_IN
+                        the Redis channel on which to receive predictions.
+  --channel-out CHANNEL_OUT
+                        the Redis channel to send the images out
+  --key-label KEY_LABEL
+                        the meta-data key in the annotations to use for storing the label.
+  --key-score KEY_SCORE
+                        the meta-data key in the annotations to use for storing the prediction score.
+  -d REDIS_DB, --redis-db REDIS_DB
+                        the database to use
+  -h REDIS_HOST, --redis-host REDIS_HOST
+                        the Redis server to connect to
+  -p REDIS_PORT, --redis-port REDIS_PORT
+                        the port the Redis server is running on
+  -t TIMEOUT, --timeout TIMEOUT
+                        the timeout in seconds to wait for a prediction to arrive
+  -v, --verbose         whether to output debugging information.
+```
+
 ### REMOVE-CLASSES
 Removes classes from classification/image-segmentation instances
 
 #### Domain(s):
-- **Image Segmentation Domain**
 - **Image Classification Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -875,8 +1103,8 @@ Skips frames in the stream that are deemed too similar.
 
 #### Domain(s):
 - **Image Object-Detection Domain**
-- **Image Segmentation Domain**
 - **Image Classification Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -896,10 +1124,10 @@ optional arguments:
 ISP which removes annotations from instances
 
 #### Domain(s):
-- **Speech Domain**
 - **Image Object-Detection Domain**
-- **Image Segmentation Domain**
+- **Speech Domain**
 - **Image Classification Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -932,6 +1160,57 @@ optional arguments:
   -f OUTPUT_FORMAT, --output-format OUTPUT_FORMAT
                         how to output the statistics (text/csv/json)
   -v, --verbose         whether to output some debugging output.
+```
+
+### IMAGE-VIEWER-IC
+Displays image classification images.
+
+#### Domain(s):
+- **Image Classification Domain**
+
+#### Options:
+```
+usage: image-viewer-ic [--delay DELAY] [--position POSITION] [--size SIZE] [--title TITLE]
+
+optional arguments:
+  --delay DELAY        the delay in milli-seconds between images, use 0 to wait for keypress, ignored if <0
+  --position POSITION  the position of the window on screen (X,Y)
+  --size SIZE          the maximum size for the image: WIDTH,HEIGHT
+  --title TITLE        the title for the window
+```
+
+### IMAGE-VIEWER-IS
+Displays image segmentation images.
+
+#### Domain(s):
+- **Image Segmentation Domain**
+
+#### Options:
+```
+usage: image-viewer-is [--delay DELAY] [--position POSITION] [--size SIZE] [--title TITLE]
+
+optional arguments:
+  --delay DELAY        the delay in milli-seconds between images, use 0 to wait for keypress, ignored if <0
+  --position POSITION  the position of the window on screen (X,Y)
+  --size SIZE          the maximum size for the image: WIDTH,HEIGHT
+  --title TITLE        the title for the window
+```
+
+### IMAGE-VIEWER-OD
+Displays object detection images.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: image-viewer-od [--delay DELAY] [--position POSITION] [--size SIZE] [--title TITLE]
+
+optional arguments:
+  --delay DELAY        the delay in milli-seconds between images, use 0 to wait for keypress, ignored if <0
+  --position POSITION  the position of the window on screen (X,Y)
+  --size SIZE          the maximum size for the image: WIDTH,HEIGHT
+  --title TITLE        the title for the window
 ```
 
 ### LABEL-DIST-IC
@@ -1145,6 +1424,51 @@ optional arguments:
                         the ratios to use for the splits
 ```
 
+### TO-IMAGES-IC
+Dummy writer that just outputs images from image classification datasets.
+
+#### Domain(s):
+- **Image Classification Domain**
+
+#### Options:
+```
+usage: to-images-ic [-o OUTPUT_DIR]
+
+optional arguments:
+  -o OUTPUT_DIR, --output-dir OUTPUT_DIR
+                        the directory to write the images to
+```
+
+### TO-IMAGES-IS
+Dummy writer that just outputs images from image segmentation datasets.
+
+#### Domain(s):
+- **Image Segmentation Domain**
+
+#### Options:
+```
+usage: to-images-is [-o OUTPUT_DIR]
+
+optional arguments:
+  -o OUTPUT_DIR, --output-dir OUTPUT_DIR
+                        the directory to write the images to
+```
+
+### TO-IMAGES-OD
+Dummy writer that just outputs images from object detection datasets.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: to-images-od [-o OUTPUT_DIR]
+
+optional arguments:
+  -o OUTPUT_DIR, --output-dir OUTPUT_DIR
+                        the directory to write the images to
+```
+
 ### TO-INDEXED-PNG-IS
 Writes image segmentation files in the indexed-PNG format
 
@@ -1181,6 +1505,30 @@ optional arguments:
                         the separator between the base filename and the label
   -o PATH, --output PATH
                         the directory to write the annotation images to
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits
+```
+
+### TO-OPEX-OD
+Writes image object-detection annotations in the OPEX format
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: to-opex-od [-c PATH] [-l PATH] [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  -c PATH, --labels-csv PATH
+                        Path to the labels CSV file to write
+  -l PATH, --labels PATH
+                        Path to the labels file to write
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+  -o PATH, --output PATH
+                        output directory to write images and annotations to
   --split-names SPLIT NAME [SPLIT NAME ...]
                         the names to use for the splits
   --split-ratios RATIO [RATIO ...]
