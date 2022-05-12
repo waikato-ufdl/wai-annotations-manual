@@ -117,6 +117,9 @@
         </ul>
     
 
+    <li class="toctree-l2"><a href="#redis">Redis</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -198,11 +201,16 @@ to make use of graphical interfaces, like displaying images, then you need to do
 <pre><code class="language-bash">xhost +local:root
 </code></pre>
 <p>Add the following arguments to your <code>docker run</code> command:</p>
-<pre><code class="language-bash">--privileged --env=&quot;DISPLAY&quot; --volume=&quot;/tmp/.X11-unix:/tmp/.X11-unix:rw&quot;
+<pre><code class="language-bash">--env=&quot;DISPLAY&quot; --volume=&quot;/tmp/.X11-unix:/tmp/.X11-unix:rw&quot;
 </code></pre>
 <h4 id="other-platforms">Other platforms</h4>
 <p>Please refer to <a href="https://moa.cms.waikato.ac.nz/how-to-use-moa-in-docker/">this MOA blog post</a>
 on how to run graphical user interfaces from within Docker for other platforms.</p>
+<h3 id="redis">Redis</h3>
+<p>If you want to access a Redis instance outside of the container, then add the following to
+your <code>docker run</code> command:</p>
+<pre><code class="language-bash">--net=host
+</code></pre>
               
             </div>
           </div>
