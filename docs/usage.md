@@ -28,4 +28,4 @@ wai-annotations domains
 The `-h/--help` option can be given at any point in a command-string to provide the options available at
 that point in the command.
 
-Examples of how to run wai-annotations can be found [here](examples.md).
+Examples of how to run wai-annotations can be found [here](examples_overview.md).

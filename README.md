@@ -24,7 +24,7 @@ Best approach is to install mkdocs (>= 0.16.0) in a virtual environment
 * Install the mkdocs package
 
   ```
-  ./venv/bin/pip install mkdocs==1.0.4
+  ./venv/bin/pip install mkdocs==1.0.4 jinja2==3.0.0
   ```
 
 
