@@ -32,10 +32,19 @@ xhost +local:root
 Add the following arguments to your `docker run` command:
 
 ```bash
---privileged --env="DISPLAY" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw"
+--env="DISPLAY" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw"
 ```
 
 ## Other platforms
 
 Please refer to [this MOA blog post](https://moa.cms.waikato.ac.nz/how-to-use-moa-in-docker/)
 on how to run graphical user interfaces from within Docker for other platforms.
+
+# Redis
+
+If you want to access a Redis instance outside of the container, then add the following to
+your `docker run` command:
+
+```bash
+--net=host
+```
