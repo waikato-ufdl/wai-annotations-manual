@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Installation - wai-annotations manual</title>
+  <title>Image dataset visualizations - wai-annotations manual</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Installation";
-    var mkdocs_page_input_path = "install.md";
-    var mkdocs_page_url = "/wai-annotations-manual/install/";
+    var mkdocs_page_name = "Image dataset visualizations";
+    var mkdocs_page_input_path = "examples_imgvis.md";
+    var mkdocs_page_url = "/wai-annotations-manual/examples_imgvis/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -53,18 +53,9 @@
     <a class="" href="..">Home</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Installation</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#installation-of-wai-annotations">Installation of wai-annotations</a></li>
-    
-
-    <li class="toctree-l2"><a href="#available-plugins">Available plugins</a></li>
-    
-
-    </ul>
+    <a class="" href="../install/">Installation</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -92,9 +83,18 @@
                     
     <a class="" href="../examples_imgstats/">Image dataset statistics</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../examples_imgvis/">Image dataset visualizations</a>
+    <a class="current" href="./">Image dataset visualizations</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#combine-annotations-in-single-image">Combine annotations in single image</a></li>
+    
+
+    <li class="toctree-l3"><a href="#overlay-annotations-and-display-them">Overlay annotations and display them</a></li>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -158,8 +158,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Examples &raquo;</li>
+        
+      
     
-    <li>Installation</li>
+    <li>Image dataset visualizations</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -169,54 +173,45 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="installation-of-wai-annotations">Installation of wai-annotations</h3>
-<p>To install wai-annotations issue the following commands using pip:</p>
-<pre><code class="language-commandline">pip install wai.annotations.core
+                <h3 id="combine-annotations-in-single-image">Combine annotations in single image</h3>
+<p>In order to determine whether a model does not have a bias regarding 
+to the location of annotations when training, the <code>to-annotation-overlay-od</code> 
+plugin can generate a single image that shows the outlines of all the annotations 
+(bbox or polygon). If images have different sizes (e.g., from different 
+data collection batches), scaling the images and annotations to a specific 
+size, like the one a model uses internally is, recommended. The following
+example overlays all the bboxes from the <a href="">17flowers</a> 
+object detection dataset on a single image of 640x480 pixels:</p>
+<pre><code class="language-bash">wai-annotations convert \
+  from-voc-od \
+    -i &quot;./17flowers-voc/voc/*.xml&quot; \
+  to-annotation-overlay-od \
+    -c 255,0,0,32 \
+    -s 640,480 \
+    -o ./to-annotation-overlay-od.png
 </code></pre>
-<p><code>wai.annotations.core</code> does not come with any input/output formats installed. You will need to install a plugin for each
-format that you want to convert between. For a description of the plugin system, see the <a href="../plugin/">plugin guide</a>.</p>
-<p>For installing all available plugins, use this command:</p>
-<pre><code class="language-commandline">pip install wai.annotations
+<p><img alt="Combined annotations" src="../img/to-annotation-overlay-od.png" /></p>
+<h3 id="overlay-annotations-and-display-them">Overlay annotations and display them</h3>
+<p>The following loads an object detection dataset, overlays the 
+annotations and displays them in a window:</p>
+<pre><code class="language-bash">wai-annotations convert \
+  from-voc-od \
+    -i &quot;./17flowers-voc/voc/*.xml&quot; \
+  add-annotation-overlay-od \
+    --vary-colors \
+    --outline-alpha 255 \
+    --outline-thickness 3 \
+    --fill \
+    --fill-alpha 128 \
+    --font-size 24 \
+    --text-placement T,L \
+    --force-bbox \
+  image-viewer-od \
+    --size 1024,768 \
+    --position 300,150 \
+    --delay 200    
 </code></pre>
-<h3 id="available-plugins">Available plugins</h3>
-<p>Image classification</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-adams">https://github.com/waikato-ufdl/wai-annotations-adams</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-subdir">https://github.com/waikato-ufdl/wai-annotations-subdir</a></li>
-</ul>
-<p>Object detection</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-adams">https://github.com/waikato-ufdl/wai-annotations-adams</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-coco">https://github.com/waikato-ufdl/wai-annotations-coco</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-roi">https://github.com/waikato-ufdl/wai-annotations-roi</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-tf">https://github.com/waikato-ufdl/wai-annotations-tf</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-vgg">https://github.com/waikato-ufdl/wai-annotations-vgg</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-voc">https://github.com/waikato-ufdl/wai-annotations-voc</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-yolo">https://github.com/waikato-ufdl/wai-annotations-yolo</a></li>
-</ul>
-<p>Image segmentation</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-bluechannel">https://github.com/waikato-ufdl/wai-annotations-bluechannel</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-indexedpng">https://github.com/waikato-ufdl/wai-annotations-indexedpng</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-layersegments">https://github.com/waikato-ufdl/wai-annotations-layersegments</a></li>
-</ul>
-<p>Audio</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-commonvoice">https://github.com/waikato-ufdl/wai-annotations-commonvoice</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-festvox">https://github.com/waikato-ufdl/wai-annotations-festvox</a></li>
-</ul>
-<p>Image augmentation</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-imgaug">https://github.com/waikato-ufdl/wai-annotations-imgaug</a></li>
-</ul>
-<p>Image/label statistics</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-imgstats">https://github.com/waikato-ufdl/wai-annotations-imgstats</a></li>
-</ul>
-<p>Video support</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-video">https://github.com/waikato-ufdl/wai-annotations-video</a></li>
-</ul>
+<p><img alt="Object detection overlay" src="../img/add-annotation-overlay-od.png" /></p>
               
             </div>
           </div>
@@ -224,10 +219,10 @@ format that you want to convert between. For a description of the plugin system,
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../usage/" class="btn btn-neutral float-right" title="Usage">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../examples_video/" class="btn btn-neutral float-right" title="Video handling">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../examples_imgstats/" class="btn btn-neutral" title="Image dataset statistics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -253,10 +248,10 @@ format that you want to convert between. For a description of the plugin system,
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../examples_imgstats/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../usage/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../examples_video/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

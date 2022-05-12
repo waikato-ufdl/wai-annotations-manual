@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Examples - wai-annotations manual</title>
+  <title>Format conversions - wai-annotations manual</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Examples";
-    var mkdocs_page_input_path = "examples.md";
-    var mkdocs_page_url = "/wai-annotations-manual/examples/";
+    var mkdocs_page_name = "Format conversions";
+    var mkdocs_page_input_path = "examples_formats.md";
+    var mkdocs_page_url = "/wai-annotations-manual/examples_formats/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -63,23 +63,67 @@
     <a class="" href="../usage/">Usage</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Examples</a>
+    <span class="caption-text">Examples</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../examples_overview/">Overview</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Format conversions</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#examples">Examples</a></li>
+    <li class="toctree-l3"><a href="#adams-to-ms-coco">ADAMS to MS-COCO</a></li>
     
-        <ul>
-        
-            <li><a class="toctree-l3" href="#format-conversions">Format conversions</a></li>
-        
-            <li><a class="toctree-l3" href="#image-augmentation">Image augmentation</a></li>
-        
-        </ul>
+
+    <li class="toctree-l3"><a href="#monolithic-tensorflow-records-to-sharded-ones">Monolithic Tensorflow records to sharded ones</a></li>
+    
+
+    <li class="toctree-l3"><a href="#adams-to-tensorflow-records-masks">ADAMS to Tensorflow records (masks)</a></li>
+    
+
+    <li class="toctree-l3"><a href="#adams-individual-layer-image-segmentation-to-blue-channel-jpgs">ADAMS individual layer image segmentation to blue channel JPGs</a></li>
+    
+
+    <li class="toctree-l3"><a href="#voc-to-ms-coco">VOC to MS-COCO</a></li>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../examples_imgaug/">Image dataset augmentation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../examples_imgstats/">Image dataset statistics</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../examples_imgvis/">Image dataset visualizations</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../examples_video/">Video handling</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../examples_redis_predictions/">Predictions via Redis</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../docker/">Docker</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../architecture_overview/">Architecture overview</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -123,8 +167,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Examples &raquo;</li>
+        
+      
     
-    <li>Examples</li>
+    <li>Format conversions</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -134,54 +182,61 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="examples">Examples</h3>
-<p><strong>Tip:</strong> While building a conversion pipeline command, open a separate terminal to quickly output the available plugins (<code>wai-annotations plugins</code>) and the help for a specific plugin (<code>wai-annotations plugins -o PLUGINNAME</code>).</p>
-<p><strong>NB:</strong> In the examples below, <code>input</code> and <code>output</code> represent directories, which you will have to adapt.</p>
-<h4 id="format-conversions">Format conversions</h4>
-<h5 id="adams-to-ms-coco">ADAMS to MS-COCO</h5>
+                <h3 id="adams-to-ms-coco">ADAMS to MS-COCO</h3>
 <p>Also adds additional logging information and removes annotations smaller than 5 pixels in either dimension.</p>
-<pre><code>wai-annotations convert -v \
-    from-adams-od -i input \
-    dimension-discarder --min-width 5 --min-height 5 \
-    to-coco-od -o output/annotations.json --license-name &quot;my license&quot; --no-images
+<pre><code class="language-bash">wai-annotations convert -v \
+    from-adams-od \
+      -i input \
+    dimension-discarder \
+      --min-width 5 \
+      --min-height 5 \
+    to-coco-od \
+      -o output/annotations.json \
+      --license-name &quot;my license&quot; \
+      --no-images
 </code></pre>
-<h5 id="monolithic-tensorflow-records-to-sharded-ones">Monolithic Tensorflow records to sharded ones</h5>
+<h3 id="monolithic-tensorflow-records-to-sharded-ones">Monolithic Tensorflow records to sharded ones</h3>
 <p>Here we are converting a monolithic TFRecords file into a sharded one (<code>-s 5</code> - five shards) and only using a subset of labels (<code>-l label2,label4,label6</code>):</p>
-<pre><code>wai-annotations convert \
-    from-tfrecords-od -i input/objects.records \
-    filter-labels -l label2,label4,label6 \
-    to-tfrecords-od -o output/subset.records -s 5 -p labels.pbtxt
+<pre><code class="language-bash">wai-annotations convert \
+    from-tfrecords-od \
+      -i input/objects.records \
+    filter-labels \
+      -l label2,label4,label6 \
+    to-tf-od \
+      -o output/subset.records \
+      -s 5 \
+      -p labels.pbtxt
 </code></pre>
-<h5 id="adams-to-tensorflow-records-masks">ADAMS to Tensorflow records (masks)</h5>
+<h3 id="adams-to-tensorflow-records-masks">ADAMS to Tensorflow records (masks)</h3>
 <p>The ADAMS input directory contains sub-directories, so we use the <code>"input/**/*.report"</code> <a href="https://docs.python.org/3/library/glob.html">glob syntax</a> to find all <code>.report</code> files recursively. The data gets split into train/test with a 80/20 ratio. Supplying split names will automatically insert these names into the output file, i.e., <code>output/data.tfrecords</code> will get turned into <code>output/train/data.tfrecords</code> and <code>output/test/data.tfrecords</code>. No path gets supplied to the file containing the labels (<code>labels.txt</code>), it will get placed into the correct output directory automatically:</p>
-<pre><code>wai-annotations convert \
-    from-adams-od -i &quot;input/**/*.report&quot; \
+<pre><code class="language-bash">wai-annotations convert \
+    from-adams-od \
+      -i &quot;input/**/*.report&quot; \
     coerce-mask \
-    to-tf-od -o output/data.tfrecords -p labels.txt --split-names train test --split-ratios 80 20
+    to-tf-od \
+      -o output/data.tfrecords \
+      -p labels.txt \
+      --split-names train test \
+      --split-ratios 80 20
 </code></pre>
-<h5 id="adams-individual-layer-image-segmentation-to-blue-channel-jpgs">ADAMS individual layer image segmentation to blue channel JPGs</h5>
+<h3 id="adams-individual-layer-image-segmentation-to-blue-channel-jpgs">ADAMS individual layer image segmentation to blue channel JPGs</h3>
 <p>ADAMS supports the <em>individual layers</em> format for image segmentation format, where for each JPG image a PNG with the same file name plus the label suffix is present (e.g.g: 1.jpg -&gt; 1-car.png and 1-person.png). In this case, we only want to include the <code>car</code> annotations in the output. The output gets split into train/val with a ratio of 80/20:</p>
-<pre><code>wai-annotations convert \
-    from-layer-segments-is -i &quot;input/**/*.png&quot; --labels car \
-    to-indexed-png-is -o output --split-names train val --split-ratios 80 20
+<pre><code class="language-bash">wai-annotations convert \
+    from-layer-segments-is \
+      -i &quot;input/**/*.png&quot; \
+      --labels car \
+    to-indexed-png-is \
+      -o output \
+      --split-names train val \
+      --split-ratios 80 20
 </code></pre>
-<h4 id="image-augmentation">Image augmentation</h4>
-<p>The following command-line loads ADAMS annotations and saves augmented MSCOCO ones.
-The pipeline adds augmented images (<code>-m add</code>) that are cropped, flipped, blurred,
-rotated and scaled. Each inline stream processor changes randomly about 10% of the
-images (<code>-T 0.9</code> - if a random number between 0 and 1 is at least the threshold
-provided with the <code>-T</code> parameter then the augmentation occurs). Since each 
-augmentation has its own stochastic element, it is being seeded (<code>-a</code>) to generate 
-reproducible datasets:</p>
-<pre><code>wai-annotations convert \
-    from-adams-od -i &quot;input/**/*.report&quot; \
-    crop -a -m add -T 0.9 -f 0.0 -t 0.1 \            # crop 0-10% of the image
-    flip -a -m add -T 0.9 -d lr \                    # flip left-to-right
-    gaussian-blur -a -m add -T 0.9 -f 0.2 -t 0.5 \   # sigma from 0.2-0.5
-    rotate -a -m add -T 0.9 -f=-10 -t=10 \           # rotate from -10 to +10 degrees
-    scale -a -m add -T 0.9 -f 0.8 -t 1.2 -k -u \     # scale from 80 to 120%, keeping aspect ratio, resizing the image
-    to-coco-od -o output/annotations.json
-
+<h3 id="voc-to-ms-coco">VOC to MS-COCO</h3>
+<p>Annotations in VOC format can be converted into MS-COCO ones as follows:</p>
+<pre><code class="language-bash">wai-annotations convert \
+    from-adams-od \
+      -i &quot;input/**/*.xml&quot; \
+    to-coco-od \
+      -o output/annotations.json
 </code></pre>
               
             </div>
@@ -190,10 +245,10 @@ reproducible datasets:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../plugin/" class="btn btn-neutral float-right" title="Plugin guide">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../examples_imgaug/" class="btn btn-neutral float-right" title="Image dataset augmentation">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../usage/" class="btn btn-neutral" title="Usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../examples_overview/" class="btn btn-neutral" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -219,10 +274,10 @@ reproducible datasets:</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../usage/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../examples_overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../plugin/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../examples_imgaug/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

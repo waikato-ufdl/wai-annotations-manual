@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Installation - wai-annotations manual</title>
+  <title>Image dataset statistics - wai-annotations manual</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Installation";
-    var mkdocs_page_input_path = "install.md";
-    var mkdocs_page_url = "/wai-annotations-manual/install/";
+    var mkdocs_page_name = "Image dataset statistics";
+    var mkdocs_page_input_path = "examples_imgstats.md";
+    var mkdocs_page_url = "/wai-annotations-manual/examples_imgstats/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -53,18 +53,9 @@
     <a class="" href="..">Home</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Installation</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#installation-of-wai-annotations">Installation of wai-annotations</a></li>
-    
-
-    <li class="toctree-l2"><a href="#available-plugins">Available plugins</a></li>
-    
-
-    </ul>
+    <a class="" href="../install/">Installation</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -88,9 +79,18 @@
                     
     <a class="" href="../examples_imgaug/">Image dataset augmentation</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../examples_imgstats/">Image dataset statistics</a>
+    <a class="current" href="./">Image dataset statistics</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#label-distribution-for-image-classification-dataset">Label distribution for image classification dataset</a></li>
+    
+
+    <li class="toctree-l3"><a href="#label-distribution-for-object-detection-dataset">Label distribution for object detection dataset</a></li>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -158,8 +158,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Examples &raquo;</li>
+        
+      
     
-    <li>Installation</li>
+    <li>Image dataset statistics</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -169,54 +173,69 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="installation-of-wai-annotations">Installation of wai-annotations</h3>
-<p>To install wai-annotations issue the following commands using pip:</p>
-<pre><code class="language-commandline">pip install wai.annotations.core
+                <h3 id="label-distribution-for-image-classification-dataset">Label distribution for image classification dataset</h3>
+<p>The following generates a label distribution (using percentages)
+for the <a href="">17flowers</a> image classification dataset, saving the 
+result in a JSON file:</p>
+<pre><code class="language-bash">wai-annotations convert \
+  from-subdir-ic \
+    -i &quot;./17flowers-subdir/subdir/**/*.jpg&quot; \
+  label-dist-ic \
+    -f json \
+    -o ./17flowers-labeldist-ic.json
 </code></pre>
-<p><code>wai.annotations.core</code> does not come with any input/output formats installed. You will need to install a plugin for each
-format that you want to convert between. For a description of the plugin system, see the <a href="../plugin/">plugin guide</a>.</p>
-<p>For installing all available plugins, use this command:</p>
-<pre><code class="language-commandline">pip install wai.annotations
+<p>The JSON file will look something like this:</p>
+<pre><code class="language-json">{
+  &quot;Windflower&quot;: 63,
+  &quot;Fritillary&quot;: 65,
+  &quot;Tigerlily&quot;: 50,
+  &quot;Tulip&quot;: 41,
+  &quot;Daffodil&quot;: 71,
+  &quot;Crocus&quot;: 50,
+  &quot;Sunflower&quot;: 71,
+  &quot;Buttercup&quot;: 54,
+  &quot;Daisy&quot;: 57,
+  &quot;Bluebell&quot;: 28,
+  &quot;Snowdrop&quot;: 50,
+  &quot;Dandelion&quot;: 43,
+  &quot;ColtsFoot&quot;: 55,
+  &quot;Iris&quot;: 77,
+  &quot;Pansy&quot;: 56,
+  &quot;LilyValley&quot;: 17
+}
 </code></pre>
-<h3 id="available-plugins">Available plugins</h3>
-<p>Image classification</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-adams">https://github.com/waikato-ufdl/wai-annotations-adams</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-subdir">https://github.com/waikato-ufdl/wai-annotations-subdir</a></li>
-</ul>
-<p>Object detection</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-adams">https://github.com/waikato-ufdl/wai-annotations-adams</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-coco">https://github.com/waikato-ufdl/wai-annotations-coco</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-roi">https://github.com/waikato-ufdl/wai-annotations-roi</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-tf">https://github.com/waikato-ufdl/wai-annotations-tf</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-vgg">https://github.com/waikato-ufdl/wai-annotations-vgg</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-voc">https://github.com/waikato-ufdl/wai-annotations-voc</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-yolo">https://github.com/waikato-ufdl/wai-annotations-yolo</a></li>
-</ul>
-<p>Image segmentation</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-bluechannel">https://github.com/waikato-ufdl/wai-annotations-bluechannel</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-indexedpng">https://github.com/waikato-ufdl/wai-annotations-indexedpng</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-layersegments">https://github.com/waikato-ufdl/wai-annotations-layersegments</a></li>
-</ul>
-<p>Audio</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-commonvoice">https://github.com/waikato-ufdl/wai-annotations-commonvoice</a></li>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-festvox">https://github.com/waikato-ufdl/wai-annotations-festvox</a></li>
-</ul>
-<p>Image augmentation</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-imgaug">https://github.com/waikato-ufdl/wai-annotations-imgaug</a></li>
-</ul>
-<p>Image/label statistics</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-imgstats">https://github.com/waikato-ufdl/wai-annotations-imgstats</a></li>
-</ul>
-<p>Video support</p>
-<ul>
-<li><a href="https://github.com/waikato-ufdl/wai-annotations-video">https://github.com/waikato-ufdl/wai-annotations-video</a></li>
-</ul>
+<h3 id="label-distribution-for-object-detection-dataset">Label distribution for object detection dataset</h3>
+<p>The following generates a label distribution (using percentages)
+for the <a href="">17flowers</a> object detection dataset, saving the 
+result in a JSON file:</p>
+<pre><code class="language-bash">wai-annotations convert \
+  from-voc-od \
+    -i &quot;./17flowers-voc/voc/*.xml&quot; \
+  label-dist-od \
+    -f json \
+    -p \
+    -o ./17flowers-labeldist-od.json
+</code></pre>
+<p>The JSON file look similar to this:</p>
+<pre><code class="language-json">{
+  &quot;Daffodil&quot;: 8.372641509433961,
+  &quot;Pansy&quot;: 6.60377358490566,
+  &quot;Buttercup&quot;: 6.367924528301887,
+  &quot;Tigerlily&quot;: 5.89622641509434,
+  &quot;Daisy&quot;: 6.721698113207547,
+  &quot;Bluebell&quot;: 3.30188679245283,
+  &quot;Tulip&quot;: 4.834905660377359,
+  &quot;Iris&quot;: 9.080188679245282,
+  &quot;Fritillary&quot;: 7.665094339622641,
+  &quot;Dandelion&quot;: 5.070754716981132,
+  &quot;ColtsFoot&quot;: 6.485849056603773,
+  &quot;Crocus&quot;: 5.89622641509434,
+  &quot;Sunflower&quot;: 8.372641509433961,
+  &quot;Snowdrop&quot;: 5.89622641509434,
+  &quot;Windflower&quot;: 7.429245283018868,
+  &quot;LilyValley&quot;: 2.0047169811320753
+}
+</code></pre>
               
             </div>
           </div>
@@ -224,10 +243,10 @@ format that you want to convert between. For a description of the plugin system,
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../usage/" class="btn btn-neutral float-right" title="Usage">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../examples_imgvis/" class="btn btn-neutral float-right" title="Image dataset visualizations">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../examples_imgaug/" class="btn btn-neutral" title="Image dataset augmentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -253,10 +272,10 @@ format that you want to convert between. For a description of the plugin system,
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../examples_imgaug/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../usage/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../examples_imgvis/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
