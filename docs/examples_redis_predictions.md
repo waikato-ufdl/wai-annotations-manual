@@ -16,14 +16,14 @@ The following Docker images are available for connecting to the prediction plugi
 
 * Image classification
 
-  * [PyTorch](https://github.com/waikato-datamining/pytorch/tree/master/image-classification)
-  * [Tensorflow](https://github.com/waikato-datamining/tensorflow/tree/master/image_classification)
+    * [PyTorch](https://github.com/waikato-datamining/pytorch/tree/master/image-classification)
+    * [Tensorflow](https://github.com/waikato-datamining/tensorflow/tree/master/image_classification)
 
 * Object detection
 
-  * [Detectron2](https://github.com/waikato-datamining/pytorch/tree/master/detectron2)  
-  * [Yolov5](https://github.com/waikato-datamining/pytorch/tree/master/yolov5)
+    * [Detectron2](https://github.com/waikato-datamining/pytorch/tree/master/detectron2)  
+    * [Yolov5](https://github.com/waikato-datamining/pytorch/tree/master/yolov5)
     
 * Image segmentation
 
-  * [Image segmentation Keras](https://github.com/waikato-datamining/tensorflow/tree/master/image-segmentation-keras)
+    * [Image segmentation Keras](https://github.com/waikato-datamining/tensorflow/tree/master/image-segmentation-keras)
