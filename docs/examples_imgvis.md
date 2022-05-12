@@ -6,13 +6,13 @@ plugin can generate a single image that shows the outlines of all the annotation
 (bbox or polygon). If images have different sizes (e.g., from different 
 data collection batches), scaling the images and annotations to a specific 
 size, like the one a model uses internally is, recommended. The following
-example overlays all the bboxes from the [17flowers]() 
-object detection dataset on a single image of 640x480 pixels:
+example overlays all the bboxes from the [17flowers](https://datasets.cms.waikato.ac.nz/ufdl/17flowers/) 
+object detection dataset ([zip](https://datasets.cms.waikato.ac.nz/ufdl/data/object_detection/17flowers/17flowers-voc.zip)) on a single image of 640x480 pixels:
 
 ```bash
 wai-annotations convert \
   from-voc-od \
-    -i "./17flowers-voc/voc/*.xml" \
+    -i "./17flowers/voc/*.xml" \
   to-annotation-overlay-od \
     -c 255,0,0,32 \
     -s 640,480 \
@@ -30,7 +30,7 @@ annotations and displays them in a window:
 ```bash
 wai-annotations convert \
   from-voc-od \
-    -i "./17flowers-voc/voc/*.xml" \
+    -i "./17flowers/voc/*.xml" \
   add-annotation-overlay-od \
     --vary-colors \
     --outline-alpha 255 \

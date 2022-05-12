@@ -1,13 +1,14 @@
 # Label distribution for image classification dataset
 
 The following generates a label distribution (using percentages)
-for the [17flowers]() image classification dataset, saving the 
-result in a JSON file:
+for the [17flowers](https://datasets.cms.waikato.ac.nz/ufdl/17flowers/) 
+image classification dataset ([zip](https://datasets.cms.waikato.ac.nz/ufdl/data/image_classification/17flowers/17flowers-subdir.zip)), 
+saving the result in a JSON file:
 
 ```bash
 wai-annotations convert \
   from-subdir-ic \
-    -i "./17flowers-subdir/subdir/**/*.jpg" \
+    -i "./17flowers/subdir/**/*.jpg" \
   label-dist-ic \
     -f json \
     -o ./17flowers-labeldist-ic.json
@@ -39,20 +40,21 @@ The JSON file will look something like this:
 # Label distribution for object detection dataset
 
 The following generates a label distribution (using percentages)
-for the [17flowers]() object detection dataset, saving the 
-result in a JSON file:
+for the [17flowers](https://datasets.cms.waikato.ac.nz/ufdl/17flowers/) object detection dataset 
+([zip](https://datasets.cms.waikato.ac.nz/ufdl/data/object_detection/17flowers/17flowers-voc.zip)), 
+saving the result in a JSON file:
 
 ```bash
 wai-annotations convert \
   from-voc-od \
-    -i "./17flowers-voc/voc/*.xml" \
+    -i "./17flowers/voc/*.xml" \
   label-dist-od \
     -f json \
     -p \
     -o ./17flowers-labeldist-od.json
 ```
 
-The JSON file look similar to this:
+The JSON file will look similar to this:
 
 ```json
 {
