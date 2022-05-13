@@ -99,6 +99,21 @@
     <li class="toctree-l3"><a href="#docker-images">Docker images</a></li>
     
 
+    <li class="toctree-l3"><a href="#object-detection-example">Object detection example</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#data">Data</a></li>
+        
+            <li><a class="toctree-l4" href="#preparation">Preparation</a></li>
+        
+            <li><a class="toctree-l4" href="#yolov5-model">Yolov5 model</a></li>
+        
+            <li><a class="toctree-l4" href="#waiannotations">wai.annotations</a></li>
+        
+        </ul>
+    
+
     </ul>
                 </li>
     </ul>
@@ -205,6 +220,74 @@ simplifying the dependencies due to decoupling. </p>
 </ul>
 </li>
 </ul>
+<h3 id="object-detection-example">Object detection example</h3>
+<p>In this example we are using a prebuilt yolov5 model (using MS-COCO) to make predictions on the
+frames that come from a dashcam video, overlay the predictions on the images and display them.
+For the model and wai.annotations we will be using existing docker containers.</p>
+<p><strong>NB:</strong> No GPU required.</p>
+<h4 id="data">Data</h4>
+<h5 id="input">Input</h5>
+<p><img alt="dashcam raw" src="img/dashcam.png" /></p>
+<h5 id="output">Output</h5>
+<p><img alt="dashcam annotated" src="img/dashcam_annotated.png" /></p>
+<h4 id="preparation">Preparation</h4>
+<p>NB: Place all the downloads in the current directory</p>
+<ul>
+<li>Download the <a href="https://github.com/lessthanoptimal/BoofCV-Data/raw/15c79700a26646ed33806fe9e834e0224acb75c8/example/tracking/dashcam01.mp4">dashcam01.mp4</a> video from the BoofCV project</li>
+<li>Download the <a href="https://github.com/ultralytics/yolov5/releases/download/v6.0/yolov5n.pt">yolo5n.pt</a> model</li>
+<li>Download the <a href="https://github.com/ultralytics/yolov5/blob/956be8e642b5c10af4a1533e09084ca32ff4f21f/data/coco.yaml">coco.yaml</a> data description for the yolo5n model</li>
+<li>
+<p>The host machine must have a Redis server instance running. Two options:</p>
+<ol>
+<li>Install it natively via <code>sudo apt-get install redis</code> (and then restart it with <code>sudo systemctl restart redis</code>)</li>
+<li>Spin up a docker container with: <code>docker run --net=host --name redis-server -d redis</code></li>
+</ol>
+</li>
+</ul>
+<h4 id="yolov5-model">Yolov5 model</h4>
+<p>The following command launches a Yolov5 model via the container's <code>yolov5_predict_redis</code> command,
+running on the CPU: </p>
+<pre><code class="language-bash">docker run \
+    --net=host -u $(id -u):$(id -g) \
+    -v `pwd`:/workspace \
+    -it waikatodatamining/pytorch-yolov5:2022-01-21_cpu \
+  yolov5_predict_redis \
+    --redis_in images \
+    --redis_out predictions \
+    --model /workspace/yolov5n.pt \
+    --data /workspace/coco.yaml
+</code></pre>
+<h4 id="waiannotations">wai.annotations</h4>
+<p>The following wai.annotations pipeline loads every 2nd frame from the dashcam01.mp4 video,
+obtains predictions from the Yolov5 model (using the Redis backend), overlays the predictions
+and then displays them:</p>
+<pre><code class="language-bash">docker run -u $(id -u):$(id -g) \
+    --net=host \
+    --env=&quot;DISPLAY&quot; --volume=&quot;/tmp/.X11-unix:/tmp/.X11-unix:rw&quot; \
+    -v `pwd`:/workspace \
+    -it waikatoufdl/wai.annotations:0.7.6 \
+  wai-annotations convert \
+    from-video-file-od \
+      -i /workspace/dashcam01.mp4 \
+      -n 2 \
+    redis-predict-od \
+      --channel-out images \
+      --channel-in predictions \
+      --timeout 1.0 \
+    add-annotation-overlay-od \
+      --outline-alpha 255 \
+      --outline-thickness 1 \
+      --fill \
+      --fill-alpha 128 \
+      --vary-colors \
+      --font-size 10 \
+      --text-format &quot;{label}: {score}&quot; \
+      --text-placement T,L \
+      --force-bbox \
+    image-viewer-od \
+      --size 800,224 \
+      --delay 1
+</code></pre>
               
             </div>
           </div>
