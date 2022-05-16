@@ -65,6 +65,12 @@
             
     <li class="toctree-l2"><a href="#how-to-use-wai-annotations-from-the-command-line">How to use wai-annotations from the command-line</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l3" href="#logging">Logging</a></li>
+        
+        </ul>
+    
 
     </ul>
 	    </li>
@@ -184,6 +190,15 @@
 <p>The <code>-h/--help</code> option can be given at any point in a command-string to provide the options available at
 that point in the command.</p>
 <p>Examples of how to run wai-annotations can be found <a href="../examples_overview/">here</a>.</p>
+<h4 id="logging">Logging</h4>
+<p>By default, all logging messages are being output. To change that, you can use the <code>WAIANN_LOG_LEVEL</code> environment 
+variable, using one of the following levels (the higher the number the fewer messages):</p>
+<ul>
+<li>10: DEBUG</li>
+<li>20: INFO</li>
+<li>30: WARNING</li>
+<li>40: ERROR</li>
+</ul>
               
             </div>
           </div>
