@@ -29,3 +29,13 @@ The `-h/--help` option can be given at any point in a command-string to provide 
 that point in the command.
 
 Examples of how to run wai-annotations can be found [here](examples_overview.md).
+
+## Logging
+
+By default, all logging messages are being output. To change that, you can use the `WAIANN_LOG_LEVEL` environment 
+variable, using one of the following levels (the higher the number the fewer messages):
+
+* 10: DEBUG
+* 20: INFO
+* 30: WARNING
+* 40: ERROR
