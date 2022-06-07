@@ -26,6 +26,7 @@ Object detection
 
   * [https://github.com/waikato-ufdl/wai-annotations-adams](https://github.com/waikato-ufdl/wai-annotations-adams)
   * [https://github.com/waikato-ufdl/wai-annotations-coco](https://github.com/waikato-ufdl/wai-annotations-coco)
+  * [https://github.com/waikato-ufdl/wai-annotations-opex](https://github.com/waikato-ufdl/wai-annotations-opex)
   * [https://github.com/waikato-ufdl/wai-annotations-roi](https://github.com/waikato-ufdl/wai-annotations-roi)
   * [https://github.com/waikato-ufdl/wai-annotations-tf](https://github.com/waikato-ufdl/wai-annotations-tf)
   * [https://github.com/waikato-ufdl/wai-annotations-vgg](https://github.com/waikato-ufdl/wai-annotations-vgg)
@@ -35,6 +36,7 @@ Object detection
 Image segmentation
 
   * [https://github.com/waikato-ufdl/wai-annotations-bluechannel](https://github.com/waikato-ufdl/wai-annotations-bluechannel)
+  * [https://github.com/waikato-ufdl/wai-annotations-grayscale](https://github.com/waikato-ufdl/wai-annotations-grayscale)
   * [https://github.com/waikato-ufdl/wai-annotations-indexedpng](https://github.com/waikato-ufdl/wai-annotations-indexedpng)
   * [https://github.com/waikato-ufdl/wai-annotations-layersegments](https://github.com/waikato-ufdl/wai-annotations-layersegments)
 
@@ -54,3 +56,8 @@ Image/label statistics
 Video support
 
   * [https://github.com/waikato-ufdl/wai-annotations-video](https://github.com/waikato-ufdl/wai-annotations-video)
+
+Miscellaneous
+
+  * [https://github.com/waikato-ufdl/wai-annotations-imgvis](https://github.com/waikato-ufdl/wai-annotations-imgvis) - image visualization
+  * [https://github.com/waikato-ufdl/wai-annotations-redis-predictions](https://github.com/waikato-ufdl/wai-annotations-redis-predictions) - making predictions via Redis backend
