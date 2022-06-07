@@ -45,19 +45,10 @@ Audio
   * [https://github.com/waikato-ufdl/wai-annotations-commonvoice](https://github.com/waikato-ufdl/wai-annotations-commonvoice)
   * [https://github.com/waikato-ufdl/wai-annotations-festvox](https://github.com/waikato-ufdl/wai-annotations-festvox)
 
-Image augmentation
-
-  * [https://github.com/waikato-ufdl/wai-annotations-imgaug](https://github.com/waikato-ufdl/wai-annotations-imgaug)
-
-Image/label statistics
-
-  * [https://github.com/waikato-ufdl/wai-annotations-imgstats](https://github.com/waikato-ufdl/wai-annotations-imgstats)
-
-Video support
-
-  * [https://github.com/waikato-ufdl/wai-annotations-video](https://github.com/waikato-ufdl/wai-annotations-video)
-
 Miscellaneous
 
+  * [https://github.com/waikato-ufdl/wai-annotations-imgaug](https://github.com/waikato-ufdl/wai-annotations-imgaug) - image augmentation
+  * [https://github.com/waikato-ufdl/wai-annotations-imgstats](https://github.com/waikato-ufdl/wai-annotations-imgstats) - image/label statistics
   * [https://github.com/waikato-ufdl/wai-annotations-imgvis](https://github.com/waikato-ufdl/wai-annotations-imgvis) - image visualization
   * [https://github.com/waikato-ufdl/wai-annotations-redis-predictions](https://github.com/waikato-ufdl/wai-annotations-redis-predictions) - making predictions via Redis backend
+  * [https://github.com/waikato-ufdl/wai-annotations-video](https://github.com/waikato-ufdl/wai-annotations-video) - video support
