@@ -5,14 +5,13 @@ Also adds additional logging information and removes annotations smaller than 5 
 ```bash
 wai-annotations convert -v \
     from-adams-od \
-      -i input \
+      -i "input/*.report" \
     dimension-discarder \
       --min-width 5 \
       --min-height 5 \
     to-coco-od \
       -o output/annotations.json \
-      --license-name "my license" \
-      --no-images
+      --license-name "CC-BY-SA 4.0"
 ```
 
 # Monolithic Tensorflow records to sharded ones
