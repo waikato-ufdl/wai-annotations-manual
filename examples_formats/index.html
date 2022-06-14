@@ -186,14 +186,13 @@
 <p>Also adds additional logging information and removes annotations smaller than 5 pixels in either dimension.</p>
 <pre><code class="language-bash">wai-annotations convert -v \
     from-adams-od \
-      -i input \
+      -i &quot;input/*.report&quot; \
     dimension-discarder \
       --min-width 5 \
       --min-height 5 \
     to-coco-od \
       -o output/annotations.json \
-      --license-name &quot;my license&quot; \
-      --no-images
+      --license-name &quot;CC-BY-SA 4.0&quot;
 </code></pre>
 <h3 id="monolithic-tensorflow-records-to-sharded-ones">Monolithic Tensorflow records to sharded ones</h3>
 <p>Here we are converting a monolithic TFRecords file into a sharded one (<code>-s 5</code> - five shards) and only using a subset of labels (<code>-l label2,label4,label6</code>):</p>
