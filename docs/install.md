@@ -42,11 +42,13 @@ Image segmentation
 
 Audio
 
+  * [https://github.com/waikato-ufdl/wai-annotations-audio](https://github.com/waikato-ufdl/wai-annotations-audio)
   * [https://github.com/waikato-ufdl/wai-annotations-commonvoice](https://github.com/waikato-ufdl/wai-annotations-commonvoice)
   * [https://github.com/waikato-ufdl/wai-annotations-festvox](https://github.com/waikato-ufdl/wai-annotations-festvox)
 
 Miscellaneous
 
+  * [https://github.com/waikato-ufdl/wai-annotations-generic](https://github.com/waikato-ufdl/wai-annotations-generic) - generic plugins for wrapping user classes
   * [https://github.com/waikato-ufdl/wai-annotations-imgaug](https://github.com/waikato-ufdl/wai-annotations-imgaug) - image augmentation
   * [https://github.com/waikato-ufdl/wai-annotations-imgstats](https://github.com/waikato-ufdl/wai-annotations-imgstats) - image/label statistics
   * [https://github.com/waikato-ufdl/wai-annotations-imgvis](https://github.com/waikato-ufdl/wai-annotations-imgvis) - image visualization
