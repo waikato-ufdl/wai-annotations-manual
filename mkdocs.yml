@@ -13,11 +13,13 @@ nav:
   - 'Examples':
     - 'Overview': examples_overview.md
     - 'Format conversions': examples_formats.md
+    - 'Audio processing': examples_audio.md
     - 'Image dataset augmentation': examples_imgaug.md
     - 'Image dataset statistics': examples_imgstats.md
     - 'Image dataset visualizations': examples_imgvis.md
     - 'Video handling': examples_video.md
     - 'Predictions via Redis': examples_redis_predictions.md
+    - 'Generic plugin wrappers': examples_generic.md
   - 'Docker': docker.md
   - 'Architecture overview': architecture_overview.md
   - 'Plugin guide': plugin.md
