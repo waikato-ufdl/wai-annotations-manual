@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Overview - wai-annotations manual</title>
+  <title>Examples audio - wai-annotations manual</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Overview";
-    var mkdocs_page_input_path = "examples_overview.md";
-    var mkdocs_page_url = "/wai-annotations-manual/examples_overview/";
+    var mkdocs_page_name = "Examples audio";
+    var mkdocs_page_input_path = "examples_audio.md";
+    var mkdocs_page_url = "/wai-annotations-manual/examples_audio/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -67,12 +67,9 @@
 		
     <span class="caption-text">Examples</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Overview</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../examples_overview/">Overview</a>
                 </li>
                 <li class="">
                     
@@ -152,12 +149,8 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
-        
-          <li>Examples &raquo;</li>
-        
-      
     
-    <li>Overview</li>
+    <li>Examples audio</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -167,30 +160,76 @@
           <div role="main">
             <div class="section">
               
-                <p>Examples are grouped into the following topics:</p>
-<ul>
-<li><a href="../examples_formats/">Format conversions</a></li>
-<li><a href="../examples_audio/">Audio processing</a></li>
-<li><a href="../examples_imgaug/">Image dataset augmentation</a></li>
-<li><a href="../examples_imgstats/">Image dataset statistics</a></li>
-<li><a href="../examples_imgvis/">Image dataset visualizations</a></li>
-<li><a href="../examples_video/">Video handling</a></li>
-<li><a href="../examples_redis_predictions/">Predictions via Redis</a></li>
-<li><a href="../examples_generic/">Generic plugin wrappers</a></li>
-</ul>
+                <p>The following example converts a single MP3 file to WAV (<code>convert-to-wav</code>), ensures that it is
+monophonic (<code>convert-to-mono</code>) and resamples it to 11khz (<code>resample-audio</code>) before saving it.</p>
+<pre><code class="language-bash">wai-annotations convert \
+  from-audio-files-ac \
+    -i &quot;/some/where/an.mp3&quot; \
+  convert-to-wav \
+  convert-to-mono \
+  resample-audio \
+    --sample-rate 11000 \
+  to-audio-files-ac \
+    -o /some/where/else/
+</code></pre>
+<p>When splitting up samples into sub-samples (automatically or by a human), it can
+happen quite often that there is silence at the start and/or at the end of the clip.
+The <code>trim-audio</code> plugin can be used to remove these (the minimum decibel level can 
+be supplied as parameter):</p>
+<pre><code class="language-bash">wai-annotations convert \
+  from-audio-files-ac \
+    -i &quot;/some/where/an.mp3&quot; \
+  convert-to-wav \
+  convert-to-mono \
+  resample-audio \
+    --sample-rate 11000 \
+  to-audio-files-ac \
+    -o /some/where/else/
+</code></pre>
+<p>Audio augmentation is possible as well. The <code>pitch-shift</code> plugin changes the pitch of
+the sample and <code>time-stretch</code> can slow down or speed up the sample (using <code>-T 0</code> for 
+the threshold means it gets always applied):</p>
+<pre><code class="language-bash">wai-annotations convert \
+  from-audio-files-ac \
+    -i &quot;/some/where/a.wav&quot; \
+  pitch-shift \
+    -m add \
+    -f 4 \
+    -t 4 \
+    -T 0 \
+  time-stretch\
+    -m add \
+    -f 0.5 \
+    -t 2.0 \
+    -T 0 \
+  to-audio-files-ac \
+    -o /some/where/else/
+</code></pre>
+<p>Spectrograms from the audio samples can be generated using the <code>stft-spectrogram</code>
+and <code>mel-spectrogram</code> plugins:</p>
+<pre><code class="language-bash">wai-annotations convert \
+  from-audio-files-ac \
+    -i &quot;/some/where/a.wav&quot; \
+  stft-spectrogram \
+  to-images-ic \
+    -o /some/where/else/
+</code></pre>
+<p>If the <a href="https://github.com/waikato-ufdl/wai-annotations-generic">wai.annotations.generic</a> module
+is installed, then it is possible to take advantage of the <code>wai.annotations.audio.source.urban8k.Urban8k</code>
+example class for loading the <a href="https://urbansounddataset.weebly.com/urbansound8k.html">Urban8k</a>.
+Using the <a href="https://github.com/waikato-ufdl/wai-annotations-subdir">wai.annotations.subdir</a> module,
+the .wav files can be stored in sub-directories according to their class labels:</p>
+<pre><code class="language-bash">wai-annotations convert \
+  generic-source-ac \
+    -c &quot;wai.annotations.audio.source.urban8k.Urban8k&quot; \
+    -o &quot;--metadata-csv /some/where/UrbanSound8K/metadata/UrbanSound8K.csv --fold-dir /some/where/UrbanSound8K/audio/&quot; \
+  to-subdir-ac \
+    -o /some/where/else/urban8k
+</code></pre>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../examples_formats/" class="btn btn-neutral float-right" title="Format conversions">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../usage/" class="btn btn-neutral" title="Usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -214,10 +253,6 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../usage/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../examples_formats/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Overview - wai-annotations manual</title>
+  <title>Examples generic - wai-annotations manual</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Overview";
-    var mkdocs_page_input_path = "examples_overview.md";
-    var mkdocs_page_url = "/wai-annotations-manual/examples_overview/";
+    var mkdocs_page_name = "Examples generic";
+    var mkdocs_page_input_path = "examples_generic.md";
+    var mkdocs_page_url = "/wai-annotations-manual/examples_generic/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -67,12 +67,9 @@
 		
     <span class="caption-text">Examples</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Overview</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../examples_overview/">Overview</a>
                 </li>
                 <li class="">
                     
@@ -152,12 +149,8 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
-        
-          <li>Examples &raquo;</li>
-        
-      
     
-    <li>Overview</li>
+    <li>Examples generic</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -167,30 +160,26 @@
           <div role="main">
             <div class="section">
               
-                <p>Examples are grouped into the following topics:</p>
-<ul>
-<li><a href="../examples_formats/">Format conversions</a></li>
-<li><a href="../examples_audio/">Audio processing</a></li>
-<li><a href="../examples_imgaug/">Image dataset augmentation</a></li>
-<li><a href="../examples_imgstats/">Image dataset statistics</a></li>
-<li><a href="../examples_imgvis/">Image dataset visualizations</a></li>
-<li><a href="../examples_video/">Video handling</a></li>
-<li><a href="../examples_redis_predictions/">Predictions via Redis</a></li>
-<li><a href="../examples_generic/">Generic plugin wrappers</a></li>
-</ul>
+                <p>The purpose of <a href="https://github.com/waikato-ufdl/wai-annotations-generic">wai.annotations.generic</a>
+module is to make it easier to integrate custom operators quickly into wai.annotations. </p>
+<p>By providing generic wrappers for sources, ISPs and sinks, you only need to implement a class that
+is derived from the correct wai.annotations superclass(es), add it to the <code>PYTHONPATH</code> and supplying
+class name and options to the appropriate generic wrapper plugin.</p>
+<p>The following example wraps a <a href="https://github.com/waikato-ufdl/wai-annotations-generic/blob/main/src/wai/annotations/generic/source/image_classification/test/_TestIC.py">test source class</a>
+and a <a href="https://github.com/waikato-ufdl/wai-annotations-generic/blob/main/src/wai/annotations/generic/isp/image_classification/test/_TestIC.py">test ISP class</a>
+and makes them available from the command-line as follows:</p>
+<pre><code class="language-bash">wai-annotations convert \
+  generic-source-ic \
+    -c wai.annotations.generic.source.image_classification.test.TestIC \
+    -o &quot;--dir /some/where/&quot; \  # dir with .jpg files
+  generic-sink-ic \
+    -c wai.annotations.generic.sink.image_classification.test.TestIC \
+    -o &quot;--output label&quot;
+</code></pre>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../examples_formats/" class="btn btn-neutral float-right" title="Format conversions">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../usage/" class="btn btn-neutral" title="Usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -214,10 +203,6 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../usage/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../examples_formats/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
