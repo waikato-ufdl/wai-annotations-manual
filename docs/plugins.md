@@ -25,8 +25,8 @@ optional arguments:
   --seed SEED           the seed to use for randomisation (default: None)
   -e FORMAT FORMAT FORMAT, --extensions FORMAT FORMAT FORMAT
                         image format extensions in order of preference (default: [<ImageFormat.PNG:
-                        (frozenset({'png', 'PNG'}), 'PNG')>, <ImageFormat.JPG: (frozenset({'jpeg',
-                        'JPG', 'JPEG', 'jpg'}), 'JPEG')>, <ImageFormat.BMP: (frozenset({'bmp',
+                        (frozenset({'PNG', 'png'}), 'PNG')>, <ImageFormat.JPG: (frozenset({'JPG',
+                        'JPEG', 'jpg', 'jpeg'}), 'JPEG')>, <ImageFormat.BMP: (frozenset({'bmp',
                         'BMP'}), 'BMP')>])
   -c FIELD, --class-field FIELD
                         the report field containing the image class (default: None)
@@ -57,11 +57,61 @@ optional arguments:
   --seed SEED           the seed to use for randomisation (default: None)
   -e FORMAT FORMAT FORMAT, --extensions FORMAT FORMAT FORMAT
                         image format extensions in order of preference (default: [<ImageFormat.PNG:
-                        (frozenset({'png', 'PNG'}), 'PNG')>, <ImageFormat.JPG: (frozenset({'jpeg',
-                        'JPG', 'JPEG', 'jpg'}), 'JPEG')>, <ImageFormat.BMP: (frozenset({'bmp',
+                        (frozenset({'PNG', 'png'}), 'PNG')>, <ImageFormat.JPG: (frozenset({'JPG',
+                        'JPEG', 'jpg', 'jpeg'}), 'JPEG')>, <ImageFormat.BMP: (frozenset({'bmp',
                         'BMP'}), 'BMP')>])
   -p PREFIXES [PREFIXES ...], --prefixes PREFIXES [PREFIXES ...]
                         prefixes to parse (default: [])
+```
+
+### FROM-AUDIO-FILES-AC
+Dummy reader that turns audio files into a classification dataset.
+
+#### Domain(s):
+- **Audio classification domain**
+
+#### Options:
+```
+usage: from-audio-files-ac [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
+                           [--seed SEED]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax) (default: [])
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax) (default: [])
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax) (default: [])
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax) (default: [])
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into (default: None)
+  --seed SEED           the seed to use for randomisation (default: None)
+```
+
+### FROM-AUDIO-FILES-SP
+Dummy reader that turns audio files into a speech dataset.
+
+#### Domain(s):
+- **Speech Domain**
+
+#### Options:
+```
+usage: from-audio-files-sp [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
+                           [--seed SEED]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax) (default: [])
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax) (default: [])
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax) (default: [])
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax) (default: [])
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into (default: None)
+  --seed SEED           the seed to use for randomisation (default: None)
 ```
 
 ### FROM-BLUE-CHANNEL-IS
@@ -386,13 +436,38 @@ optional arguments:
   --seed SEED           the seed to use for randomisation (default: None)
   -e FORMAT FORMAT FORMAT, --extensions FORMAT FORMAT FORMAT
                         image format extensions in order of preference (default: [<ImageFormat.PNG:
-                        (frozenset({'png', 'PNG'}), 'PNG')>, <ImageFormat.JPG: (frozenset({'jpeg',
-                        'JPG', 'JPEG', 'jpg'}), 'JPEG')>, <ImageFormat.BMP: (frozenset({'bmp',
+                        (frozenset({'PNG', 'png'}), 'PNG')>, <ImageFormat.JPG: (frozenset({'JPG',
+                        'JPEG', 'jpg', 'jpeg'}), 'JPEG')>, <ImageFormat.BMP: (frozenset({'bmp',
                         'BMP'}), 'BMP')>])
   --prefix READER_PREFIX
                         the prefix for output filenames (default = '') (default: None)
   --suffix READER_SUFFIX
                         the suffix for output filenames (default = '-rois.csv') (default: None)
+```
+
+### FROM-SUBDIR-AC
+Reads audio files from sub-directories named after their class labels.
+
+#### Domain(s):
+- **Audio classification domain**
+
+#### Options:
+```
+usage: from-subdir-ac [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
+                      [--seed SEED]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax) (default: [])
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax) (default: [])
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax) (default: [])
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax) (default: [])
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into (default: None)
+  --seed SEED           the seed to use for randomisation (default: None)
 ```
 
 ### FROM-SUBDIR-IC
@@ -586,6 +661,91 @@ optional arguments:
                         Path to the labels file (default: None)
 ```
 
+### GENERIC-SOURCE-AC
+Generic audio classification source.
+
+#### Domain(s):
+- **Audio classification domain**
+
+#### Options:
+```
+usage: generic-source-ac [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
+### GENERIC-SOURCE-IC
+Generic image classification source.
+
+#### Domain(s):
+- **Image Classification Domain**
+
+#### Options:
+```
+usage: generic-source-ic [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
+### GENERIC-SOURCE-IS
+Generic image segmentation source.
+
+#### Domain(s):
+- **Image Segmentation Domain**
+
+#### Options:
+```
+usage: generic-source-is [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
+### GENERIC-SOURCE-OD
+Generic object detection source.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: generic-source-od [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
+### GENERIC-SOURCE-SP
+Generic speech source.
+
+#### Domain(s):
+- **Speech Domain**
+
+#### Options:
+```
+usage: generic-source-sp [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
 
 ## Processor stage
 ### ADD-ANNOTATION-OVERLAY-IC
@@ -697,10 +857,11 @@ optional arguments:
 Causes the conversion stream to halt when multiple dataset items have the same filename
 
 #### Domain(s):
+- **Image Classification Domain**
+- **Audio classification domain**
+- **Speech Domain**
 - **Image Segmentation Domain**
 - **Image Object-Detection Domain**
-- **Speech Domain**
-- **Image Classification Domain**
 
 #### Options:
 ```
@@ -752,8 +913,8 @@ Converts images from one format to another
 
 #### Domain(s):
 - **Image Segmentation Domain**
-- **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Object-Detection Domain**
 
 #### Options:
 ```
@@ -764,12 +925,41 @@ optional arguments:
                         format to convert images to (default: None)
 ```
 
+### CONVERT-TO-MONO
+Converts audio files to monophonic.
+
+#### Domain(s):
+- **Audio classification domain**
+- **Speech Domain**
+
+#### Options:
+```
+usage: convert-to-mono
+```
+
+### CONVERT-TO-WAV
+Converts mp3/flac/ogg to wav.
+
+#### Domain(s):
+- **Audio classification domain**
+- **Speech Domain**
+
+#### Options:
+```
+usage: convert-to-wav [-s SAMPLE_RATE]
+
+optional arguments:
+  -s SAMPLE_RATE, --sample-rate SAMPLE_RATE
+                        the sample rate to use for the audio data, for overriding the native rate.
+                        (default: None)
+```
+
 ### CROP
 Crops images.
 
 #### Domain(s):
-- **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Object-Detection Domain**
 
 #### Options:
 ```
@@ -831,8 +1021,8 @@ Discards images that cannot be loaded (e.g., corrupt image file or annotations w
 
 #### Domain(s):
 - **Image Segmentation Domain**
-- **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Object-Detection Domain**
 
 #### Options:
 ```
@@ -846,10 +1036,11 @@ optional arguments:
 Discards negative examples (those without annotations) from the stream
 
 #### Domain(s):
+- **Image Classification Domain**
+- **Audio classification domain**
+- **Speech Domain**
 - **Image Segmentation Domain**
 - **Image Object-Detection Domain**
-- **Speech Domain**
-- **Image Classification Domain**
 
 #### Options:
 ```
@@ -861,8 +1052,8 @@ Drops frames from the stream.
 
 #### Domain(s):
 - **Image Segmentation Domain**
-- **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Object-Detection Domain**
 
 #### Options:
 ```
@@ -879,8 +1070,8 @@ Filters frames from the stream using the labels in the annotations, i.e., keeps 
 
 #### Domain(s):
 - **Image Segmentation Domain**
-- **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Object-Detection Domain**
 
 #### Options:
 ```
@@ -950,8 +1141,8 @@ optional arguments:
 Flips images either left-to-right, up-to-down or both.
 
 #### Domain(s):
-- **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Object-Detection Domain**
 
 #### Options:
 ```
@@ -981,8 +1172,8 @@ optional arguments:
 Applies gaussian blur to images.
 
 #### Domain(s):
-- **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Object-Detection Domain**
 
 #### Options:
 ```
@@ -1011,12 +1202,97 @@ optional arguments:
                         applied; range: 0-1; default: 0 (= always) (default: None)
 ```
 
+### GENERIC-ISP-AC
+Generic audio classification ISP.
+
+#### Domain(s):
+- **Audio classification domain**
+
+#### Options:
+```
+usage: generic-isp-ac [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
+### GENERIC-ISP-IC
+Generic image classification ISP.
+
+#### Domain(s):
+- **Image Classification Domain**
+
+#### Options:
+```
+usage: generic-isp-ic [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
+### GENERIC-ISP-IS
+Generic image segmentation ISP.
+
+#### Domain(s):
+- **Image Segmentation Domain**
+
+#### Options:
+```
+usage: generic-isp-is [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
+### GENERIC-ISP-OD
+Generic object detection ISP.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: generic-isp-od [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
+### GENERIC-ISP-SP
+Generic speech ISP.
+
+#### Domain(s):
+- **Speech Domain**
+
+#### Options:
+```
+usage: generic-isp-sp [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
 ### HSL-GRAYSCALE
 Turns RGB images into fake grayscale ones by converting them to HSL and then using the L channel for all channels. The brightness can be influenced and varied even.
 
 #### Domain(s):
-- **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Object-Detection Domain**
 
 #### Options:
 ```
@@ -1051,8 +1327,8 @@ optional arguments:
 Applies linear contrast to images.
 
 #### Domain(s):
-- **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Object-Detection Domain**
 
 #### Options:
 ```
@@ -1097,6 +1373,73 @@ optional arguments:
                         fixing/collapsing labels) (default: [])
 ```
 
+### MEL-SPECTROGRAM
+Generates a plot from a Mel spectrogram.
+
+#### Domain(s):
+- **Audio classification domain**
+
+#### Options:
+```
+usage: mel-spectrogram [--center] [--dpi DPI] [--hop-length HOP_LENGTH] [--num-fft NUM_FFT]
+                       [--pad-mode PAD_MODE] [--power POWER] [--win-length WIN_LENGTH]
+                       [--window WINDOW]
+
+optional arguments:
+  --center              for centering the signal. (default: False)
+  --dpi DPI             the dots per inch (default: 100)
+  --hop-length HOP_LENGTH
+                        number of audio samples between adjacent STFT columns. (default: 512)
+  --num-fft NUM_FFT     the length of the windowed signal after padding with zeros. should be power
+                        of two. (default: 2048)
+  --pad-mode PAD_MODE   used when 'centering' (default: constant)
+  --power POWER         exponent for the magnitude melspectrogram. e.g., 1 for energy, 2 for power,
+                        etc. (default: 2.0)
+  --win-length WIN_LENGTH
+                        each frame of audio is windowed by window of length win_length and then
+                        padded with zeros to match num_fft. defaults to win_length = num_fft
+                        (default: None)
+  --window WINDOW       a window function, such as scipy.signal.windows.hann (default: hann)
+```
+
+### MFCC-SPECTROGRAM
+Generates a plot from Mel-frequency cepstral coefficients.
+
+#### Domain(s):
+- **Audio classification domain**
+
+#### Options:
+```
+usage: mfcc-spectrogram [--center] [--dct-type DCT_TYPE] [--dpi DPI] [--hop-length HOP_LENGTH]
+                        [--lifter LIFTER] [--norm NORM] [--num-fft NUM_FFT] [--num-mfcc NUM_MFCC]
+                        [--pad-mode PAD_MODE] [--power POWER] [--win-length WIN_LENGTH]
+                        [--window WINDOW]
+
+optional arguments:
+  --center              for centering the signal. (default: False)
+  --dct-type DCT_TYPE   the Discrete cosine transform (DCT) type (1|2|3). By default, DCT type-2 is
+                        used. (default: 2)
+  --dpi DPI             the dots per inch (default: 100)
+  --hop-length HOP_LENGTH
+                        number of audio samples between adjacent STFT columns. (default: 512)
+  --lifter LIFTER       If lifter>0, apply liftering (cepstral filtering) to the MFCC: M[n, :] <-
+                        M[n, :] * (1 + sin(pi * (n + 1) / lifter) * lifter / 2) (default: 0)
+  --norm NORM           If dct_type is 2 or 3, setting norm='ortho' uses an ortho-normal DCT basis.
+                        Normalization is not supported for dct_type=1. (options: none|ortho)
+                        (default: ortho)
+  --num-fft NUM_FFT     the length of the windowed signal after padding with zeros. should be power
+                        of two. (default: 2048)
+  --num-mfcc NUM_MFCC   the number of MFCCs to return. (default: 20)
+  --pad-mode PAD_MODE   used when 'centering' (default: constant)
+  --power POWER         exponent for the magnitude melspectrogram. e.g., 1 for energy, 2 for power,
+                        etc. (default: 2.0)
+  --win-length WIN_LENGTH
+                        each frame of audio is windowed by window of length win_length and then
+                        padded with zeros to match num_fft. defaults to win_length = num_fft
+                        (default: None)
+  --window WINDOW       a window function, such as scipy.signal.windows.hann (default: hann)
+```
+
 ### OD-TO-IC
 Converts image object-detection instances into image classification instances
 
@@ -1133,14 +1476,56 @@ optional arguments:
 Dummy ISP which has no effect on the conversion stream
 
 #### Domain(s):
+- **Image Classification Domain**
+- **Audio classification domain**
+- **Speech Domain**
 - **Image Segmentation Domain**
 - **Image Object-Detection Domain**
-- **Speech Domain**
-- **Image Classification Domain**
 
 #### Options:
 ```
 usage: passthrough
+```
+
+### PITCH-SHIFT
+Augmentation method for shifting the pitch of audio files.
+
+#### Domain(s):
+- **Audio classification domain**
+- **Speech Domain**
+
+#### Options:
+```
+usage: pitch-shift [-m AUG_MODE] [--suffix AUG_SUFFIX] [--bins-per-octave BINS_PER_OCTAVE]
+                   [--resample-type RESAMPLE_TYPE] [-s SEED] [-a] [-f STEPS_FROM] [-t STEPS_TO]
+                   [-T THRESHOLD] [-v]
+
+optional arguments:
+  -m AUG_MODE, --mode AUG_MODE
+                        the audio augmentation mode to use, available modes: replace, add (default:
+                        replace)
+  --suffix AUG_SUFFIX   the suffix to use for the file names in case of augmentation mode add
+                        (default: None)
+  --bins-per-octave BINS_PER_OCTAVE
+                        how many steps per octave (default: 12)
+  --resample-type RESAMPLE_TYPE
+                        the resampling type to apply (kaiser_best|kaiser_fast|fft|polyphase|linear|z
+                        ero_order_hold|sinc_best|sinc_medium|sinc_fastest|soxr_vhq|soxr_hq|soxr_mq|s
+                        oxr_lq|soxr_qq) (default: kaiser_best)
+  -s SEED, --seed SEED  the seed value to use for the random number generator; randomly seeded if
+                        not provided (default: None)
+  -a, --seed-augmentation
+                        whether to seed the augmentation; if specified, uses the seeded random
+                        generator to produce a seed value from 0 to 1000 for the augmentation.
+                        (default: False)
+  -f STEPS_FROM, --from-steps STEPS_FROM
+                        the minimum (fractional) steps to shift (default: None)
+  -t STEPS_TO, --to-steps STEPS_TO
+                        the maximum (fractional) steps to shift (default: None)
+  -T THRESHOLD, --threshold THRESHOLD
+                        the threshold to use for Random.rand(): if equal or above, augmentation gets
+                        applied; range: 0-1; default: 0 (= always) (default: None)
+  -v, --verbose         whether to output debugging information (default: False)
 ```
 
 ### POLYGON-DISCARDER
@@ -1262,6 +1647,7 @@ optional arguments:
 Removes classes from classification/image-segmentation instances
 
 #### Domain(s):
+- **Audio classification domain**
 - **Image Segmentation Domain**
 - **Image Classification Domain**
 
@@ -1274,12 +1660,36 @@ optional arguments:
                         the classes to remove (default: None)
 ```
 
+### RESAMPLE-AUDIO
+Resamples audio files.
+
+For resample types, see:
+https://librosa.org/doc/latest/generated/librosa.resample.html#librosa.resample
+
+#### Domain(s):
+- **Audio classification domain**
+- **Speech Domain**
+
+#### Options:
+```
+usage: resample-audio [-t RESAMPLE_TYPE] [-s SAMPLE_RATE] [-v]
+
+optional arguments:
+  -t RESAMPLE_TYPE, --resample-type RESAMPLE_TYPE
+                        the resampling type to apply (kaiser_best|kaiser_fast|fft|polyphase|linear|z
+                        ero_order_hold|sinc_best|sinc_medium|sinc_fastest|soxr_vhq|soxr_hq|soxr_mq|s
+                        oxr_lq|soxr_qq) (default: kaiser_best)
+  -s SAMPLE_RATE, --sample-rate SAMPLE_RATE
+                        the sample rate to use for the audio data. (default: 22050)
+  -v, --verbose         whether to output some debugging output (default: False)
+```
+
 ### ROTATE
 Rotates images randomly within a range of degrees or by a specified degree. Specify seed value and force augmentation to be seeded to generate repeatable augmentations.
 
 #### Domain(s):
-- **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Object-Detection Domain**
 
 #### Options:
 ```
@@ -1308,12 +1718,34 @@ optional arguments:
                         applied; range: 0-1; default: 0 (= always) (default: None)
 ```
 
+### SAMPLE
+ISP that selects a subset from the stream.
+
+#### Domain(s):
+- **Image Classification Domain**
+- **Audio classification domain**
+- **Speech Domain**
+- **Image Segmentation Domain**
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: sample [-s SEED] [-T THRESHOLD]
+
+optional arguments:
+  -s SEED, --seed SEED  the seed value to use for the random number generator; randomly seeded if
+                        not provided (default: None)
+  -T THRESHOLD, --threshold THRESHOLD
+                        the threshold to use for Random.rand(): if equal or above, sample gets
+                        selected; range: 0-1; default: 0 (= always) (default: 0.0)
+```
+
 ### SCALE
 Scales images randomly within a range of percentages or by a specified percentage. Specify seed value and force augmentation to be seeded to generate repeatable augmentations.
 
 #### Domain(s):
-- **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Object-Detection Domain**
 
 #### Options:
 ```
@@ -1352,8 +1784,8 @@ Skips frames in the stream that are deemed too similar.
 
 #### Domain(s):
 - **Image Segmentation Domain**
-- **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Object-Detection Domain**
 
 #### Options:
 ```
@@ -1372,14 +1804,42 @@ optional arguments:
   -v, --verbose         whether to output some debugging output. (default: False)
 ```
 
+### STFT-SPECTROGRAM
+Generates a plot from a short time fourier transform (STFT) spectrogram.
+
+#### Domain(s):
+- **Audio classification domain**
+
+#### Options:
+```
+usage: stft-spectrogram [--center] [--dpi DPI] [--hop-length HOP_LENGTH] [--num-fft NUM_FFT]
+                        [--pad-mode PAD_MODE] [--win-length WIN_LENGTH] [--window WINDOW]
+
+optional arguments:
+  --center              for centering the signal. (default: False)
+  --dpi DPI             the dots per inch (default: 100)
+  --hop-length HOP_LENGTH
+                        number of audio samples between adjacent STFT columns. defaults to
+                        win_length // 4 (default: None)
+  --num-fft NUM_FFT     the length of the windowed signal after padding with zeros. should be power
+                        of two. (default: 2048)
+  --pad-mode PAD_MODE   used when 'centering' (default: constant)
+  --win-length WIN_LENGTH
+                        each frame of audio is windowed by window of length win_length and then
+                        padded with zeros to match num_fft. defaults to win_length = num_fft
+                        (default: None)
+  --window WINDOW       a window function, such as scipy.signal.windows.hann (default: hann)
+```
+
 ### STRIP-ANNOTATIONS
 ISP which removes annotations from instances
 
 #### Domain(s):
+- **Image Classification Domain**
+- **Audio classification domain**
+- **Speech Domain**
 - **Image Segmentation Domain**
 - **Image Object-Detection Domain**
-- **Speech Domain**
-- **Image Classification Domain**
 
 #### Options:
 ```
@@ -1390,8 +1850,8 @@ usage: strip-annotations
 Extracts sub-images (incl their annotations) from the images coming through, using the defined regions.
 
 #### Domain(s):
-- **Image Object-Detection Domain**
 - **Image Classification Domain**
+- **Image Object-Detection Domain**
 
 #### Options:
 ```
@@ -1409,6 +1869,63 @@ optional arguments:
                         (default: [])
   -e, --suppress-empty  suppresses sub-images that have no annotations (object detection) (default:
                         False)
+```
+
+### TIME-STRETCH
+Augmentation method for stretching the time of audio files (speed up/slow down).
+
+#### Domain(s):
+- **Audio classification domain**
+- **Speech Domain**
+
+#### Options:
+```
+usage: time-stretch [-m AUG_MODE] [--suffix AUG_SUFFIX] [-f RATE_FROM] [-t RATE_TO] [-s SEED] [-a]
+                    [-T THRESHOLD] [-v]
+
+optional arguments:
+  -m AUG_MODE, --mode AUG_MODE
+                        the audio augmentation mode to use, available modes: replace, add (default:
+                        replace)
+  --suffix AUG_SUFFIX   the suffix to use for the file names in case of augmentation mode add
+                        (default: None)
+  -f RATE_FROM, --from-rate RATE_FROM
+                        the minimum stretch factor (<1: slow down, 1: same, >1: speed up) (default:
+                        None)
+  -t RATE_TO, --to-rate RATE_TO
+                        the maximum stretch factor (<1: slow down, 1: same, >1: speed up) (default:
+                        None)
+  -s SEED, --seed SEED  the seed value to use for the random number generator; randomly seeded if
+                        not provided (default: None)
+  -a, --seed-augmentation
+                        whether to seed the augmentation; if specified, uses the seeded random
+                        generator to produce a seed value from 0 to 1000 for the augmentation.
+                        (default: False)
+  -T THRESHOLD, --threshold THRESHOLD
+                        the threshold to use for Random.rand(): if equal or above, augmentation gets
+                        applied; range: 0-1; default: 0 (= always) (default: None)
+  -v, --verbose         whether to output debugging information (default: False)
+```
+
+### TRIM-AUDIO
+Trims silence from audio files.
+
+#### Domain(s):
+- **Audio classification domain**
+- **Speech Domain**
+
+#### Options:
+```
+usage: trim-audio [--frame-length FRAME_LENGTH] [--hop-length HOP_LENGTH] [--top-db TOP_DB] [-v]
+
+optional arguments:
+  --frame-length FRAME_LENGTH
+                        the number of samples per analysis frame. (default: 2048)
+  --hop-length HOP_LENGTH
+                        the number of samples between analysis frames (default: 512)
+  --top-db TOP_DB       the threshold (in decibels) below reference to consider as silence.
+                        (default: 60)
+  -v, --verbose         whether to output some debugging output (default: False)
 ```
 
 
@@ -1467,6 +1984,40 @@ optional arguments:
                         the format to use for the output, available modes: csv, json (default: text)
 ```
 
+### AUDIO-INFO-AC
+Collates and outputs information on the audio files.
+
+#### Domain(s):
+- **Audio classification domain**
+
+#### Options:
+```
+usage: audio-info-ac [-o OUTPUT_FILE] [-f OUTPUT_FORMAT]
+
+optional arguments:
+  -o OUTPUT_FILE, --output OUTPUT_FILE
+                        the file to write the information to; uses stdout if omitted (default: )
+  -f OUTPUT_FORMAT, --format OUTPUT_FORMAT
+                        the format to use for the output, available modes: csv, json (default: text)
+```
+
+### AUDIO-INFO-SP
+Collates and outputs information on the audio files.
+
+#### Domain(s):
+- **Speech Domain**
+
+#### Options:
+```
+usage: audio-info-sp [-o OUTPUT_FILE] [-f OUTPUT_FORMAT]
+
+optional arguments:
+  -o OUTPUT_FILE, --output OUTPUT_FILE
+                        the file to write the information to; uses stdout if omitted (default: )
+  -f OUTPUT_FORMAT, --format OUTPUT_FORMAT
+                        the format to use for the output, available modes: csv, json (default: text)
+```
+
 ### CALC-FRAME-CHANGES
 Calculates the changes between frames, which can be used with the skip-similar-frames ISP.
 
@@ -1495,6 +2046,91 @@ optional arguments:
   -f OUTPUT_FORMAT, --output-format OUTPUT_FORMAT
                         how to output the statistics (text/csv/json) (default: text)
   -v, --verbose         whether to output some debugging output. (default: False)
+```
+
+### GENERIC-SINK-AC
+Generic audio classification sink.
+
+#### Domain(s):
+- **Audio classification domain**
+
+#### Options:
+```
+usage: generic-sink-ac [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
+### GENERIC-SINK-IC
+Generic image classification sink.
+
+#### Domain(s):
+- **Image Classification Domain**
+
+#### Options:
+```
+usage: generic-sink-ic [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
+### GENERIC-SINK-IS
+Generic image segmentation sink.
+
+#### Domain(s):
+- **Image Segmentation Domain**
+
+#### Options:
+```
+usage: generic-sink-is [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
+### GENERIC-SINK-OD
+Generic object detection sink.
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: generic-sink-od [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
+```
+
+### GENERIC-SINK-SP
+Generic speech sink.
+
+#### Domain(s):
+- **Speech Domain**
+
+#### Options:
+```
+usage: generic-sink-sp [-c USER_CLASS] [-o USER_OPTIONS]
+
+optional arguments:
+  -c USER_CLASS, --class USER_CLASS
+                        the user class to wrap (dot notation) (default: None)
+  -o USER_OPTIONS, --options USER_OPTIONS
+                        the options for the user class to parse (default: None)
 ```
 
 ### IMAGE-VIEWER-IC
@@ -1679,6 +2315,36 @@ optional arguments:
   -s SCALE_TO, --scale-to SCALE_TO
                         the dimensions to scale all images to before overlaying them (format:
                         width,height) (default: )
+```
+
+### TO-AUDIO-FILES-AC
+Dummy writer that just outputs audio files from classification datasets.
+
+#### Domain(s):
+- **Audio classification domain**
+
+#### Options:
+```
+usage: to-audio-files-ac [-o OUTPUT_DIR]
+
+optional arguments:
+  -o OUTPUT_DIR, --output-dir OUTPUT_DIR
+                        the directory to write the audio files to (default: .)
+```
+
+### TO-AUDIO-FILES-SP
+Dummy writer that just outputs audio files from speech datasets.
+
+#### Domain(s):
+- **Speech Domain**
+
+#### Options:
+```
+usage: to-audio-files-sp [-o OUTPUT_DIR]
+
+optional arguments:
+  -o OUTPUT_DIR, --output-dir OUTPUT_DIR
+                        the directory to write the audio files to (default: .)
 ```
 
 ### TO-BLUE-CHANNEL-IS
@@ -1964,6 +2630,26 @@ optional arguments:
                         the suffix for output filenames (default = '-rois.csv') (default: None)
 ```
 
+### TO-SUBDIR-AC
+Writes audio files to sub-directories named after their class labels.
+
+#### Domain(s):
+- **Audio classification domain**
+
+#### Options:
+```
+usage: to-subdir-ac -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
+                    [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  -o PATH, --output PATH
+                        the directory to store the class directories in (default: None)
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits (default: [])
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits (default: [])
+```
+
 ### TO-SUBDIR-IC
 Writes images to sub-directories named after their class labels.
 
@@ -2078,6 +2764,17 @@ optional arguments:
                         the names to use for the splits (default: [])
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
+```
+
+### TO-VOID-AC
+Consumes instances without writing them.
+
+#### Domain(s):
+- **Audio classification domain**
+
+#### Options:
+```
+usage: to-void-ac
 ```
 
 ### TO-VOID-IC
