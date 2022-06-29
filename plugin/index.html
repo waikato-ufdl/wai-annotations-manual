@@ -125,6 +125,8 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#generic-wrappers">Generic wrappers</a></li>
+        
             <li><a class="toctree-l3" href="#plugin-types">Plugin Types</a></li>
         
             <li><a class="toctree-l3" href="#domains">Domains</a></li>
@@ -191,6 +193,15 @@
                 <h3 id="adding-components-to-wai-annotations-through-plugins">Adding components to wai-annotations through plugins</h3>
 <p>wai-annotations uses a plugin system to allow other libraries to add new processing stages
 without modifying the base library source. This document details how to go about using this system.</p>
+<h4 id="generic-wrappers">Generic wrappers</h4>
+<p>If you just want to run some code that won't ever make it into a released plugin, then you might 
+want to make use of the <a href="https://github.com/waikato-ufdl/wai-annotations-generic">wai.annotations.generic</a> 
+module. This module provides wrappers around sources/ISPs/sinks, i.e., you only have to write the 
+source/ISP/sink class itself but not all the other boiler plate code that will make your plugin 
+available within the wai.annotations framework.</p>
+<p>Check out the <a href="../examples_generic/">example section</a>. Also, the <a href="https://github.com/waikato-ufdl/wai-annotations-audio">wai.annotations.audio</a>
+module has a more <a href="../examples_audio/">concrete example</a> for loading the <a href="https://urbansounddataset.weebly.com/urbansound8k.html">Urban8k</a> 
+audio dataset with this wrapper approach.</p>
 <h4 id="plugin-types">Plugin Types</h4>
 <p>There are 3 types of stage which can be added to wai-annotations via plugin: input formats, processing stages and output
 formats. New domains can also be added, but these are specified indirectly via any of the previous components.</p>
