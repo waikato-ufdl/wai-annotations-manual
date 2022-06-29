@@ -4,10 +4,11 @@ make use of our pre-built [Docker images](https://hub.docker.com/repository/dock
 
 The following versions of *wai.annotations* are available as images:
 
-* 0.7.5: `waikatoufdl/wai.annotations:0.7.5`
-* 0.7.6: `waikatoufdl/wai.annotations:0.7.6`
-* 0.7.7: `waikatoufdl/wai.annotations:0.7.7`
 * latest: `waikatoufdl/wai.annotations:latest` (based on latest code in repositories)
+* 0.7.8: `waikatoufdl/wai.annotations:0.7.8`
+* 0.7.7: `waikatoufdl/wai.annotations:0.7.7`
+* 0.7.6: `waikatoufdl/wai.annotations:0.7.6`
+* 0.7.5: `waikatoufdl/wai.annotations:0.7.5`
 
 
 # Example usage
