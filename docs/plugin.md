@@ -3,6 +3,19 @@
 wai-annotations uses a plugin system to allow other libraries to add new processing stages
 without modifying the base library source. This document details how to go about using this system.
 
+## Generic wrappers
+
+If you just want to run some code that won't ever make it into a released plugin, then you might 
+want to make use of the [wai.annotations.generic](https://github.com/waikato-ufdl/wai-annotations-generic) 
+module. This module provides wrappers around sources/ISPs/sinks, i.e., you only have to write the 
+source/ISP/sink class itself but not all the other boiler plate code that will make your plugin 
+available within the wai.annotations framework.
+
+Check out the [example section](examples_generic.md). Also, the [wai.annotations.audio](https://github.com/waikato-ufdl/wai-annotations-audio)
+module has a more [concrete example](examples_audio.md) for loading the [Urban8k](https://urbansounddataset.weebly.com/urbansound8k.html) 
+audio dataset with this wrapper approach.
+
+
 ## Plugin Types
 
 There are 3 types of stage which can be added to wai-annotations via plugin: input formats, processing stages and output
