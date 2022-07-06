@@ -6,6 +6,8 @@ theme:
 markdown_extensions:
     - toc:
         baselevel: 3
+plugins:
+    - mkdocs-video
 nav:
   - 'Home': index.md
   - 'Installation': install.md
