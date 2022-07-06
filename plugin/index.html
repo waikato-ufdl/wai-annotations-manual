@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  <link rel="canonical" href="https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/plugin/">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Plugin guide - wai-annotations manual</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,132 +36,100 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> wai-annotations manual</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../install/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../usage/">Usage</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Examples</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../examples_overview/">Overview</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_formats/">Format conversions</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_audio/">Audio processing</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_imgaug/">Image dataset augmentation</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_imgstats/">Image dataset statistics</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_imgvis/">Image dataset visualizations</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_video/">Video handling</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_redis_predictions/">Predictions via Redis</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_generic/">Generic plugin wrappers</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../docker/">Docker</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../architecture_overview/">Architecture overview</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Plugin guide</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#adding-components-to-wai-annotations-through-plugins">Adding components to wai-annotations through plugins</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../install/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Examples</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_formats/">Format conversions</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_audio/">Audio processing</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_imgaug/">Image dataset augmentation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_imgstats/">Image dataset statistics</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_imgvis/">Image dataset visualizations</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_video/">Video handling</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_redis_predictions/">Predictions via Redis</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_generic/">Generic plugin wrappers</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture_overview/">Architecture overview</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Plugin guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#generic-wrappers">Generic wrappers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#plugin-types">Plugin Types</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#domains">Domains</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#generic-wrappers">Generic wrappers</a></li>
-        
-            <li><a class="toctree-l3" href="#plugin-types">Plugin Types</a></li>
-        
-            <li><a class="toctree-l3" href="#domains">Domains</a></li>
-        
-            <li><a class="toctree-l3" href="#stages">Stages</a></li>
-        
-            <li><a class="toctree-l3" href="#adding-command-line-options-to-plugin-components">Adding Command-Line Options to Plugin Components</a></li>
-        
-            <li><a class="toctree-l3" href="#splitting">Splitting</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stages">Stages</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#example-input-stage">Example Input Stage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-output-stage">Example Output Stage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-processor-stage">Example Processor Stage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practice">Best Practice</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-command-line-options-to-plugin-components">Adding Command-Line Options to Plugin Components</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#splitting">Splitting</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../domains/">Domains</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../plugins/">Plugins</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../glossary/">Glossary</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../domains/">Domains</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../plugins/">Plugins</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../glossary/">Glossary</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -185,6 +154,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -548,7 +518,7 @@ See <a href="../component_util/#Splitting">here</a> for information on how to ad
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -558,7 +528,7 @@ See <a href="../component_util/#Splitting">here</a> for information on how to ad
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -571,7 +541,11 @@ See <a href="../component_util/#Splitting">here</a> for information on how to ad
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  <link rel="canonical" href="https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/plugins/">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Plugins - wai-annotations manual</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,126 +36,1070 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> wai-annotations manual</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../install/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../usage/">Usage</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Examples</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../examples_overview/">Overview</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_formats/">Format conversions</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_audio/">Audio processing</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_imgaug/">Image dataset augmentation</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_imgstats/">Image dataset statistics</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_imgvis/">Image dataset visualizations</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_video/">Video handling</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_redis_predictions/">Predictions via Redis</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../examples_generic/">Generic plugin wrappers</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../docker/">Docker</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../architecture_overview/">Architecture overview</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../plugin/">Plugin guide</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../domains/">Domains</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Plugins</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#plugins">Plugins</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../install/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Examples</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_formats/">Format conversions</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_audio/">Audio processing</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_imgaug/">Image dataset augmentation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_imgstats/">Image dataset statistics</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_imgvis/">Image dataset visualizations</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_video/">Video handling</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_redis_predictions/">Predictions via Redis</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../examples_generic/">Generic plugin wrappers</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture_overview/">Architecture overview</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../plugin/">Plugin guide</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../domains/">Domains</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Plugins</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#source-stage">Source stage</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#source-stage">Source stage</a></li>
-        
-            <li><a class="toctree-l3" href="#processor-stage">Processor stage</a></li>
-        
-            <li><a class="toctree-l3" href="#sink-stage">Sink stage</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#from-adams-ic">FROM-ADAMS-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options">Options:</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-adams-od">FROM-ADAMS-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_1">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_1">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-audio-files-ac">FROM-AUDIO-FILES-AC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_2">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_2">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-audio-files-sp">FROM-AUDIO-FILES-SP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_3">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_3">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-blue-channel-is">FROM-BLUE-CHANNEL-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_4">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_4">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-coco-od">FROM-COCO-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_5">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_5">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-common-voice-sp">FROM-COMMON-VOICE-SP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_6">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_6">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-festvox-sp">FROM-FESTVOX-SP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_7">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_7">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-grayscale-is">FROM-GRAYSCALE-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_8">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_8">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-images-ic">FROM-IMAGES-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_9">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_9">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-images-is">FROM-IMAGES-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_10">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_10">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-images-od">FROM-IMAGES-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_11">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_11">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-indexed-png-is">FROM-INDEXED-PNG-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_12">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_12">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-layer-segments-is">FROM-LAYER-SEGMENTS-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_13">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_13">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-opex-od">FROM-OPEX-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_14">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_14">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-roi-od">FROM-ROI-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_15">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_15">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-subdir-ac">FROM-SUBDIR-AC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_16">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_16">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-subdir-ic">FROM-SUBDIR-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_17">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_17">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-tf-od">FROM-TF-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_18">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_18">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-vgg-od">FROM-VGG-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_19">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_19">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-video-file-od">FROM-VIDEO-FILE-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_20">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_20">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-voc-od">FROM-VOC-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_21">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_21">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-webcam-od">FROM-WEBCAM-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_22">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_22">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-yolo-od">FROM-YOLO-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_23">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_23">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-source-ac">GENERIC-SOURCE-AC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_24">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_24">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-source-ic">GENERIC-SOURCE-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_25">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_25">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-source-is">GENERIC-SOURCE-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_26">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_26">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-source-od">GENERIC-SOURCE-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_27">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_27">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-source-sp">GENERIC-SOURCE-SP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_28">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_28">Options:</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#processor-stage">Processor stage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#add-annotation-overlay-ic">ADD-ANNOTATION-OVERLAY-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_29">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_29">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#add-annotation-overlay-is">ADD-ANNOTATION-OVERLAY-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_30">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_30">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#add-annotation-overlay-od">ADD-ANNOTATION-OVERLAY-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_31">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_31">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#check-duplicate-filenames">CHECK-DUPLICATE-FILENAMES</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_32">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_32">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#coerce-box">COERCE-BOX</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_33">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_33">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#coerce-mask">COERCE-MASK</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_34">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_34">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#combine-annotations-od">COMBINE-ANNOTATIONS-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_35">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_35">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#convert-image-format">CONVERT-IMAGE-FORMAT</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_36">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_36">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#convert-to-mono">CONVERT-TO-MONO</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_37">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_37">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#convert-to-wav">CONVERT-TO-WAV</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_38">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_38">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#crop">CROP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_39">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_39">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dimension-discarder">DIMENSION-DISCARDER</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_40">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_40">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#discard-invalid-images">DISCARD-INVALID-IMAGES</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_41">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_41">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#discard-negatives">DISCARD-NEGATIVES</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_42">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_42">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#drop-frames">DROP-FRAMES</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_43">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_43">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#filter-frames-by-label-od">FILTER-FRAMES-BY-LABEL-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_44">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_44">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#filter-labels">FILTER-LABELS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_45">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_45">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#filter-metadata">FILTER-METADATA</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_46">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_46">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#flip">FLIP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_47">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_47">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gaussian-blur">GAUSSIAN-BLUR</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_48">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_48">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-isp-ac">GENERIC-ISP-AC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_49">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_49">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-isp-ic">GENERIC-ISP-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_50">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_50">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-isp-is">GENERIC-ISP-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_51">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_51">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-isp-od">GENERIC-ISP-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_52">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_52">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-isp-sp">GENERIC-ISP-SP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_53">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_53">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hsl-grayscale">HSL-GRAYSCALE</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_54">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_54">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#linear-contrast">LINEAR-CONTRAST</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_55">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_55">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#map-labels">MAP-LABELS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_56">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_56">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mel-spectrogram">MEL-SPECTROGRAM</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_57">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_57">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mfcc-spectrogram">MFCC-SPECTROGRAM</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_58">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_58">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#od-to-ic">OD-TO-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_59">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_59">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#od-to-is">OD-TO-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_60">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_60">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#passthrough">PASSTHROUGH</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_61">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_61">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pitch-shift">PITCH-SHIFT</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_62">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_62">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#polygon-discarder">POLYGON-DISCARDER</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_63">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_63">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#redis-predict-ic">REDIS-PREDICT-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_64">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_64">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#redis-predict-is">REDIS-PREDICT-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_65">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_65">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#redis-predict-od">REDIS-PREDICT-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_66">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_66">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#remove-classes">REMOVE-CLASSES</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_67">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_67">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#resample-audio">RESAMPLE-AUDIO</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_68">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_68">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rotate">ROTATE</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_69">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_69">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sample">SAMPLE</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_70">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_70">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scale">SCALE</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_71">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_71">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#skip-similar-frames">SKIP-SIMILAR-FRAMES</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_72">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_72">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#stft-spectrogram">STFT-SPECTROGRAM</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_73">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_73">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#strip-annotations">STRIP-ANNOTATIONS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_74">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_74">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sub-images">SUB-IMAGES</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_75">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_75">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#time-stretch">TIME-STRETCH</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_76">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_76">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trim-audio">TRIM-AUDIO</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_77">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_77">Options:</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sink-stage">Sink stage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#area-histogram-is">AREA-HISTOGRAM-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_78">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_78">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#area-histogram-od">AREA-HISTOGRAM-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_79">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_79">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#audio-info-ac">AUDIO-INFO-AC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_80">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_80">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#audio-info-sp">AUDIO-INFO-SP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_81">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_81">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#calc-frame-changes">CALC-FRAME-CHANGES</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_82">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_82">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-sink-ac">GENERIC-SINK-AC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_83">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_83">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-sink-ic">GENERIC-SINK-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_84">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_84">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-sink-is">GENERIC-SINK-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_85">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_85">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-sink-od">GENERIC-SINK-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_86">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_86">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-sink-sp">GENERIC-SINK-SP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_87">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_87">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#image-viewer-ic">IMAGE-VIEWER-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_88">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_88">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#image-viewer-is">IMAGE-VIEWER-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_89">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_89">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#image-viewer-od">IMAGE-VIEWER-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_90">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_90">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#label-dist-ic">LABEL-DIST-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_91">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_91">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#label-dist-is">LABEL-DIST-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_92">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_92">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#label-dist-od">LABEL-DIST-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_93">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_93">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-adams-ic">TO-ADAMS-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_94">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_94">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-adams-od">TO-ADAMS-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_95">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_95">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-annotation-overlay-od">TO-ANNOTATION-OVERLAY-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_96">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_96">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-audio-files-ac">TO-AUDIO-FILES-AC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_97">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_97">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-audio-files-sp">TO-AUDIO-FILES-SP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_98">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_98">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-blue-channel-is">TO-BLUE-CHANNEL-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_99">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_99">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-coco-od">TO-COCO-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_100">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_100">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-common-voice-sp">TO-COMMON-VOICE-SP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_101">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_101">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-festvox-sp">TO-FESTVOX-SP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_102">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_102">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-grayscale-is">TO-GRAYSCALE-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_103">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_103">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-images-ic">TO-IMAGES-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_104">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_104">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-images-is">TO-IMAGES-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_105">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_105">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-images-od">TO-IMAGES-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_106">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_106">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-indexed-png-is">TO-INDEXED-PNG-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_107">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_107">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-layer-segments-is">TO-LAYER-SEGMENTS-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_108">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_108">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-opex-od">TO-OPEX-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_109">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_109">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-roi-od">TO-ROI-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_110">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_110">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-subdir-ac">TO-SUBDIR-AC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_111">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_111">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-subdir-ic">TO-SUBDIR-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_112">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_112">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-tf-od">TO-TF-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_113">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_113">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-vgg-od">TO-VGG-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_114">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_114">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-video-file-od">TO-VIDEO-FILE-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_115">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_115">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-voc-od">TO-VOC-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_116">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_116">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-void-ac">TO-VOID-AC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_117">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_117">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-void-ic">TO-VOID-IC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_118">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_118">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-void-is">TO-VOID-IS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_119">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_119">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-void-od">TO-VOID-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_120">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_120">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-void-sp">TO-VOID-SP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_121">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_121">Options:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-yolo-od">TO-YOLO-OD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#domains_122">Domain(s):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options_122">Options:</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../glossary/">Glossary</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../glossary/">Glossary</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -179,6 +1124,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -2806,7 +3752,7 @@ optional arguments:
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -2816,7 +3762,7 @@ optional arguments:
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -2829,7 +3775,11 @@ optional arguments:
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
