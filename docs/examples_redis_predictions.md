@@ -51,7 +51,7 @@ For the model and wai.annotations we will be using existing docker containers.
 
 NB: Place all the downloads in the current directory
 
-* Download the [dashcam01.mp4](https://github.com/lessthanoptimal/BoofCV-Data/raw/15c79700a26646ed33806fe9e834e0224acb75c8/example/tracking/dashcam01.mp4) video from the BoofCV project
+* Download the [dashcam01.mp4](https://github.com/lessthanoptimal/BoofCV-Data/blob/master/example/tracking/dashcam01.mp4) video from the BoofCV project
 * Download the [yolo5n.pt](https://github.com/ultralytics/yolov5/releases/download/v6.0/yolov5n.pt) model
 * Download the [coco.yaml](https://github.com/ultralytics/yolov5/blob/956be8e642b5c10af4a1533e09084ca32ff4f21f/data/coco.yaml) data description for the yolo5n model
 * The host machine must have a Redis server instance running. Two options:
