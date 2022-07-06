@@ -18,3 +18,4 @@ learning models).
 * [Plugins](plugins.md) - available plugins
 * [Glossary](glossary.md) - explanations of terms
 
+wai.annotations is being developed as part of the [User-friendly Deep Learning](https://ufdl.cms.waikato.ac.nz/) project.

@@ -27,8 +27,6 @@ The following Docker images are available for connecting to the prediction plugi
 * Image segmentation
 
     * [Image segmentation Keras](https://github.com/waikato-datamining/tensorflow/tree/master/image-segmentation-keras)
-    * [MMSegmentation](https://github.com/waikato-datamining/mmsegmentation/)
-    * [Segmentation models](https://github.com/waikato-datamining/pytorch/tree/master/segmentation_models  )
 
 
 # Object detection example
@@ -113,9 +111,3 @@ docker run -u $(id -u):$(id -g) \
       --size 800,224 \
       --delay 1
 ```
-
-## Video
-
-The above instructions also as a video:
-
-![type:video](https://www.youtube.com/embed/30rrytdsBrc)
