@@ -12,19 +12,19 @@ https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/
 
 *mkdocs* works with Python 2.7 and 3.x.
 
-Best approach is to install mkdocs (>= 0.16.0) in a virtual environment 
+Best approach is to install mkdocs (>= 1.1.0) in a virtual environment 
 (`venv` directory):
 
-* Python 3.7
+* Python 3
 
   ```
-  virtualenv -p /usr/bin/python3.7 venv
+  virtualenv -p /usr/bin/python3 venv
   ```
 
 * Install the mkdocs package
 
   ```
-  ./venv/bin/pip install mkdocs==1.0.4 jinja2==3.0.0
+  ./venv/bin/pip install mkdocs==1.1.0 jinja2==3.0.0 mkdocs-video==1.3.0
   ```
 
 
