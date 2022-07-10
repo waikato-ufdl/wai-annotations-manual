@@ -39,3 +39,9 @@ variable, using one of the following levels (the higher the number the fewer mes
 * 20: INFO
 * 30: WARNING
 * 40: ERROR
+
+### Numba logging
+
+By default, numba's logging level gets set to `WARNING` to avoid deluge of debugging
+messages. However, this can be changed via the `WAIANN_NUMBA_LOGLEVEL` environment
+variable. Same levels are available as for `WAIANN_LOG_LEVEL`.
