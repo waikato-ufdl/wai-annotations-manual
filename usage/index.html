@@ -56,7 +56,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#numba-logging">Numba logging</a>
+    <li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a>
     </li>
         </ul>
     </li>
@@ -167,10 +167,15 @@ variable, using one of the following levels (the higher the number the fewer mes
 <li>30: WARNING</li>
 <li>40: ERROR</li>
 </ul>
-<h5 id="numba-logging">Numba logging</h5>
-<p>By default, numba's logging level gets set to <code>WARNING</code> to avoid deluge of debugging
-messages. However, this can be changed via the <code>WAIANN_NUMBA_LOGLEVEL</code> environment
-variable. Same levels are available as for <code>WAIANN_LOG_LEVEL</code>.</p>
+<h5 id="dependencies">Dependencies</h5>
+<p>A number of libraries have their default logging set to <code>DEBUG</code>, which can output
+unnecessary output in the console. wai.annotations sets the logging level for
+some libraries to a higher level therefore. However, the user can adjust this again 
+via environment variables, in case the logging output is required:</p>
+<ul>
+<li>matplotlib: <code>WAIANN_MATPLOTLIB_LOGLEVEL</code> (default level: <code>WARNING</code>)</li>
+<li>numba: <code>WAIANN_NUMBA_LOGLEVEL</code> (default level: <code>WARNING</code>)</li>
+</ul>
               
             </div>
           </div>
