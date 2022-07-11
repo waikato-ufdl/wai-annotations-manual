@@ -40,8 +40,12 @@ variable, using one of the following levels (the higher the number the fewer mes
 * 30: WARNING
 * 40: ERROR
 
-### Numba logging
+### Dependencies
 
-By default, numba's logging level gets set to `WARNING` to avoid deluge of debugging
-messages. However, this can be changed via the `WAIANN_NUMBA_LOGLEVEL` environment
-variable. Same levels are available as for `WAIANN_LOG_LEVEL`.
+A number of libraries have their default logging set to `DEBUG`, which can output
+unnecessary output in the console. wai.annotations sets the logging level for
+some libraries to a higher level therefore. However, the user can adjust this again 
+via environment variables, in case the logging output is required:
+
+* matplotlib: `WAIANN_MATPLOTLIB_LOGLEVEL` (default level: `WARNING`)
+* numba: `WAIANN_NUMBA_LOGLEVEL` (default level: `WARNING`)
