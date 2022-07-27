@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/install/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/usage/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/examples_overview/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/examples_formats/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/examples_audio/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/examples_imgaug/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/examples_imgstats/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/examples_imgvis/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/examples_video/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/examples_redis_predictions/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/examples_generic/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/docker/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/architecture_overview/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/plugin/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/domains/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/plugins/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ufdl.cms.waikato.ac.nz/wai-annotations-manual/glossary/</loc>
-     <lastmod>2022-07-11</lastmod>
+     <lastmod>2022-07-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
