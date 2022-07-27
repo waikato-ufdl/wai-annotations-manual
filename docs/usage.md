@@ -49,3 +49,4 @@ via environment variables, in case the logging output is required:
 
 * matplotlib: `WAIANN_MATPLOTLIB_LOGLEVEL` (default level: `WARNING`)
 * numba: `WAIANN_NUMBA_LOGLEVEL` (default level: `WARNING`)
+* shapely: `WAIANN_SHAPELY_LOGLEVEL` (default level: `WARNING`)
