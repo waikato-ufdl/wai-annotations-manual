@@ -136,12 +136,16 @@
               
                 <h3 id="installation-of-wai-annotations">Installation of wai-annotations</h3>
 <p>To install wai-annotations issue the following commands using pip:</p>
-<pre><code class="language-commandline">pip install wai.annotations.core
+<pre><code class="language-bash">pip install &quot;numpy&lt;1.23.0&quot;
+pip install wai.pycocotools
+pip install wai.annotations.core
 </code></pre>
 <p><code>wai.annotations.core</code> does not come with any input/output formats installed. You will need to install a plugin for each
 format that you want to convert between. For a description of the plugin system, see the <a href="../plugin/">plugin guide</a>.</p>
 <p>For installing all available plugins, use this command:</p>
-<pre><code class="language-commandline">pip install wai.annotations
+<pre><code class="language-bash">pip install &quot;numpy&lt;1.23.0&quot;
+pip install wai.pycocotools
+pip install wai.annotations
 </code></pre>
 <h3 id="available-plugins">Available plugins</h3>
 <p>Image classification</p>
