@@ -2,7 +2,9 @@
 
 To install wai-annotations issue the following commands using pip:
 
-```commandline
+```bash
+pip install "numpy<1.23.0"
+pip install wai.pycocotools
 pip install wai.annotations.core
 ```
 
@@ -11,7 +13,9 @@ format that you want to convert between. For a description of the plugin system,
 
 For installing all available plugins, use this command:
 
-```commandline
+```bash
+pip install "numpy<1.23.0"
+pip install wai.pycocotools
 pip install wai.annotations
 ```
 
