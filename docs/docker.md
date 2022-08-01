@@ -18,7 +18,7 @@ mode, mapping the current directory (`pwd`) into the `/workspace` directory in t
 container, to have access to the data in this directory:
 
 ```bash
-docker run -u $(id -u):$(id -g) -v `pwd`:/workspace -it wai.annotations:0.7.6
+docker run -u $(id -u):$(id -g) -v `pwd`:/workspace -it waikatoufdl/wai.annotations:0.7.6
 ```
 
 # Graphical user interface
