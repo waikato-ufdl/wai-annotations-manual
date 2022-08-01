@@ -149,7 +149,7 @@ make use of our pre-built <a href="https://hub.docker.com/repository/docker/waik
 <p>The following command-line starts the 0.7.6 version of wai.annotations in interactive
 mode, mapping the current directory (<code>pwd</code>) into the <code>/workspace</code> directory in the
 container, to have access to the data in this directory:</p>
-<pre><code class="language-bash">docker run -u $(id -u):$(id -g) -v `pwd`:/workspace -it wai.annotations:0.7.6
+<pre><code class="language-bash">docker run -u $(id -u):$(id -g) -v `pwd`:/workspace -it waikatoufdl/wai.annotations:0.7.6
 </code></pre>
 <h3 id="graphical-user-interface">Graphical user interface</h3>
 <p>By default, Docker is aimed at worker processes or command-line execution. If you want 
