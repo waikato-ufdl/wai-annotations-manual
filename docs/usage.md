@@ -47,6 +47,8 @@ unnecessary output in the console. wai.annotations sets the logging level for
 some libraries to a higher level therefore. However, the user can adjust this again 
 via environment variables, in case the logging output is required:
 
+* h5py: `WAIANN_H5PY_LOGLEVEL` (default level: `WARNING`)
 * matplotlib: `WAIANN_MATPLOTLIB_LOGLEVEL` (default level: `WARNING`)
 * numba: `WAIANN_NUMBA_LOGLEVEL` (default level: `WARNING`)
 * shapely: `WAIANN_SHAPELY_LOGLEVEL` (default level: `WARNING`)
+* tensorflow: `WAIANN_TF_LOGLEVEL` (default level: `WARNING`)
