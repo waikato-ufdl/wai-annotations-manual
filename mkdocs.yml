@@ -5,9 +5,12 @@ theme:
     name: readthedocs
 markdown_extensions:
     - toc:
-        baselevel: 3
+        baselevel: 2
+        permalink: "#"
 plugins:
+    # https://github.com/soulless-viewer/mkdocs-video
     - mkdocs-video
+    - search
 nav:
   - 'Home': index.md
   - 'Installation': install.md
