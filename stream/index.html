@@ -39,7 +39,11 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> wai-annotations manual</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -132,7 +136,7 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="stream-layer">Stream Layer</h3>
+                <h2 id="stream-layer">Stream Layer<a class="headerlink" href="#stream-layer" title="Permanent link">#</a></h2>
 <p>The stream layer provides classes for creating custom stream-processing pipelines. Each pipeline consists of: a source,
 which injects items into the pipeline for processing; processors, which take items and process them; and a sink, which
 consumes the items coming out of the pipeline.</p>
@@ -142,7 +146,7 @@ gathers the individual stream elements into a whole, connects each element to th
 ensures that the elements follow the pipeline's calling semantics (see below).</p>
 <p>Note that while the stream-processing elements are typed on the items they consume/produce, this is only for linting
 purposes and not enforced at run-time.</p>
-<h4 id="calling-semantics">Calling semantics</h4>
+<h3 id="calling-semantics">Calling semantics<a class="headerlink" href="#calling-semantics" title="Permanent link">#</a></h3>
 <p>For sources and processors, the ability to pass items on to later elements in the processing pipeline is provided
 through 2 callback functions, <code>then</code> and <code>done</code>. <code>then</code> forwards an item to the next element of the pipeline, and
 <code>done</code> signals that no more items will be forwarded. This design was chosen over e.g. iterators as it ensures that when
@@ -154,11 +158,11 @@ to forward items, followed by exactly 1 call to <code>done</code> to signal term
 <p>The pipeline class constructs these callbacks so that, if they are not called in the correct order, an error occurs.
 Specifically, calling <code>then</code> after <code>done</code> has been called will raise an error, as will not calling <code>done</code> at all. In
 practice, <code>done</code> is written to be idempotent, such that calling it multiple times is the same as calling it once.</p>
-<h4 id="streamsource">StreamSource</h4>
+<h3 id="streamsource">StreamSource<a class="headerlink" href="#streamsource" title="Permanent link">#</a></h3>
 <p>Stream sources should implement the <code>produce</code> method to inject items into the pipeline. The method should call the 
 <code>then</code> callback with each item to inject as its argument. Once all items have been produced, the source should then
 call the <code>done</code> callback.</p>
-<h4 id="streamprocessor">StreamProcessor</h4>
+<h3 id="streamprocessor">StreamProcessor<a class="headerlink" href="#streamprocessor" title="Permanent link">#</a></h3>
 <p>Stream processors should implement <code>process_element</code> method to receive items from the previous processing-element in
 the pipeline for processing. They should also implement the <code>finish</code> method to finalise processing after all items
 have been received.</p>
@@ -166,12 +170,12 @@ have been received.</p>
 processed results as they arrive, or batch them and perform processing/forwarding in bulk.</p>
 <p>An optional <code>start</code> method is available, which can be overridden to perform any set-up required before the processor
 starts receiving items.</p>
-<h4 id="streamsink">StreamSink</h4>
+<h3 id="streamsink">StreamSink<a class="headerlink" href="#streamsink" title="Permanent link">#</a></h3>
 <p>Stream sinks should implement the <code>consume_element</code> method to consume items produced by the pipeline. They should also
 implement the <code>finish</code> method to perform any tidy-up once the pipeline has terminated.</p>
 <p>An optional <code>start</code> method is available, which can be overridden to perform any set-up required before the sink
 starts receiving items.</p>
-<h4 id="pipeline">Pipeline</h4>
+<h3 id="pipeline">Pipeline<a class="headerlink" href="#pipeline" title="Permanent link">#</a></h3>
 <p>The Pipeline class take an optional source, zero or more processors, and an optional sink as its constructor arguments.
 When the <code>process</code> method is called, the processing elements are connected together, the <code>start</code> methods for each
 processor and the sink are called, and the source is instructed to start producing items. Optionally, an iterable can
@@ -179,11 +183,11 @@ be passed to the <code>process</code> method to replace the pipeline's own sourc
 the pipeline's sink.</p>
 <p>When the pipeline is connecting the processing elements together, it also inserts checks for the calling semantics,
 which will raise an exception if they are not adhered to.</p>
-<h4 id="utilities">Utilities</h4>
-<h5 id="requiresnofinalisation">RequiresNoFinalisation</h5>
+<h3 id="utilities">Utilities<a class="headerlink" href="#utilities" title="Permanent link">#</a></h3>
+<h4 id="requiresnofinalisation">RequiresNoFinalisation<a class="headerlink" href="#requiresnofinalisation" title="Permanent link">#</a></h4>
 <p>Mixin class that can be used with StreamProcessor/StreamSink to automatically implement the <code>finish</code> method. It will
 call the <code>done</code> callback automatically for processors if it has not been called already.</p>
-<h5 id="processstate">ProcessState</h5>
+<h4 id="processstate">ProcessState<a class="headerlink" href="#processstate" title="Permanent link">#</a></h4>
 <p>Descriptor class which adds per-stream state to a stream-processing element. Takes an initialiser function as its only
 constructor argument. The initialiser is used to re-initialise the state before each stream is processed by the
 pipeline that contains the element. The state can be modified during stream processing to track per-stream state, but
@@ -220,6 +224,7 @@ the changes are discarded once a new stream is processed.</p>
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

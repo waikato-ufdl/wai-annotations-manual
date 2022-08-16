@@ -39,7 +39,11 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> wai-annotations manual</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -1130,15 +1134,15 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="plugins">Plugins</h3>
-<h4 id="source-stage">Source stage</h4>
-<h5 id="from-adams-ic">FROM-ADAMS-IC</h5>
+                <h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">#</a></h2>
+<h3 id="source-stage">Source stage<a class="headerlink" href="#source-stage" title="Permanent link">#</a></h3>
+<h4 id="from-adams-ic">FROM-ADAMS-IC<a class="headerlink" href="#from-adams-ic" title="Permanent link">#</a></h4>
 <p>Reads image classification annotations in the ADAMS report-format</p>
-<h6 id="domains">Domain(s):</h6>
+<h5 id="domains">Domain(s):<a class="headerlink" href="#domains" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options">Options:</h6>
+<h5 id="options">Options:<a class="headerlink" href="#options" title="Permanent link">#</a></h5>
 <pre><code>usage: from-adams-ic [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                      [--seed SEED] [-e FORMAT FORMAT FORMAT] -c FIELD
 
@@ -1162,13 +1166,13 @@ optional arguments:
   -c FIELD, --class-field FIELD
                         the report field containing the image class (default: None)
 </code></pre>
-<h5 id="from-adams-od">FROM-ADAMS-OD</h5>
+<h4 id="from-adams-od">FROM-ADAMS-OD<a class="headerlink" href="#from-adams-od" title="Permanent link">#</a></h4>
 <p>Reads image object-detection annotations in the ADAMS report-format</p>
-<h6 id="domains_1">Domain(s):</h6>
+<h5 id="domains_1">Domain(s):<a class="headerlink" href="#domains_1" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_1">Options:</h6>
+<h5 id="options_1">Options:<a class="headerlink" href="#options_1" title="Permanent link">#</a></h5>
 <pre><code>usage: from-adams-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                      [--seed SEED] [-e FORMAT FORMAT FORMAT] [-p PREFIXES [PREFIXES ...]]
 
@@ -1192,13 +1196,13 @@ optional arguments:
   -p PREFIXES [PREFIXES ...], --prefixes PREFIXES [PREFIXES ...]
                         prefixes to parse (default: [])
 </code></pre>
-<h5 id="from-audio-files-ac">FROM-AUDIO-FILES-AC</h5>
+<h4 id="from-audio-files-ac">FROM-AUDIO-FILES-AC<a class="headerlink" href="#from-audio-files-ac" title="Permanent link">#</a></h4>
 <p>Dummy reader that turns audio files into a classification dataset.</p>
-<h6 id="domains_2">Domain(s):</h6>
+<h5 id="domains_2">Domain(s):<a class="headerlink" href="#domains_2" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 </ul>
-<h6 id="options_2">Options:</h6>
+<h5 id="options_2">Options:<a class="headerlink" href="#options_2" title="Permanent link">#</a></h5>
 <pre><code>usage: from-audio-files-ac [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                            [--seed SEED]
 
@@ -1215,13 +1219,13 @@ optional arguments:
                         optional file to write read filenames into (default: None)
   --seed SEED           the seed to use for randomisation (default: None)
 </code></pre>
-<h5 id="from-audio-files-sp">FROM-AUDIO-FILES-SP</h5>
+<h4 id="from-audio-files-sp">FROM-AUDIO-FILES-SP<a class="headerlink" href="#from-audio-files-sp" title="Permanent link">#</a></h4>
 <p>Dummy reader that turns audio files into a speech dataset.</p>
-<h6 id="domains_3">Domain(s):</h6>
+<h5 id="domains_3">Domain(s):<a class="headerlink" href="#domains_3" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_3">Options:</h6>
+<h5 id="options_3">Options:<a class="headerlink" href="#options_3" title="Permanent link">#</a></h5>
 <pre><code>usage: from-audio-files-sp [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                            [--seed SEED]
 
@@ -1238,13 +1242,13 @@ optional arguments:
                         optional file to write read filenames into (default: None)
   --seed SEED           the seed to use for randomisation (default: None)
 </code></pre>
-<h5 id="from-blue-channel-is">FROM-BLUE-CHANNEL-IS</h5>
+<h4 id="from-blue-channel-is">FROM-BLUE-CHANNEL-IS<a class="headerlink" href="#from-blue-channel-is" title="Permanent link">#</a></h4>
 <p>Reads image segmentation files in the blue-channel format</p>
-<h6 id="domains_4">Domain(s):</h6>
+<h5 id="domains_4">Domain(s):<a class="headerlink" href="#domains_4" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_4">Options:</h6>
+<h5 id="options_4">Options:<a class="headerlink" href="#options_4" title="Permanent link">#</a></h5>
 <pre><code>usage: from-blue-channel-is [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                             [--seed SEED] [--image-path-rel PATH] --labels LABEL [LABEL ...]
 
@@ -1265,13 +1269,13 @@ optional arguments:
   --labels LABEL [LABEL ...]
                         specifies the labels for each index (default: None)
 </code></pre>
-<h5 id="from-coco-od">FROM-COCO-OD</h5>
+<h4 id="from-coco-od">FROM-COCO-OD<a class="headerlink" href="#from-coco-od" title="Permanent link">#</a></h4>
 <p>Reads image object-detection annotations in the MS-COCO JSON-format</p>
-<h6 id="domains_5">Domain(s):</h6>
+<h5 id="domains_5">Domain(s):<a class="headerlink" href="#domains_5" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_5">Options:</h6>
+<h5 id="options_5">Options:<a class="headerlink" href="#options_5" title="Permanent link">#</a></h5>
 <pre><code>usage: from-coco-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                     [--seed SEED]
 
@@ -1288,13 +1292,13 @@ optional arguments:
                         optional file to write read filenames into (default: None)
   --seed SEED           the seed to use for randomisation (default: None)
 </code></pre>
-<h5 id="from-common-voice-sp">FROM-COMMON-VOICE-SP</h5>
+<h4 id="from-common-voice-sp">FROM-COMMON-VOICE-SP<a class="headerlink" href="#from-common-voice-sp" title="Permanent link">#</a></h4>
 <p>Reads speech transcriptions in the Mozilla Common-Voice TSV-format</p>
-<h6 id="domains_6">Domain(s):</h6>
+<h5 id="domains_6">Domain(s):<a class="headerlink" href="#domains_6" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_6">Options:</h6>
+<h5 id="options_6">Options:<a class="headerlink" href="#options_6" title="Permanent link">#</a></h5>
 <pre><code>usage: from-common-voice-sp [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                             [--seed SEED] [--rel-path REL_PATH]
 
@@ -1312,13 +1316,13 @@ optional arguments:
   --seed SEED           the seed to use for randomisation (default: None)
   --rel-path REL_PATH   the relative path from the annotations file to the audio files (default: .)
 </code></pre>
-<h5 id="from-festvox-sp">FROM-FESTVOX-SP</h5>
+<h4 id="from-festvox-sp">FROM-FESTVOX-SP<a class="headerlink" href="#from-festvox-sp" title="Permanent link">#</a></h4>
 <p>Reads speech transcriptions in the Festival FestVox format</p>
-<h6 id="domains_7">Domain(s):</h6>
+<h5 id="domains_7">Domain(s):<a class="headerlink" href="#domains_7" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_7">Options:</h6>
+<h5 id="options_7">Options:<a class="headerlink" href="#options_7" title="Permanent link">#</a></h5>
 <pre><code>usage: from-festvox-sp [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                        [--seed SEED] [--rel-path REL_PATH]
 
@@ -1336,13 +1340,13 @@ optional arguments:
   --seed SEED           the seed to use for randomisation (default: None)
   --rel-path REL_PATH   the relative path from the annotations file to the audio files (default: .)
 </code></pre>
-<h5 id="from-grayscale-is">FROM-GRAYSCALE-IS</h5>
+<h4 id="from-grayscale-is">FROM-GRAYSCALE-IS<a class="headerlink" href="#from-grayscale-is" title="Permanent link">#</a></h4>
 <p>Reads image segmentation files in the grayscale format</p>
-<h6 id="domains_8">Domain(s):</h6>
+<h5 id="domains_8">Domain(s):<a class="headerlink" href="#domains_8" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_8">Options:</h6>
+<h5 id="options_8">Options:<a class="headerlink" href="#options_8" title="Permanent link">#</a></h5>
 <pre><code>usage: from-grayscale-is [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                          [--seed SEED] [--image-path-rel PATH] --labels LABEL [LABEL ...]
 
@@ -1363,13 +1367,13 @@ optional arguments:
   --labels LABEL [LABEL ...]
                         specifies the labels for each index (default: None)
 </code></pre>
-<h5 id="from-images-ic">FROM-IMAGES-IC</h5>
+<h4 id="from-images-ic">FROM-IMAGES-IC<a class="headerlink" href="#from-images-ic" title="Permanent link">#</a></h4>
 <p>Dummy reader that turns images into an image classification dataset.</p>
-<h6 id="domains_9">Domain(s):</h6>
+<h5 id="domains_9">Domain(s):<a class="headerlink" href="#domains_9" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_9">Options:</h6>
+<h5 id="options_9">Options:<a class="headerlink" href="#options_9" title="Permanent link">#</a></h5>
 <pre><code>usage: from-images-ic [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                       [--seed SEED]
 
@@ -1386,13 +1390,13 @@ optional arguments:
                         optional file to write read filenames into (default: None)
   --seed SEED           the seed to use for randomisation (default: None)
 </code></pre>
-<h5 id="from-images-is">FROM-IMAGES-IS</h5>
+<h4 id="from-images-is">FROM-IMAGES-IS<a class="headerlink" href="#from-images-is" title="Permanent link">#</a></h4>
 <p>Dummy reader that turns images into an image segmentation dataset.</p>
-<h6 id="domains_10">Domain(s):</h6>
+<h5 id="domains_10">Domain(s):<a class="headerlink" href="#domains_10" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_10">Options:</h6>
+<h5 id="options_10">Options:<a class="headerlink" href="#options_10" title="Permanent link">#</a></h5>
 <pre><code>usage: from-images-is [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                       [--seed SEED]
 
@@ -1409,13 +1413,13 @@ optional arguments:
                         optional file to write read filenames into (default: None)
   --seed SEED           the seed to use for randomisation (default: None)
 </code></pre>
-<h5 id="from-images-od">FROM-IMAGES-OD</h5>
+<h4 id="from-images-od">FROM-IMAGES-OD<a class="headerlink" href="#from-images-od" title="Permanent link">#</a></h4>
 <p>Dummy reader that turns images into an object detection dataset.</p>
-<h6 id="domains_11">Domain(s):</h6>
+<h5 id="domains_11">Domain(s):<a class="headerlink" href="#domains_11" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_11">Options:</h6>
+<h5 id="options_11">Options:<a class="headerlink" href="#options_11" title="Permanent link">#</a></h5>
 <pre><code>usage: from-images-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                       [--seed SEED]
 
@@ -1432,13 +1436,13 @@ optional arguments:
                         optional file to write read filenames into (default: None)
   --seed SEED           the seed to use for randomisation (default: None)
 </code></pre>
-<h5 id="from-indexed-png-is">FROM-INDEXED-PNG-IS</h5>
+<h4 id="from-indexed-png-is">FROM-INDEXED-PNG-IS<a class="headerlink" href="#from-indexed-png-is" title="Permanent link">#</a></h4>
 <p>Reads image segmentation files in the indexed-PNG format</p>
-<h6 id="domains_12">Domain(s):</h6>
+<h5 id="domains_12">Domain(s):<a class="headerlink" href="#domains_12" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_12">Options:</h6>
+<h5 id="options_12">Options:<a class="headerlink" href="#options_12" title="Permanent link">#</a></h5>
 <pre><code>usage: from-indexed-png-is [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                            [--seed SEED] [--image-path-rel PATH] --labels LABEL [LABEL ...]
 
@@ -1459,13 +1463,13 @@ optional arguments:
   --labels LABEL [LABEL ...]
                         specifies the labels for each index (default: None)
 </code></pre>
-<h5 id="from-layer-segments-is">FROM-LAYER-SEGMENTS-IS</h5>
+<h4 id="from-layer-segments-is">FROM-LAYER-SEGMENTS-IS<a class="headerlink" href="#from-layer-segments-is" title="Permanent link">#</a></h4>
 <p>Reads in the layer-segments image-segmentation format from disk, where each label has a binary PNG storing the mask for that label</p>
-<h6 id="domains_13">Domain(s):</h6>
+<h5 id="domains_13">Domain(s):<a class="headerlink" href="#domains_13" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_13">Options:</h6>
+<h5 id="options_13">Options:<a class="headerlink" href="#options_13" title="Permanent link">#</a></h5>
 <pre><code>usage: from-layer-segments-is [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                               [--seed SEED] [--label-separator SEPARATOR] --labels LABEL [LABEL ...]
                               [--image-path-rel PATH]
@@ -1489,13 +1493,13 @@ optional arguments:
   --image-path-rel PATH
                         Relative path to image files from annotations (default: .)
 </code></pre>
-<h5 id="from-opex-od">FROM-OPEX-OD</h5>
+<h4 id="from-opex-od">FROM-OPEX-OD<a class="headerlink" href="#from-opex-od" title="Permanent link">#</a></h4>
 <p>Reads image object-detection annotations in the OPEX format</p>
-<h6 id="domains_14">Domain(s):</h6>
+<h5 id="domains_14">Domain(s):<a class="headerlink" href="#domains_14" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_14">Options:</h6>
+<h5 id="options_14">Options:<a class="headerlink" href="#options_14" title="Permanent link">#</a></h5>
 <pre><code>usage: from-opex-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                     [--seed SEED]
 
@@ -1512,13 +1516,13 @@ optional arguments:
                         optional file to write read filenames into (default: None)
   --seed SEED           the seed to use for randomisation (default: None)
 </code></pre>
-<h5 id="from-roi-od">FROM-ROI-OD</h5>
+<h4 id="from-roi-od">FROM-ROI-OD<a class="headerlink" href="#from-roi-od" title="Permanent link">#</a></h4>
 <p>Reads image object-detection annotations in the ROI CSV-format</p>
-<h6 id="domains_15">Domain(s):</h6>
+<h5 id="domains_15">Domain(s):<a class="headerlink" href="#domains_15" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_15">Options:</h6>
+<h5 id="options_15">Options:<a class="headerlink" href="#options_15" title="Permanent link">#</a></h5>
 <pre><code>usage: from-roi-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                    [--seed SEED] [-e FORMAT FORMAT FORMAT] [--prefix READER_PREFIX]
                    [--suffix READER_SUFFIX]
@@ -1545,13 +1549,13 @@ optional arguments:
   --suffix READER_SUFFIX
                         the suffix for output filenames (default = '-rois.csv') (default: None)
 </code></pre>
-<h5 id="from-subdir-ac">FROM-SUBDIR-AC</h5>
+<h4 id="from-subdir-ac">FROM-SUBDIR-AC<a class="headerlink" href="#from-subdir-ac" title="Permanent link">#</a></h4>
 <p>Reads audio files from sub-directories named after their class labels.</p>
-<h6 id="domains_16">Domain(s):</h6>
+<h5 id="domains_16">Domain(s):<a class="headerlink" href="#domains_16" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 </ul>
-<h6 id="options_16">Options:</h6>
+<h5 id="options_16">Options:<a class="headerlink" href="#options_16" title="Permanent link">#</a></h5>
 <pre><code>usage: from-subdir-ac [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                       [--seed SEED]
 
@@ -1568,13 +1572,13 @@ optional arguments:
                         optional file to write read filenames into (default: None)
   --seed SEED           the seed to use for randomisation (default: None)
 </code></pre>
-<h5 id="from-subdir-ic">FROM-SUBDIR-IC</h5>
+<h4 id="from-subdir-ic">FROM-SUBDIR-IC<a class="headerlink" href="#from-subdir-ic" title="Permanent link">#</a></h4>
 <p>Reads images from sub-directories named after their class labels.</p>
-<h6 id="domains_17">Domain(s):</h6>
+<h5 id="domains_17">Domain(s):<a class="headerlink" href="#domains_17" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_17">Options:</h6>
+<h5 id="options_17">Options:<a class="headerlink" href="#options_17" title="Permanent link">#</a></h5>
 <pre><code>usage: from-subdir-ic [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                       [--seed SEED]
 
@@ -1591,13 +1595,13 @@ optional arguments:
                         optional file to write read filenames into (default: None)
   --seed SEED           the seed to use for randomisation (default: None)
 </code></pre>
-<h5 id="from-tf-od">FROM-TF-OD</h5>
+<h4 id="from-tf-od">FROM-TF-OD<a class="headerlink" href="#from-tf-od" title="Permanent link">#</a></h4>
 <p>Reads image object-detection annotations in the TFRecords binary format</p>
-<h6 id="domains_18">Domain(s):</h6>
+<h5 id="domains_18">Domain(s):<a class="headerlink" href="#domains_18" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_18">Options:</h6>
+<h5 id="options_18">Options:<a class="headerlink" href="#options_18" title="Permanent link">#</a></h5>
 <pre><code>usage: from-tf-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                   [--seed SEED] [--mask-threshold THRESHOLD] [--sample-stride STRIDE]
 
@@ -1618,13 +1622,13 @@ optional arguments:
   --sample-stride STRIDE
                         the stride to use when calculating polygons from masks (default: 1)
 </code></pre>
-<h5 id="from-vgg-od">FROM-VGG-OD</h5>
+<h4 id="from-vgg-od">FROM-VGG-OD<a class="headerlink" href="#from-vgg-od" title="Permanent link">#</a></h4>
 <p>Reads image object-detection annotations in the VGG JSON-format</p>
-<h6 id="domains_19">Domain(s):</h6>
+<h5 id="domains_19">Domain(s):<a class="headerlink" href="#domains_19" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_19">Options:</h6>
+<h5 id="options_19">Options:<a class="headerlink" href="#options_19" title="Permanent link">#</a></h5>
 <pre><code>usage: from-vgg-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                    [--seed SEED]
 
@@ -1641,13 +1645,13 @@ optional arguments:
                         optional file to write read filenames into (default: None)
   --seed SEED           the seed to use for randomisation (default: None)
 </code></pre>
-<h5 id="from-video-file-od">FROM-VIDEO-FILE-OD</h5>
+<h4 id="from-video-file-od">FROM-VIDEO-FILE-OD<a class="headerlink" href="#from-video-file-od" title="Permanent link">#</a></h4>
 <p>Reads frames from a video file.</p>
-<h6 id="domains_20">Domain(s):</h6>
+<h5 id="domains_20">Domain(s):<a class="headerlink" href="#domains_20" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_20">Options:</h6>
+<h5 id="options_20">Options:<a class="headerlink" href="#options_20" title="Permanent link">#</a></h5>
 <pre><code>usage: from-video-file-od [-f FROM_FRAME] [-i INPUT_FILE] [-m MAX_FRAMES] [-n NTH_FRAME] [-p PREFIX]
                           [-t TO_FRAME]
 
@@ -1668,13 +1672,13 @@ optional arguments:
                         determines after which frame to stop (1-based index); ignored if &lt;=0
                         (default: -1)
 </code></pre>
-<h5 id="from-voc-od">FROM-VOC-OD</h5>
+<h4 id="from-voc-od">FROM-VOC-OD<a class="headerlink" href="#from-voc-od" title="Permanent link">#</a></h4>
 <p>Reads image object-detection annotations in the Pascal VOC XML-format</p>
-<h6 id="domains_21">Domain(s):</h6>
+<h5 id="domains_21">Domain(s):<a class="headerlink" href="#domains_21" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_21">Options:</h6>
+<h5 id="options_21">Options:<a class="headerlink" href="#options_21" title="Permanent link">#</a></h5>
 <pre><code>usage: from-voc-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                    [--seed SEED]
 
@@ -1691,13 +1695,13 @@ optional arguments:
                         optional file to write read filenames into (default: None)
   --seed SEED           the seed to use for randomisation (default: None)
 </code></pre>
-<h5 id="from-webcam-od">FROM-WEBCAM-OD</h5>
+<h4 id="from-webcam-od">FROM-WEBCAM-OD<a class="headerlink" href="#from-webcam-od" title="Permanent link">#</a></h4>
 <p>Reads frames from a webcam.</p>
-<h6 id="domains_22">Domain(s):</h6>
+<h5 id="domains_22">Domain(s):<a class="headerlink" href="#domains_22" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_22">Options:</h6>
+<h5 id="options_22">Options:<a class="headerlink" href="#options_22" title="Permanent link">#</a></h5>
 <pre><code>usage: from-webcam-od [-f FROM_FRAME] [-m MAX_FRAMES] [-n NTH_FRAME] [-p PREFIX] [-t TO_FRAME]
                       [-i WEBCAM_ID]
 
@@ -1718,13 +1722,13 @@ optional arguments:
   -i WEBCAM_ID, --webcam-id WEBCAM_ID
                         the webcam ID to read from (default: 0)
 </code></pre>
-<h5 id="from-yolo-od">FROM-YOLO-OD</h5>
+<h4 id="from-yolo-od">FROM-YOLO-OD<a class="headerlink" href="#from-yolo-od" title="Permanent link">#</a></h4>
 <p>Reads image object-detection annotations in the YOLO format</p>
-<h6 id="domains_23">Domain(s):</h6>
+<h5 id="domains_23">Domain(s):<a class="headerlink" href="#domains_23" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_23">Options:</h6>
+<h5 id="options_23">Options:<a class="headerlink" href="#options_23" title="Permanent link">#</a></h5>
 <pre><code>usage: from-yolo-od [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                     [--seed SEED] [--image-path-rel PATH] [-l PATH]
 
@@ -1745,13 +1749,13 @@ optional arguments:
   -l PATH, --labels PATH
                         Path to the labels file (default: None)
 </code></pre>
-<h5 id="generic-source-ac">GENERIC-SOURCE-AC</h5>
+<h4 id="generic-source-ac">GENERIC-SOURCE-AC<a class="headerlink" href="#generic-source-ac" title="Permanent link">#</a></h4>
 <p>Generic audio classification source.</p>
-<h6 id="domains_24">Domain(s):</h6>
+<h5 id="domains_24">Domain(s):<a class="headerlink" href="#domains_24" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 </ul>
-<h6 id="options_24">Options:</h6>
+<h5 id="options_24">Options:<a class="headerlink" href="#options_24" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-source-ac [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -1760,13 +1764,13 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="generic-source-ic">GENERIC-SOURCE-IC</h5>
+<h4 id="generic-source-ic">GENERIC-SOURCE-IC<a class="headerlink" href="#generic-source-ic" title="Permanent link">#</a></h4>
 <p>Generic image classification source.</p>
-<h6 id="domains_25">Domain(s):</h6>
+<h5 id="domains_25">Domain(s):<a class="headerlink" href="#domains_25" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_25">Options:</h6>
+<h5 id="options_25">Options:<a class="headerlink" href="#options_25" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-source-ic [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -1775,13 +1779,13 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="generic-source-is">GENERIC-SOURCE-IS</h5>
+<h4 id="generic-source-is">GENERIC-SOURCE-IS<a class="headerlink" href="#generic-source-is" title="Permanent link">#</a></h4>
 <p>Generic image segmentation source.</p>
-<h6 id="domains_26">Domain(s):</h6>
+<h5 id="domains_26">Domain(s):<a class="headerlink" href="#domains_26" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_26">Options:</h6>
+<h5 id="options_26">Options:<a class="headerlink" href="#options_26" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-source-is [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -1790,13 +1794,13 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="generic-source-od">GENERIC-SOURCE-OD</h5>
+<h4 id="generic-source-od">GENERIC-SOURCE-OD<a class="headerlink" href="#generic-source-od" title="Permanent link">#</a></h4>
 <p>Generic object detection source.</p>
-<h6 id="domains_27">Domain(s):</h6>
+<h5 id="domains_27">Domain(s):<a class="headerlink" href="#domains_27" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_27">Options:</h6>
+<h5 id="options_27">Options:<a class="headerlink" href="#options_27" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-source-od [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -1805,13 +1809,13 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="generic-source-sp">GENERIC-SOURCE-SP</h5>
+<h4 id="generic-source-sp">GENERIC-SOURCE-SP<a class="headerlink" href="#generic-source-sp" title="Permanent link">#</a></h4>
 <p>Generic speech source.</p>
-<h6 id="domains_28">Domain(s):</h6>
+<h5 id="domains_28">Domain(s):<a class="headerlink" href="#domains_28" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_28">Options:</h6>
+<h5 id="options_28">Options:<a class="headerlink" href="#options_28" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-source-sp [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -1820,14 +1824,14 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h4 id="processor-stage">Processor stage</h4>
-<h5 id="add-annotation-overlay-ic">ADD-ANNOTATION-OVERLAY-IC</h5>
+<h3 id="processor-stage">Processor stage<a class="headerlink" href="#processor-stage" title="Permanent link">#</a></h3>
+<h4 id="add-annotation-overlay-ic">ADD-ANNOTATION-OVERLAY-IC<a class="headerlink" href="#add-annotation-overlay-ic" title="Permanent link">#</a></h4>
 <p>Adds the image classification label on top of images passing through.</p>
-<h6 id="domains_29">Domain(s):</h6>
+<h5 id="domains_29">Domain(s):<a class="headerlink" href="#domains_29" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_29">Options:</h6>
+<h5 id="options_29">Options:<a class="headerlink" href="#options_29" title="Permanent link">#</a></h5>
 <pre><code>usage: add-annotation-overlay-ic [--background-color BACKGROUND_COLOR]
                                  [--background-margin BACKGROUND_MARGIN] [--fill-background]
                                  [--font-color FONT_COLOR] [--font-family FONT_FAMILY]
@@ -1850,13 +1854,13 @@ optional arguments:
   --position TEXT_PLACEMENT
                         the position of the label (X,Y). (default: 5,5)
 </code></pre>
-<h5 id="add-annotation-overlay-is">ADD-ANNOTATION-OVERLAY-IS</h5>
+<h4 id="add-annotation-overlay-is">ADD-ANNOTATION-OVERLAY-IS<a class="headerlink" href="#add-annotation-overlay-is" title="Permanent link">#</a></h4>
 <p>Adds the image segmentation annotations on top of images passing through.</p>
-<h6 id="domains_30">Domain(s):</h6>
+<h5 id="domains_30">Domain(s):<a class="headerlink" href="#domains_30" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_30">Options:</h6>
+<h5 id="options_30">Options:<a class="headerlink" href="#options_30" title="Permanent link">#</a></h5>
 <pre><code>usage: add-annotation-overlay-is [--alpha ALPHA] [--colors COLORS [COLORS ...]]
                                  [--labels LABELS [LABELS ...]]
 
@@ -1869,13 +1873,13 @@ optional arguments:
   --labels LABELS [LABELS ...]
                         the labels of annotations to overlay, overlays all if omitted (default: [])
 </code></pre>
-<h5 id="add-annotation-overlay-od">ADD-ANNOTATION-OVERLAY-OD</h5>
+<h4 id="add-annotation-overlay-od">ADD-ANNOTATION-OVERLAY-OD<a class="headerlink" href="#add-annotation-overlay-od" title="Permanent link">#</a></h4>
 <p>Adds object detection overlays to images passing through.</p>
-<h6 id="domains_31">Domain(s):</h6>
+<h5 id="domains_31">Domain(s):<a class="headerlink" href="#domains_31" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_31">Options:</h6>
+<h5 id="options_31">Options:<a class="headerlink" href="#options_31" title="Permanent link">#</a></h5>
 <pre><code>usage: add-annotation-overlay-od [--colors COLORS [COLORS ...]] [--fill] [--fill-alpha FILL_ALPHA]
                                  [--font-family FONT_FAMILY] [--font-size FONT_SIZE] [--force-bbox]
                                  [--label-key LABEL_KEY] [--labels LABELS [LABELS ...]]
@@ -1920,9 +1924,9 @@ optional arguments:
   --vary-colors         whether to vary the colors of the outline/filling regardless of label
                         (default: False)
 </code></pre>
-<h5 id="check-duplicate-filenames">CHECK-DUPLICATE-FILENAMES</h5>
+<h4 id="check-duplicate-filenames">CHECK-DUPLICATE-FILENAMES<a class="headerlink" href="#check-duplicate-filenames" title="Permanent link">#</a></h4>
 <p>Causes the conversion stream to halt when multiple dataset items have the same filename</p>
-<h6 id="domains_32">Domain(s):</h6>
+<h5 id="domains_32">Domain(s):<a class="headerlink" href="#domains_32" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Audio classification domain</strong></li>
@@ -1930,34 +1934,34 @@ optional arguments:
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_32">Options:</h6>
+<h5 id="options_32">Options:<a class="headerlink" href="#options_32" title="Permanent link">#</a></h5>
 <pre><code>usage: check-duplicate-filenames
 </code></pre>
-<h5 id="coerce-box">COERCE-BOX</h5>
+<h4 id="coerce-box">COERCE-BOX<a class="headerlink" href="#coerce-box" title="Permanent link">#</a></h4>
 <p>Converts all annotation bounds into box regions</p>
-<h6 id="domains_33">Domain(s):</h6>
+<h5 id="domains_33">Domain(s):<a class="headerlink" href="#domains_33" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_33">Options:</h6>
+<h5 id="options_33">Options:<a class="headerlink" href="#options_33" title="Permanent link">#</a></h5>
 <pre><code>usage: coerce-box
 </code></pre>
-<h5 id="coerce-mask">COERCE-MASK</h5>
+<h4 id="coerce-mask">COERCE-MASK<a class="headerlink" href="#coerce-mask" title="Permanent link">#</a></h4>
 <p>Converts all annotation bounds into polygon regions</p>
-<h6 id="domains_34">Domain(s):</h6>
+<h5 id="domains_34">Domain(s):<a class="headerlink" href="#domains_34" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_34">Options:</h6>
+<h5 id="options_34">Options:<a class="headerlink" href="#options_34" title="Permanent link">#</a></h5>
 <pre><code>usage: coerce-mask
 </code></pre>
-<h5 id="combine-annotations-od">COMBINE-ANNOTATIONS-OD</h5>
+<h4 id="combine-annotations-od">COMBINE-ANNOTATIONS-OD<a class="headerlink" href="#combine-annotations-od" title="Permanent link">#</a></h4>
 <p>Combines object detection annotations from images passing through into a single annotation.</p>
-<h6 id="domains_35">Domain(s):</h6>
+<h5 id="domains_35">Domain(s):<a class="headerlink" href="#domains_35" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_35">Options:</h6>
+<h5 id="options_35">Options:<a class="headerlink" href="#options_35" title="Permanent link">#</a></h5>
 <pre><code>usage: combine-annotations-od [--combination COMBINATION] [--min-iou MIN_IOU]
 
 optional arguments:
@@ -1967,39 +1971,39 @@ optional arguments:
   --min-iou MIN_IOU     the minimum IoU (intersect over union) to use for identifying objects that
                         overlap (default: 0.7)
 </code></pre>
-<h5 id="convert-image-format">CONVERT-IMAGE-FORMAT</h5>
+<h4 id="convert-image-format">CONVERT-IMAGE-FORMAT<a class="headerlink" href="#convert-image-format" title="Permanent link">#</a></h4>
 <p>Converts images from one format to another</p>
-<h6 id="domains_36">Domain(s):</h6>
+<h5 id="domains_36">Domain(s):<a class="headerlink" href="#domains_36" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_36">Options:</h6>
+<h5 id="options_36">Options:<a class="headerlink" href="#options_36" title="Permanent link">#</a></h5>
 <pre><code>usage: convert-image-format -f FORMAT
 
 optional arguments:
   -f FORMAT, --format FORMAT
                         format to convert images to (default: None)
 </code></pre>
-<h5 id="convert-to-mono">CONVERT-TO-MONO</h5>
+<h4 id="convert-to-mono">CONVERT-TO-MONO<a class="headerlink" href="#convert-to-mono" title="Permanent link">#</a></h4>
 <p>Converts audio files to monophonic.</p>
-<h6 id="domains_37">Domain(s):</h6>
+<h5 id="domains_37">Domain(s):<a class="headerlink" href="#domains_37" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_37">Options:</h6>
+<h5 id="options_37">Options:<a class="headerlink" href="#options_37" title="Permanent link">#</a></h5>
 <pre><code>usage: convert-to-mono
 </code></pre>
-<h5 id="convert-to-wav">CONVERT-TO-WAV</h5>
+<h4 id="convert-to-wav">CONVERT-TO-WAV<a class="headerlink" href="#convert-to-wav" title="Permanent link">#</a></h4>
 <p>Converts mp3/flac/ogg to wav.</p>
-<h6 id="domains_38">Domain(s):</h6>
+<h5 id="domains_38">Domain(s):<a class="headerlink" href="#domains_38" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_38">Options:</h6>
+<h5 id="options_38">Options:<a class="headerlink" href="#options_38" title="Permanent link">#</a></h5>
 <pre><code>usage: convert-to-wav [-s SAMPLE_RATE]
 
 optional arguments:
@@ -2007,14 +2011,14 @@ optional arguments:
                         the sample rate to use for the audio data, for overriding the native rate.
                         (default: None)
 </code></pre>
-<h5 id="crop">CROP</h5>
+<h4 id="crop">CROP<a class="headerlink" href="#crop" title="Permanent link">#</a></h4>
 <p>Crops images.</p>
-<h6 id="domains_39">Domain(s):</h6>
+<h5 id="domains_39">Domain(s):<a class="headerlink" href="#domains_39" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_39">Options:</h6>
+<h5 id="options_39">Options:<a class="headerlink" href="#options_39" title="Permanent link">#</a></h5>
 <pre><code>usage: crop [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-f PERCENT_FROM] [-t PERCENT_TO] [-s SEED]
             [-a] [-T THRESHOLD] [-u]
 
@@ -2041,13 +2045,13 @@ optional arguments:
   -u, --update-size     whether to update the image size after the crop operation or scale back to
                         original size (default: False)
 </code></pre>
-<h5 id="dimension-discarder">DIMENSION-DISCARDER</h5>
+<h4 id="dimension-discarder">DIMENSION-DISCARDER<a class="headerlink" href="#dimension-discarder" title="Permanent link">#</a></h4>
 <p>Removes annotations which fall outside certain size constraints</p>
-<h6 id="domains_40">Domain(s):</h6>
+<h5 id="domains_40">Domain(s):<a class="headerlink" href="#domains_40" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_40">Options:</h6>
+<h5 id="options_40">Options:<a class="headerlink" href="#options_40" title="Permanent link">#</a></h5>
 <pre><code>usage: dimension-discarder [--max-area MAX_AREA] [--max-height MAX_HEIGHT] [--max-width MAX_WIDTH]
                            [--min-area MIN_AREA] [--min-height MIN_HEIGHT] [--min-width MIN_WIDTH]
                            [--verbose]
@@ -2065,23 +2069,23 @@ optional arguments:
                         the minimum width of annotations to convert (default: None)
   --verbose             outputs information when discarding annotations (default: False)
 </code></pre>
-<h5 id="discard-invalid-images">DISCARD-INVALID-IMAGES</h5>
+<h4 id="discard-invalid-images">DISCARD-INVALID-IMAGES<a class="headerlink" href="#discard-invalid-images" title="Permanent link">#</a></h4>
 <p>Discards images that cannot be loaded (e.g., corrupt image file or annotations with no image)</p>
-<h6 id="domains_41">Domain(s):</h6>
+<h5 id="domains_41">Domain(s):<a class="headerlink" href="#domains_41" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_41">Options:</h6>
+<h5 id="options_41">Options:<a class="headerlink" href="#options_41" title="Permanent link">#</a></h5>
 <pre><code>usage: discard-invalid-images [-v]
 
 optional arguments:
   -v, --verbose  whether to output debugging information (default: False)
 </code></pre>
-<h5 id="discard-negatives">DISCARD-NEGATIVES</h5>
+<h4 id="discard-negatives">DISCARD-NEGATIVES<a class="headerlink" href="#discard-negatives" title="Permanent link">#</a></h4>
 <p>Discards negative examples (those without annotations) from the stream</p>
-<h6 id="domains_42">Domain(s):</h6>
+<h5 id="domains_42">Domain(s):<a class="headerlink" href="#domains_42" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Audio classification domain</strong></li>
@@ -2089,18 +2093,18 @@ optional arguments:
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_42">Options:</h6>
+<h5 id="options_42">Options:<a class="headerlink" href="#options_42" title="Permanent link">#</a></h5>
 <pre><code>usage: discard-negatives
 </code></pre>
-<h5 id="drop-frames">DROP-FRAMES</h5>
+<h4 id="drop-frames">DROP-FRAMES<a class="headerlink" href="#drop-frames" title="Permanent link">#</a></h4>
 <p>Drops frames from the stream.</p>
-<h6 id="domains_43">Domain(s):</h6>
+<h5 id="domains_43">Domain(s):<a class="headerlink" href="#domains_43" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_43">Options:</h6>
+<h5 id="options_43">Options:<a class="headerlink" href="#options_43" title="Permanent link">#</a></h5>
 <pre><code>usage: drop-frames [-n NTH_FRAME]
 
 optional arguments:
@@ -2108,15 +2112,15 @@ optional arguments:
                         which nth frame to drop, e..g, '2' means to drop every 2nd frame; passes
                         frames through if &lt;=1 (default: 0)
 </code></pre>
-<h5 id="filter-frames-by-label-od">FILTER-FRAMES-BY-LABEL-OD</h5>
+<h4 id="filter-frames-by-label-od">FILTER-FRAMES-BY-LABEL-OD<a class="headerlink" href="#filter-frames-by-label-od" title="Permanent link">#</a></h4>
 <p>Filters frames from the stream using the labels in the annotations, i.e., keeps or drops frames depending on presence/absence of labels.</p>
-<h6 id="domains_44">Domain(s):</h6>
+<h5 id="domains_44">Domain(s):<a class="headerlink" href="#domains_44" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_44">Options:</h6>
+<h5 id="options_44">Options:<a class="headerlink" href="#options_44" title="Permanent link">#</a></h5>
 <pre><code>usage: filter-frames-by-label-od [--excluded-labels EXCLUDED_LABELS] [--key-label KEY_LABEL]
                                  [--key-score KEY_SCORE] [--min-score MIN_SCORE]
                                  [--required-labels REQUIRED_LABELS] [-v]
@@ -2139,13 +2143,13 @@ optional arguments:
                         otherwise it gets dropped (default: )
   -v, --verbose         whether to output debugging information. (default: False)
 </code></pre>
-<h5 id="filter-labels">FILTER-LABELS</h5>
+<h4 id="filter-labels">FILTER-LABELS<a class="headerlink" href="#filter-labels" title="Permanent link">#</a></h4>
 <p>Filters detected objects down to those with specified labels.</p>
-<h6 id="domains_45">Domain(s):</h6>
+<h5 id="domains_45">Domain(s):<a class="headerlink" href="#domains_45" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_45">Options:</h6>
+<h5 id="options_45">Options:<a class="headerlink" href="#options_45" title="Permanent link">#</a></h5>
 <pre><code>usage: filter-labels [-l LABELS [LABELS ...]] [-r regexp]
 
 optional arguments:
@@ -2154,13 +2158,13 @@ optional arguments:
   -r regexp, --regexp regexp
                         regular expression for using only a subset of labels (default: None)
 </code></pre>
-<h5 id="filter-metadata">FILTER-METADATA</h5>
+<h4 id="filter-metadata">FILTER-METADATA<a class="headerlink" href="#filter-metadata" title="Permanent link">#</a></h4>
 <p>Filters detected objects based on their meta-data.</p>
-<h6 id="domains_46">Domain(s):</h6>
+<h5 id="domains_46">Domain(s):<a class="headerlink" href="#domains_46" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_46">Options:</h6>
+<h5 id="options_46">Options:<a class="headerlink" href="#options_46" title="Permanent link">#</a></h5>
 <pre><code>usage: filter-metadata [-c COMPARISON] [-k KEY] [-t VALUE_TYPE]
 
 optional arguments:
@@ -2174,14 +2178,14 @@ optional arguments:
                         the data type that the value represents, available options:
                         bool|numeric|string (default: None)
 </code></pre>
-<h5 id="flip">FLIP</h5>
+<h4 id="flip">FLIP<a class="headerlink" href="#flip" title="Permanent link">#</a></h4>
 <p>Flips images either left-to-right, up-to-down or both.</p>
-<h6 id="domains_47">Domain(s):</h6>
+<h5 id="domains_47">Domain(s):<a class="headerlink" href="#domains_47" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_47">Options:</h6>
+<h5 id="options_47">Options:<a class="headerlink" href="#options_47" title="Permanent link">#</a></h5>
 <pre><code>usage: flip [-d DIRECTION] [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-s SEED] [-a] [-T THRESHOLD]
 
 optional arguments:
@@ -2203,14 +2207,14 @@ optional arguments:
                         the threshold to use for Random.rand(): if equal or above, augmentation gets
                         applied; range: 0-1; default: 0 (= always) (default: None)
 </code></pre>
-<h5 id="gaussian-blur">GAUSSIAN-BLUR</h5>
+<h4 id="gaussian-blur">GAUSSIAN-BLUR<a class="headerlink" href="#gaussian-blur" title="Permanent link">#</a></h4>
 <p>Applies gaussian blur to images.</p>
-<h6 id="domains_48">Domain(s):</h6>
+<h5 id="domains_48">Domain(s):<a class="headerlink" href="#domains_48" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_48">Options:</h6>
+<h5 id="options_48">Options:<a class="headerlink" href="#options_48" title="Permanent link">#</a></h5>
 <pre><code>usage: gaussian-blur [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-s SEED] [-a] [-f SIGMA_FROM]
                      [-t SIGMA_TO] [-T THRESHOLD]
 
@@ -2235,13 +2239,13 @@ optional arguments:
                         the threshold to use for Random.rand(): if equal or above, augmentation gets
                         applied; range: 0-1; default: 0 (= always) (default: None)
 </code></pre>
-<h5 id="generic-isp-ac">GENERIC-ISP-AC</h5>
+<h4 id="generic-isp-ac">GENERIC-ISP-AC<a class="headerlink" href="#generic-isp-ac" title="Permanent link">#</a></h4>
 <p>Generic audio classification ISP.</p>
-<h6 id="domains_49">Domain(s):</h6>
+<h5 id="domains_49">Domain(s):<a class="headerlink" href="#domains_49" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 </ul>
-<h6 id="options_49">Options:</h6>
+<h5 id="options_49">Options:<a class="headerlink" href="#options_49" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-isp-ac [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -2250,13 +2254,13 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="generic-isp-ic">GENERIC-ISP-IC</h5>
+<h4 id="generic-isp-ic">GENERIC-ISP-IC<a class="headerlink" href="#generic-isp-ic" title="Permanent link">#</a></h4>
 <p>Generic image classification ISP.</p>
-<h6 id="domains_50">Domain(s):</h6>
+<h5 id="domains_50">Domain(s):<a class="headerlink" href="#domains_50" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_50">Options:</h6>
+<h5 id="options_50">Options:<a class="headerlink" href="#options_50" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-isp-ic [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -2265,13 +2269,13 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="generic-isp-is">GENERIC-ISP-IS</h5>
+<h4 id="generic-isp-is">GENERIC-ISP-IS<a class="headerlink" href="#generic-isp-is" title="Permanent link">#</a></h4>
 <p>Generic image segmentation ISP.</p>
-<h6 id="domains_51">Domain(s):</h6>
+<h5 id="domains_51">Domain(s):<a class="headerlink" href="#domains_51" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_51">Options:</h6>
+<h5 id="options_51">Options:<a class="headerlink" href="#options_51" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-isp-is [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -2280,13 +2284,13 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="generic-isp-od">GENERIC-ISP-OD</h5>
+<h4 id="generic-isp-od">GENERIC-ISP-OD<a class="headerlink" href="#generic-isp-od" title="Permanent link">#</a></h4>
 <p>Generic object detection ISP.</p>
-<h6 id="domains_52">Domain(s):</h6>
+<h5 id="domains_52">Domain(s):<a class="headerlink" href="#domains_52" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_52">Options:</h6>
+<h5 id="options_52">Options:<a class="headerlink" href="#options_52" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-isp-od [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -2295,13 +2299,13 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="generic-isp-sp">GENERIC-ISP-SP</h5>
+<h4 id="generic-isp-sp">GENERIC-ISP-SP<a class="headerlink" href="#generic-isp-sp" title="Permanent link">#</a></h4>
 <p>Generic speech ISP.</p>
-<h6 id="domains_53">Domain(s):</h6>
+<h5 id="domains_53">Domain(s):<a class="headerlink" href="#domains_53" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_53">Options:</h6>
+<h5 id="options_53">Options:<a class="headerlink" href="#options_53" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-isp-sp [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -2310,14 +2314,14 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="hsl-grayscale">HSL-GRAYSCALE</h5>
+<h4 id="hsl-grayscale">HSL-GRAYSCALE<a class="headerlink" href="#hsl-grayscale" title="Permanent link">#</a></h4>
 <p>Turns RGB images into fake grayscale ones by converting them to HSL and then using the L channel for all channels. The brightness can be influenced and varied even.</p>
-<h6 id="domains_54">Domain(s):</h6>
+<h5 id="domains_54">Domain(s):<a class="headerlink" href="#domains_54" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_54">Options:</h6>
+<h5 id="options_54">Options:<a class="headerlink" href="#options_54" title="Permanent link">#</a></h5>
 <pre><code>usage: hsl-grayscale [-f FACTOR_FROM] [-t FACTOR_TO] [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX]
                      [-s SEED] [-a] [-T THRESHOLD]
 
@@ -2344,14 +2348,14 @@ optional arguments:
                         the threshold to use for Random.rand(): if equal or above, augmentation gets
                         applied; range: 0-1; default: 0 (= always) (default: None)
 </code></pre>
-<h5 id="linear-contrast">LINEAR-CONTRAST</h5>
+<h4 id="linear-contrast">LINEAR-CONTRAST<a class="headerlink" href="#linear-contrast" title="Permanent link">#</a></h4>
 <p>Applies linear contrast to images.</p>
-<h6 id="domains_55">Domain(s):</h6>
+<h5 id="domains_55">Domain(s):<a class="headerlink" href="#domains_55" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_55">Options:</h6>
+<h5 id="options_55">Options:<a class="headerlink" href="#options_55" title="Permanent link">#</a></h5>
 <pre><code>usage: linear-contrast [-f ALPHA_FROM] [-t ALPHA_TO] [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX]
                        [-s SEED] [-a] [-T THRESHOLD]
 
@@ -2376,13 +2380,13 @@ optional arguments:
                         the threshold to use for Random.rand(): if equal or above, augmentation gets
                         applied; range: 0-1; default: 0 (= always) (default: None)
 </code></pre>
-<h5 id="map-labels">MAP-LABELS</h5>
+<h4 id="map-labels">MAP-LABELS<a class="headerlink" href="#map-labels" title="Permanent link">#</a></h4>
 <p>Maps object-detection labels from one set to another</p>
-<h6 id="domains_56">Domain(s):</h6>
+<h5 id="domains_56">Domain(s):<a class="headerlink" href="#domains_56" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_56">Options:</h6>
+<h5 id="options_56">Options:<a class="headerlink" href="#options_56" title="Permanent link">#</a></h5>
 <pre><code>usage: map-labels [-m old=new]
 
 optional arguments:
@@ -2390,13 +2394,13 @@ optional arguments:
                         mapping for labels, for replacing one label string with another (eg when
                         fixing/collapsing labels) (default: [])
 </code></pre>
-<h5 id="mel-spectrogram">MEL-SPECTROGRAM</h5>
+<h4 id="mel-spectrogram">MEL-SPECTROGRAM<a class="headerlink" href="#mel-spectrogram" title="Permanent link">#</a></h4>
 <p>Generates a plot from a Mel spectrogram.</p>
-<h6 id="domains_57">Domain(s):</h6>
+<h5 id="domains_57">Domain(s):<a class="headerlink" href="#domains_57" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 </ul>
-<h6 id="options_57">Options:</h6>
+<h5 id="options_57">Options:<a class="headerlink" href="#options_57" title="Permanent link">#</a></h5>
 <pre><code>usage: mel-spectrogram [--center] [--dpi DPI] [--hop-length HOP_LENGTH] [--num-fft NUM_FFT]
                        [--pad-mode PAD_MODE] [--power POWER] [--win-length WIN_LENGTH]
                        [--window WINDOW]
@@ -2417,13 +2421,13 @@ optional arguments:
                         (default: None)
   --window WINDOW       a window function, such as scipy.signal.windows.hann (default: hann)
 </code></pre>
-<h5 id="mfcc-spectrogram">MFCC-SPECTROGRAM</h5>
+<h4 id="mfcc-spectrogram">MFCC-SPECTROGRAM<a class="headerlink" href="#mfcc-spectrogram" title="Permanent link">#</a></h4>
 <p>Generates a plot from Mel-frequency cepstral coefficients.</p>
-<h6 id="domains_58">Domain(s):</h6>
+<h5 id="domains_58">Domain(s):<a class="headerlink" href="#domains_58" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 </ul>
-<h6 id="options_58">Options:</h6>
+<h5 id="options_58">Options:<a class="headerlink" href="#options_58" title="Permanent link">#</a></h5>
 <pre><code>usage: mfcc-spectrogram [--center] [--dct-type DCT_TYPE] [--dpi DPI] [--hop-length HOP_LENGTH]
                         [--lifter LIFTER] [--norm NORM] [--num-fft NUM_FFT] [--num-mfcc NUM_MFCC]
                         [--pad-mode PAD_MODE] [--power POWER] [--win-length WIN_LENGTH]
@@ -2453,26 +2457,26 @@ optional arguments:
                         (default: None)
   --window WINDOW       a window function, such as scipy.signal.windows.hann (default: hann)
 </code></pre>
-<h5 id="od-to-ic">OD-TO-IC</h5>
+<h4 id="od-to-ic">OD-TO-IC<a class="headerlink" href="#od-to-ic" title="Permanent link">#</a></h4>
 <p>Converts image object-detection instances into image classification instances</p>
-<h6 id="domains_59">Domain(s):</h6>
+<h5 id="domains_59">Domain(s):<a class="headerlink" href="#domains_59" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_59">Options:</h6>
+<h5 id="options_59">Options:<a class="headerlink" href="#options_59" title="Permanent link">#</a></h5>
 <pre><code>usage: od-to-ic [-m HANDLER]
 
 optional arguments:
   -m HANDLER, --multiplicity HANDLER
                         how to handle instances with more than one located object (default: error)
 </code></pre>
-<h5 id="od-to-is">OD-TO-IS</h5>
+<h4 id="od-to-is">OD-TO-IS<a class="headerlink" href="#od-to-is" title="Permanent link">#</a></h4>
 <p>Converts image object-detection instances into image segmentation instances</p>
-<h6 id="domains_60">Domain(s):</h6>
+<h5 id="domains_60">Domain(s):<a class="headerlink" href="#domains_60" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_60">Options:</h6>
+<h5 id="options_60">Options:<a class="headerlink" href="#options_60" title="Permanent link">#</a></h5>
 <pre><code>usage: od-to-is [--label-error] --labels LABEL [LABEL ...]
 
 optional arguments:
@@ -2481,9 +2485,9 @@ optional arguments:
   --labels LABEL [LABEL ...]
                         specifies the labels for each index (default: None)
 </code></pre>
-<h5 id="passthrough">PASSTHROUGH</h5>
+<h4 id="passthrough">PASSTHROUGH<a class="headerlink" href="#passthrough" title="Permanent link">#</a></h4>
 <p>Dummy ISP which has no effect on the conversion stream</p>
-<h6 id="domains_61">Domain(s):</h6>
+<h5 id="domains_61">Domain(s):<a class="headerlink" href="#domains_61" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Audio classification domain</strong></li>
@@ -2491,17 +2495,17 @@ optional arguments:
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_61">Options:</h6>
+<h5 id="options_61">Options:<a class="headerlink" href="#options_61" title="Permanent link">#</a></h5>
 <pre><code>usage: passthrough
 </code></pre>
-<h5 id="pitch-shift">PITCH-SHIFT</h5>
+<h4 id="pitch-shift">PITCH-SHIFT<a class="headerlink" href="#pitch-shift" title="Permanent link">#</a></h4>
 <p>Augmentation method for shifting the pitch of audio files.</p>
-<h6 id="domains_62">Domain(s):</h6>
+<h5 id="domains_62">Domain(s):<a class="headerlink" href="#domains_62" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_62">Options:</h6>
+<h5 id="options_62">Options:<a class="headerlink" href="#options_62" title="Permanent link">#</a></h5>
 <pre><code>usage: pitch-shift [-m AUG_MODE] [--suffix AUG_SUFFIX] [--bins-per-octave BINS_PER_OCTAVE]
                    [--resample-type RESAMPLE_TYPE] [-s SEED] [-a] [-f STEPS_FROM] [-t STEPS_TO]
                    [-T THRESHOLD] [-v]
@@ -2533,13 +2537,13 @@ optional arguments:
                         applied; range: 0-1; default: 0 (= always) (default: None)
   -v, --verbose         whether to output debugging information (default: False)
 </code></pre>
-<h5 id="polygon-discarder">POLYGON-DISCARDER</h5>
+<h4 id="polygon-discarder">POLYGON-DISCARDER<a class="headerlink" href="#polygon-discarder" title="Permanent link">#</a></h4>
 <p>Removes annotations with polygons which fall outside certain point limit constraints</p>
-<h6 id="domains_63">Domain(s):</h6>
+<h5 id="domains_63">Domain(s):<a class="headerlink" href="#domains_63" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_63">Options:</h6>
+<h5 id="options_63">Options:<a class="headerlink" href="#options_63" title="Permanent link">#</a></h5>
 <pre><code>usage: polygon-discarder [--max-points MAX_POINTS] [--min-points MIN_POINTS] [--verbose]
 
 optional arguments:
@@ -2549,15 +2553,15 @@ optional arguments:
                         the minimum number of points in the polygon (default: None)
   --verbose             outputs information when discarding annotations (default: False)
 </code></pre>
-<h5 id="redis-predict-ic">REDIS-PREDICT-IC</h5>
+<h4 id="redis-predict-ic">REDIS-PREDICT-IC<a class="headerlink" href="#redis-predict-ic" title="Permanent link">#</a></h4>
 <p>Makes image classification predictions via Redis backend, passing in an image and receiving JSON predictions back (at least one of 'label: probability').
 Predictions example:
 {"dog": 0.9, "cat": 0.1}</p>
-<h6 id="domains_64">Domain(s):</h6>
+<h5 id="domains_64">Domain(s):<a class="headerlink" href="#domains_64" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_64">Options:</h6>
+<h5 id="options_64">Options:<a class="headerlink" href="#options_64" title="Permanent link">#</a></h5>
 <pre><code>usage: redis-predict-ic [--channel-in CHANNEL_IN] [--channel-out CHANNEL_OUT] [-d REDIS_DB]
                         [-h REDIS_HOST] [-p REDIS_PORT] [-t TIMEOUT] [-v]
 
@@ -2576,13 +2580,13 @@ optional arguments:
                         the timeout in seconds to wait for a prediction to arrive (default: 5.0)
   -v, --verbose         whether to output debugging information. (default: False)
 </code></pre>
-<h5 id="redis-predict-is">REDIS-PREDICT-IS</h5>
+<h4 id="redis-predict-is">REDIS-PREDICT-IS<a class="headerlink" href="#redis-predict-is" title="Permanent link">#</a></h4>
 <p>Makes image segmentation predictions via Redis backend, passing in an image and receiving an image with predicted segmentations.</p>
-<h6 id="domains_65">Domain(s):</h6>
+<h5 id="domains_65">Domain(s):<a class="headerlink" href="#domains_65" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_65">Options:</h6>
+<h5 id="options_65">Options:<a class="headerlink" href="#options_65" title="Permanent link">#</a></h5>
 <pre><code>usage: redis-predict-is [--channel-in CHANNEL_IN] [--channel-out CHANNEL_OUT]
                         [--image-format IMAGE_FORMAT] --labels LABEL [LABEL ...] [-d REDIS_DB]
                         [-h REDIS_HOST] [-p REDIS_PORT] [-t TIMEOUT] [-v]
@@ -2607,14 +2611,14 @@ optional arguments:
                         the timeout in seconds to wait for a prediction to arrive (default: 5.0)
   -v, --verbose         whether to output debugging information. (default: False)
 </code></pre>
-<h5 id="redis-predict-od">REDIS-PREDICT-OD</h5>
+<h4 id="redis-predict-od">REDIS-PREDICT-OD<a class="headerlink" href="#redis-predict-od" title="Permanent link">#</a></h4>
 <p>Makes object detection predictions via Redis backend, passing in an image and receiving OPEX predictions back:
 https://github.com/WaikatoLink2020/objdet-predictions-exchange-format</p>
-<h6 id="domains_66">Domain(s):</h6>
+<h5 id="domains_66">Domain(s):<a class="headerlink" href="#domains_66" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_66">Options:</h6>
+<h5 id="options_66">Options:<a class="headerlink" href="#options_66" title="Permanent link">#</a></h5>
 <pre><code>usage: redis-predict-od [--channel-in CHANNEL_IN] [--channel-out CHANNEL_OUT]
                         [--key-label KEY_LABEL] [--key-score KEY_SCORE] [-d REDIS_DB]
                         [-h REDIS_HOST] [-p REDIS_PORT] [-t TIMEOUT] [-v]
@@ -2640,31 +2644,31 @@ optional arguments:
                         the timeout in seconds to wait for a prediction to arrive (default: 5.0)
   -v, --verbose         whether to output debugging information. (default: False)
 </code></pre>
-<h5 id="remove-classes">REMOVE-CLASSES</h5>
+<h4 id="remove-classes">REMOVE-CLASSES<a class="headerlink" href="#remove-classes" title="Permanent link">#</a></h4>
 <p>Removes classes from classification/image-segmentation instances</p>
-<h6 id="domains_67">Domain(s):</h6>
+<h5 id="domains_67">Domain(s):<a class="headerlink" href="#domains_67" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_67">Options:</h6>
+<h5 id="options_67">Options:<a class="headerlink" href="#options_67" title="Permanent link">#</a></h5>
 <pre><code>usage: remove-classes -c CLASS [CLASS ...]
 
 optional arguments:
   -c CLASS [CLASS ...], --classes CLASS [CLASS ...]
                         the classes to remove (default: None)
 </code></pre>
-<h5 id="resample-audio">RESAMPLE-AUDIO</h5>
+<h4 id="resample-audio">RESAMPLE-AUDIO<a class="headerlink" href="#resample-audio" title="Permanent link">#</a></h4>
 <p>Resamples audio files.</p>
 <p>For resample types, see:
 https://librosa.org/doc/latest/generated/librosa.resample.html#librosa.resample</p>
-<h6 id="domains_68">Domain(s):</h6>
+<h5 id="domains_68">Domain(s):<a class="headerlink" href="#domains_68" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_68">Options:</h6>
+<h5 id="options_68">Options:<a class="headerlink" href="#options_68" title="Permanent link">#</a></h5>
 <pre><code>usage: resample-audio [-t RESAMPLE_TYPE] [-s SAMPLE_RATE] [-v]
 
 optional arguments:
@@ -2676,14 +2680,14 @@ optional arguments:
                         the sample rate to use for the audio data. (default: 22050)
   -v, --verbose         whether to output some debugging output (default: False)
 </code></pre>
-<h5 id="rotate">ROTATE</h5>
+<h4 id="rotate">ROTATE<a class="headerlink" href="#rotate" title="Permanent link">#</a></h4>
 <p>Rotates images randomly within a range of degrees or by a specified degree. Specify seed value and force augmentation to be seeded to generate repeatable augmentations.</p>
-<h6 id="domains_69">Domain(s):</h6>
+<h5 id="domains_69">Domain(s):<a class="headerlink" href="#domains_69" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_69">Options:</h6>
+<h5 id="options_69">Options:<a class="headerlink" href="#options_69" title="Permanent link">#</a></h5>
 <pre><code>usage: rotate [-f DEGREE_FROM] [-t DEGREE_TO] [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-s SEED]
               [-a] [-T THRESHOLD]
 
@@ -2708,9 +2712,9 @@ optional arguments:
                         the threshold to use for Random.rand(): if equal or above, augmentation gets
                         applied; range: 0-1; default: 0 (= always) (default: None)
 </code></pre>
-<h5 id="sample">SAMPLE</h5>
+<h4 id="sample">SAMPLE<a class="headerlink" href="#sample" title="Permanent link">#</a></h4>
 <p>ISP that selects a subset from the stream.</p>
-<h6 id="domains_70">Domain(s):</h6>
+<h5 id="domains_70">Domain(s):<a class="headerlink" href="#domains_70" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Audio classification domain</strong></li>
@@ -2718,7 +2722,7 @@ optional arguments:
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_70">Options:</h6>
+<h5 id="options_70">Options:<a class="headerlink" href="#options_70" title="Permanent link">#</a></h5>
 <pre><code>usage: sample [-s SEED] [-T THRESHOLD]
 
 optional arguments:
@@ -2728,14 +2732,14 @@ optional arguments:
                         the threshold to use for Random.rand(): if equal or above, sample gets
                         selected; range: 0-1; default: 0 (= always) (default: 0.0)
 </code></pre>
-<h5 id="scale">SCALE</h5>
+<h4 id="scale">SCALE<a class="headerlink" href="#scale" title="Permanent link">#</a></h4>
 <p>Scales images randomly within a range of percentages or by a specified percentage. Specify seed value and force augmentation to be seeded to generate repeatable augmentations.</p>
-<h6 id="domains_71">Domain(s):</h6>
+<h5 id="domains_71">Domain(s):<a class="headerlink" href="#domains_71" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_71">Options:</h6>
+<h5 id="options_71">Options:<a class="headerlink" href="#options_71" title="Permanent link">#</a></h5>
 <pre><code>usage: scale [-m IMGAUG_MODE] [--suffix IMGAUG_SUFFIX] [-k] [-f PERCENTAGE_FROM] [-t PERCENTAGE_TO]
              [-s SEED] [-a] [-T THRESHOLD] [-u]
 
@@ -2765,15 +2769,15 @@ optional arguments:
   -u, --update-size     whether to update the image size after the scaling operation or use original
                         size (default: False)
 </code></pre>
-<h5 id="skip-similar-frames">SKIP-SIMILAR-FRAMES</h5>
+<h4 id="skip-similar-frames">SKIP-SIMILAR-FRAMES<a class="headerlink" href="#skip-similar-frames" title="Permanent link">#</a></h4>
 <p>Skips frames in the stream that are deemed too similar.</p>
-<h6 id="domains_72">Domain(s):</h6>
+<h5 id="domains_72">Domain(s):<a class="headerlink" href="#domains_72" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_72">Options:</h6>
+<h5 id="options_72">Options:<a class="headerlink" href="#options_72" title="Permanent link">#</a></h5>
 <pre><code>usage: skip-similar-frames [-b BW_THRESHOLD] [-t CHANGE_THRESHOLD] [-c CONVERSION] [-v]
 
 optional arguments:
@@ -2788,13 +2792,13 @@ optional arguments:
                         (default: gray)
   -v, --verbose         whether to output some debugging output. (default: False)
 </code></pre>
-<h5 id="stft-spectrogram">STFT-SPECTROGRAM</h5>
+<h4 id="stft-spectrogram">STFT-SPECTROGRAM<a class="headerlink" href="#stft-spectrogram" title="Permanent link">#</a></h4>
 <p>Generates a plot from a short time fourier transform (STFT) spectrogram.</p>
-<h6 id="domains_73">Domain(s):</h6>
+<h5 id="domains_73">Domain(s):<a class="headerlink" href="#domains_73" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 </ul>
-<h6 id="options_73">Options:</h6>
+<h5 id="options_73">Options:<a class="headerlink" href="#options_73" title="Permanent link">#</a></h5>
 <pre><code>usage: stft-spectrogram [--center] [--dpi DPI] [--hop-length HOP_LENGTH] [--num-fft NUM_FFT]
                         [--pad-mode PAD_MODE] [--win-length WIN_LENGTH] [--window WINDOW]
 
@@ -2813,9 +2817,9 @@ optional arguments:
                         (default: None)
   --window WINDOW       a window function, such as scipy.signal.windows.hann (default: hann)
 </code></pre>
-<h5 id="strip-annotations">STRIP-ANNOTATIONS</h5>
+<h4 id="strip-annotations">STRIP-ANNOTATIONS<a class="headerlink" href="#strip-annotations" title="Permanent link">#</a></h4>
 <p>ISP which removes annotations from instances</p>
-<h6 id="domains_74">Domain(s):</h6>
+<h5 id="domains_74">Domain(s):<a class="headerlink" href="#domains_74" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Audio classification domain</strong></li>
@@ -2823,17 +2827,17 @@ optional arguments:
 <li><strong>Image Segmentation Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_74">Options:</h6>
+<h5 id="options_74">Options:<a class="headerlink" href="#options_74" title="Permanent link">#</a></h5>
 <pre><code>usage: strip-annotations
 </code></pre>
-<h5 id="sub-images">SUB-IMAGES</h5>
+<h4 id="sub-images">SUB-IMAGES<a class="headerlink" href="#sub-images" title="Permanent link">#</a></h4>
 <p>Extracts sub-images (incl their annotations) from the images coming through, using the defined regions.</p>
-<h6 id="domains_75">Domain(s):</h6>
+<h5 id="domains_75">Domain(s):<a class="headerlink" href="#domains_75" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_75">Options:</h6>
+<h5 id="options_75">Options:<a class="headerlink" href="#options_75" title="Permanent link">#</a></h5>
 <pre><code>usage: sub-images [-p] [-s REGION_SORTING] [-r REGIONS [REGIONS ...]] [-e]
 
 optional arguments:
@@ -2849,14 +2853,14 @@ optional arguments:
   -e, --suppress-empty  suppresses sub-images that have no annotations (object detection) (default:
                         False)
 </code></pre>
-<h5 id="time-stretch">TIME-STRETCH</h5>
+<h4 id="time-stretch">TIME-STRETCH<a class="headerlink" href="#time-stretch" title="Permanent link">#</a></h4>
 <p>Augmentation method for stretching the time of audio files (speed up/slow down).</p>
-<h6 id="domains_76">Domain(s):</h6>
+<h5 id="domains_76">Domain(s):<a class="headerlink" href="#domains_76" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_76">Options:</h6>
+<h5 id="options_76">Options:<a class="headerlink" href="#options_76" title="Permanent link">#</a></h5>
 <pre><code>usage: time-stretch [-m AUG_MODE] [--suffix AUG_SUFFIX] [-f RATE_FROM] [-t RATE_TO] [-s SEED] [-a]
                     [-T THRESHOLD] [-v]
 
@@ -2883,14 +2887,14 @@ optional arguments:
                         applied; range: 0-1; default: 0 (= always) (default: None)
   -v, --verbose         whether to output debugging information (default: False)
 </code></pre>
-<h5 id="trim-audio">TRIM-AUDIO</h5>
+<h4 id="trim-audio">TRIM-AUDIO<a class="headerlink" href="#trim-audio" title="Permanent link">#</a></h4>
 <p>Trims silence from audio files.</p>
-<h6 id="domains_77">Domain(s):</h6>
+<h5 id="domains_77">Domain(s):<a class="headerlink" href="#domains_77" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_77">Options:</h6>
+<h5 id="options_77">Options:<a class="headerlink" href="#options_77" title="Permanent link">#</a></h5>
 <pre><code>usage: trim-audio [--frame-length FRAME_LENGTH] [--hop-length HOP_LENGTH] [--top-db TOP_DB] [-v]
 
 optional arguments:
@@ -2902,14 +2906,14 @@ optional arguments:
                         (default: 60)
   -v, --verbose         whether to output some debugging output (default: False)
 </code></pre>
-<h4 id="sink-stage">Sink stage</h4>
-<h5 id="area-histogram-is">AREA-HISTOGRAM-IS</h5>
+<h3 id="sink-stage">Sink stage<a class="headerlink" href="#sink-stage" title="Permanent link">#</a></h3>
+<h4 id="area-histogram-is">AREA-HISTOGRAM-IS<a class="headerlink" href="#area-histogram-is" title="Permanent link">#</a></h4>
 <p>Generates histograms of the area (normalized or absolute) occupied by the annotations.</p>
-<h6 id="domains_78">Domain(s):</h6>
+<h5 id="domains_78">Domain(s):<a class="headerlink" href="#domains_78" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_78">Options:</h6>
+<h5 id="options_78">Options:<a class="headerlink" href="#options_78" title="Permanent link">#</a></h5>
 <pre><code>usage: area-histogram-is [-a ALL_LABEL] [-b] [--label-key LABEL_KEY] [-n] [--num-bins NUM_BINS]
                          [-o OUTPUT_FILE] [-f OUTPUT_FORMAT]
 
@@ -2928,13 +2932,13 @@ optional arguments:
   -f OUTPUT_FORMAT, --format OUTPUT_FORMAT
                         the format to use for the output, available modes: csv, json (default: text)
 </code></pre>
-<h5 id="area-histogram-od">AREA-HISTOGRAM-OD</h5>
+<h4 id="area-histogram-od">AREA-HISTOGRAM-OD<a class="headerlink" href="#area-histogram-od" title="Permanent link">#</a></h4>
 <p>Generates histograms of the area (normalized or absolute) occupied by the annotations.</p>
-<h6 id="domains_79">Domain(s):</h6>
+<h5 id="domains_79">Domain(s):<a class="headerlink" href="#domains_79" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_79">Options:</h6>
+<h5 id="options_79">Options:<a class="headerlink" href="#options_79" title="Permanent link">#</a></h5>
 <pre><code>usage: area-histogram-od [-a ALL_LABEL] [-b] [--label-key LABEL_KEY] [-n] [--num-bins NUM_BINS]
                          [-o OUTPUT_FILE] [-f OUTPUT_FORMAT]
 
@@ -2953,13 +2957,13 @@ optional arguments:
   -f OUTPUT_FORMAT, --format OUTPUT_FORMAT
                         the format to use for the output, available modes: csv, json (default: text)
 </code></pre>
-<h5 id="audio-info-ac">AUDIO-INFO-AC</h5>
+<h4 id="audio-info-ac">AUDIO-INFO-AC<a class="headerlink" href="#audio-info-ac" title="Permanent link">#</a></h4>
 <p>Collates and outputs information on the audio files.</p>
-<h6 id="domains_80">Domain(s):</h6>
+<h5 id="domains_80">Domain(s):<a class="headerlink" href="#domains_80" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 </ul>
-<h6 id="options_80">Options:</h6>
+<h5 id="options_80">Options:<a class="headerlink" href="#options_80" title="Permanent link">#</a></h5>
 <pre><code>usage: audio-info-ac [-o OUTPUT_FILE] [-f OUTPUT_FORMAT]
 
 optional arguments:
@@ -2968,13 +2972,13 @@ optional arguments:
   -f OUTPUT_FORMAT, --format OUTPUT_FORMAT
                         the format to use for the output, available modes: csv, json (default: text)
 </code></pre>
-<h5 id="audio-info-sp">AUDIO-INFO-SP</h5>
+<h4 id="audio-info-sp">AUDIO-INFO-SP<a class="headerlink" href="#audio-info-sp" title="Permanent link">#</a></h4>
 <p>Collates and outputs information on the audio files.</p>
-<h6 id="domains_81">Domain(s):</h6>
+<h5 id="domains_81">Domain(s):<a class="headerlink" href="#domains_81" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_81">Options:</h6>
+<h5 id="options_81">Options:<a class="headerlink" href="#options_81" title="Permanent link">#</a></h5>
 <pre><code>usage: audio-info-sp [-o OUTPUT_FILE] [-f OUTPUT_FORMAT]
 
 optional arguments:
@@ -2983,13 +2987,13 @@ optional arguments:
   -f OUTPUT_FORMAT, --format OUTPUT_FORMAT
                         the format to use for the output, available modes: csv, json (default: text)
 </code></pre>
-<h5 id="calc-frame-changes">CALC-FRAME-CHANGES</h5>
+<h4 id="calc-frame-changes">CALC-FRAME-CHANGES<a class="headerlink" href="#calc-frame-changes" title="Permanent link">#</a></h4>
 <p>Calculates the changes between frames, which can be used with the skip-similar-frames ISP.</p>
-<h6 id="domains_82">Domain(s):</h6>
+<h5 id="domains_82">Domain(s):<a class="headerlink" href="#domains_82" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_82">Options:</h6>
+<h5 id="options_82">Options:<a class="headerlink" href="#options_82" title="Permanent link">#</a></h5>
 <pre><code>usage: calc-frame-changes [-b BW_THRESHOLD] [-t CHANGE_THRESHOLD] [-c CONVERSION] [-B NUM_BINS]
                           [-o OUTPUT_FILE] [-f OUTPUT_FORMAT] [-v]
 
@@ -3011,13 +3015,13 @@ optional arguments:
                         how to output the statistics (text/csv/json) (default: text)
   -v, --verbose         whether to output some debugging output. (default: False)
 </code></pre>
-<h5 id="generic-sink-ac">GENERIC-SINK-AC</h5>
+<h4 id="generic-sink-ac">GENERIC-SINK-AC<a class="headerlink" href="#generic-sink-ac" title="Permanent link">#</a></h4>
 <p>Generic audio classification sink.</p>
-<h6 id="domains_83">Domain(s):</h6>
+<h5 id="domains_83">Domain(s):<a class="headerlink" href="#domains_83" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 </ul>
-<h6 id="options_83">Options:</h6>
+<h5 id="options_83">Options:<a class="headerlink" href="#options_83" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-sink-ac [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -3026,13 +3030,13 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="generic-sink-ic">GENERIC-SINK-IC</h5>
+<h4 id="generic-sink-ic">GENERIC-SINK-IC<a class="headerlink" href="#generic-sink-ic" title="Permanent link">#</a></h4>
 <p>Generic image classification sink.</p>
-<h6 id="domains_84">Domain(s):</h6>
+<h5 id="domains_84">Domain(s):<a class="headerlink" href="#domains_84" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_84">Options:</h6>
+<h5 id="options_84">Options:<a class="headerlink" href="#options_84" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-sink-ic [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -3041,13 +3045,13 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="generic-sink-is">GENERIC-SINK-IS</h5>
+<h4 id="generic-sink-is">GENERIC-SINK-IS<a class="headerlink" href="#generic-sink-is" title="Permanent link">#</a></h4>
 <p>Generic image segmentation sink.</p>
-<h6 id="domains_85">Domain(s):</h6>
+<h5 id="domains_85">Domain(s):<a class="headerlink" href="#domains_85" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_85">Options:</h6>
+<h5 id="options_85">Options:<a class="headerlink" href="#options_85" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-sink-is [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -3056,13 +3060,13 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="generic-sink-od">GENERIC-SINK-OD</h5>
+<h4 id="generic-sink-od">GENERIC-SINK-OD<a class="headerlink" href="#generic-sink-od" title="Permanent link">#</a></h4>
 <p>Generic object detection sink.</p>
-<h6 id="domains_86">Domain(s):</h6>
+<h5 id="domains_86">Domain(s):<a class="headerlink" href="#domains_86" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_86">Options:</h6>
+<h5 id="options_86">Options:<a class="headerlink" href="#options_86" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-sink-od [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -3071,13 +3075,13 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="generic-sink-sp">GENERIC-SINK-SP</h5>
+<h4 id="generic-sink-sp">GENERIC-SINK-SP<a class="headerlink" href="#generic-sink-sp" title="Permanent link">#</a></h4>
 <p>Generic speech sink.</p>
-<h6 id="domains_87">Domain(s):</h6>
+<h5 id="domains_87">Domain(s):<a class="headerlink" href="#domains_87" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_87">Options:</h6>
+<h5 id="options_87">Options:<a class="headerlink" href="#options_87" title="Permanent link">#</a></h5>
 <pre><code>usage: generic-sink-sp [-c USER_CLASS] [-o USER_OPTIONS]
 
 optional arguments:
@@ -3086,13 +3090,13 @@ optional arguments:
   -o USER_OPTIONS, --options USER_OPTIONS
                         the options for the user class to parse (default: None)
 </code></pre>
-<h5 id="image-viewer-ic">IMAGE-VIEWER-IC</h5>
+<h4 id="image-viewer-ic">IMAGE-VIEWER-IC<a class="headerlink" href="#image-viewer-ic" title="Permanent link">#</a></h4>
 <p>Displays image classification images.</p>
-<h6 id="domains_88">Domain(s):</h6>
+<h5 id="domains_88">Domain(s):<a class="headerlink" href="#domains_88" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_88">Options:</h6>
+<h5 id="options_88">Options:<a class="headerlink" href="#options_88" title="Permanent link">#</a></h5>
 <pre><code>usage: image-viewer-ic [--delay DELAY] [--position POSITION] [--size SIZE] [--title TITLE]
 
 optional arguments:
@@ -3102,13 +3106,13 @@ optional arguments:
   --size SIZE          the maximum size for the image: WIDTH,HEIGHT (default: 640,480)
   --title TITLE        the title for the window (default: wai.annotations)
 </code></pre>
-<h5 id="image-viewer-is">IMAGE-VIEWER-IS</h5>
+<h4 id="image-viewer-is">IMAGE-VIEWER-IS<a class="headerlink" href="#image-viewer-is" title="Permanent link">#</a></h4>
 <p>Displays image segmentation images.</p>
-<h6 id="domains_89">Domain(s):</h6>
+<h5 id="domains_89">Domain(s):<a class="headerlink" href="#domains_89" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_89">Options:</h6>
+<h5 id="options_89">Options:<a class="headerlink" href="#options_89" title="Permanent link">#</a></h5>
 <pre><code>usage: image-viewer-is [--delay DELAY] [--position POSITION] [--size SIZE] [--title TITLE]
 
 optional arguments:
@@ -3118,13 +3122,13 @@ optional arguments:
   --size SIZE          the maximum size for the image: WIDTH,HEIGHT (default: 640,480)
   --title TITLE        the title for the window (default: wai.annotations)
 </code></pre>
-<h5 id="image-viewer-od">IMAGE-VIEWER-OD</h5>
+<h4 id="image-viewer-od">IMAGE-VIEWER-OD<a class="headerlink" href="#image-viewer-od" title="Permanent link">#</a></h4>
 <p>Displays object detection images.</p>
-<h6 id="domains_90">Domain(s):</h6>
+<h5 id="domains_90">Domain(s):<a class="headerlink" href="#domains_90" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_90">Options:</h6>
+<h5 id="options_90">Options:<a class="headerlink" href="#options_90" title="Permanent link">#</a></h5>
 <pre><code>usage: image-viewer-od [--delay DELAY] [--position POSITION] [--size SIZE] [--title TITLE]
 
 optional arguments:
@@ -3134,13 +3138,13 @@ optional arguments:
   --size SIZE          the maximum size for the image: WIDTH,HEIGHT (default: 640,480)
   --title TITLE        the title for the window (default: wai.annotations)
 </code></pre>
-<h5 id="label-dist-ic">LABEL-DIST-IC</h5>
+<h4 id="label-dist-ic">LABEL-DIST-IC<a class="headerlink" href="#label-dist-ic" title="Permanent link">#</a></h4>
 <p>Generates a label distribution.</p>
-<h6 id="domains_91">Domain(s):</h6>
+<h5 id="domains_91">Domain(s):<a class="headerlink" href="#domains_91" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_91">Options:</h6>
+<h5 id="options_91">Options:<a class="headerlink" href="#options_91" title="Permanent link">#</a></h5>
 <pre><code>usage: label-dist-ic [--label-key LABEL_KEY] [-o OUTPUT_FILE] [-f OUTPUT_FORMAT] [-p]
 
 optional arguments:
@@ -3152,13 +3156,13 @@ optional arguments:
                         the format to use for the output, available modes: csv, json (default: text)
   -p, --percentages     whether to output percentages instead of counts. (default: False)
 </code></pre>
-<h5 id="label-dist-is">LABEL-DIST-IS</h5>
+<h4 id="label-dist-is">LABEL-DIST-IS<a class="headerlink" href="#label-dist-is" title="Permanent link">#</a></h4>
 <p>Generates a label distribution.</p>
-<h6 id="domains_92">Domain(s):</h6>
+<h5 id="domains_92">Domain(s):<a class="headerlink" href="#domains_92" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_92">Options:</h6>
+<h5 id="options_92">Options:<a class="headerlink" href="#options_92" title="Permanent link">#</a></h5>
 <pre><code>usage: label-dist-is [--label-key LABEL_KEY] [-o OUTPUT_FILE] [-f OUTPUT_FORMAT] [-p]
 
 optional arguments:
@@ -3170,13 +3174,13 @@ optional arguments:
                         the format to use for the output, available modes: csv, json (default: text)
   -p, --percentages     whether to output percentages instead of counts. (default: False)
 </code></pre>
-<h5 id="label-dist-od">LABEL-DIST-OD</h5>
+<h4 id="label-dist-od">LABEL-DIST-OD<a class="headerlink" href="#label-dist-od" title="Permanent link">#</a></h4>
 <p>Generates a label distribution.</p>
-<h6 id="domains_93">Domain(s):</h6>
+<h5 id="domains_93">Domain(s):<a class="headerlink" href="#domains_93" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_93">Options:</h6>
+<h5 id="options_93">Options:<a class="headerlink" href="#options_93" title="Permanent link">#</a></h5>
 <pre><code>usage: label-dist-od [--label-key LABEL_KEY] [-o OUTPUT_FILE] [-f OUTPUT_FORMAT] [-p]
 
 optional arguments:
@@ -3188,13 +3192,13 @@ optional arguments:
                         the format to use for the output, available modes: csv, json (default: text)
   -p, --percentages     whether to output percentages instead of counts. (default: False)
 </code></pre>
-<h5 id="to-adams-ic">TO-ADAMS-IC</h5>
+<h4 id="to-adams-ic">TO-ADAMS-IC<a class="headerlink" href="#to-adams-ic" title="Permanent link">#</a></h4>
 <p>Writes image classification annotations in the ADAMS report-format</p>
-<h6 id="domains_94">Domain(s):</h6>
+<h5 id="domains_94">Domain(s):<a class="headerlink" href="#domains_94" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_94">Options:</h6>
+<h5 id="options_94">Options:<a class="headerlink" href="#options_94" title="Permanent link">#</a></h5>
 <pre><code>usage: to-adams-ic -c FIELD [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                    [--split-ratios RATIO [RATIO ...]]
 
@@ -3210,13 +3214,13 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-adams-od">TO-ADAMS-OD</h5>
+<h4 id="to-adams-od">TO-ADAMS-OD<a class="headerlink" href="#to-adams-od" title="Permanent link">#</a></h4>
 <p>Writes image object-detection annotations in the ADAMS report-format</p>
-<h6 id="domains_95">Domain(s):</h6>
+<h5 id="domains_95">Domain(s):<a class="headerlink" href="#domains_95" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_95">Options:</h6>
+<h5 id="options_95">Options:<a class="headerlink" href="#options_95" title="Permanent link">#</a></h5>
 <pre><code>usage: to-adams-od [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                    [--split-ratios RATIO [RATIO ...]]
 
@@ -3230,13 +3234,13 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-annotation-overlay-od">TO-ANNOTATION-OVERLAY-OD</h5>
+<h4 id="to-annotation-overlay-od">TO-ANNOTATION-OVERLAY-OD<a class="headerlink" href="#to-annotation-overlay-od" title="Permanent link">#</a></h4>
 <p>Generates an image with all the annotation shapes (bbox or polygon) overlayed.</p>
-<h6 id="domains_96">Domain(s):</h6>
+<h5 id="domains_96">Domain(s):<a class="headerlink" href="#domains_96" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_96">Options:</h6>
+<h5 id="options_96">Options:<a class="headerlink" href="#options_96" title="Permanent link">#</a></h5>
 <pre><code>usage: to-annotation-overlay-od [-b BACKGROUND_COLOR] [-c COLOR] [-o OUTPUT_FILE] [-s SCALE_TO]
 
 optional arguments:
@@ -3252,39 +3256,39 @@ optional arguments:
                         the dimensions to scale all images to before overlaying them (format:
                         width,height) (default: )
 </code></pre>
-<h5 id="to-audio-files-ac">TO-AUDIO-FILES-AC</h5>
+<h4 id="to-audio-files-ac">TO-AUDIO-FILES-AC<a class="headerlink" href="#to-audio-files-ac" title="Permanent link">#</a></h4>
 <p>Dummy writer that just outputs audio files from classification datasets.</p>
-<h6 id="domains_97">Domain(s):</h6>
+<h5 id="domains_97">Domain(s):<a class="headerlink" href="#domains_97" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 </ul>
-<h6 id="options_97">Options:</h6>
+<h5 id="options_97">Options:<a class="headerlink" href="#options_97" title="Permanent link">#</a></h5>
 <pre><code>usage: to-audio-files-ac [-o OUTPUT_DIR]
 
 optional arguments:
   -o OUTPUT_DIR, --output-dir OUTPUT_DIR
                         the directory to write the audio files to (default: .)
 </code></pre>
-<h5 id="to-audio-files-sp">TO-AUDIO-FILES-SP</h5>
+<h4 id="to-audio-files-sp">TO-AUDIO-FILES-SP<a class="headerlink" href="#to-audio-files-sp" title="Permanent link">#</a></h4>
 <p>Dummy writer that just outputs audio files from speech datasets.</p>
-<h6 id="domains_98">Domain(s):</h6>
+<h5 id="domains_98">Domain(s):<a class="headerlink" href="#domains_98" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_98">Options:</h6>
+<h5 id="options_98">Options:<a class="headerlink" href="#options_98" title="Permanent link">#</a></h5>
 <pre><code>usage: to-audio-files-sp [-o OUTPUT_DIR]
 
 optional arguments:
   -o OUTPUT_DIR, --output-dir OUTPUT_DIR
                         the directory to write the audio files to (default: .)
 </code></pre>
-<h5 id="to-blue-channel-is">TO-BLUE-CHANNEL-IS</h5>
+<h4 id="to-blue-channel-is">TO-BLUE-CHANNEL-IS<a class="headerlink" href="#to-blue-channel-is" title="Permanent link">#</a></h4>
 <p>Writes image segmentation files in the blue-channel format</p>
-<h6 id="domains_99">Domain(s):</h6>
+<h5 id="domains_99">Domain(s):<a class="headerlink" href="#domains_99" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_99">Options:</h6>
+<h5 id="options_99">Options:<a class="headerlink" href="#options_99" title="Permanent link">#</a></h5>
 <pre><code>usage: to-blue-channel-is [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                           [--split-ratios RATIO [RATIO ...]]
 
@@ -3298,13 +3302,13 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-coco-od">TO-COCO-OD</h5>
+<h4 id="to-coco-od">TO-COCO-OD<a class="headerlink" href="#to-coco-od" title="Permanent link">#</a></h4>
 <p>Writes image object-detection annotations in the MS-COCO JSON-format</p>
-<h6 id="domains_100">Domain(s):</h6>
+<h5 id="domains_100">Domain(s):<a class="headerlink" href="#domains_100" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_100">Options:</h6>
+<h5 id="options_100">Options:<a class="headerlink" href="#options_100" title="Permanent link">#</a></h5>
 <pre><code>usage: to-coco-od [--annotations-only] [--categories CATEGORY [CATEGORY ...]]
                   [--category-output-file FILENAME] [--default-supercategory SUPERCATEGORY]
                   [--error-on-new-category] [--license-name LICENSE_NAME]
@@ -3338,13 +3342,13 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-common-voice-sp">TO-COMMON-VOICE-SP</h5>
+<h4 id="to-common-voice-sp">TO-COMMON-VOICE-SP<a class="headerlink" href="#to-common-voice-sp" title="Permanent link">#</a></h4>
 <p>Writes speech transcriptions in the Mozilla Common-Voice TSV-format</p>
-<h6 id="domains_101">Domain(s):</h6>
+<h5 id="domains_101">Domain(s):<a class="headerlink" href="#domains_101" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_101">Options:</h6>
+<h5 id="options_101">Options:<a class="headerlink" href="#options_101" title="Permanent link">#</a></h5>
 <pre><code>usage: to-common-voice-sp [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                           [--split-ratios RATIO [RATIO ...]]
 
@@ -3358,13 +3362,13 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-festvox-sp">TO-FESTVOX-SP</h5>
+<h4 id="to-festvox-sp">TO-FESTVOX-SP<a class="headerlink" href="#to-festvox-sp" title="Permanent link">#</a></h4>
 <p>Writes speech transcriptions in the Festival FestVox format</p>
-<h6 id="domains_102">Domain(s):</h6>
+<h5 id="domains_102">Domain(s):<a class="headerlink" href="#domains_102" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_102">Options:</h6>
+<h5 id="options_102">Options:<a class="headerlink" href="#options_102" title="Permanent link">#</a></h5>
 <pre><code>usage: to-festvox-sp [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                      [--split-ratios RATIO [RATIO ...]]
 
@@ -3379,13 +3383,13 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-grayscale-is">TO-GRAYSCALE-IS</h5>
+<h4 id="to-grayscale-is">TO-GRAYSCALE-IS<a class="headerlink" href="#to-grayscale-is" title="Permanent link">#</a></h4>
 <p>Writes image segmentation files in the grayscale format</p>
-<h6 id="domains_103">Domain(s):</h6>
+<h5 id="domains_103">Domain(s):<a class="headerlink" href="#domains_103" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_103">Options:</h6>
+<h5 id="options_103">Options:<a class="headerlink" href="#options_103" title="Permanent link">#</a></h5>
 <pre><code>usage: to-grayscale-is [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                        [--split-ratios RATIO [RATIO ...]]
 
@@ -3399,52 +3403,52 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-images-ic">TO-IMAGES-IC</h5>
+<h4 id="to-images-ic">TO-IMAGES-IC<a class="headerlink" href="#to-images-ic" title="Permanent link">#</a></h4>
 <p>Dummy writer that just outputs images from image classification datasets.</p>
-<h6 id="domains_104">Domain(s):</h6>
+<h5 id="domains_104">Domain(s):<a class="headerlink" href="#domains_104" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_104">Options:</h6>
+<h5 id="options_104">Options:<a class="headerlink" href="#options_104" title="Permanent link">#</a></h5>
 <pre><code>usage: to-images-ic [-o OUTPUT_DIR]
 
 optional arguments:
   -o OUTPUT_DIR, --output-dir OUTPUT_DIR
                         the directory to write the images to (default: .)
 </code></pre>
-<h5 id="to-images-is">TO-IMAGES-IS</h5>
+<h4 id="to-images-is">TO-IMAGES-IS<a class="headerlink" href="#to-images-is" title="Permanent link">#</a></h4>
 <p>Dummy writer that just outputs images from image segmentation datasets.</p>
-<h6 id="domains_105">Domain(s):</h6>
+<h5 id="domains_105">Domain(s):<a class="headerlink" href="#domains_105" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_105">Options:</h6>
+<h5 id="options_105">Options:<a class="headerlink" href="#options_105" title="Permanent link">#</a></h5>
 <pre><code>usage: to-images-is [-o OUTPUT_DIR]
 
 optional arguments:
   -o OUTPUT_DIR, --output-dir OUTPUT_DIR
                         the directory to write the images to (default: .)
 </code></pre>
-<h5 id="to-images-od">TO-IMAGES-OD</h5>
+<h4 id="to-images-od">TO-IMAGES-OD<a class="headerlink" href="#to-images-od" title="Permanent link">#</a></h4>
 <p>Dummy writer that just outputs images from object detection datasets.</p>
-<h6 id="domains_106">Domain(s):</h6>
+<h5 id="domains_106">Domain(s):<a class="headerlink" href="#domains_106" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_106">Options:</h6>
+<h5 id="options_106">Options:<a class="headerlink" href="#options_106" title="Permanent link">#</a></h5>
 <pre><code>usage: to-images-od [-o OUTPUT_DIR]
 
 optional arguments:
   -o OUTPUT_DIR, --output-dir OUTPUT_DIR
                         the directory to write the images to (default: .)
 </code></pre>
-<h5 id="to-indexed-png-is">TO-INDEXED-PNG-IS</h5>
+<h4 id="to-indexed-png-is">TO-INDEXED-PNG-IS<a class="headerlink" href="#to-indexed-png-is" title="Permanent link">#</a></h4>
 <p>Writes image segmentation files in the indexed-PNG format</p>
-<h6 id="domains_107">Domain(s):</h6>
+<h5 id="domains_107">Domain(s):<a class="headerlink" href="#domains_107" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_107">Options:</h6>
+<h5 id="options_107">Options:<a class="headerlink" href="#options_107" title="Permanent link">#</a></h5>
 <pre><code>usage: to-indexed-png-is [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                          [--split-ratios RATIO [RATIO ...]]
 
@@ -3458,13 +3462,13 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-layer-segments-is">TO-LAYER-SEGMENTS-IS</h5>
+<h4 id="to-layer-segments-is">TO-LAYER-SEGMENTS-IS<a class="headerlink" href="#to-layer-segments-is" title="Permanent link">#</a></h4>
 <p>Writes the layer-segments image-segmentation format to disk</p>
-<h6 id="domains_108">Domain(s):</h6>
+<h5 id="domains_108">Domain(s):<a class="headerlink" href="#domains_108" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_108">Options:</h6>
+<h5 id="options_108">Options:<a class="headerlink" href="#options_108" title="Permanent link">#</a></h5>
 <pre><code>usage: to-layer-segments-is [--annotations-only] [--label-separator SEPARATOR] -o PATH
                             [--split-names SPLIT NAME [SPLIT NAME ...]]
                             [--split-ratios RATIO [RATIO ...]]
@@ -3481,13 +3485,13 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-opex-od">TO-OPEX-OD</h5>
+<h4 id="to-opex-od">TO-OPEX-OD<a class="headerlink" href="#to-opex-od" title="Permanent link">#</a></h4>
 <p>Writes image object-detection annotations in the OPEX format</p>
-<h6 id="domains_109">Domain(s):</h6>
+<h5 id="domains_109">Domain(s):<a class="headerlink" href="#domains_109" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_109">Options:</h6>
+<h5 id="options_109">Options:<a class="headerlink" href="#options_109" title="Permanent link">#</a></h5>
 <pre><code>usage: to-opex-od [-c PATH] [-l PATH] [--annotations-only] -o PATH
                   [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
@@ -3505,13 +3509,13 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-roi-od">TO-ROI-OD</h5>
+<h4 id="to-roi-od">TO-ROI-OD<a class="headerlink" href="#to-roi-od" title="Permanent link">#</a></h4>
 <p>Writes image object-detection annotations in the ROI CSV-format</p>
-<h6 id="domains_110">Domain(s):</h6>
+<h5 id="domains_110">Domain(s):<a class="headerlink" href="#domains_110" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_110">Options:</h6>
+<h5 id="options_110">Options:<a class="headerlink" href="#options_110" title="Permanent link">#</a></h5>
 <pre><code>usage: to-roi-od [-d WIDTH HEIGHT] [--annotations-only] [--comments COMMENTS [COMMENTS ...]] -o PATH
                  [--size-mode] [--split-names SPLIT NAME [SPLIT NAME ...]]
                  [--split-ratios RATIO [RATIO ...]] [--prefix WRITER_PREFIX]
@@ -3537,13 +3541,13 @@ optional arguments:
   --suffix WRITER_SUFFIX
                         the suffix for output filenames (default = '-rois.csv') (default: None)
 </code></pre>
-<h5 id="to-subdir-ac">TO-SUBDIR-AC</h5>
+<h4 id="to-subdir-ac">TO-SUBDIR-AC<a class="headerlink" href="#to-subdir-ac" title="Permanent link">#</a></h4>
 <p>Writes audio files to sub-directories named after their class labels.</p>
-<h6 id="domains_111">Domain(s):</h6>
+<h5 id="domains_111">Domain(s):<a class="headerlink" href="#domains_111" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 </ul>
-<h6 id="options_111">Options:</h6>
+<h5 id="options_111">Options:<a class="headerlink" href="#options_111" title="Permanent link">#</a></h5>
 <pre><code>usage: to-subdir-ac -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                     [--split-ratios RATIO [RATIO ...]]
 
@@ -3555,13 +3559,13 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-subdir-ic">TO-SUBDIR-IC</h5>
+<h4 id="to-subdir-ic">TO-SUBDIR-IC<a class="headerlink" href="#to-subdir-ic" title="Permanent link">#</a></h4>
 <p>Writes images to sub-directories named after their class labels.</p>
-<h6 id="domains_112">Domain(s):</h6>
+<h5 id="domains_112">Domain(s):<a class="headerlink" href="#domains_112" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_112">Options:</h6>
+<h5 id="options_112">Options:<a class="headerlink" href="#options_112" title="Permanent link">#</a></h5>
 <pre><code>usage: to-subdir-ic -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                     [--split-ratios RATIO [RATIO ...]]
 
@@ -3573,13 +3577,13 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-tf-od">TO-TF-OD</h5>
+<h4 id="to-tf-od">TO-TF-OD<a class="headerlink" href="#to-tf-od" title="Permanent link">#</a></h4>
 <p>Writes image object-detection annotations in the TFRecords binary format</p>
-<h6 id="domains_113">Domain(s):</h6>
+<h5 id="domains_113">Domain(s):<a class="headerlink" href="#domains_113" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_113">Options:</h6>
+<h5 id="options_113">Options:<a class="headerlink" href="#options_113" title="Permanent link">#</a></h5>
 <pre><code>usage: to-tf-od [--dense] [--source-id-type {filename,numeric-dummy}] -o PATH [-p FILENAME]
                 [-s FILENAME [FILENAME ...]] [--split-names SPLIT NAME [SPLIT NAME ...]]
                 [--split-ratios RATIO [RATIO ...]]
@@ -3603,13 +3607,13 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-vgg-od">TO-VGG-OD</h5>
+<h4 id="to-vgg-od">TO-VGG-OD<a class="headerlink" href="#to-vgg-od" title="Permanent link">#</a></h4>
 <p>Writes image object-detection annotations in the VGG JSON-format</p>
-<h6 id="domains_114">Domain(s):</h6>
+<h5 id="domains_114">Domain(s):<a class="headerlink" href="#domains_114" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_114">Options:</h6>
+<h5 id="options_114">Options:<a class="headerlink" href="#options_114" title="Permanent link">#</a></h5>
 <pre><code>usage: to-vgg-od [--annotations-only] -o PATH [--pretty] [--split-names SPLIT NAME [SPLIT NAME ...]]
                  [--split-ratios RATIO [RATIO ...]]
 
@@ -3626,13 +3630,13 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-video-file-od">TO-VIDEO-FILE-OD</h5>
+<h4 id="to-video-file-od">TO-VIDEO-FILE-OD<a class="headerlink" href="#to-video-file-od" title="Permanent link">#</a></h4>
 <p>Writes frames to a MJPG video file.</p>
-<h6 id="domains_115">Domain(s):</h6>
+<h5 id="domains_115">Domain(s):<a class="headerlink" href="#domains_115" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_115">Options:</h6>
+<h5 id="options_115">Options:<a class="headerlink" href="#options_115" title="Permanent link">#</a></h5>
 <pre><code>usage: to-video-file-od [-f FPS] [-o OUTPUT_FILE]
 
 optional arguments:
@@ -3640,13 +3644,13 @@ optional arguments:
   -o OUTPUT_FILE, --output OUTPUT_FILE
                         the MJPG video file to write to (default: )
 </code></pre>
-<h5 id="to-voc-od">TO-VOC-OD</h5>
+<h4 id="to-voc-od">TO-VOC-OD<a class="headerlink" href="#to-voc-od" title="Permanent link">#</a></h4>
 <p>Writes image object-detection annotations in the Pascal VOC XML-format</p>
-<h6 id="domains_116">Domain(s):</h6>
+<h5 id="domains_116">Domain(s):<a class="headerlink" href="#domains_116" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_116">Options:</h6>
+<h5 id="options_116">Options:<a class="headerlink" href="#options_116" title="Permanent link">#</a></h5>
 <pre><code>usage: to-voc-od [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                  [--split-ratios RATIO [RATIO ...]]
 
@@ -3661,58 +3665,58 @@ optional arguments:
   --split-ratios RATIO [RATIO ...]
                         the ratios to use for the splits (default: [])
 </code></pre>
-<h5 id="to-void-ac">TO-VOID-AC</h5>
+<h4 id="to-void-ac">TO-VOID-AC<a class="headerlink" href="#to-void-ac" title="Permanent link">#</a></h4>
 <p>Consumes instances without writing them.</p>
-<h6 id="domains_117">Domain(s):</h6>
+<h5 id="domains_117">Domain(s):<a class="headerlink" href="#domains_117" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Audio classification domain</strong></li>
 </ul>
-<h6 id="options_117">Options:</h6>
+<h5 id="options_117">Options:<a class="headerlink" href="#options_117" title="Permanent link">#</a></h5>
 <pre><code>usage: to-void-ac
 </code></pre>
-<h5 id="to-void-ic">TO-VOID-IC</h5>
+<h4 id="to-void-ic">TO-VOID-IC<a class="headerlink" href="#to-void-ic" title="Permanent link">#</a></h4>
 <p>Consumes instances without writing them.</p>
-<h6 id="domains_118">Domain(s):</h6>
+<h5 id="domains_118">Domain(s):<a class="headerlink" href="#domains_118" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Classification Domain</strong></li>
 </ul>
-<h6 id="options_118">Options:</h6>
+<h5 id="options_118">Options:<a class="headerlink" href="#options_118" title="Permanent link">#</a></h5>
 <pre><code>usage: to-void-ic
 </code></pre>
-<h5 id="to-void-is">TO-VOID-IS</h5>
+<h4 id="to-void-is">TO-VOID-IS<a class="headerlink" href="#to-void-is" title="Permanent link">#</a></h4>
 <p>Consumes instances without writing them.</p>
-<h6 id="domains_119">Domain(s):</h6>
+<h5 id="domains_119">Domain(s):<a class="headerlink" href="#domains_119" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Segmentation Domain</strong></li>
 </ul>
-<h6 id="options_119">Options:</h6>
+<h5 id="options_119">Options:<a class="headerlink" href="#options_119" title="Permanent link">#</a></h5>
 <pre><code>usage: to-void-is
 </code></pre>
-<h5 id="to-void-od">TO-VOID-OD</h5>
+<h4 id="to-void-od">TO-VOID-OD<a class="headerlink" href="#to-void-od" title="Permanent link">#</a></h4>
 <p>Consumes instances without writing them.</p>
-<h6 id="domains_120">Domain(s):</h6>
+<h5 id="domains_120">Domain(s):<a class="headerlink" href="#domains_120" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_120">Options:</h6>
+<h5 id="options_120">Options:<a class="headerlink" href="#options_120" title="Permanent link">#</a></h5>
 <pre><code>usage: to-void-od
 </code></pre>
-<h5 id="to-void-sp">TO-VOID-SP</h5>
+<h4 id="to-void-sp">TO-VOID-SP<a class="headerlink" href="#to-void-sp" title="Permanent link">#</a></h4>
 <p>Consumes instances without writing them.</p>
-<h6 id="domains_121">Domain(s):</h6>
+<h5 id="domains_121">Domain(s):<a class="headerlink" href="#domains_121" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Speech Domain</strong></li>
 </ul>
-<h6 id="options_121">Options:</h6>
+<h5 id="options_121">Options:<a class="headerlink" href="#options_121" title="Permanent link">#</a></h5>
 <pre><code>usage: to-void-sp
 </code></pre>
-<h5 id="to-yolo-od">TO-YOLO-OD</h5>
+<h4 id="to-yolo-od">TO-YOLO-OD<a class="headerlink" href="#to-yolo-od" title="Permanent link">#</a></h4>
 <p>Writes image object-detection annotations in the YOLO format</p>
-<h6 id="domains_122">Domain(s):</h6>
+<h5 id="domains_122">Domain(s):<a class="headerlink" href="#domains_122" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Image Object-Detection Domain</strong></li>
 </ul>
-<h6 id="options_122">Options:</h6>
+<h5 id="options_122">Options:<a class="headerlink" href="#options_122" title="Permanent link">#</a></h5>
 <pre><code>usage: to-yolo-od [-c PATH] [-l PATH] [--annotations-only] -o PATH
                   [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
@@ -3775,6 +3779,7 @@ optional arguments:
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

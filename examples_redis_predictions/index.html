@@ -39,7 +39,11 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> wai-annotations manual</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -149,7 +153,7 @@ simplifying the dependencies due to decoupling. </p>
 <li><strong>object detection</strong>: sends image, receives JSON in <a href="https://github.com/WaikatoLink2020/objdet-predictions-exchange-format">OPEX</a> format</li>
 <li><strong>image segmentation</strong>: sends image, receives segmented image (indexed PNG or blue-channel PNG)</li>
 </ul>
-<h3 id="docker-images">Docker images</h3>
+<h2 id="docker-images">Docker images<a class="headerlink" href="#docker-images" title="Permanent link">#</a></h2>
 <p>The following Docker images are available for connecting to the prediction plugins:</p>
 <ul>
 <li>
@@ -175,17 +179,17 @@ simplifying the dependencies due to decoupling. </p>
 </ul>
 </li>
 </ul>
-<h3 id="object-detection-example">Object detection example</h3>
+<h2 id="object-detection-example">Object detection example<a class="headerlink" href="#object-detection-example" title="Permanent link">#</a></h2>
 <p>In this example we are using a prebuilt yolov5 model (using MS-COCO) to make predictions on the
 frames that come from a dashcam video, overlay the predictions on the images and display them.
 For the model and wai.annotations we will be using existing docker containers.</p>
 <p><strong>NB:</strong> No GPU required.</p>
-<h4 id="data">Data</h4>
-<h5 id="input">Input</h5>
+<h3 id="data">Data<a class="headerlink" href="#data" title="Permanent link">#</a></h3>
+<h4 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h4>
 <p><img alt="dashcam raw" src="../img/dashcam.png" /></p>
-<h5 id="output">Output</h5>
+<h4 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h4>
 <p><img alt="dashcam annotated" src="../img/dashcam_annotated.png" /></p>
-<h4 id="preparation">Preparation</h4>
+<h3 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">#</a></h3>
 <p>NB: Place all the downloads in the current directory</p>
 <ul>
 <li>Download the <a href="https://github.com/lessthanoptimal/BoofCV-Data/blob/master/example/tracking/dashcam01.mp4">dashcam01.mp4</a> video from the BoofCV project</li>
@@ -199,7 +203,7 @@ For the model and wai.annotations we will be using existing docker containers.</
 </ol>
 </li>
 </ul>
-<h4 id="yolov5-model">Yolov5 model</h4>
+<h3 id="yolov5-model">Yolov5 model<a class="headerlink" href="#yolov5-model" title="Permanent link">#</a></h3>
 <p>The following command launches a Yolov5 model via the container's <code>yolov5_predict_redis</code> command,
 running on the CPU: </p>
 <pre><code class="language-bash">docker run \
@@ -212,7 +216,7 @@ running on the CPU: </p>
     --model /workspace/yolov5n.pt \
     --data /workspace/coco.yaml
 </code></pre>
-<h4 id="waiannotations">wai.annotations</h4>
+<h3 id="waiannotations">wai.annotations<a class="headerlink" href="#waiannotations" title="Permanent link">#</a></h3>
 <p>The following wai.annotations pipeline loads every 2nd frame from the dashcam01.mp4 video,
 obtains predictions from the Yolov5 model (using the Redis backend), overlays the predictions
 and then displays them:</p>
@@ -243,7 +247,7 @@ and then displays them:</p>
       --size 800,224 \
       --delay 1
 </code></pre>
-<h4 id="video">Video</h4>
+<h3 id="video">Video<a class="headerlink" href="#video" title="Permanent link">#</a></h3>
 <p>The above instructions also as a video:</p>
 <p><div class="video-container"><iframe src="https://www.youtube.com/embed/30rrytdsBrc" style="position: relative; width: 100%; height: 22.172vw" frameborder="0" allowfullscreen></iframe></div></p>
               
@@ -291,6 +295,7 @@ and then displays them:</p>
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

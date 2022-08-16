@@ -39,7 +39,11 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> wai-annotations manual</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -138,7 +142,7 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="adams-to-ms-coco">ADAMS to MS-COCO</h3>
+                <h2 id="adams-to-ms-coco">ADAMS to MS-COCO<a class="headerlink" href="#adams-to-ms-coco" title="Permanent link">#</a></h2>
 <p>Also adds additional logging information and removes annotations smaller than 5 pixels in either dimension.</p>
 <pre><code class="language-bash">wai-annotations convert -v \
     from-adams-od \
@@ -150,7 +154,7 @@
       -o output/annotations.json \
       --license-name &quot;CC-BY-SA 4.0&quot;
 </code></pre>
-<h3 id="monolithic-tensorflow-records-to-sharded-ones">Monolithic Tensorflow records to sharded ones</h3>
+<h2 id="monolithic-tensorflow-records-to-sharded-ones">Monolithic Tensorflow records to sharded ones<a class="headerlink" href="#monolithic-tensorflow-records-to-sharded-ones" title="Permanent link">#</a></h2>
 <p>Here we are converting a monolithic TFRecords file into a sharded one (<code>-s 5</code> - five shards) and only using a subset of labels (<code>-l label2,label4,label6</code>):</p>
 <pre><code class="language-bash">wai-annotations convert \
     from-tfrecords-od \
@@ -162,7 +166,7 @@
       -s 5 \
       -p labels.pbtxt
 </code></pre>
-<h3 id="adams-to-tensorflow-records-masks">ADAMS to Tensorflow records (masks)</h3>
+<h2 id="adams-to-tensorflow-records-masks">ADAMS to Tensorflow records (masks)<a class="headerlink" href="#adams-to-tensorflow-records-masks" title="Permanent link">#</a></h2>
 <p>The ADAMS input directory contains sub-directories, so we use the <code>"input/**/*.report"</code> <a href="https://docs.python.org/3/library/glob.html">glob syntax</a> to find all <code>.report</code> files recursively. The data gets split into train/test with a 80/20 ratio. Supplying split names will automatically insert these names into the output file, i.e., <code>output/data.tfrecords</code> will get turned into <code>output/train/data.tfrecords</code> and <code>output/test/data.tfrecords</code>. No path gets supplied to the file containing the labels (<code>labels.txt</code>), it will get placed into the correct output directory automatically:</p>
 <pre><code class="language-bash">wai-annotations convert \
     from-adams-od \
@@ -174,7 +178,7 @@
       --split-names train test \
       --split-ratios 80 20
 </code></pre>
-<h3 id="adams-individual-layer-image-segmentation-to-blue-channel-jpgs">ADAMS individual layer image segmentation to blue channel JPGs</h3>
+<h2 id="adams-individual-layer-image-segmentation-to-blue-channel-jpgs">ADAMS individual layer image segmentation to blue channel JPGs<a class="headerlink" href="#adams-individual-layer-image-segmentation-to-blue-channel-jpgs" title="Permanent link">#</a></h2>
 <p>ADAMS supports the <em>individual layers</em> format for image segmentation format, where for each JPG image a PNG with the same file name plus the label suffix is present (e.g.g: 1.jpg -&gt; 1-car.png and 1-person.png). In this case, we only want to include the <code>car</code> annotations in the output. The output gets split into train/val with a ratio of 80/20:</p>
 <pre><code class="language-bash">wai-annotations convert \
     from-layer-segments-is \
@@ -185,7 +189,7 @@
       --split-names train val \
       --split-ratios 80 20
 </code></pre>
-<h3 id="voc-to-ms-coco">VOC to MS-COCO</h3>
+<h2 id="voc-to-ms-coco">VOC to MS-COCO<a class="headerlink" href="#voc-to-ms-coco" title="Permanent link">#</a></h2>
 <p>Annotations in VOC format can be converted into MS-COCO ones as follows:</p>
 <pre><code class="language-bash">wai-annotations convert \
     from-adams-od \
@@ -238,6 +242,7 @@
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

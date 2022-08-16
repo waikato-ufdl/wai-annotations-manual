@@ -39,7 +39,11 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> wai-annotations manual</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -138,7 +142,7 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="combine-annotations-in-single-image">Combine annotations in single image</h3>
+                <h2 id="combine-annotations-in-single-image">Combine annotations in single image<a class="headerlink" href="#combine-annotations-in-single-image" title="Permanent link">#</a></h2>
 <p>In order to determine whether a model does not have a bias regarding 
 to the location of annotations when training, the <code>to-annotation-overlay-od</code> 
 plugin can generate a single image that shows the outlines of all the annotations 
@@ -156,7 +160,7 @@ object detection dataset (<a href="https://datasets.cms.waikato.ac.nz/ufdl/data/
     -o ./to-annotation-overlay-od.png
 </code></pre>
 <p><img alt="Combined annotations" src="../img/to-annotation-overlay-od.png" /></p>
-<h3 id="overlay-annotations-and-display-them">Overlay annotations and display them</h3>
+<h2 id="overlay-annotations-and-display-them">Overlay annotations and display them<a class="headerlink" href="#overlay-annotations-and-display-them" title="Permanent link">#</a></h2>
 <p>The following loads an object detection dataset, overlays the 
 annotations and displays them in a window:</p>
 <pre><code class="language-bash">wai-annotations convert \
@@ -222,6 +226,7 @@ annotations and displays them in a window:</p>
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

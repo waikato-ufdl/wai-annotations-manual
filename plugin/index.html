@@ -39,7 +39,11 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> wai-annotations manual</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -160,10 +164,10 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="adding-components-to-wai-annotations-through-plugins">Adding components to wai-annotations through plugins</h3>
+                <h2 id="adding-components-to-wai-annotations-through-plugins">Adding components to wai-annotations through plugins<a class="headerlink" href="#adding-components-to-wai-annotations-through-plugins" title="Permanent link">#</a></h2>
 <p>wai-annotations uses a plugin system to allow other libraries to add new processing stages
 without modifying the base library source. This document details how to go about using this system.</p>
-<h4 id="generic-wrappers">Generic wrappers</h4>
+<h3 id="generic-wrappers">Generic wrappers<a class="headerlink" href="#generic-wrappers" title="Permanent link">#</a></h3>
 <p>If you just want to run some code that won't ever make it into a released plugin, then you might 
 want to make use of the <a href="https://github.com/waikato-ufdl/wai-annotations-generic">wai.annotations.generic</a> 
 module. This module provides wrappers around sources/ISPs/sinks, i.e., you only have to write the 
@@ -172,10 +176,10 @@ available within the wai.annotations framework.</p>
 <p>Check out the <a href="../examples_generic/">example section</a>. Also, the <a href="https://github.com/waikato-ufdl/wai-annotations-audio">wai.annotations.audio</a>
 module has a more <a href="../examples_audio/">concrete example</a> for loading the <a href="https://urbansounddataset.weebly.com/urbansound8k.html">Urban8k</a> 
 audio dataset with this wrapper approach.</p>
-<h4 id="plugin-types">Plugin Types</h4>
+<h3 id="plugin-types">Plugin Types<a class="headerlink" href="#plugin-types" title="Permanent link">#</a></h3>
 <p>There are 3 types of stage which can be added to wai-annotations via plugin: input formats, processing stages and output
 formats. New domains can also be added, but these are specified indirectly via any of the previous components.</p>
-<h4 id="domains">Domains</h4>
+<h3 id="domains">Domains<a class="headerlink" href="#domains" title="Permanent link">#</a></h3>
 <p>New domains are added indirectly to wai-annotations as dependencies of components, as a domain which has no components
 is essentially unreachable to a conversion chain. However, the specification of new domains is treated as a
 plugin-related issue, so it is detailed here.</p>
@@ -190,7 +194,7 @@ plugin-related issue, so it is detailed here.</p>
 <li>Define a specifier class for the domain, sub-classing <code>DomainSpecifier</code>. This advertises the domain to the
   wai-annotations framework.</li>
 </ul>
-<h5 id="example">Example</h5>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
 <pre><code class="language-python">from typing import Type
 
 # Import the base classes
@@ -242,7 +246,7 @@ class MyDomainSpecifier(DomainSpecifier):
     def instance_class(cls) -&gt; Type[MyDomainInstance]:
         return MyDomainInstance
 </code></pre>
-<h4 id="stages">Stages</h4>
+<h3 id="stages">Stages<a class="headerlink" href="#stages" title="Permanent link">#</a></h3>
 <p>Stages are a partial pipeline of components. Input stages consist of a source component and zero or more processing
 components, processing stages only consist of processing components, and output stages consist of zero or more
 processing components followed by a sink component.</p>
@@ -285,7 +289,7 @@ setup(
     }
 )
 </code></pre>
-<h5 id="example-input-stage">Example Input Stage</h5>
+<h4 id="example-input-stage">Example Input Stage<a class="headerlink" href="#example-input-stage" title="Permanent link">#</a></h4>
 <p>Input stages consist of a source component followed by zero or more processing components. Typically the source
 component will be <code>wai.annotations.core.component.util.LocalFilenameSource</code>, but this is not required. What is
 required is that the final component of the stage outputs instances in the domain that the stage operates.</p>
@@ -357,7 +361,7 @@ class MySourceStageSpecifier(SourceStageSpecifier):
   def domain(cls) -&gt; Type[ImageObjectDetectionDomainSpecifier]:
     return ImageObjectDetectionDomainSpecifier
 </code></pre>
-<h5 id="example-output-stage">Example Output Stage</h5>
+<h4 id="example-output-stage">Example Output Stage<a class="headerlink" href="#example-output-stage" title="Permanent link">#</a></h4>
 <p>Output stages consist of zero or more processing components followed by a single sink component. The first component of
 the stage must take instances in the stage's domain as input.</p>
 <pre><code class="language-python">from typing import Type, Tuple
@@ -424,7 +428,7 @@ class MySinkStageSpecifier(SinkStageSpecifier):
     def domain(cls) -&gt; Type[ImageObjectDetectionDomainSpecifier]:
         return ImageObjectDetectionDomainSpecifier
 </code></pre>
-<h5 id="example-processor-stage">Example Processor Stage</h5>
+<h4 id="example-processor-stage">Example Processor Stage<a class="headerlink" href="#example-processor-stage" title="Permanent link">#</a></h4>
 <p>Processor stages consist of one or more processing components. The domain-transfer function defined on the specifier
 must match the input/output types of the chain of components for the stage.</p>
 <pre><code class="language-python">from typing import Type, Tuple
@@ -483,16 +487,16 @@ class MyProcessorStageSpecifier(ProcessorStageSpecifier):
         # Because our processor stage works in any domain, and does not cross domains, just return the input domain
         return input_domain
 </code></pre>
-<h5 id="best-practice">Best Practice</h5>
+<h4 id="best-practice">Best Practice<a class="headerlink" href="#best-practice" title="Permanent link">#</a></h4>
 <p>Although in each of the examples shown here, we have defined our plugin specifiers in the same file as the components
 they advertise, this is not the recommended approach. The specifier types should instead be defined in their own
 sub-package, and the methods should locally import the specified types (instead of globally at the beginning of the
 specifier Python file). This is so the specifier can be imported into the plugin system without importing potentially
 heavy-weight libraries that the components depend on for their functionality. This way the system can provide reflection
 of the available plugins, but only load those plugins that are actually selected for use in a conversion.</p>
-<h4 id="adding-command-line-options-to-plugin-components">Adding Command-Line Options to Plugin Components</h4>
+<h3 id="adding-command-line-options-to-plugin-components">Adding Command-Line Options to Plugin Components<a class="headerlink" href="#adding-command-line-options-to-plugin-components" title="Permanent link">#</a></h3>
 <p>See <a href="../cli/">here</a> for a description of command-line option support in wai-annotations.</p>
-<h4 id="splitting">Splitting</h4>
+<h3 id="splitting">Splitting<a class="headerlink" href="#splitting" title="Permanent link">#</a></h3>
 <p>Sink-components (and by extension sink-stages) may require that the incoming instances be split across a number of
 output locations. Special support for splitting is provided in the <code>wai.annotations.core.component.util</code> sub-package.
 See <a href="../component_util/#Splitting">here</a> for information on how to add splitting to your sink-stages.</p>
@@ -541,6 +545,7 @@ See <a href="../component_util/#Splitting">here</a> for information on how to ad
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

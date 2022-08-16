@@ -39,7 +39,11 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> wai-annotations manual</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -132,23 +136,23 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="utility-components">Utility Components</h3>
+                <h2 id="utility-components">Utility Components<a class="headerlink" href="#utility-components" title="Permanent link">#</a></h2>
 <p>wai-annotations comes with some utility base-classes for common types of components, found in the
 <code>wai.annotations.core.component.util</code> package. They are listed here.</p>
-<h4 id="input">Input</h4>
-<h5 id="localfilenamesource">LocalFilenameSource</h5>
+<h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
+<h4 id="localfilenamesource">LocalFilenameSource<a class="headerlink" href="#localfilenamesource" title="Permanent link">#</a></h4>
 <p>TODO</p>
-<h5 id="annotationfileprocessor">AnnotationFileProcessor</h5>
+<h4 id="annotationfileprocessor">AnnotationFileProcessor<a class="headerlink" href="#annotationfileprocessor" title="Permanent link">#</a></h4>
 <p>TODO</p>
-<h4 id="output">Output</h4>
-<h5 id="localfilewriter">LocalFileWriter</h5>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
+<h4 id="localfilewriter">LocalFileWriter<a class="headerlink" href="#localfilewriter" title="Permanent link">#</a></h4>
 <p>TODO</p>
-<h5 id="separatefilewriter">SeparateFileWriter</h5>
+<h4 id="separatefilewriter">SeparateFileWriter<a class="headerlink" href="#separatefilewriter" title="Permanent link">#</a></h4>
 <p>TODO</p>
-<h5 id="jsonfilewriter">JSONFileWriter</h5>
+<h4 id="jsonfilewriter">JSONFileWriter<a class="headerlink" href="#jsonfilewriter" title="Permanent link">#</a></h4>
 <p>TODO</p>
-<h4 id="splitting">Splitting</h4>
-<h5 id="splitsink">SplitSink</h5>
+<h3 id="splitting">Splitting<a class="headerlink" href="#splitting" title="Permanent link">#</a></h3>
+<h4 id="splitsink">SplitSink<a class="headerlink" href="#splitsink" title="Permanent link">#</a></h4>
 <p>Specialised sink component for handling splitting the stream of processed items among a group of splits. Takes 2
 options: <code>--split-names</code>, followed by a name for each split; and <code>--split-ratios</code>, followed by an integer ratio of
 how many items to add to each split. The sink component will then alternate which split it is acting on behalf of for
@@ -162,29 +166,29 @@ ordinary sink component. During execution of either of these methods, the follow
   specified.</li>
 </ul>
 <p>The following sections detail additional functionality that can be added to split-sinks.</p>
-<h5 id="splitstate">SplitState</h5>
+<h4 id="splitstate">SplitState<a class="headerlink" href="#splitstate" title="Permanent link">#</a></h4>
 <p>Specialised form of <a href="../stream/#ProcessState">process state</a> which manages separate state for each split. Accessing this
 property will return a separate instance depending on which split the component is currently acting for.</p>
-<h5 id="requiresnosplitfinalisation">RequiresNoSplitFinalisation</h5>
+<h4 id="requiresnosplitfinalisation">RequiresNoSplitFinalisation<a class="headerlink" href="#requiresnosplitfinalisation" title="Permanent link">#</a></h4>
 <p>Specialised form of <a href="../stream/#RequiresNoFinalisation">the RequiresNoFinalisation mixin</a>, which declares that the
 split-sink doesn't need to perform any clean-up after all items have been processed. This automatically implements
 <code>finish_split</code>.</p>
-<h5 id="withpersistentsplitfiles">WithPersistentSplitFiles</h5>
+<h4 id="withpersistentsplitfiles">WithPersistentSplitFiles<a class="headerlink" href="#withpersistentsplitfiles" title="Permanent link">#</a></h4>
 <p>A mixin class for use with components which inherit from <code>SplitSink</code> and need to keep files open while writing them
 across the splits. The <code>_init_split_files</code> method should be implemented to open all files needed by the sink, and return
 them as some sort of collection. The <code>_iterate_split_files</code> should iterate over the collection returned by
 <code>_init_split_files</code>. Components which implement this mixin can then access the <code>_split_files</code> property during
 execution of their <code>consume_element_for_split</code>/<code>finish_split</code> methods to get access to the file-collection for the
 current split.</p>
-<h4 id="other">Other</h4>
+<h3 id="other">Other<a class="headerlink" href="#other" title="Permanent link">#</a></h3>
 <p>General-purpose utilities for components.</p>
-<h5 id="buffer">Buffer</h5>
+<h4 id="buffer">Buffer<a class="headerlink" href="#buffer" title="Permanent link">#</a></h4>
 <p>This processor component buffers the entire stream, and passes it as a list to the next component in its <code>finish</code>
 method.</p>
-<h5 id="enumerator">Enumerator</h5>
+<h4 id="enumerator">Enumerator<a class="headerlink" href="#enumerator" title="Permanent link">#</a></h4>
 <p>This processor component enumerates each item passed to it, forwarding a tuple of the 0-based index of the item and
 the item itself.</p>
-<h5 id="withrandomness">WithRandomness</h5>
+<h4 id="withrandomness">WithRandomness<a class="headerlink" href="#withrandomness" title="Permanent link">#</a></h4>
 <p>This is a mixin class which can be used with any component, and adds a <code>--seed</code> option for randomisation. The help-text
 for the option can be specified. If the user sets a seed value, the <code>random</code> property will provide a <code>Random</code> instance
 initialised with the provided seed. If the option was not set, <code>None</code> will be returned by the property.</p>
@@ -220,6 +224,7 @@ initialised with the provided seed. If the option was not set, <code>None</code>
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

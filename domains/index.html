@@ -39,7 +39,11 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> wai-annotations manual</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -142,22 +146,22 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="domains">Domains</h3>
-<h4 id="image-classification-domain">Image Classification Domain</h4>
+                <h2 id="domains">Domains<a class="headerlink" href="#domains" title="Permanent link">#</a></h2>
+<h3 id="image-classification-domain">Image Classification Domain<a class="headerlink" href="#image-classification-domain" title="Permanent link">#</a></h3>
 <p>Images categorised by content.</p>
 <p>The image classification domain deals with labelling entire images as containing a certain subject. Instances in this
 domain contain an image and a string label classifying the image.</p>
-<h4 id="image-object-detection-domain">Image Object-Detection Domain</h4>
+<h3 id="image-object-detection-domain">Image Object-Detection Domain<a class="headerlink" href="#image-object-detection-domain" title="Permanent link">#</a></h3>
 <p>Images containing multiple identified objects.</p>
 <p>The image object-detection domain pertains to finding regions of still images which contain identifiable objects.
 Instances in this domain consist of an image and a set of regions (either axis-aligned boxes or polygons), each with
 an accompanying label, identifying the detected objects within the image.</p>
-<h4 id="image-segmentation-domain">Image Segmentation Domain</h4>
+<h3 id="image-segmentation-domain">Image Segmentation Domain<a class="headerlink" href="#image-segmentation-domain" title="Permanent link">#</a></h3>
 <p>Images segmented by category.</p>
 <p>The image segmentation domain 'colourises' an image by assigning a category to each pixel (where no category
 corresponds to 'the background'). Instances in this domain are a still image and a corresponding table of the same
 size, where each element is a label.</p>
-<h4 id="speech-domain">Speech Domain</h4>
+<h3 id="speech-domain">Speech Domain<a class="headerlink" href="#speech-domain" title="Permanent link">#</a></h3>
 <p>Transcriptions of recorded speech.</p>
 <p>The speech domain covers audio data of people speaking natural languages, annotated with text transcribing the verbal
 contents of the audio. Instances in this domain are an audio file and a string containing the transcription.</p>
@@ -206,6 +210,7 @@ contents of the audio. Instances in this domain are an audio file and a string c
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

@@ -39,7 +39,11 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> wai-annotations manual</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -132,7 +136,7 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="cli-support-in-wai-annotations">CLI Support in wai-annotations</h3>
+                <h2 id="cli-support-in-wai-annotations">CLI Support in wai-annotations<a class="headerlink" href="#cli-support-in-wai-annotations" title="Permanent link">#</a></h2>
 <p>Command-line options are added to wai-annotations at the component level via the use of <code>Option</code> descriptor classes.
 This allows for adding command-line options in a declarative style, specifying information about the nature and type of
 the options, while letting wai-annotations automatically perform the work of getting information from the user and 
@@ -143,21 +147,21 @@ the class-level variable through the component instance e.g. <code>self.my_optio
 <p>N.B. Although options are defined at the component level, wai-annotations aggregates them at the stage level. Therefore,
 care must be taken not to use the same flag/s for multiple options, not only within a component (including its
 ancestor classes), but also between components that are shared by a stage.</p>
-<h4 id="types-of-options">Types of Options</h4>
-<h5 id="classoption">ClassOption</h5>
+<h3 id="types-of-options">Types of Options<a class="headerlink" href="#types-of-options" title="Permanent link">#</a></h3>
+<h4 id="classoption">ClassOption<a class="headerlink" href="#classoption" title="Permanent link">#</a></h4>
 <p>An option for selecting a Python class. Is initialised with a class-registry of the available choices the user can
 select from. The user provides the name of a class in the registry and the class itself is returned.</p>
-<h5 id="countoption">CountOption</h5>
+<h4 id="countoption">CountOption<a class="headerlink" href="#countoption" title="Permanent link">#</a></h4>
 <p>Option which simply returns the number of times its flag was supplied to the command line. This is useful, for example,
 for verbosity values, where increasing the number of flags increases the logging verbosity (e.g. <code>-vvv</code>). An
 optional translation table can be provided which translates the actual value to some mapped value.</p>
-<h5 id="flagoption">FlagOption</h5>
+<h4 id="flagoption">FlagOption<a class="headerlink" href="#flagoption" title="Permanent link">#</a></h4>
 <p>A simple flag, which evaluates to True when provided on the command-line, or False if not (these semantics can be
 inverted).</p>
-<h5 id="typedoption">TypedOption</h5>
+<h4 id="typedoption">TypedOption<a class="headerlink" href="#typedoption" title="Permanent link">#</a></h4>
 <p>The most versatile option, it takes a type to use to parse the command-line string/s provide by the user. Can return
 a single-value of that type or a list of values of that type if set to take multiple arguments.</p>
-<h4 id="example">Example</h4>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h3>
 <p>This example creates a processor component which takes a schedule of integers from the command line, and multiplies
 incoming integers by the next integer in the schedule.</p>
 <pre><code class="language-python"># For typing the schedule
@@ -250,6 +254,7 @@ class MyProcessorComponent(
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

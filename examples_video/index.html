@@ -39,7 +39,11 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> wai-annotations manual</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -138,7 +142,7 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="read-frames-from-a-video-file">Read frames from a video file</h3>
+                <h2 id="read-frames-from-a-video-file">Read frames from a video file<a class="headerlink" href="#read-frames-from-a-video-file" title="Permanent link">#</a></h2>
 <p>The following command retrieves every 10th frame (<code>-n</code>) from the input video, 
 will process a maximum of 100 frames (<code>-m</code>) and will process frames 
 starting from 1000 (<code>-f</code>) and display the frames (<a href="https://github.com/lessthanoptimal/BoofCV-Data/blob/15c79700a26646ed33806fe9e834e0224acb75c8/example/tracking/dashcam01.mp4">example video</a>):</p>
@@ -150,7 +154,7 @@ starting from 1000 (<code>-f</code>) and display the frames (<a href="https://gi
     -f 1000 \
   image-viewer-od
 </code></pre>
-<h3 id="read-frames-from-a-webcam">Read frames from a webcam</h3>
+<h2 id="read-frames-from-a-webcam">Read frames from a webcam<a class="headerlink" href="#read-frames-from-a-webcam" title="Permanent link">#</a></h2>
 <p>A webcam can also be used for obtaining frames, as the following example demonstrates 
 (uses webcam with ID <code>0</code>): </p>
 <pre><code class="language-bash">wai-annotations convert \
@@ -161,7 +165,7 @@ starting from 1000 (<code>-f</code>) and display the frames (<a href="https://gi
     -f 100 
   image-viewer-od
 </code></pre>
-<h3 id="generate-a-mjpeg-video-file-of-dissimilar-frames">Generate a MJPEG video file of dissimilar frames</h3>
+<h2 id="generate-a-mjpeg-video-file-of-dissimilar-frames">Generate a MJPEG video file of dissimilar frames<a class="headerlink" href="#generate-a-mjpeg-video-file-of-dissimilar-frames" title="Permanent link">#</a></h2>
 <p>Videos contain a lot of frames and outputting or processing all of them is not
 a viable option in most cases. For that purpose, the <code>skip-similar-frames</code> plugin
 can be used for dropping frames that are too similar. The <code>-t/--change-threshold</code>
@@ -223,6 +227,7 @@ file with 1 frame/sec:</p>
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
