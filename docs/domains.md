@@ -29,3 +29,8 @@ The speech domain covers audio data of people speaking natural languages, annota
 contents of the audio. Instances in this domain are an audio file and a string containing the transcription.
 
 
+## Audio classification Domain
+Audio clips categorised by content.
+
+The audio classification domain covers audio data of sounds or even short commands. Instances in this domain are an 
+audio file and a string containing the class label.
