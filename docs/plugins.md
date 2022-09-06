@@ -25,9 +25,9 @@ optional arguments:
   --seed SEED           the seed to use for randomisation (default: None)
   -e FORMAT FORMAT FORMAT, --extensions FORMAT FORMAT FORMAT
                         image format extensions in order of preference (default: [<ImageFormat.PNG:
-                        (frozenset({'PNG', 'png'}), 'PNG')>, <ImageFormat.JPG: (frozenset({'JPG',
-                        'JPEG', 'jpg', 'jpeg'}), 'JPEG')>, <ImageFormat.BMP: (frozenset({'bmp',
-                        'BMP'}), 'BMP')>])
+                        (frozenset({'png', 'PNG'}), 'PNG')>, <ImageFormat.JPG: (frozenset({'jpg',
+                        'JPEG', 'jpeg', 'JPG'}), 'JPEG')>, <ImageFormat.BMP: (frozenset({'BMP',
+                        'bmp'}), 'BMP')>])
   -c FIELD, --class-field FIELD
                         the report field containing the image class (default: None)
 ```
@@ -57,9 +57,9 @@ optional arguments:
   --seed SEED           the seed to use for randomisation (default: None)
   -e FORMAT FORMAT FORMAT, --extensions FORMAT FORMAT FORMAT
                         image format extensions in order of preference (default: [<ImageFormat.PNG:
-                        (frozenset({'PNG', 'png'}), 'PNG')>, <ImageFormat.JPG: (frozenset({'JPG',
-                        'JPEG', 'jpg', 'jpeg'}), 'JPEG')>, <ImageFormat.BMP: (frozenset({'bmp',
-                        'BMP'}), 'BMP')>])
+                        (frozenset({'png', 'PNG'}), 'PNG')>, <ImageFormat.JPG: (frozenset({'jpg',
+                        'JPEG', 'jpeg', 'JPG'}), 'JPEG')>, <ImageFormat.BMP: (frozenset({'BMP',
+                        'bmp'}), 'BMP')>])
   -p PREFIXES [PREFIXES ...], --prefixes PREFIXES [PREFIXES ...]
                         prefixes to parse (default: [])
 ```
@@ -178,6 +178,58 @@ Reads speech transcriptions in the Mozilla Common-Voice TSV-format
 ```
 usage: from-common-voice-sp [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
                             [--seed SEED] [--rel-path REL_PATH]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax) (default: [])
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax) (default: [])
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax) (default: [])
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax) (default: [])
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into (default: None)
+  --seed SEED           the seed to use for randomisation (default: None)
+  --rel-path REL_PATH   the relative path from the annotations file to the audio files (default: .)
+```
+
+### FROM-COQUI-STT-SP
+Reads speech transcriptions in the Coqui STT CSV-format
+
+#### Domain(s):
+- **Speech Domain**
+
+#### Options:
+```
+usage: from-coqui-stt-sp [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
+                         [--seed SEED] [--rel-path REL_PATH]
+
+optional arguments:
+  -I FILENAME, --inputs-file FILENAME
+                        Files containing lists of input files (can use glob syntax) (default: [])
+  -i FILENAME, --input FILENAME
+                        Input files (can use glob syntax) (default: [])
+  -N FILENAME, --negatives-file FILENAME
+                        Files containing lists of negative files (can use glob syntax) (default: [])
+  -n FILENAME, --negative FILENAME
+                        Files that have no annotations (can use glob syntax) (default: [])
+  -o FILENAME, --output-file FILENAME
+                        optional file to write read filenames into (default: None)
+  --seed SEED           the seed to use for randomisation (default: None)
+  --rel-path REL_PATH   the relative path from the annotations file to the audio files (default: .)
+```
+
+### FROM-COQUI-TTS-SP
+Reads speech transcriptions in the Coqui TTS text-format
+
+#### Domain(s):
+- **Speech Domain**
+
+#### Options:
+```
+usage: from-coqui-tts-sp [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
+                         [--seed SEED] [--rel-path REL_PATH]
 
 optional arguments:
   -I FILENAME, --inputs-file FILENAME
@@ -362,8 +414,8 @@ Reads in the layer-segments image-segmentation format from disk, where each labe
 #### Options:
 ```
 usage: from-layer-segments-is [-I FILENAME] [-i FILENAME] [-N FILENAME] [-n FILENAME] [-o FILENAME]
-                              [--seed SEED] [--label-separator SEPARATOR] --labels LABEL [LABEL ...]
-                              [--image-path-rel PATH]
+                              [--seed SEED] [--invert] [--label-separator SEPARATOR] --labels LABEL
+                              [LABEL ...] [--lenient] [--image-path-rel PATH]
 
 optional arguments:
   -I FILENAME, --inputs-file FILENAME
@@ -377,10 +429,13 @@ optional arguments:
   -o FILENAME, --output-file FILENAME
                         optional file to write read filenames into (default: None)
   --seed SEED           the seed to use for randomisation (default: None)
+  --invert              inverts the colors in the annotations (b/w <-> w/b) (default: False)
   --label-separator SEPARATOR
                         the separator between the base filename and the label (default: -)
   --labels LABEL [LABEL ...]
                         specifies the labels for each index (default: None)
+  --lenient             converts non-binary images with only two unique colors into binary ones
+                        rather than throwing an exception (default: False)
   --image-path-rel PATH
                         Relative path to image files from annotations (default: .)
 ```
@@ -436,9 +491,9 @@ optional arguments:
   --seed SEED           the seed to use for randomisation (default: None)
   -e FORMAT FORMAT FORMAT, --extensions FORMAT FORMAT FORMAT
                         image format extensions in order of preference (default: [<ImageFormat.PNG:
-                        (frozenset({'PNG', 'png'}), 'PNG')>, <ImageFormat.JPG: (frozenset({'JPG',
-                        'JPEG', 'jpg', 'jpeg'}), 'JPEG')>, <ImageFormat.BMP: (frozenset({'bmp',
-                        'BMP'}), 'BMP')>])
+                        (frozenset({'png', 'PNG'}), 'PNG')>, <ImageFormat.JPG: (frozenset({'jpg',
+                        'JPEG', 'jpeg', 'JPG'}), 'JPEG')>, <ImageFormat.BMP: (frozenset({'BMP',
+                        'bmp'}), 'BMP')>])
   --prefix READER_PREFIX
                         the prefix for output filenames (default = '') (default: None)
   --suffix READER_SUFFIX
@@ -857,15 +912,38 @@ optional arguments:
 Causes the conversion stream to halt when multiple dataset items have the same filename
 
 #### Domain(s):
-- **Image Classification Domain**
-- **Audio classification domain**
 - **Speech Domain**
-- **Image Segmentation Domain**
 - **Image Object-Detection Domain**
+- **Image Classification Domain**
+- **Image Segmentation Domain**
+- **Audio classification domain**
 
 #### Options:
 ```
 usage: check-duplicate-filenames
+```
+
+### CLEAN-TRANSCRIPT
+ISP that cleans speech transcripts.
+
+#### Domain(s):
+- **Speech Domain**
+
+#### Options:
+```
+usage: clean-transcript [-b] [-c CUSTOM] [-a] [-l] [-n] [-p] [-q] [--verbose]
+
+optional arguments:
+  -b, --brackets        removes brackets: ()[]{}〈〉 (default: False)
+  -c CUSTOM, --custom CUSTOM
+                        the custom characters to remove (default: )
+  -a, --non-alpha-numeric
+                        removes all characters that are not alpha-numeric (default: False)
+  -l, --non-letters     removes all characters that are not letters (default: False)
+  -n, --numeric         removes all numeric characters (default: False)
+  -p, --punctuation     removes punctuation characters: :;,.!? (default: False)
+  -q, --quotes          removes quotes: '"‘’“”‹›«» (default: False)
+  --verbose             outputs information about processed transcripts (default: False)
 ```
 
 ### COERCE-BOX
@@ -912,9 +990,9 @@ optional arguments:
 Converts images from one format to another
 
 #### Domain(s):
-- **Image Segmentation Domain**
 - **Image Classification Domain**
 - **Image Object-Detection Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -929,8 +1007,8 @@ optional arguments:
 Converts audio files to monophonic.
 
 #### Domain(s):
-- **Audio classification domain**
 - **Speech Domain**
+- **Audio classification domain**
 
 #### Options:
 ```
@@ -941,8 +1019,8 @@ usage: convert-to-mono
 Converts mp3/flac/ogg to wav.
 
 #### Domain(s):
-- **Audio classification domain**
 - **Speech Domain**
+- **Audio classification domain**
 
 #### Options:
 ```
@@ -1020,9 +1098,9 @@ optional arguments:
 Discards images that cannot be loaded (e.g., corrupt image file or annotations with no image)
 
 #### Domain(s):
-- **Image Segmentation Domain**
 - **Image Classification Domain**
 - **Image Object-Detection Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -1036,11 +1114,11 @@ optional arguments:
 Discards negative examples (those without annotations) from the stream
 
 #### Domain(s):
-- **Image Classification Domain**
-- **Audio classification domain**
 - **Speech Domain**
-- **Image Segmentation Domain**
 - **Image Object-Detection Domain**
+- **Image Classification Domain**
+- **Image Segmentation Domain**
+- **Audio classification domain**
 
 #### Options:
 ```
@@ -1051,9 +1129,9 @@ usage: discard-negatives
 Drops frames from the stream.
 
 #### Domain(s):
-- **Image Segmentation Domain**
 - **Image Classification Domain**
 - **Image Object-Detection Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -1069,9 +1147,9 @@ optional arguments:
 Filters frames from the stream using the labels in the annotations, i.e., keeps or drops frames depending on presence/absence of labels.
 
 #### Domain(s):
-- **Image Segmentation Domain**
 - **Image Classification Domain**
 - **Image Object-Detection Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -1099,20 +1177,27 @@ optional arguments:
 ```
 
 ### FILTER-LABELS
-Filters detected objects down to those with specified labels.
+Filters detected objects down to those with specified labels or, in case of image classification, removes the label if it doesn't match.
 
 #### Domain(s):
+- **Image Classification Domain**
 - **Image Object-Detection Domain**
 
 #### Options:
 ```
-usage: filter-labels [-l LABELS [LABELS ...]] [-r regexp]
+usage: filter-labels [-l LABELS [LABELS ...]] [--min-iou FLOAT] [-r regexp] [--region x,y,w,h]
 
 optional arguments:
   -l LABELS [LABELS ...], --labels LABELS [LABELS ...]
                         labels to use (default: [])
+  --min-iou FLOAT       the minimum IoU (intersect over union) that the object must have with the
+                        region in order to be considered an overlap (object detection only)
+                        (default: 0.01)
   -r regexp, --regexp regexp
                         regular expression for using only a subset of labels (default: None)
+  --region x,y,w,h      region that the object must overlap with in order to be included (object
+                        detection only). Between 0-1 the values are considered normalized, otherwise
+                        absolute pixels. (default: None)
 ```
 
 ### FILTER-METADATA
@@ -1323,6 +1408,39 @@ optional arguments:
                         applied; range: 0-1; default: 0 (= always) (default: None)
 ```
 
+### LABEL-PRESENT
+Keeps or discards images depending on whether annotations with certain label(s) are present. Checks can be further tightened by defining regions in the image that annotations must overlap with (or not overlap at all).
+
+#### Domain(s):
+- **Image Object-Detection Domain**
+
+#### Options:
+```
+usage: label-present [--coordinate-separator CHAR] [--invert-regions] [-l LABELS [LABELS ...]]
+                     [--min-iou FLOAT] [--pair-separator CHAR] [-r regexp]
+                     [--region [x,y[;x,y[;...]] [x,y[;x,y[;...]] ...]]] [--verbose]
+
+optional arguments:
+  --coordinate-separator CHAR
+                        the separator between coordinates (default: ;)
+  --invert-regions      Inverts the matching sense from 'labels have to overlap at least one of the
+                        region(s)' to 'labels cannot overlap any region' (default: False)
+  -l LABELS [LABELS ...], --labels LABELS [LABELS ...]
+                        explicit list of labels to check (default: [])
+  --min-iou FLOAT       the minimum IoU (intersect over union) that the object must have with the
+                        region(s) in order to be considered an overlap (object detection only)
+                        (default: 0.01)
+  --pair-separator CHAR
+                        the separator between the x and y of a pair (default: ,)
+  -r regexp, --regexp regexp
+                        regular expression for using only a subset of labels (default: None)
+  --region [x,y[;x,y[;...]] [x,y[;x,y[;...]] ...]]
+                        semicolon-separated list of comma-separated x/y pairs defining the region
+                        that the object must overlap with in order to be included. Values between
+                        0-1 are considered normalized, otherwise absolute pixels. (default: None)
+  --verbose             Outputs some debugging information (default: False)
+```
+
 ### LINEAR-CONTRAST
 Applies linear contrast to images.
 
@@ -1476,11 +1594,11 @@ optional arguments:
 Dummy ISP which has no effect on the conversion stream
 
 #### Domain(s):
-- **Image Classification Domain**
-- **Audio classification domain**
 - **Speech Domain**
-- **Image Segmentation Domain**
 - **Image Object-Detection Domain**
+- **Image Classification Domain**
+- **Image Segmentation Domain**
+- **Audio classification domain**
 
 #### Options:
 ```
@@ -1491,8 +1609,8 @@ usage: passthrough
 Augmentation method for shifting the pitch of audio files.
 
 #### Domain(s):
-- **Audio classification domain**
 - **Speech Domain**
+- **Audio classification domain**
 
 #### Options:
 ```
@@ -1647,9 +1765,9 @@ optional arguments:
 Removes classes from classification/image-segmentation instances
 
 #### Domain(s):
-- **Audio classification domain**
-- **Image Segmentation Domain**
 - **Image Classification Domain**
+- **Image Segmentation Domain**
+- **Audio classification domain**
 
 #### Options:
 ```
@@ -1660,6 +1778,31 @@ optional arguments:
                         the classes to remove (default: None)
 ```
 
+### RENAME
+ISP that renames files.
+
+#### Domain(s):
+- **Speech Domain**
+- **Image Object-Detection Domain**
+- **Image Classification Domain**
+- **Image Segmentation Domain**
+- **Audio classification domain**
+
+#### Options:
+```
+usage: rename [-f NAME_FORMAT] [--verbose]
+
+optional arguments:
+  -f NAME_FORMAT, --name-format NAME_FORMAT
+                        the format for the new name. Available placeholders: - {name}: the name of
+                        the file, without path or extension. - {ext}: the extension of the file
+                        (incl dot). - {occurrences}: the number of times this name (excl extension)
+                        has been encountered. - {count}: the number of files encountered so far. -
+                        {[p]+dir}: the parent directory of the file: 'p': immediate parent, the more
+                        the p's the higher up in the hierarchy. (default: {name}{ext})
+  --verbose             outputs information about generated names (default: False)
+```
+
 ### RESAMPLE-AUDIO
 Resamples audio files.
 
@@ -1667,8 +1810,8 @@ For resample types, see:
 https://librosa.org/doc/latest/generated/librosa.resample.html#librosa.resample
 
 #### Domain(s):
-- **Audio classification domain**
 - **Speech Domain**
+- **Audio classification domain**
 
 #### Options:
 ```
@@ -1722,11 +1865,11 @@ optional arguments:
 ISP that selects a subset from the stream.
 
 #### Domain(s):
-- **Image Classification Domain**
-- **Audio classification domain**
 - **Speech Domain**
-- **Image Segmentation Domain**
 - **Image Object-Detection Domain**
+- **Image Classification Domain**
+- **Image Segmentation Domain**
+- **Audio classification domain**
 
 #### Options:
 ```
@@ -1783,9 +1926,9 @@ optional arguments:
 Skips frames in the stream that are deemed too similar.
 
 #### Domain(s):
-- **Image Segmentation Domain**
 - **Image Classification Domain**
 - **Image Object-Detection Domain**
+- **Image Segmentation Domain**
 
 #### Options:
 ```
@@ -1835,11 +1978,11 @@ optional arguments:
 ISP which removes annotations from instances
 
 #### Domain(s):
-- **Image Classification Domain**
-- **Audio classification domain**
 - **Speech Domain**
-- **Image Segmentation Domain**
 - **Image Object-Detection Domain**
+- **Image Classification Domain**
+- **Image Segmentation Domain**
+- **Audio classification domain**
 
 #### Options:
 ```
@@ -1855,7 +1998,7 @@ Extracts sub-images (incl their annotations) from the images coming through, usi
 
 #### Options:
 ```
-usage: sub-images [-p] [-s REGION_SORTING] [-r REGIONS [REGIONS ...]] [-e]
+usage: sub-images [-p] [-s REGION_SORTING] [-r REGIONS [REGIONS ...]] [-e] [--verbose]
 
 optional arguments:
   -p, --include-partial
@@ -1869,14 +2012,15 @@ optional arguments:
                         (default: [])
   -e, --suppress-empty  suppresses sub-images that have no annotations (object detection) (default:
                         False)
+  --verbose             for outputting debugging information (default: False)
 ```
 
 ### TIME-STRETCH
 Augmentation method for stretching the time of audio files (speed up/slow down).
 
 #### Domain(s):
-- **Audio classification domain**
 - **Speech Domain**
+- **Audio classification domain**
 
 #### Options:
 ```
@@ -1911,8 +2055,8 @@ optional arguments:
 Trims silence from audio files.
 
 #### Domain(s):
-- **Audio classification domain**
 - **Speech Domain**
+- **Audio classification domain**
 
 #### Options:
 ```
@@ -2255,14 +2399,15 @@ Writes image classification annotations in the ADAMS report-format
 
 #### Options:
 ```
-usage: to-adams-ic -c FIELD [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
-                   [--split-ratios RATIO [RATIO ...]]
+usage: to-adams-ic -c FIELD [--annotations-only] [--no-interleave] -o PATH
+                   [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
   -c FIELD, --class-field FIELD
                         the report field containing the image class (default: None)
   --annotations-only    skip the writing of data files, outputting only the annotation files
                         (default: False)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         output directory to write files to (default: None)
   --split-names SPLIT NAME [SPLIT NAME ...]
@@ -2279,12 +2424,13 @@ Writes image object-detection annotations in the ADAMS report-format
 
 #### Options:
 ```
-usage: to-adams-od [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
-                   [--split-ratios RATIO [RATIO ...]]
+usage: to-adams-od [--annotations-only] [--no-interleave] -o PATH
+                   [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
   --annotations-only    skip the writing of data files, outputting only the annotation files
                         (default: False)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         output directory to write files to (default: None)
   --split-names SPLIT NAME [SPLIT NAME ...]
@@ -2355,12 +2501,14 @@ Writes image segmentation files in the blue-channel format
 
 #### Options:
 ```
-usage: to-blue-channel-is [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
+usage: to-blue-channel-is [--annotations-only] [--no-interleave] -o PATH
+                          [--split-names SPLIT NAME [SPLIT NAME ...]]
                           [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
   --annotations-only    skip the writing of data files, outputting only the annotation files
                         (default: False)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         the directory to write the annotation images to (default: None)
   --split-names SPLIT NAME [SPLIT NAME ...]
@@ -2380,8 +2528,9 @@ Writes image object-detection annotations in the MS-COCO JSON-format
 usage: to-coco-od [--annotations-only] [--categories CATEGORY [CATEGORY ...]]
                   [--category-output-file FILENAME] [--default-supercategory SUPERCATEGORY]
                   [--error-on-new-category] [--license-name LICENSE_NAME]
-                  [--license-url LICENSE_URL] -o PATH [--pretty] [--sort-categories]
-                  [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
+                  [--license-url LICENSE_URL] [--no-interleave] -o PATH [--pretty]
+                  [--sort-categories] [--split-names SPLIT NAME [SPLIT NAME ...]]
+                  [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
   --annotations-only    skip the writing of data files, outputting only the annotation files
@@ -2399,6 +2548,7 @@ optional arguments:
                         the license of the images (default: default)
   --license-url LICENSE_URL
                         the license of the images (default: )
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         output file to write annotations to (images are placed in same directory)
                         (default: None)
@@ -2419,14 +2569,64 @@ Writes speech transcriptions in the Mozilla Common-Voice TSV-format
 
 #### Options:
 ```
-usage: to-common-voice-sp [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
+usage: to-common-voice-sp [--annotations-only] [--no-interleave] -o PATH
+                          [--split-names SPLIT NAME [SPLIT NAME ...]]
                           [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
   --annotations-only    skip the writing of data files, outputting only the annotation files
                         (default: False)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         the filename of the TSV file to write the annotations into (default: None)
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits (default: [])
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits (default: [])
+```
+
+### TO-COQUI-STT-SP
+Writes speech transcriptions in the Coqui STT CSV-format
+
+#### Domain(s):
+- **Speech Domain**
+
+#### Options:
+```
+usage: to-coqui-stt-sp [--annotations-only] [--no-interleave] -o PATH
+                       [--split-names SPLIT NAME [SPLIT NAME ...]]
+                       [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+                        (default: False)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
+  -o PATH, --output PATH
+                        the filename of the CSV file to write the annotations into (default: None)
+  --split-names SPLIT NAME [SPLIT NAME ...]
+                        the names to use for the splits (default: [])
+  --split-ratios RATIO [RATIO ...]
+                        the ratios to use for the splits (default: [])
+```
+
+### TO-COQUI-TTS-SP
+Writes speech transcriptions in the Coqui TTS text-format
+
+#### Domain(s):
+- **Speech Domain**
+
+#### Options:
+```
+usage: to-coqui-tts-sp [--annotations-only] [--no-interleave] -o PATH
+                       [--split-names SPLIT NAME [SPLIT NAME ...]]
+                       [--split-ratios RATIO [RATIO ...]]
+
+optional arguments:
+  --annotations-only    skip the writing of data files, outputting only the annotation files
+                        (default: False)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
+  -o PATH, --output PATH
+                        the filename of the TTS file to write the annotations into (default: None)
   --split-names SPLIT NAME [SPLIT NAME ...]
                         the names to use for the splits (default: [])
   --split-ratios RATIO [RATIO ...]
@@ -2441,12 +2641,13 @@ Writes speech transcriptions in the Festival FestVox format
 
 #### Options:
 ```
-usage: to-festvox-sp [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
-                     [--split-ratios RATIO [RATIO ...]]
+usage: to-festvox-sp [--annotations-only] [--no-interleave] -o PATH
+                     [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
   --annotations-only    skip the writing of data files, outputting only the annotation files
                         (default: False)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         the filename of the FestVox file to write the annotations into (default:
                         None)
@@ -2464,12 +2665,14 @@ Writes image segmentation files in the grayscale format
 
 #### Options:
 ```
-usage: to-grayscale-is [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
+usage: to-grayscale-is [--annotations-only] [--no-interleave] -o PATH
+                       [--split-names SPLIT NAME [SPLIT NAME ...]]
                        [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
   --annotations-only    skip the writing of data files, outputting only the annotation files
                         (default: False)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         the directory to write the annotation images to (default: None)
   --split-names SPLIT NAME [SPLIT NAME ...]
@@ -2531,12 +2734,14 @@ Writes image segmentation files in the indexed-PNG format
 
 #### Options:
 ```
-usage: to-indexed-png-is [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
+usage: to-indexed-png-is [--annotations-only] [--no-interleave] -o PATH
+                         [--split-names SPLIT NAME [SPLIT NAME ...]]
                          [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
   --annotations-only    skip the writing of data files, outputting only the annotation files
                         (default: False)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         the directory to write the annotation images to (default: None)
   --split-names SPLIT NAME [SPLIT NAME ...]
@@ -2553,8 +2758,8 @@ Writes the layer-segments image-segmentation format to disk
 
 #### Options:
 ```
-usage: to-layer-segments-is [--annotations-only] [--label-separator SEPARATOR] -o PATH
-                            [--split-names SPLIT NAME [SPLIT NAME ...]]
+usage: to-layer-segments-is [--annotations-only] [--label-separator SEPARATOR] [--no-interleave] -o
+                            PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                             [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -2562,6 +2767,7 @@ optional arguments:
                         (default: False)
   --label-separator SEPARATOR
                         the separator between the base filename and the label (default: -)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         the directory to write the annotation images to (default: None)
   --split-names SPLIT NAME [SPLIT NAME ...]
@@ -2578,7 +2784,7 @@ Writes image object-detection annotations in the OPEX format
 
 #### Options:
 ```
-usage: to-opex-od [-c PATH] [-l PATH] [--annotations-only] -o PATH
+usage: to-opex-od [-c PATH] [-l PATH] [--annotations-only] [--no-interleave] -o PATH
                   [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -2588,6 +2794,7 @@ optional arguments:
                         Path to the labels file to write (default: None)
   --annotations-only    skip the writing of data files, outputting only the annotation files
                         (default: False)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         output directory to write images and annotations to (default: None)
   --split-names SPLIT NAME [SPLIT NAME ...]
@@ -2604,8 +2811,8 @@ Writes image object-detection annotations in the ROI CSV-format
 
 #### Options:
 ```
-usage: to-roi-od [-d WIDTH HEIGHT] [--annotations-only] [--comments COMMENTS [COMMENTS ...]] -o PATH
-                 [--size-mode] [--split-names SPLIT NAME [SPLIT NAME ...]]
+usage: to-roi-od [-d WIDTH HEIGHT] [--annotations-only] [--comments COMMENTS [COMMENTS ...]]
+                 [--no-interleave] -o PATH [--size-mode] [--split-names SPLIT NAME [SPLIT NAME ...]]
                  [--split-ratios RATIO [RATIO ...]] [--prefix WRITER_PREFIX]
                  [--suffix WRITER_SUFFIX]
 
@@ -2616,6 +2823,7 @@ optional arguments:
                         (default: False)
   --comments COMMENTS [COMMENTS ...]
                         comments to write to the beginning of the ROI file (default: [])
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         output directory to write files to (default: None)
   --size-mode           writes the ROI files with x,y,w,h headers instead of x0,y0,x1,y1 (default:
@@ -2638,10 +2846,11 @@ Writes audio files to sub-directories named after their class labels.
 
 #### Options:
 ```
-usage: to-subdir-ac -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
+usage: to-subdir-ac [--no-interleave] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                     [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         the directory to store the class directories in (default: None)
   --split-names SPLIT NAME [SPLIT NAME ...]
@@ -2658,10 +2867,11 @@ Writes images to sub-directories named after their class labels.
 
 #### Options:
 ```
-usage: to-subdir-ic -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
+usage: to-subdir-ic [--no-interleave] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
                     [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         the directory to store the class directories in (default: None)
   --split-names SPLIT NAME [SPLIT NAME ...]
@@ -2678,9 +2888,9 @@ Writes image object-detection annotations in the TFRecords binary format
 
 #### Options:
 ```
-usage: to-tf-od [--dense] [--source-id-type {filename,numeric-dummy}] -o PATH [-p FILENAME]
-                [-s FILENAME [FILENAME ...]] [--split-names SPLIT NAME [SPLIT NAME ...]]
-                [--split-ratios RATIO [RATIO ...]]
+usage: to-tf-od [--dense] [--source-id-type {filename,numeric-dummy}] [--no-interleave] -o PATH
+                [-p FILENAME] [-s FILENAME [FILENAME ...]]
+                [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
   --dense               outputs masks in the dense numerical format instead of PNG-encoded (default:
@@ -2690,6 +2900,7 @@ optional arguments:
                         algorithms try to convert it into a number and fail with 'StringToNumberOp
                         could not correctly convert string'; in which case you can use 'numeric-
                         dummy' (see https://github.com/google/automl/issues/307) (default: filename)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         name of output file for TFRecords (default: None)
   -p FILENAME, --protobuf FILENAME
@@ -2710,12 +2921,13 @@ Writes image object-detection annotations in the VGG JSON-format
 
 #### Options:
 ```
-usage: to-vgg-od [--annotations-only] -o PATH [--pretty] [--split-names SPLIT NAME [SPLIT NAME ...]]
-                 [--split-ratios RATIO [RATIO ...]]
+usage: to-vgg-od [--annotations-only] [--no-interleave] -o PATH [--pretty]
+                 [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
   --annotations-only    skip the writing of data files, outputting only the annotation files
                         (default: False)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         output file to write annotations to (images are placed in same directory)
                         (default: None)
@@ -2751,12 +2963,13 @@ Writes image object-detection annotations in the Pascal VOC XML-format
 
 #### Options:
 ```
-usage: to-voc-od [--annotations-only] -o PATH [--split-names SPLIT NAME [SPLIT NAME ...]]
-                 [--split-ratios RATIO [RATIO ...]]
+usage: to-voc-od [--annotations-only] [--no-interleave] -o PATH
+                 [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
   --annotations-only    skip the writing of data files, outputting only the annotation files
                         (default: False)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         output directory to write annotations to (images are placed in same
                         directory) (default: None)
@@ -2767,7 +2980,7 @@ optional arguments:
 ```
 
 ### TO-VOID-AC
-Consumes instances without writing them.
+Consumes audio classification instances without writing them.
 
 #### Domain(s):
 - **Audio classification domain**
@@ -2778,7 +2991,7 @@ usage: to-void-ac
 ```
 
 ### TO-VOID-IC
-Consumes instances without writing them.
+Consumes image classification instances without writing them.
 
 #### Domain(s):
 - **Image Classification Domain**
@@ -2789,7 +3002,7 @@ usage: to-void-ic
 ```
 
 ### TO-VOID-IS
-Consumes instances without writing them.
+Consumes image segmentation instances without writing them.
 
 #### Domain(s):
 - **Image Segmentation Domain**
@@ -2800,7 +3013,7 @@ usage: to-void-is
 ```
 
 ### TO-VOID-OD
-Consumes instances without writing them.
+Consumes object detection instances without writing them.
 
 #### Domain(s):
 - **Image Object-Detection Domain**
@@ -2811,7 +3024,7 @@ usage: to-void-od
 ```
 
 ### TO-VOID-SP
-Consumes instances without writing them.
+Consumes speech instances without writing them.
 
 #### Domain(s):
 - **Speech Domain**
@@ -2829,7 +3042,7 @@ Writes image object-detection annotations in the YOLO format
 
 #### Options:
 ```
-usage: to-yolo-od [-c PATH] [-l PATH] [--annotations-only] -o PATH
+usage: to-yolo-od [-c PATH] [-l PATH] [--annotations-only] [--no-interleave] -o PATH
                   [--split-names SPLIT NAME [SPLIT NAME ...]] [--split-ratios RATIO [RATIO ...]]
 
 optional arguments:
@@ -2839,6 +3052,7 @@ optional arguments:
                         Path to the labels file to write (default: None)
   --annotations-only    skip the writing of data files, outputting only the annotation files
                         (default: False)
+  --no-interleave       disables item interleaving (splitting will occur in runs) (default: False)
   -o PATH, --output PATH
                         output directory to write images and annotations to (default: None)
   --split-names SPLIT NAME [SPLIT NAME ...]
