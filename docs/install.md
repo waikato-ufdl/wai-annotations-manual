@@ -11,7 +11,15 @@ pip install wai.annotations.core
 `wai.annotations.core` does not come with any input/output formats installed. You will need to install a plugin for each
 format that you want to convert between. For a description of the plugin system, see the [plugin guide](plugin.md).
 
-For installing all available plugins, use this command:
+For installing all available plugins, use these commands:
+
+```bash
+pip install "numpy<1.23.0"
+pip install wai.pycocotools
+pip install wai.annotations[tf]
+```
+
+Or, if you don't need TensorFlow support, then you can save some space using:
 
 ```bash
 pip install "numpy<1.23.0"
@@ -47,6 +55,7 @@ Image segmentation
 Audio
 
   * [https://github.com/waikato-ufdl/wai-annotations-audio](https://github.com/waikato-ufdl/wai-annotations-audio)
+  * [https://github.com/waikato-ufdl/wai-annotations-coqui](https://github.com/waikato-ufdl/wai-annotations-coqui)
   * [https://github.com/waikato-ufdl/wai-annotations-commonvoice](https://github.com/waikato-ufdl/wai-annotations-commonvoice)
   * [https://github.com/waikato-ufdl/wai-annotations-festvox](https://github.com/waikato-ufdl/wai-annotations-festvox)
 
