@@ -5,6 +5,7 @@ make use of our pre-built [Docker images](https://hub.docker.com/repository/dock
 The following versions of *wai.annotations* are available as images:
 
 * latest: `waikatoufdl/wai.annotations:latest` (based on latest code in repositories)
+* 0.8.0: `waikatoufdl/wai.annotations:0.8.0`
 * 0.7.8: `waikatoufdl/wai.annotations:0.7.8`
 * 0.7.7: `waikatoufdl/wai.annotations:0.7.7`
 * 0.7.6: `waikatoufdl/wai.annotations:0.7.6`
@@ -18,7 +19,7 @@ mode, mapping the current directory (`pwd`) into the `/workspace` directory in t
 container, to have access to the data in this directory:
 
 ```bash
-docker run -u $(id -u):$(id -g) -v `pwd`:/workspace -it waikatoufdl/wai.annotations:0.7.6
+docker run -u $(id -u):$(id -g) -v `pwd`:/workspace -it waikatoufdl/wai.annotations:0.8.0
 ```
 
 # Graphical user interface
