@@ -27,6 +27,11 @@ pip install wai.pycocotools
 pip install wai.annotations
 ```
 
+**Notes**
+
+* You need to install `ffmpeg` if you want to have mp3 conversion support. 
+
+
 # Available plugins
 
 Image classification
