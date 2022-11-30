@@ -2,11 +2,12 @@ site_name: wai-annotations manual
 site_url: https://ufdl.cms.waikato.ac.nz/wai-annotations-manual
 site_description: Manual for the wai-annotations library for converting various annotation formats into each other
 theme:
-    name: readthedocs
+    name: material
 markdown_extensions:
     - toc:
         baselevel: 2
         permalink: "#"
+    - attr_list
 plugins:
     # https://github.com/soulless-viewer/mkdocs-video
     - mkdocs-video

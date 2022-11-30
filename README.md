@@ -24,7 +24,7 @@ Best approach is to install mkdocs (>= 1.1.0) in a virtual environment
 * Install the mkdocs package
 
   ```
-  ./venv/bin/pip install mkdocs==1.1.0 jinja2==3.0.0 mkdocs-video==1.3.0
+  ./venv/bin/pip install mkdocs==1.4.2 mkdocs-video==1.3.0 jinja2==3.1.2 "Markdown<3.4.0" mkdocs-material==8.5.10
   ```
 
 
