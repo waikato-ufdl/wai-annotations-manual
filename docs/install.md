@@ -32,7 +32,7 @@ pip install wai.annotations
 * You need to install `ffmpeg` if you want to have mp3 conversion support. 
 
 
-# Available plugins
+# Available modules
 
 Image classification
 
