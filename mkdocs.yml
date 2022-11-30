@@ -1,6 +1,8 @@
 site_name: wai-annotations manual
 site_url: https://ufdl.cms.waikato.ac.nz/wai-annotations-manual
 site_description: Manual for the wai-annotations library for converting various annotation formats into each other
+repo_url: https://github.com/waikato-ufdl/wai-annotations-manual
+edit_uri: edit/main/docs/
 theme:
     name: material
 markdown_extensions:
