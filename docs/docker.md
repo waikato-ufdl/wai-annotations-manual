@@ -14,7 +14,7 @@ The following versions of *wai.annotations* are available as images:
 
 # Example usage
 
-The following command-line starts the 0.7.6 version of wai.annotations in interactive
+The following command-line starts the 0.8.0 version of wai.annotations in interactive
 mode, mapping the current directory (`pwd`) into the `/workspace` directory in the
 container, to have access to the data in this directory:
 
